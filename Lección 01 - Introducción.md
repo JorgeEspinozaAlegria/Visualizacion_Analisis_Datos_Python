@@ -14,7 +14,8 @@ Es esencial que tengas una foto global de un proceso de análisis de datos. Te p
 4. **La Exploración.** Utilizando la estadística descriptiva podrás traducir los DATOS a gráficos y características que puedas interpretar.
 5. **El Análisis.** Con la ayuda de la estadística inferencia encontrarás conclusiones de un conjunto grande (población) con la información de una pequeña parte de este conjunto (muestra). El contraste de hipótesis es la herramienta más famosa de esta etapa. Pero existen otras técnicas como: la predicción, la clasificación o los métodos de causa-efecto. Entre otros.
 6. **La Conclusión.** Interpretarás los resultados del análisis y listarás las conclusiones. Estarás mucho más cerca del objetivo que te habrás planteado al inicio.
-
+.....
+test
 ## Usos del análisis de datos
 
 El análisis de datos se utiliza en muchas industrias, independientemente del ramo, nos da las bases para tomar o no una decisión o cerciorarnos si una hipótesis es cierta o no.
