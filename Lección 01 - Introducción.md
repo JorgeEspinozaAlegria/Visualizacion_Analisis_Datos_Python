@@ -37,8 +37,8 @@ Si queremos datos útiles, debemos analizarlos. Para ello debemos recurrir a div
 
 El análisis de datos se centra en llegar a una conclusión basada únicamente en lo que ya es conocido por el investigador. La forma en que recopila sus datos debe relacionarse con la forma en que está planeando analizarla y utilizarla, también hay que asegurarse de recopilar información precisa en la que puedas confiar, para ello existen muchas técnicas de recolección de datos.
 
-![Tipo_analisis](images/Tipo_analisis.png)
 
+![Tipo_analisis](images/Tipo_analisis.png)
 
 
 ## Ventajas del análisis de datos

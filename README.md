@@ -33,7 +33,7 @@ Está orientado a todos aquellos colaboradores o consultores cuyas actividades e
 
 - [Lección 03 - Instalando Python](Lecci%C3%B3n%2003%20-%20Instalando%20Python.md)
 
-- [Lección 04 - Instalando Python](Lecci%C3%B3n%2003%20-%20Instalando%20Python.md)
+- [Lección 04 - Introducción Python](Lecci%C3%B3n%2003%20-%20Instalando%20Python.md)
 
 - [Lección 05 - Introducción a NumPy](Lecci%C3%B3n%2004%20-%20Tipos%20de%20Datos%20y%20Operadores.md)
 
