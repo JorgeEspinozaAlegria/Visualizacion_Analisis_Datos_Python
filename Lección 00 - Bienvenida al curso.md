@@ -9,13 +9,13 @@
 ## Presentación de participantes al curso
 
 ### Instructor:
-- Jorge Alberto Espinoza Alegría
-- Data Scientist
-- Business Analytics
-- jorge.espinoza@axity.com
-- 5510696542
+Jorge Alberto Espinoza Alegría  
+Data Scientist  
+Business Analytics  
+jorge.espinoza@axity.com  
+5510696542  
 
-- Participantes ....
+Participantes ....  
 
 
 ## Agenda
