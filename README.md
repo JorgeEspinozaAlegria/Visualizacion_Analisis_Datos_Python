@@ -47,12 +47,7 @@ Está orientado a todos aquellos colaboradores o consultores cuyas actividades e
 
 **Nota**: La VM viene configurada con 4 GB de memoria y 2 Cores/Procesadores. Ajustar si es necesario.
 
-- Durante curso, el participante deberá descargar el archivo `my_python_repo.zip` que se encuentra en en repositorio `axity-python-internal-training/exercises`
+- Durante curso, el participante deberá descargar el archivo `Axity_Curso_Data_analyst.zip` que se encuentra en en repositorio `Visualizacion_Analisis_Datos_Python/Notebooks`
 
 - Una vez descargado el archivo, este deberá descomprimirse dentro del directorio `/home/axity` de la VM.
 
-## Para el instructor
-
-- Utilizar el repositorio `axity-python-internal-training` para compartir con el grupo de asistentes. Este repositorio puede estar en [GitHub](https://github.com) o en algún otro servicio de gestión de repositorios de **Git**.
-
-- Dentro del repositorio `axity-python-internal-training` se encuentra el directorio `solutions` el cual contiene las soluciones a cada uno de los ejercicios planteados en este curso. Este directorio se encuentra incluido en el archivo `.gitignore` ya que es para uso exclusivo del instructor como apoyo a la solución de los ejercicios de este curso.
