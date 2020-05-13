@@ -1696,11 +1696,9 @@ sns.clustermap(f,figsize=(8, 10), cmap='coolwarm', linecolor='white', linewidths
 
 
 
-```python
-#<div style="text-align: right">    
+  
  [**Siguiente Lección**](Lecci%C3%B3n%2009%20-%20Visualizaci%C3%B3n_Datos_Seaborn.ipynb)    
-<div/>#
-```
+
 
 ## Referencias:
 - https://seaborn.pydata.org/installing.html
