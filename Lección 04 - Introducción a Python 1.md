@@ -833,7 +833,6 @@ En resumen se tiene:
 | Conjunto	| No | Si | `{}`* or `set()`	| `{5.7, 4, 'yes'}`	 |
 | Diccionario 	| No | No | `{ }` or `dict()`	| `{'Jun': 75, 'Jul': 89}` |
 
-
-#<div style="text-align: right">    
+   
  [**Siguiente Lección**](Lecci%C3%B3n%2004%20-%20Introducci%C3%B3n%20a%20Python%202.md)    
-<div/>#  
+
