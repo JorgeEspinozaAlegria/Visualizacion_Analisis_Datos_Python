@@ -17,3 +17,5 @@ Es administrado por la [Python Software Foundation](https://es.wikipedia.org/wik
 2. El espacio es importante.  
 
 3. Usar los mensajes de error para aprender.
+
+[**Siguiente Lección**](Lecci%C3%B3n%2003%20-%20Instalando%20Python.md)
