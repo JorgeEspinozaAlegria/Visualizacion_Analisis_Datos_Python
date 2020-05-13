@@ -507,8 +507,8 @@
 
 # Buen trabajo!
 
-#<div style="text-align: right">    
- [**Ejercicios Resueltos**](Pandas%20Ejercicio%20-%20Soluci%C3%B3n.ipynb)    
-<div/>#
+ 
+ [**Ejercicios Resueltos**](Pandas%20Ejercicio%20-%20Soluci%C3%B3n.md)    
+
 
 
