@@ -53,7 +53,7 @@ ax.set_title('title')
 
 
 
-![png](/images/output_5_1.png)
+![png](images/output_5_1.png)
 
 
 ## Ejercicio 2
@@ -67,7 +67,7 @@ ax2 = fig.add_axes([0.2,0.5,.2,.2])
 ```
 
 
-![png](/images/output_7_0.png)
+![png](images/output_7_0.png)
 
 
 ** Ahora dibuje (x, y) en ambos ejes. Y llame a su figura objeto para mostrarlo. **
@@ -89,7 +89,7 @@ fig
 
 
 
-![png](/images/output_9_0.png)
+![png](images/output_9_0.png)
 
 
 
@@ -106,7 +106,7 @@ ax2 = fig.add_axes([0.2,0.5,.4,.4])
 ```
 
 
-![png](/images/output_11_0.png)
+![png](images/output_11_0.png)
 
 
 ** Ahora use las matrices x, y, y z para recrear el diagrama a continuación. Observe los límites xlimits e y en el diagrama insertado: **
@@ -131,7 +131,7 @@ fig
 
 
 
-![png](/images/output_13_0.png)
+![png](images/output_13_0.png)
 
 
 
@@ -146,7 +146,7 @@ fig, axes = plt.subplots(nrows=1, ncols=2)
 ```
 
 
-![png](/images/output_15_0.png)
+![png](images/output_15_0.png)
 
 
 
@@ -162,7 +162,7 @@ fig
 
 
 
-![png](/images/output_17_0.png)
+![png](images/output_17_0.png)
 
 
 
@@ -190,7 +190,7 @@ axes[1].set_ylabel('z')
 
 
 
-![png](/images/output_19_1.png)
+![png](images/output_19_1.png)
 
 
 # !Excelente trabajo!
