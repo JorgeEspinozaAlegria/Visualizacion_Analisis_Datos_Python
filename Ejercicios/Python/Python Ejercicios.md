@@ -169,11 +169,9 @@ seq = ['soup','dog','salad','cat','great']
 
 # Buen trabajo¡¡
 
-#<div style="text-align: right">    
+  
  [**Ejercicios Resueltos**](Python%20Ejercicios%20-%20Solutions.md)    
-<div/>#
 
-#<div style="text-align: right">    
- [**Siguiente Lección**](../Lecci%C3%B3n%2005%20-%20Introducci%C3%B3n%20a%20NumPy.ipynb)    
-<div/>#
-# http://localhost:8889/lab/tree/Axity_Curso_Data_analyst/Lecci%C3%B3n%2005%20-# %20Introducci%C3%B3n%20a%20NumPy.ipynb
+
+  
+ 
