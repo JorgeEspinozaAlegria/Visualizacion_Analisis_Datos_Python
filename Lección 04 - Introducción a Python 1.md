@@ -835,5 +835,5 @@ En resumen se tiene:
 
 
 #<div style="text-align: right">    
- [**Siguiente Lección**](Lecci%C3%B3n%2004%20-%20Introducci%C3%B3n%20a%20Python%202.ipynb)    
+ [**Siguiente Lección**](Lecci%C3%B3n%2004%20-%20Introducci%C3%B3n%20a%20Python%202.md)    
 <div/>#  
