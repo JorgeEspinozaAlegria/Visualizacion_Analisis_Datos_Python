@@ -3799,7 +3799,7 @@ dframe.take(blender)
 
 
 
-#<div style="text-align: right">    
- [**Siguiente Lección**](Lecci%C3%B3n%2008%20-%20Procesamiento_Datos_2.ipynb)    
-<div/>#
+   
+ [**Siguiente Lección**](Lecci%C3%B3n%2008%20-%20Procesamiento_Datos_2.md)    
+
 
