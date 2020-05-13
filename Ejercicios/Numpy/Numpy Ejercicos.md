@@ -352,7 +352,7 @@ mat
 
 # Buen trabajo¡¡
 
-#<div style="text-align: right">    
-[**Ejercicios Resueltos**](Numpy%20Ejercicios%20-%20Soluci%C3%B3n.ipynb)    
-<div/>#  
+   
+[**Ejercicios Resueltos**](Numpy%20Ejercicios%20-%20Soluci%C3%B3n.md)    
+ 
 
