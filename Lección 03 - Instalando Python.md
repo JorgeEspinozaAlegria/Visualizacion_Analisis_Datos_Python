@@ -73,3 +73,5 @@ Después de iniciar JupyterLab:
 3. Ejecutar algunos comandos
 
 ![img_03_jupyter_03](images/img_03_jupyter_03.png)
+
+[**Siguiente Lección**](Lecci%C3%B3n%2004%20-%20Introducci%C3%B3n%20a%20Python%201.md)
