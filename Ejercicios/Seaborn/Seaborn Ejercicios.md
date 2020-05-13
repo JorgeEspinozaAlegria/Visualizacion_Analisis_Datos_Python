@@ -1,4 +1,4 @@
-# Seaborn Ejercicios - Solución
+# Seaborn Ejercicios
 
 ¡Es hora de practicar tus nuevas habilidades natales! Intente recrear los gráficos a continuación (no se preocupe por los esquemas de color, solo el gráfico en si mismo).
 
@@ -189,7 +189,7 @@ titanic.head()
 
 
 
-![png](/images/output_8_1.png)
+![png](images/output_8_1.png)
 
 
 
@@ -205,7 +205,7 @@ titanic.head()
 
 
 
-![png](/images/output_9_1.png)
+![png](images/output_9_1.png)
 
 
 
@@ -226,7 +226,7 @@ titanic.head()
 
 
 
-![png](/images/output_11_1.png)
+![png](images/output_11_1.png)
 
 
 
@@ -247,7 +247,7 @@ titanic.head()
 
 
 
-![png](/images/output_13_1.png)
+![png](images/output_13_1.png)
 
 
 
@@ -268,7 +268,7 @@ titanic.head()
 
 
 
-![png](/images/output_15_1.png)
+![png](images/output_15_1.png)
 
 
 
@@ -289,7 +289,7 @@ titanic.head()
 
 
 
-![png](/images/output_17_1.png)
+![png](images/output_17_1.png)
 
 
 
@@ -310,7 +310,7 @@ titanic.head()
 
 
 
-![png](/images/output_19_1.png)
+![png](images/output_19_1.png)
 
 
 # Buen trabajo!
