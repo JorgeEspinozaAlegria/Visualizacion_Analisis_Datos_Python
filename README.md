@@ -22,7 +22,7 @@ Está orientado a todos aquellos colaboradores o consultores cuyas actividades e
 
 - Aprender a organizar datos, descubrir patrones e ideas, sacar conclusiones significativas y comunicar claramente los hallazgos encontrados.
 
-- Desarrollarás habilidades de programación en Python y sus bibliotecas de análisis de datos (Numpy, pandas, Matplotlib)
+- Desarrollarás habilidades de programación en Python y sus bibliotecas de análisis de datos (Numpy, Pandas, Matplotlib y Seaborn)
 
 
 ## Pre-requisitos
