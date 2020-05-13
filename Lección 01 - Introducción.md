@@ -60,5 +60,5 @@ El análisis de datos se centra en llegar a una conclusión basada únicamente e
 * Se ha demostrado que reduce los costos y, por lo tanto, aumenta los beneficios.
 
 
-[**Siguiente Lección**](02%20Proyecto%20llamadas%20al%20911%20-%20Solucion.ipynb)
+[**Siguiente Lección**](Lecci%C3%B3n%2002%20-%20Qu%C3%A9%20es%20Python.md)
 
