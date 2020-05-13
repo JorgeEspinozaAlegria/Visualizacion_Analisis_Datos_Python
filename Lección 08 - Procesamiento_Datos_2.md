@@ -2420,6 +2420,6 @@ pd.crosstab(dframe.Animal,dframe.Intelligence,margins=True)
 
 ## ¡¡¡Felicidades Hemos terminado con el procesamiento de datos!!!
 
-#<div style="text-align: right">    
- [**Siguiente Lección**](Lecci%C3%B3n%2009%20-%20Visualizaci%C3%B3n_Datos.ipynb)    
-<div/>#
+
+ [**Siguiente Lección**](Lecci%C3%B3n%2009%20-%20Visualizaci%C3%B3n_Datos.md)    
+
