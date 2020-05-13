@@ -469,7 +469,7 @@ print(short_cities)
 
 ## ¡¡¡Felicidades ahora ya tienes los conceptos basicos de Python!!!
 
-#<div style="text-align: right">    
- [**Ejercicios**](Ejercicios/Python/Python%20Ejercicios.ipynb)    
-<div/>#  
+ 
+ [**Ejercicios**](Ejercicios/Python/Python%20Ejercicios.md)    
+
     
