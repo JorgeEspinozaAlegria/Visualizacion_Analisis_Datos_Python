@@ -47,7 +47,7 @@ Está orientado a todos aquellos colaboradores o consultores cuyas actividades e
 
 **Nota**: La VM viene configurada con 4 GB de memoria y 2 Cores/Procesadores. Ajustar si es necesario.
 
-- Durante curso, el participante deberá descargar el archivo `Axity_Curso_Data_analyst.zip` que se encuentra en en repositorio `Visualizacion_Analisis_Datos_Python/Notebooks`
+- Durante curso, el participante deberá descargar el archivo `Axity_Curso_Data_analyst.zip` que se encuentra en en repositorio `https://github.com/JorgeEspinozaAlegria/Visualizacion_Analisis_Datos_Python`
 
 - Una vez descargado el archivo, este deberá descomprimirse dentro del directorio `/home/axity` de la VM.
 
