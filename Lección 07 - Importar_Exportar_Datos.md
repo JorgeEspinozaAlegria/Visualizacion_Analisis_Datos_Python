@@ -1890,6 +1890,6 @@ print(df.head())
 df[0:2].to_excel('../Python_Cursos/data/sampleexport.xlsx')
 ```
 
-#<div style="text-align: right">    
- [**Siguiente Lección**](Lecci%C3%B3n%2007%20-%20Importar_Exportar_Datos_SQL.ipynb)    
-<div/>#
+
+ [**Siguiente Lección**](Lecci%C3%B3n%2007%20-%20Importar_Exportar_Datos_SQL.md)    
+
