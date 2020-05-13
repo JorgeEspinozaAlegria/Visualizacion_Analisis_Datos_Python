@@ -170,7 +170,7 @@ seq = ['soup','dog','salad','cat','great']
 # Buen trabajo¡¡
 
 #<div style="text-align: right">    
- [**Ejercicios Resueltos**](Python%20Ejercicios%20-%20Solutions.ipynb)    
+ [**Ejercicios Resueltos**](Python%20Ejercicios%20-%20Solutions.md)    
 <div/>#
 
 #<div style="text-align: right">    
