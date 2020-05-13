@@ -2568,9 +2568,9 @@ df
 
 
 
-#<div style="text-align: right">    
- [**Ejercicios**](Ejercicios/Pandas/Pandas%20Ejercicio.ipynb)    
-<div/>#
+
+ [**Ejercicios**](Ejercicios/Pandas/Pandas%20Ejercicio.md)    
+
 
 
 #### Referencias
