@@ -255,4 +255,4 @@ caught_speeding(81,False)
 
 # Buen trabajo¡¡
 
-[**Siguiente Lección**](blob/master/Lecci%C3%B3n%2005%20-%20Introducci%C3%B3n%20a%20NumPy.md)
+[**Siguiente Lección**](../Lecci%C3%B3n%2005%20-%20Introducci%C3%B3n%20a%20NumPy.md)
