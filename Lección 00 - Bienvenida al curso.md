@@ -30,19 +30,19 @@ Participantes ....
 
 - [Lección 03 - Instalando Python](Lecci%C3%B3n%2003%20-%20Instalando%20Python.md)
 
-- [Lección 04 - Introducción a Python](Lecci%C3%B3n%2003%20-%20Instalando%20Python.md)
+- [Lección 04 - Introducción a Python](Lecci%C3%B3n%2004%20-%20Introducci%C3%B3n%20a%20Python%201.md)
 
-- [Lección 05 - Introducción a NumPy](Lecci%C3%B3n%2004%20-%20Tipos%20de%20Datos%20y%20Operadores.md)
+- [Lección 05 - Introducción a NumPy](Lecci%C3%B3n%2005%20-%20Introducci%C3%B3n%20a%20NumPy.md)
 
-- [Lección 06 - Introducción a Pandas](Lecci%C3%B3n%2005%20-%20Estructuras%20de%20Datos.md)
+- [Lección 06 - Introducción a Pandas](Lecci%C3%B3n%2006%20-%20Introducci%C3%B3n%20a%20Pandas.md)
 
-- [Lección 07 - Obtener los datos](Lecci%C3%B3n%2006%20-%20Flujos%20de%20Control%20I.md)
+- [Lección 07 - Obtener los datos](Lecci%C3%B3n%2007%20-%20Importar_Exportar_Datos.md)
 
 ### Día 2
 
-- [Lección 08 - Procesamiento de datos](Lecci%C3%B3n%2006%20-%20Flujos%20de%20Control%20II.md)
+- [Lección 08 - Procesamiento de datos](Lecci%C3%B3n%2008%20-%20Procesamiento_Datos.md)
 
-- [Lección 09 - Visualización de datos](Lecci%C3%B3n%2007%20-%20Funciones.md)
+- [Lección 09 - Visualización de datos](Lecci%C3%B3n%2009%20-%20Visualizaci%C3%B3n_Datos.md)
 
 ### Día 3
 
