@@ -47,7 +47,7 @@ Está orientado a todos aquellos colaboradores o consultores cuyas actividades e
 
 **Nota**: La VM viene configurada con 4 GB de memoria y 2 Cores/Procesadores. Ajustar si es necesario.
 
-- Durante curso, el participante deberá descargar el archivo `my_python_repo.zip` que se encuentra en en repositorio `axity-python-internal-training/exercises`
+- Durante curso, el participante deberá descargar el archivo `my_python_repo.zip` que se encuentra en en repositorio `Visualizacion_Analisis_Datos_Python/Notebooks`
 
 - Una vez descargado el archivo, este deberá descomprimirse dentro del directorio `/home/axity` de la VM.
 
