@@ -43,7 +43,7 @@ Siga las instrucciones para recrear los gráficos con estos datos:
 
 
 
-![png](/images/output_5_1.png)
+![png](images/output_5_1.png)
 
 
 ## Ejercicio 2
@@ -55,7 +55,7 @@ Siga las instrucciones para recrear los gráficos con estos datos:
 ```
 
 
-![png](/images/output_7_0.png)
+![png](images/output_7_0.png)
 
 
 ** Ahora dibuje (x, y) en ambos ejes. Y llame a su figura objeto para mostrarlo. **
@@ -68,7 +68,7 @@ Siga las instrucciones para recrear los gráficos con estos datos:
 
 
 
-![png](/images/output_9_0.png)
+![png](images/output_9_0.png)
 
 
 
@@ -82,7 +82,7 @@ Siga las instrucciones para recrear los gráficos con estos datos:
 ```
 
 
-![png](/images/output_11_0.png)
+![png](images/output_11_0.png)
 
 
 ** Ahora use las matrices x, y, y z para recrear el diagrama a continuación. Observe los límites xlimits e y en el diagrama insertado: **
@@ -95,7 +95,7 @@ Siga las instrucciones para recrear los gráficos con estos datos:
 
 
 
-![png](/images/output_13_0.png)
+![png](images/output_13_0.png)
 
 
 
@@ -109,7 +109,7 @@ Siga las instrucciones para recrear los gráficos con estos datos:
 ```
 
 
-![png](/images/output_15_0.png)
+![png](images/output_15_0.png)
 
 
 * Ahora trace (x, y) y (x, z) en los ejes. Juega con el ancho de línea y el estilo **
@@ -122,7 +122,7 @@ Siga las instrucciones para recrear los gráficos con estos datos:
 
 
 
-![png](/images/output_17_0.png)
+![png](images/output_17_0.png)
 
 
 
@@ -142,12 +142,11 @@ Siga las instrucciones para recrear los gráficos con estos datos:
 
 
 
-![png](/images/output_19_1.png)
+![png](images/output_19_1.png)
 
 
 # ¡Excelente trabajo!
+   
+ [**Ejercicios Resueltos**](Matplotlib%20Ejercicios%20-%20Solutions.md)    
 
-#<div style="text-align: right">    
- [**Ejercicios Resueltos**](Matplotlib%20Ejercicios%20-%20Solutions.ipynb)    
-<div/>#
 
