@@ -940,10 +940,9 @@ ax.legend(loc='best')
 
 ![png](images/Matplotlib/output_72_1.png)
 
+   
+ [**Ejercicios**](Ejercicios/Matplotlib/Matplotlib%20Ejercicios.md)    
 
-#<div style="text-align: right">    
- [**Ejercicios**](Ejercicios/Matplotlib/Matplotlib%20Ejercicios.ipynb)    
-<div/>#
 
 
 ### References:
