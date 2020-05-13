@@ -1340,9 +1340,9 @@ np.linalg.eigvals(b)
 
 ## Felicidades ahora ya conoce la funcionalidad básica de NumPy!!!
 
-#<div style="text-align: right">    
- [**Ejercicios**](Ejercicios/Numpy/Numpy%20Ejercicos.ipynb)    
-<div/>#  
+ 
+ [**Ejercicios**](Ejercicios/Numpy/Numpy%20Ejercicos.md)    
+
    
 
 #### Referencias:
