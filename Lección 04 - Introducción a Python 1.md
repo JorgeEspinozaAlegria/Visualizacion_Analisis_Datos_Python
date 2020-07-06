@@ -734,10 +734,12 @@ letras.pop(0)
 print(letras)
 ```
 
+```python
 verso = "si puedes mantener la cabeza en su sitio cuando todos a tu alrededor la pierden y te culpan a ti   si puedes seguir creyendo en ti mismo cuando todos dudan de ti     pero también aceptas que tengan dudas   si puedes esperar y no cansarte de la espera      o si siendo engañado no respondes con engaños   o si siendo odiado no incurres en el odio      Y aun así no te las das de bueno ni de sabio"
 print(verso, "\n")
 verso_lista = verso.split()
 print(verso_lista, '\n')
+```
 
 ### Tuplas
 
@@ -830,5 +832,5 @@ En resumen se tiene:
 | Conjunto	| No | Si | `{}`* o `set()`	| `{5.7, 4, 'si'}`	 |
 | Diccionario 	| No | No | `{ }` o `dict()`	| `{'Jun': 75, 'Jul': 89}` |
 
-   
+
  [**Siguiente Lección**](Lecci%C3%B3n%2004%20-%20Introducci%C3%B3n%20a%20Python%202.md)    
