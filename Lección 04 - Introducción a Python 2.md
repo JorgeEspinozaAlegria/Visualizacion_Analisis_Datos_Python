@@ -150,7 +150,7 @@ for ciudad in ciudades:
 print(ciudades_mayusculas)
 ```
 
-    ['CDMX', 'Monterrey', 'Guadalajara', 'Aguascalientes']
+    ['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']
 
 
 
@@ -241,14 +241,14 @@ for llave in elenco:
 ```python
 print(elenco.items())
 for llave, valor in elenco.items():
-    print("Actor: {}    Rol: {}".format(llave, valor))
+    print("Actor: {}    Personaje: {}".format(llave, valor))
 ```
 
     dict_items([('Jerry Seinfeld', 'Jerry Seinfeld'), ('Julia Louis-Dreyfus', 'Elaine Benes'), ('Jason Alexander', 'George Costanza'), ('Michael Richards', 'Cosmo Kramer')])
-    Actor: Jerry Seinfeld    Rol: Jerry Seinfeld
-    Actor: Julia Louis-Dreyfus    Rol: Elaine Benes
-    Actor: Jason Alexander    Rol: George Costanza
-    Actor: Michael Richards    Rol: Cosmo Kramer
+    Actor: Jerry Seinfeld    Personaje: Jerry Seinfeld
+    Actor: Julia Louis-Dreyfus    Personaje: Elaine Benes
+    Actor: Jason Alexander    Personaje: George Costanza
+    Actor: Michael Richards    Personaje: Cosmo Kramer
 
 
 ### Bucles While
@@ -281,7 +281,7 @@ while sum(mano) < 17:
 
 ### Break & Continue
 
-A veces necesitamos más control sobre cuándo debe terminar un buble, o saltar una iteración. En estos casos, usamos las palabras clave `break` y `continue`, que se pueden usar tanto en bucles `for` como `while`.  
+A veces necesitamos más control sobre cuándo debe terminar un bucle, o saltar una iteración. En estos casos, usamos las palabras clave `break` y `continue`, que se pueden usar tanto en bucles `for` como `while`.  
 
 - `break` termina un bucle  
 
@@ -312,20 +312,20 @@ print(teletipo_noticias)
 
 ## Funciones
 
-Una Función permite reutilizar código para usarlo una y otra de forma fácil.
+Una Función permite reutilizar código para usarlo una y otra vez, de forma fácil.
 
 ### Definir una Función
 
 
 ```python
-def cylinder_volume(height, radius):
+def volumen_cilindro(altura, radio):
     pi = 3.14159
-    return height * pi * radius ** 2
+    return altura * pi * radio ** 2
 ```
 
 
 ```python
-cylinder_volume(10, 3)
+volumen_cilindro(10, 3)
 ```
 
 
@@ -337,19 +337,19 @@ cylinder_volume(10, 3)
 
 ### Argumentos por Default
 
-Podemos agregar argumentos predeterminados en una función para tener valores por defecto para argumentos o parámetros que no están especificados en una llamada a la función.
+Podemos agregar argumentos predeterminados en una función, para tener valores por defecto para argumentos o parámetros que no están especificados en una llamada a la función.
 
 
 ```python
-def cylinder_volume(height, radius=5):
+def volumen_cilindro(altura, radio=5):
     pi = 3.14159
-    return height * pi * radius ** 2
+    return altura * pi * radio ** 2
 ```
 
 
 ```python
-cylinder_volume(10, 7)  # por posición
-cylinder_volume(height=10, radius=7)  # por nombre de argumento
+volumen_cilindro(10, 7)  # por posición
+volumen_cilindro(altura=10, radio=7)  # por nombre de argumento
 ```
 
 
@@ -368,42 +368,32 @@ Es importante tener en cuenta el alcance cuando se usan variables en funciones. 
 
 ```python
 # Esto provocará un error
-def some_function():
-    word = "hello"
-print(word)
+def una_funcion():
+    palabra = "hola"
+
+print(palabra)
 ```
 
-    fin
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-3328aca760a1> in <module>
+      2     palabra = "hola"
+      3
+----> 4 print(palabra)
 
+NameError: name 'palabra' is not defined
 
 
 ```python
-some_function()
+palabra = "hola"
+
+def una_funcion():
+    print(palabra)
+
+una_funcion()
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    TypeError                                 Traceback (most recent call last)
-
-    <ipython-input-77-6a01c81cb036> in <module>
-    ----> 1 some_function()
-
-
-    TypeError: 'str' object is not callable
-
-
-
-```python
-word = "hello"
-
-def some_function():
-    print(word)
-
-some_function()
-```
-
-    hello
+    hola
 
 
 ## Expresiones Lambda
@@ -417,7 +407,7 @@ Una función normal:
 
 
 ```python
-def multiply1(x, y):
+def multiplica(x, y):
     return x * y
 ```
 
@@ -425,8 +415,8 @@ puede ser reducida a:
 
 
 ```python
-multiply = lambda x, y: x * y
-multiply(2,10)
+multiplica = lambda x, y: x * y
+multiplica(2,10)
 
 
 ```
@@ -440,15 +430,15 @@ multiply(2,10)
 
 
 ```python
-numbers = [
+numeros = [
               [34, 63, 88, 71, 29],
               [90, 78, 51, 27, 45],
               [63, 37, 85, 46, 22],
               [51, 22, 34, 11, 18]
            ]
 
-averages = list(map(lambda x: sum(x) / len(x), numbers))
-print(averages)
+promedios = list(map(lambda x: sum(x) / len(x), numeros))
+print(promedios)
 ```
 
     [57.0, 58.2, 50.6, 27.2]
@@ -456,13 +446,13 @@ print(averages)
 
 
 ```python
-cities = ["New York City", "Los Angeles", "Chicago", "Mountain View", "Denver", "Boston"]
+ciudades = ["CDMX", "Monterrey", "Guadalajara", "Aguascalientes", "Oaxaca", "Cancún"]
 
-short_cities = list(filter(lambda x: len(x) < 10, cities))
-print(short_cities)
+ciudades_menores = list(filter(lambda x: len(x) < 10, ciudades))
+print(ciudades_menores)
 ```
 
-    ['Chicago', 'Denver', 'Boston']
+    ['CDMX', 'Monterrey', 'Oaxaca', 'Cancún']
 
 
 ## ¡¡¡Felicidades ahora ya tienes los conceptos basicos de Python!!!
