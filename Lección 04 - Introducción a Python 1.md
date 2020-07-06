@@ -118,7 +118,7 @@ En esta lección repasaremos acerca de:
 
 #### Operadores de Asignación
 
-![img_04_dt_01](data/img_04_dt_01.png)
+![img_04_dt_01](images/img_04_dt_01.png)
 
 
 
@@ -167,17 +167,17 @@ print(z,y,x)
 ```
 
     10 8 5
-    
 
-<div style="text-align: left"> 
-    
+
+<div style="text-align: left">
+
 ### Operadores de Comparación
 
 
 | Símbolo/Caso de Uso | Booleano | Operación |
 |---|---|---|
 | 5 < 3	| False	| Menor que 		|
-| 5 > 3	| True	| Más grande que	|
+| 5 > 3	| True	| Mayor que	|
 | 3 <= 3| True	| Menor o igual a	|
 | 3 >= 5| False	| Mayor o igual a	|
 | 3 == 5| False	| Igual a 		|
@@ -298,71 +298,71 @@ type(v)
 
 Las cadenas en Python se muestran como el tipo variable `str`. Se puede definir una cadena con comillas dobles `"` o comillas simples `'`
 
-Si la cadena que está creando contiene uno de estos dos caracteres, se debe tener cuidado para asegurarse que el código no genere un error.
+Si la cadena que se está creando contiene uno de estos dos caracteres, se debe tener cuidado para asegurarse de que el código no genere un error.
 
 
 
 ```python
-my_string = 'this is a string!'
-my_string2 = "this is also a string!!!"
-my_string
-my_string2
+mi_cadena = '¡esta es una cadena!'
+mi_cadena2 = "¡esta también es un cadena!!!"
+mi_cadena
+mi_cadena2
 ```
 
 
 
 
-    'this is also a string!!!'
+    '¡esta también es un cadena!!!'
 
 
 
 
 ```python
-print(my_string,my_string2,sep='\n')
+print(mi_cadena,mi_cadena2,sep='\n')
 ```
 
-    this is a string!
-    this is also a string!!!
-    
+    ¡esta es una cadena!
+    ¡esta también es un cadena!!!
+
 
 Podemos incluir el caracter `\` en una cadena para incluir comillas simples como parte de la misma cadena:
 
 
 ```python
-this_string = 'Simon\'s skateboard is in the garage.'
-print(this_string)
+esta_cadena = 'El título del libro es \'Don Quijote\'.'
+print(esta_cadena)
 
 ```
 
-    Simon's skateboard is in the garage.
-    
+    El título del libro es 'Don Quijote'.
+
 
 ### Operaciones con cadenas de texto
 #### Concatenar cadenas
 
 
 ```python
-first_word = 'Hello'
-second_word = 'There'
-print(first_word + second_word)
+primera_palabra = 'Hola'
+segunda_palabra = 'Mundo'
+print(primera_palabra + segunda_palabra)
 ```
 
-    HelloThere
-    
+    HolaMundo
+
 
 
 ```python
-print(first_word + ' ' + second_word)
+print(primera_palabra + ' ' + segunda_palabra)
 ```
 
-    Hello There
-    
+    Hola Mundo
+
 
 #### Acceder a un elemento de la cadena
 
 
 ```python
-first_word[0]
+primera_palabra[0]
 ```
 
 
@@ -374,13 +374,13 @@ first_word[0]
 
 
 ```python
-first_word[-1]
+primera_palabra[-1]
 ```
 
 
 
 
-    'o'
+    'a'
 
 
 
@@ -388,37 +388,37 @@ first_word[-1]
 
 
 ```python
-print(first_word * 5)
+print(primera_palabra * 5)
 ```
 
-    HelloHelloHelloHelloHello
-    
+    HolaHolaHolaHolaHola
+
 
 #### Longitud de cadenas
 
 
 ```python
-L=len(first_word)
+L=len(primera_palabra)
 L
 ```
 
 
 
 
-    5
+    4
 
 
 
 
 ```python
-D=len(first_word)/len(second_word)
+D=len(primera_palabra)/len(segunda_palabra)
 D
 ```
 
 
 
 
-    1.0
+    0.8
 
 
 
@@ -427,14 +427,14 @@ El método `split()` divide una cadena en palabras y lo devuelve como una lista.
 
 
 ```python
-new_str = "The cow jumped over the moon."
-new_str.split()
+nueva_cadena = "La vaca saltó sobre la luna."
+nueva_cadena.split()
 ```
 
 
 
 
-    ['The', 'cow', 'jumped', 'over', 'the', 'moon.']
+    ['La', 'vaca', 'saltó', 'sobre', 'la', 'luna.']
 
 
 
@@ -442,13 +442,13 @@ Especificando un separador y limitando el número de divisiones:
 
 
 ```python
-new_str.split(' ', 3)
+nueva_cadena.split(' ', 3)
 ```
 
 
 
 
-    ['The', 'cow', 'jumped', 'over the moon.']
+    ['La', 'vaca', 'saltó', 'sobre la luna.']
 
 
 
@@ -456,46 +456,46 @@ Para conocer todos los métodos que podemos usar, véase la [documentación de P
 
 #### Reemplazar o complementar partes de una cadena
 
-El método cadena `format()` es uno de los métodos más útiles y que estaremos usando en el transcurso de nuestro curso. Este método reemplaza o complementa partes de una cadena con los valores de otros objetos o variables.
+El método cadena `format()` es uno de los métodos más útiles, que estaremos usando en el transcurso de nuestro curso. Este método reemplaza o complementa partes de una cadena, con los valores de otros objetos o variables.
 
 
 ```python
-print("Mohammed has {} balloons".format(27))
+print("Juan tiene {} globos".format(27))
 ```
 
-    Mohammed has 27 balloons
-    
+    Juan tiene 27 globos
+
 
 
 ```python
-animal = "dog"
-action = "bite"
-print("Does your {} {}?".format(animal, action))
+animal = "perro"
+accion = "muerde"
+print("¿Tu {} {}?".format(animal, accion))
 ```
 
-    Does your dog bite?
-    
+    ¿Tu perro muerde?
+
 
 
 ```python
-maria_string = "Maria loves {} and {}"
-print(maria_string.format("math", "statistics"))
+maria_cadena = "A Maria le gustan {} y {}"
+print(maria_cadena.format("las matemáticas", "la estadística"))
 ```
 
-    Maria loves math and statistics
-    
+    A Maria le gustan las matemáticas y la estadística
+
 
 
 ```python
-print("Does your %s %s?" % (animal, action)) 
+print("¿Tu %s %s?" % (animal, accion))
 ```
 
-    Does your dog bite?
-    
+    ¿Tu perro muerde?
+
 
 ### Conversión de datos
 
-Para poder convertir un tipo de datos a otro podemos usar las siguientes funciones de conversión (cast):
+Para poder convertir un tipo de datos a otro, podemos usar las siguientes funciones de conversión (cast):
 
 
 
@@ -510,7 +510,7 @@ print(bool(1))
     4
     5.0
     True
-    
+
 
 ## Estructuras de Datos
 
@@ -534,14 +534,14 @@ Las listas deben ser creadas usando **corchetes** y pueden contener cualquier co
 
 
 ```python
-list_of_elements = [1, 3.4, 'a string', True]
-list_of_elements
+lista_de_elementos = [1, 3.4, 'una cadena', True]
+lista_de_elementos
 ```
 
 
 
 
-    [1, 3.4, 'a string', True]
+    [1, 3.4, 'una cadena', True]
 
 
 
@@ -549,7 +549,7 @@ list_of_elements
 
 
 ```python
-list_of_elements[0]
+lista_de_elementos[0]
 ```
 
 
@@ -561,7 +561,7 @@ list_of_elements[0]
 
 
 ```python
-list_of_elements[-1]
+lista_de_elementos[-1]
 ```
 
 
@@ -573,7 +573,7 @@ list_of_elements[-1]
 
 
 ```python
-list_of_elements[len(list_of_elements)]
+lista_de_elementos[len(lista_de_elementos)]
 ```
 
 
@@ -582,15 +582,15 @@ list_of_elements[len(list_of_elements)]
     IndexError                                Traceback (most recent call last)
 
     <ipython-input-40-dcf8dd71bbd3> in <module>
-    ----> 1 list_of_elements[len(list_of_elements)]
-    
+    ----> 1 lista_de_elementos[len(lista_de_elementos)]
+
 
     IndexError: list index out of range
 
 
 
 ```python
-list_of_elements[len(list_of_elements)-1]
+lista_de_elementos[len(lista_de_elementos)-1]
 ```
 
 
@@ -604,26 +604,23 @@ list_of_elements[len(list_of_elements)-1]
 
 
 ```python
-list_of_elements = [1, 3.4, 'a string', True]
-list_of_elements[1:2]
+lista_de_elementos = [1, 3.4, 'una cadena', True]
+lista_de_elementos[1:2]
 
 ```
 
 
-```python
-list_of_elements = [1, 3.4, 'a string', True]
-list_of_elements[1:2]
-```
+    [3.4]
 
 
 ```python
 #### IN o NOT IN
 
-'this' in 'this is a string'
+'esta' in 'esta es una cadena'
 True
->>> 'in' in 'this is a string'
+>>> 'en' in 'esta es una cadena'
 True
->>> 'isa' in 'this is a string'
+>>> 'esuna' in 'esta es una cadena'
 False
 >>> 5 not in [1, 2, 3, 4, 6]
 True
@@ -633,17 +630,17 @@ False
 
 
 ```python
-'this' in 'this is a string'
+'esta' in 'esta es una cadena'
 ```
 
 
 ```python
-'in' in 'this is a string'
+'en' in 'esta es una cadena'
 ```
 
 
 ```python
-'isa' in 'this is a string'
+'esuna' in 'esta es una cadena'
 ```
 
 
@@ -658,7 +655,7 @@ False
 
 ## Mutabilidad y Orden
 
-El concepto de **mutabilidad** en Python indica si podemos o no cambiar un objeto una vez que se ha creado. Si un objeto (como una lista o cadena) se puede cambiar (como una lista), se considera **mutable**.
+El concepto de **mutabilidad** en Python indica si podemos cambiar o no un objeto, una vez que se ha creado. Si un objeto (como una lista o cadena) se puede cambiar (como una lista), se considera **mutable**.
 
 Sin embargo, si un objeto no se puede cambiar, entonces el objeto se considera **inmutable**.
 
@@ -667,27 +664,27 @@ Sin embargo, si un objeto no se puede cambiar, entonces el objeto se considera *
 ```python
 # Ejemplo de mutabilidad:
 
-my_list = [1, 2, 3, 4, 5]
-my_list[0] = 'one'
-print(my_list)
+mi_lista = [1, 2, 3, 4, 5]
+mi_lista[0] = 'uno'
+print(mi_lista)
 ```
 
 
 ```python
 # Ejemplo de un objeto inmutable:
-my_string = "Hello World"
-my_string[0] = 'M'
+mi_cadena = "Hola Mundo"
+mi_cadena[0] = 'M'
 ```
 
-El concepto de **orden** en Python indica si la posición de un elemento en el objeto se puede utilizar para accederlo. Ambas cadenas y listas están ordenadas. Podemos usar el orden para acceder a partes de una lista y cadena.
+El concepto de **orden** en Python indica, si la posición de un elemento en el objeto se puede utilizar para accederlo. Ambas cadenas y listas están ordenadas. Podemos usar el orden para acceder partes de una lista y cadena.
 
-En lecciones posteriores veremos que, diferentes tipos de datos, cuyas propiedades de mutabilidad y ordenamiento, son importantes de tener en cuenta para poder acceder a ellos y manipularlos.
+En lecciones posteriores veremos que en diferentes tipos de datos, es importante tener en cuenta las propiedades de mutabilidad y ordenamiento, para poder accederlos y manipularlos.
 
 ## Funciones básicas
 
 1. `len()` devuelve el número de elementos que hay en una lista.
 
-2. `max()` devuelve el elemento más grande de la lista. La forma en que se determina el elemento más grande depende del tipo de objetos que estén en la lista.
+2. `max()` devuelve el elemento más grande de la lista. La forma en que se determina el elemento más grande, depende del tipo de objetos que estén en la lista.
 	- El elemento máximo en una lista de números es el número más grande.
 	- El máximo de elementos en una lista de cadenas es el último elemento ordenado alfabéticamente.
 	- La función `max()` no está definida para listas que contienen elementos de diferentes tipos no compatibles.
@@ -696,102 +693,102 @@ En lecciones posteriores veremos que, diferentes tipos de datos, cuyas propiedad
 
 4. `sorted()` devuelve una copia de una lista en orden de menor a mayor, dejando la lista sin cambios.
 
-5. `join()`. Es un método de cadena que toma una lista de cadenas como argumento y devuelve una cadena que consta los elementos unidos por un separador.
+5. `join()`. Es un método de cadena que toma una lista de cadenas como argumento y devuelve una cadena que consta de los elementos unidos por un separador.
 
 6. `append()`. Este método agrega un elemento al final de una lista.
 
-7. `pop()`. Este método elimina un elemento de una lista. Si no se especifica un valor, se elimina el último elemento (en otros tipos de estructuras si no se define un valor puede eliminar el primer elemento).
+7. `pop()`. Este método elimina un elemento de una lista. Si no se especifica un valor, se elimina el último elemento (en otros tipos de estructuras, si no se define un valor puede eliminar el primer elemento).
 
 8. `split()`. Divide una cadena y como resultado devuelve una lista.
 
 
 ```python
-my_string_list = ['Z', 'ALZ', 'B']
-max(my_string_list)
+mi_lista_de_cadenas = ['Z', 'ALZ', 'B']
+max(mi_lista_de_cadenas)
 ```
 
 
 ```python
-sorted(my_string_list)
+sorted(mi_lista_de_cadenas)
 ```
 
 
 ```python
-my_separator= "\n"
-my_string_list = ["This", "is", "my", "Python", "course"]
-new_string = my_separator.join(my_string_list)
-print(new_string)
+mi_separador= "\n"
+mi_lista_de_cadenas = ["Este", "es", "mi", "curso", "Python"]
+nueva_cadena = mi_separador.join(mi_lista_de_cadenas)
+print(nueva_cadena)
 ```
 
 
 ```python
-letters = ['a', 'b', 'c', 'd']
-letters.append('z')
-print(letters)
+letras = ['a', 'b', 'c', 'd']
+letras.append('z')
+print(letras)
 ```
 
 
 ```python
-letters = ['a', 'b', 'c', 'd']
-letters.pop(0)
-print(letters)
+letras = ['a', 'b', 'c', 'd']
+letras.pop(0)
+print(letras)
 ```
 
-verse = "if you can keep your head when all about you are losing theirs and blaming it on you   if you can trust yourself when all men doubt you     but make allowance for their doubting too   if you can wait and not be tired by waiting      or being lied about  don’t deal in lies   or being hated  don’t give way to hating      and yet don’t look too good  nor talk too wise"
-print(verse, "\n")
-verse_list = verse.split()
-print(verse_list, '\n')
+verso = "si puedes mantener la cabeza en su sitio cuando todos a tu alrededor la pierden y te culpan a ti   si puedes seguir creyendo en ti mismo cuando todos dudan de ti     pero también aceptas que tengan dudas   si puedes esperar y no cansarte de la espera      o si siendo engañado no respondes con engaños   o si siendo odiado no incurres en el odio      Y aun así no te las das de bueno ni de sabio"
+print(verso, "\n")
+verso_lista = verso.split()
+print(verso_lista, '\n')
 
 ### Tuplas
 
-Una **tupla** es otro tipo de estructura útil. Es un tipo de datos para secuencias de elementos ordenadas **inmutables**. A menudo se usan para almacenar información relacionada.
+Una **tupla** es otro tipo de estructura útil. Es un tipo de datos para secuencias **inmutables, ordenadas** de elementos. A menudo se usan para almacenar información relacionada
 
 
 ```python
-location = (13.4125, 103.866667)
-print("Latitude:", location[0])
-print("Longitude:", location[1])
+ubicacion = (13.4125, 103.866667)
+print("Latitud:", ubicacion[0])
+print("Longitud:", ubicacion[1])
 ```
 
 
 ```python
-location[0] = 12.1
+ubicacion[0] = 12.1
 ```
 
 ### Conjunto
 
-Un **conjunto** es un tipo de datos para colecciones **mutables no ordenadas** de elementos **únicos**. Una aplicación de un conjunto es eliminar rápidamente los duplicados de una lista.
+Un **conjunto** es un tipo de datos para colecciones **mutables, no ordenadas** de elementos **únicos**. Una aplicación de un conjunto es eliminar rápidamente los duplicados de una lista.
 
 
 ```python
-numbers = [1, 2, 6, 3, 1, 1, 6]
-unique_nums = set(numbers)
-print(unique_nums)
+numeros = [1, 2, 6, 3, 1, 1, 6]
+numeros_unicos = set(numeros)
+print(numeros_unicos)
 ```
 
 
 ```python
-type(unique_nums)
+type(numeros_unicos)
 ```
 
 ## Diccionarios
 
-Un diccionario es un tipo de dato **mutable** que almacena asignaciones de claves únicas a valore
+Un diccionario es un tipo de dato **mutable** que almacena asignaciones de claves únicas a valores
 
 
 ```python
-elements = {"hydrogen": 1, "helium": 2, "carbon": 6}
-print(elements["helium"])
-elements["lithium"] = 3  # Insertar "lithium" con el valor 3 dentro del diccionario
-print(elements)
+elementos = {"hidrogeno": 1, "helio": 2, "carbono": 6}
+print(elementos["helio"])
+elementos["litio"] = 3  # Insertar "litio" con el valor 3 dentro del diccionario
+print(elementos)
 ```
 
 
 ```python
-print("carbon" in elements)
-print(elements.get("dilithium"))
-print(elements.get("hydrogen"))
-print(elements["hydrogen"])
+print("carbono" in elementos)
+print(elementos.get("litio"))
+print(elementos.get("hidrogeno"))
+print(elementos["hidrogeno"])
 ```
 
 # Estructuras de datos compuestas
@@ -799,28 +796,28 @@ Una característica interesante en Python es el poder incluir contenedores dentr
 
 
 ```python
-elements = {"hydrogen": {"number": 1,
-                         "weight": 1.00794,
-                         "symbol": "H"},
-              "helium": {"number": 2,
-                         "weight": 4.002602,
-                         "symbol": "He"}}
-elements
+elementos = {"hidrogeno": {"numero": 1,
+                         "peso": 1.00794,
+                         "simbolo": "H"},
+                 "helio": {"numero": 2,
+                         "peso": 4.002602,
+                         "simbolo": "He"}}
+elementos
 ```
 
 
 ```python
-helium = elements["helium"]
-hydrogen_weight = elements["hydrogen"]["weight"]
-print(helium)
-print(hydrogen_weight)
+helio = elementos["helio"]
+hidrogeno_peso = elementos["hidrogeno"]["peso"]
+print(helio)
+print(hidrogeno_peso)
 ```
 
 
 ```python
-oxygen = {"number":8,"weight":15.999,"symbol":"O"}  # crear un diccionario
-elements["oxygen"] = oxygen  # asignar el diccionario al diccionario compuesto
-print('elements = ', elements)
+oxigeno = {"numero":8,"peso":15.999,"simbolo":"O"}  # crear un diccionario
+elementos["oxigeno"] = oxigeno  # asignar el diccionario al diccionario compuesto
+print('elementos = ', elementos)
 ```
 
 En resumen se tiene:
@@ -828,11 +825,10 @@ En resumen se tiene:
 
 | Estructura de Datos | Ordenado | Mutable | Constructor | Ejemplo |
 |--|--|--|--|--|
-| Lista 	| Si | Si | `[ ]` or `list()`	| `[5.7, 4, 'yes', 5.7]` |
-| Tupla 	| Si | No | `( )` or `tuple()`	| `(5.7, 4, 'yes', 5.7)` |
-| Conjunto	| No | Si | `{}`* or `set()`	| `{5.7, 4, 'yes'}`	 |
-| Diccionario 	| No | No | `{ }` or `dict()`	| `{'Jun': 75, 'Jul': 89}` |
+| Lista 	| Si | Si | `[ ]` o `list()`	| `[5.7, 4, 'si', 5.7]` |
+| Tupla 	| Si | No | `( )` o `tuple()`	| `(5.7, 4, 'si', 5.7)` |
+| Conjunto	| No | Si | `{}`* o `set()`	| `{5.7, 4, 'si'}`	 |
+| Diccionario 	| No | No | `{ }` o `dict()`	| `{'Jun': 75, 'Jul': 89}` |
 
    
  [**Siguiente Lección**](Lecci%C3%B3n%2004%20-%20Introducci%C3%B3n%20a%20Python%202.md)    
-
