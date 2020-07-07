@@ -4,7 +4,7 @@
 
 
 ```python
-# Importemos las librerias de trabajo
+# Importar las librerias de trabajo
 import numpy as np
 import pandas as pd
 from pandas import DataFrame, Series
@@ -13,11 +13,11 @@ from io import StringIO
 
 
 ```python
-# Generemos el dataframe de trabajo
+# Generar el dataframe de trabajo
 dframe = DataFrame({'k1':['X','X','Y','Y','Z'],
                     'k2':['alpha','beta','alpha','beta','alpha'],
-                    'dataset1':np.random.randn(5),
-                    'dataset2':np.random.randn(5)})
+                    'datos1':np.random.randn(5),
+                    'datos2':np.random.randn(5)})
 dframe
 ```
 
@@ -25,27 +25,14 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>k1</th>
       <th>k2</th>
-      <th>dataset1</th>
-      <th>dataset2</th>
+      <th>datos1</th>
+      <th>datos2</th>
     </tr>
   </thead>
   <tbody>
@@ -92,18 +79,18 @@ dframe
 
 
 ```python
-#Veamos como se usa la función "groupby"
-group1 = dframe['dataset1'].groupby(dframe['k1'])
-group1
+# Ver como se usa la función "groupby"
+grupo1 = dframe['datos1'].groupby(dframe['k1'])
+grupo1
 ```
 
     <pandas.core.groupby.generic.SeriesGroupBy object at 0x000001EAA18F5550>
-    
+
 
 
 ```python
-# Ahora podemos realizar operaciones sobre este grupo
-group1.mean()
+# Realizar operaciones sobre este grupo
+grupo1.mean()
 ```
 
 
@@ -113,13 +100,13 @@ group1.mean()
     X    0.355694
     Y   -0.802503
     Z   -0.084418
-    Name: dataset1, dtype: float64
+    Name: datos1, dtype: float64
 
 
 
 
 ```python
-# podemos pasarle el nombre de la columna como llave de agrupación
+# Podemos pasar el nombre de la columna como llave de agrupación
 dframe.groupby('k1').mean()
 ```
 
@@ -127,25 +114,12 @@ dframe.groupby('k1').mean()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>dataset1</th>
-      <th>dataset2</th>
+      <th>datos1</th>
+      <th>datos2</th>
     </tr>
     <tr>
       <th>k1</th>
@@ -185,26 +159,13 @@ dframe.groupby(['k1','k2']).mean()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th></th>
-      <th>dataset1</th>
-      <th>dataset2</th>
+      <th>datos1</th>
+      <th>datos2</th>
     </tr>
     <tr>
       <th>k1</th>
@@ -268,119 +229,106 @@ dframe.groupby(['k1']).size()
 
 ```python
 # Podemos iterar sobre los grupos
-#por ejemplo:
-for name,group in dframe.groupby('k1'):
-    print ("This is the %s group" %name)
-    print (group)
+# por ejemplo:
+for nombre, grupo in dframe.groupby('k1'):
+    print ("Este es el grupo %s" %nombre)
+    print (grupo)
     print ('\n')
 ```
 
-    This is the X group
+    Este es el grupo X
       k1     k2  dataset1  dataset2
     0  X  alpha  1.141619  0.737260
     1  X   beta -0.430231  0.170866
-    
-    
-    This is the Y group
+
+
+    Este es el grupo Y
       k1     k2  dataset1  dataset2
     2  Y  alpha  0.570391  1.114514
     3  Y   beta -2.175396  0.447751
-    
-    
-    This is the Z group
+
+
+    Este es el grupo Z
       k1     k2  dataset1  dataset2
     4  Z  alpha -0.084418  1.589869
-    
-    
-    
+
+
+
 
 
 ```python
 # Podemos iterar sobre varias llaves
-for (k1,k2) , group in dframe.groupby(['k1','k2']):
-    print ("Key1 = %s Key2 = %s" %(k1,k2))
-    print (group)
+for (k1,k2), grupo in dframe.groupby(['k1','k2']):
+    print ("Llave1 = %s Llave2 = %s" %(k1,k2))
+    print (grupo)
     print ('\n')
 ```
 
-    Key1 = X Key2 = alpha
-      k1     k2  dataset1  dataset2
+    Llave1 = X Llave2 = alpha
+      k1     k2  dato1      dato2
     0  X  alpha  1.141619   0.73726
-    
-    
-    Key1 = X Key2 = beta
-      k1    k2  dataset1  dataset2
+
+
+    Llave1 = X Llave2 = beta
+      k1    k2  dato1     dato2
     1  X  beta -0.430231  0.170866
-    
-    
-    Key1 = Y Key2 = alpha
-      k1     k2  dataset1  dataset2
+
+
+    Llave1 = Y Llave2 = alpha
+      k1     k2  dato1     dato2
     2  Y  alpha  0.570391  1.114514
-    
-    
-    Key1 = Y Key2 = beta
-      k1    k2  dataset1  dataset2
+
+
+    Llave1 = Y Llave2 = beta
+      k1    k2  dato1     dato2
     3  Y  beta -2.175396  0.447751
-    
-    
-    Key1 = Z Key2 = alpha
-      k1     k2  dataset1  dataset2
+
+
+    Llave1 = Z Llave2 = alpha
+      k1     k2  dato1     dato2
     4  Z  alpha -0.084418  1.589869
-    
-    
-    
+
+
+
 
 
 ```python
-# Una tactica usada es crear un diccionario de los datos
-group_dict = dict(list(dframe.groupby('k1')))
-group_dict
+# Una táctica usada es crear un diccionario de los datos
+grupo_d = dict(list(dframe.groupby('k1')))
+grupo_d
 ```
 
 
 
 
-    {'X':   k1     k2  dataset1  dataset2
+    {'X':   k1     k2  dato1  dato2
      0  X  alpha  1.141619  0.737260
      1  X   beta -0.430231  0.170866,
-     'Y':   k1     k2  dataset1  dataset2
+     'Y':   k1     k2  dato1  dato2
      2  Y  alpha  0.570391  1.114514
      3  Y   beta -2.175396  0.447751,
-     'Z':   k1     k2  dataset1  dataset2
+     'Z':   k1     k2  dato1  dato2
      4  Z  alpha -0.084418  1.589869}
 
 
 
 
 ```python
-group_dict['Y']
+grupo_d['Y']
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>k1</th>
       <th>k2</th>
-      <th>dataset1</th>
-      <th>dataset2</th>
+      <th>dato1</th>
+      <th>dato2</th>
     </tr>
   </thead>
   <tbody>
@@ -406,35 +354,22 @@ group_dict['Y']
 
 
 ```python
-# Por ejemplo si solo necesitamos agrupar la columna dataset2 por ambos conjuntos de llaves
-dataset2_group = dframe.groupby(['k1','k2'])[['dataset2']]
-dataset2_group.mean()
+# Por ejemplo, si solo necesitamos agrupar la columna dato2 por ambos conjuntos de llaves
+grupo_dato2 = dframe.groupby(['k1','k2'])[['dato2']]
+grupo_dato2.mean()
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th></th>
-      <th>dataset2</th>
-      <th>dataset1</th>
+      <th>dato2</th>
+      <th>dato1</th>
     </tr>
     <tr>
       <th>k1</th>
@@ -482,87 +417,75 @@ dataset2_group.mean()
 
 
 ```python
-# aprendamos a usar dict o series con groupby
-# Hagamos un dataframe
-animals = DataFrame(np.arange(16).reshape(4, 4),
+# Aprendamos a usar diccionarios o series con groupby
+# Hagamos un dataframe con diferentes animales
+animales = DataFrame(np.arange(16).reshape(4, 4),
                    columns=['W', 'X', 'Y', 'Z'],
-                   index=['Dog', 'Cat', 'Bird', 'Mouse'])
-print(animals)
-# Adicionemos algunos datos NAN
-#animals.ix[1:2, ['W', 'Y']] = np.nan 
-animals.loc[1:2, ['W', 'Y']]  = np.nan 
-print(animals)
+                   index=['Perro', 'Gato', 'Pajaro', 'Raton'])
+print(animales)
+
+# Agreguemos algunos datos NAN
+# animales.ix[1:2, ['W', 'Y']] = np.nan
+animales.loc[1:2, ['W', 'Y']]  = np.nan
+print(animales)
 ```
 
             W   X   Y   Z
-    Dog     0   1   2   3
-    Cat     4   5   6   7
-    Bird    8   9  10  11
-    Mouse  12  13  14  15
+    Perro   0   1   2   3
+    Gato    4   5   6   7
+    Pajaro  8   9  10  11
+    Raton  12  13  14  15
               W   X     Y   Z
-    Dog     0.0   1   2.0   3
-    Cat     NaN   5   NaN   7
-    Bird    8.0   9  10.0  11
-    Mouse  12.0  13  14.0  15
-    
+    Perro   0.0   1   2.0   3
+    Gato    NaN   5   NaN   7
+    Pajaro  8.0   9  10.0  11
+    Raton  12.0  13  14.0  15
+
 
 
 ```python
-# Ahora digamos que tenemos un diccionario con valores de comportamiento
-behavior_map = {'W': 'good', 'X': 'bad', 'Y': 'good','Z': 'bad'}
+# Ahora supongamos que tenemos un diccionario con valores de comportamiento
+comportamiento_m = {'W': 'bien', 'X': 'mal', 'Y': 'bien','Z': 'mal'}
 
-# Ahora podemos agrupar usando este mapeo
-animal_col = animals.groupby(behavior_map, axis=1)
+# Ahora podemos agrupar a los animales usando este mapeo
+animales_col = animales.groupby(comportamiento_m, axis=1)
 
-# Mostremos la suma de acuerdo al grupo por el mapeo
-animal_col.sum()
+# Mostremos la suma, de acuerdo a la agrupación por el mapeo
+animales_col.sum()
 
-# por ejemplo [dog][good] = [dog][Y]+[dog][W]
+# por ejemplo [Perro][bien] = [Perro][Y]+[Perro][W]
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>bad</th>
-      <th>good</th>
+      <th>mal</th>
+      <th>bien</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Dog</th>
+      <th>Perro</th>
       <td>4.0</td>
       <td>2.0</td>
     </tr>
     <tr>
-      <th>Cat</th>
+      <th>Gato</th>
       <td>12.0</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>Bird</th>
+      <th>Pajaro</th>
       <td>20.0</td>
       <td>18.0</td>
     </tr>
     <tr>
-      <th>Mouse</th>
+      <th>Raton</th>
       <td>28.0</td>
       <td>26.0</td>
     </tr>
@@ -575,70 +498,57 @@ animal_col.sum()
 
 ```python
 # Ahora intentemos lo mismo con una serie
-behav_series = Series(behavior_map)
-behav_series
+comportamiento_s = Series(comportamiento_m)
+comportamiento_s
 ```
 
 
 
 
-    W    good
-    X     bad
-    Y    good
-    Z     bad
+    W    bien
+    X     mal
+    Y    bien
+    Z     mal
     dtype: object
 
 
 
 
 ```python
-# agrupemos la serie
-animals.groupby(behav_series, axis=1).count()
+# Agrupemos la serie
+animales.groupby(comportamiento_s, axis=1).count()
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>bad</th>
-      <th>good</th>
+      <th>mal</th>
+      <th>bien</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Dog</th>
+      <th>Perro</th>
       <td>2</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>Cat</th>
+      <th>Gato</th>
       <td>2</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>Bird</th>
+      <th>Pajaro</th>
       <td>2</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>Mouse</th>
+      <th>Raton</th>
       <td>2</td>
       <td>2</td>
     </tr>
@@ -650,20 +560,20 @@ animals.groupby(behav_series, axis=1).count()
 
 
 ```python
-print(animals)
+print(animales)
 ```
 
               W   X     Y   Z
-    Dog     0.0   1   2.0   3
-    Cat     NaN   5   NaN   7
-    Bird    8.0   9  10.0  11
-    Mouse  12.0  13  14.0  15
-    
+    Perro   0.0   1   2.0   3
+    Gato    NaN   5   NaN   7
+    Pajaro  8.0   9  10.0  11
+    Raton  12.0  13  14.0  15
+
 
 
 ```python
 # Supongamos que queremos agrupar por la longitud de los nombres de los animales, ¡podemos pasar la función len a groupby!
-animals.groupby(len).sum()
+animales.groupby(len).sum()
 
 # Nota: el índice ahora es el número de letras en el nombre del animal
 ```
@@ -672,19 +582,6 @@ animals.groupby(len).sum()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -725,30 +622,18 @@ animals.groupby(len).sum()
 
 
 ```python
-# También podemos mezclar funciones con arrays, dicts y Series para métodos groupby
-# Establecer una lista de claves
-keys = ['A', 'B', 'A', 'B']
-# Ahora agrupa la longitud del nombre y las teclas para mostrar los valores máximos
-animals.groupby ([len,keys]). max ()
+# También podemos mezclar funciones con matrices, diccionarios y series para métodos groupby
+# Se define una lista de llaves
+llaves = ['A', 'B', 'A', 'B']
+
+# Se agrupa la longitud del nombre y las llaves para mostrar los valores máximos
+animales.groupby ([len, llaves]). max ()
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -803,42 +688,29 @@ animals.groupby ([len,keys]). max ()
 # También podemos usar groupby con niveles de índice jerárquico
 
 # Crear un índice de columna jerárquica
-hier_col = pd.MultiIndex.from_arrays([['NY','NY','NY','SF','SF'],[1,2,3,1,2]],names=['City','sub_value'])
+jerarq_col = pd.MultiIndex.from_arrays([['MX','MX','MX','US','US'],[1,2,3,1,2]],nombres=['Ciudad','Valor'])
 
-# Crear un dframe con índice jerárquico
-dframe_hr = DataFrame(np.arange(25).reshape(5,5),columns=hier_col)
+# Crear un dataframe con índice jerárquico
+dframe = DataFrame(np.arange(25).reshape(5,5),columns=jerarq_col)
 
 # Valores múltiples por 100 para mayor claridad
-dframe_hr = dframe_hr*100
-dframe_hr
+dframe = dframe*100
+dframe
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr>
-      <th>City</th>
-      <th colspan="3" halign="left">NY</th>
-      <th colspan="2" halign="left">SF</th>
+      <th>Ciudad</th>
+      <th colspan="3" halign="left">MX</th>
+      <th colspan="2" halign="left">US</th>
     </tr>
     <tr>
-      <th>sub_value</th>
+      <th>Valor</th>
       <th>1</th>
       <th>2</th>
       <th>3</th>
@@ -897,29 +769,18 @@ dframe_hr
 
 
 ```python
-# La agregación de datos consiste en operaciones que resultan en un escalar (por ejemplo, media (), suma (), recuento (), etc.)
-# Guarde el archivo winquality.csv en la misma carpeta que sus notebooks Python, tenga en cuenta el delimitador utilizado;
-dframe_wine = pd.read_csv('../Python_Cursos/data/winequality-red.csv',sep=';')
-dframe_wine
+# La agregación de datos consiste en operaciones que resultan en un escalar (por ejemplo, mean(), sum(), count(), etc.)
+# Se guarda el archivo winquality.csv en la misma carpeta que los notebooks Python, tenga en cuenta el delimitador utilizado ;
+# El archivo contiene medidas de características de diferentes vinos, como acidez, azúcar, densidad, etc.
+# La columna de calidad (quality) es una calificación asignada a cada vino
+dframe_vino = pd.read_csv('/data/winequality-red.csv',sep=';')
+dframe_vino
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1114,7 +975,7 @@ dframe_wine
 
 ```python
 # ¿Qué tal si descubrimos el contenido promedio de alcohol para el vino?
-dframe_wine['alcohol'].mean()
+dframe_vino['alcohol'].mean()
 ```
 
 
@@ -1126,36 +987,19 @@ dframe_wine['alcohol'].mean()
 
 
 ```python
-# Ese fue un ejemplo de agregación, ¿qué tal si hacemos el nuestro?
-def max_to_min(arr):
-    return arr.max() - arr.min()
+# Ese fue un ejemplo de agregación, ¿qué tal si hacemos el nuestro mediante una función?
+def max_a_min(matriz):
+    return matriz.max() - matriz.min()
 
-# Agrupemos los vinos por "calidad"
-wino = dframe_wine.groupby('quality')
-wino.describe()
+# Agrupemos los vinos por su calidad (quality)
+vino = dframe_vino.groupby('quality')
+vino.describe()
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr>
@@ -1369,27 +1213,14 @@ wino.describe()
 
 
 ```python
-# Ahora podemos aplicar nuestra propia función de agregación, esta función toma el valor máximo de la columna y resta el valor mínimo de la columna
-wino.agg(max_to_min)
+# Ahora podemos aplicar nuestra propia función de agregación; esta función toma el valor máximo de la columna y resta el valor mínimo de la columna
+vino.agg(max_a_min)
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1515,26 +1346,13 @@ wino.agg(max_to_min)
 
 ```python
 # También podemos pasar métodos de cadena a través del agregado
-wino.agg('mean')
+vino.agg('mean')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1659,28 +1477,15 @@ wino.agg('mean')
 
 
 ```python
-# Let's adda  quality to alcohol content ratio
-dframe_wine['qual/alc ratio'] = dframe_wine['quality']/dframe_wine['alcohol']
-dframe_wine.head()
+# Agreguemos una proporción entre la calidad (quality) y el contenido alcoholico (alcohol)
+dframe_vino['qual/alc ratio'] = dframe_vino['quality']/dframe_wine['alcohol']
+dframe_vino.head()
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1789,29 +1594,16 @@ dframe_wine.head()
 
 
 ```python
-# Tambien podemos usar pivot tablas en lugar groupby
+# Tambien podemos usar pivot_table en lugar groupby
 
-# Pivot tabla de quality
-dframe_wine.pivot_table(index=['quality'])
+# Pivotear la calidad (quality) en la tabla
+dframe_vino.pivot_table(index=['quality'])
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1946,40 +1738,28 @@ dframe_wine.pivot_table(index=['quality'])
 
 
 ```python
-# ¿Qué pasaría si quisiéramos saber el mayor contenido de alcohol para cada rango de calidad?
+# ¿Qué pasaría si quisiéramos saber el contenido de alcohol mas alto para cada rango de calidad?
 # Podemos usar la mecánica de groupby para dividir-aplicar-combinar
-# Cree una función que asigne un rango a cada vino según el contenido de alcohol, siendo 1 el mayor contenido de alcohol.
-def ranker(df):
+# Se crea una función que asigne un rango a cada vino, según el contenido de alcohol, siendo 1 el mayor contenido de alcohol.
+def rango(df):
     df['alc_content_rank'] = np.arange(len(df)) + 1
     return df
 ```
 
 
 ```python
-# Ahora ordena el dframe por alcohol en orden ascendente
-dframe_wine.sort_values('alcohol',ascending=False,inplace=True)
-# Ahora agruparemos por calidad y aplicaremos nuestra función de clasificación
-dframe_wine = dframe_wine.groupby('quality').apply(ranker)
-dframe_wine.head()
+# Se ordena el dataframe por su valor de alcohol, en orden ascendente
+dframe_vino.sort_values('alcohol',ascending=False,inplace=True)
+
+# Se agrupa por su calidad y se aplica la función de rango
+dframe_vino = dframe_vio.groupby('quality').apply(rango)
+dframe_vino.head()
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2094,10 +1874,10 @@ dframe_wine.head()
 
 
 ```python
-# Ahora finalmente podemos llamar al dframe donde alc_content_rank == 1
-# Obtenga el número de conteos de calidad
-num_of_qual = dframe_wine['quality'].value_counts()
-num_of_qual
+# Ahora finalmente podemos llamar al dataframe donde elrango del contenido de alcohol (alc_content_rank) es 1
+# Se obtiene el número de conteos de calidad
+num_de_calidad = dframe_vino['quality'].value_counts()
+num_of_calidad
 ```
 
 
@@ -2115,27 +1895,14 @@ num_of_qual
 
 
 ```python
-# ¡Ahora mostraremos la información combinada de los vinos que tienen el mayor contenido de alcohol para su rango respectivo!
-dframe_wine[dframe_wine.alc_content_rank == 1].head(len(num_of_qual))
+# ¡Ahora mostraremos la información combinada, de los vinos que tienen el mayor contenido de alcohol para su rango!
+dframe_vino[dframe_vino.alc_content_rank == 1].head(len(num_de_calidad))
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2269,20 +2036,20 @@ dframe_wine[dframe_wine.alc_content_rank == 1].head(len(num_of_qual))
 
 
 ```python
-# tabulaciones cruzadas, son básicamente un caso especial de tablas dinámicas
-# Vamos a crear un conjunto de datos rápido
+# Las tabulaciones cruzadas son, básicamente, un caso especial de tablas dinámicas
+# Vamos a crear un conjunto de datos pequeño
 
-data ="""\
-Sample   Animal   Intelligence
-1        Dog     Smart
-2 Dog Smart
-3 Cat Dumb
-4 Cat Dumb
-5 Dog Dumb
-6 Cat Smart"""
+datos ="""\
+Muestra   Animal   Inteligencia
+1        Perro     Listo
+2 Perro Listo
+3 Gato Tonto
+4 Gato Tonto
+5 Perro Tonto
+6 Gato Listo"""
 
-#Store as dframe
-dframe = pd.read_table(StringIO(data),sep='\s+')
+# Se almacena como un dataframe
+dframe = pd.read_table(StringIO(datos),sep='\s+')
 dframe
 ```
 
@@ -2290,64 +2057,51 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Sample</th>
+      <th>Muestra</th>
       <th>Animal</th>
-      <th>Intelligence</th>
+      <th>Inteligencia</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>Dog</td>
-      <td>Smart</td>
+      <td>Perro</td>
+      <td>Listo</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
-      <td>Dog</td>
-      <td>Smart</td>
+      <td>Perro</td>
+      <td>Listo</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
-      <td>Cat</td>
-      <td>Dumb</td>
+      <td>Gato</td>
+      <td>Tonto</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
-      <td>Cat</td>
-      <td>Dumb</td>
+      <td>Gato</td>
+      <td>Tonto</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5</td>
-      <td>Dog</td>
-      <td>Dumb</td>
+      <td>Perro</td>
+      <td>Tonto</td>
     </tr>
     <tr>
       <th>5</th>
       <td>6</td>
-      <td>Cat</td>
-      <td>Smart</td>
+      <td>Gato</td>
+      <td>Listo</td>
     </tr>
   </tbody>
 </table>
@@ -2358,32 +2112,19 @@ dframe
 
 ```python
 # Ahora podemos crear una tabla de tabulación cruzada, que básicamente es solo una tabla de frecuencias
-pd.crosstab(dframe.Animal,dframe.Intelligence,margins=True)
+pd.crosstab(dframe.Animal,dframe.Inteligencia,margins=True)
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>Intelligence</th>
-      <th>Dumb</th>
-      <th>Smart</th>
+      <th>Inteligencia</th>
+      <th>Tonto</th>
+      <th>Listo</th>
       <th>All</th>
     </tr>
     <tr>
@@ -2395,13 +2136,13 @@ pd.crosstab(dframe.Animal,dframe.Intelligence,margins=True)
   </thead>
   <tbody>
     <tr>
-      <th>Cat</th>
+      <th>Gato</th>
       <td>2</td>
       <td>1</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>Dog</th>
+      <th>Perro</th>
       <td>1</td>
       <td>2</td>
       <td>3</td>
@@ -2418,8 +2159,7 @@ pd.crosstab(dframe.Animal,dframe.Intelligence,margins=True)
 
 
 
-## ¡¡¡Felicidades Hemos terminado con el procesamiento de datos!!!
+## ¡¡¡Felicidades, hemos terminado con el procesamiento de datos!!!
 
 
  [**Siguiente Lección**](Lecci%C3%B3n%2009%20-%20Visualizaci%C3%B3n_Datos.md)    
-
