@@ -2,49 +2,49 @@
 
 
 ```python
-# Cargamos las librerias
+# Cargar las librerias
 import numpy as np
 import pandas as pd
 from pandas import Series,DataFrame
 import pymysql
 ```
 
-## Abrir la conección a la base de datos
+## Abrir la conexión a la base de datos
 
 
 ```python
-def connection():
+def conexion():
     try:
-        conn = pymysql.connect(host='JESPINOZAG3',
+        conex = pymysql.connect(host='JESPINOZAG3',
                                port=3306,
                                user='Axity',
                                password='Axity2019',
                                db='sakila')
     finally:
         print("Conexion Exitosa")
-    return conn   
+    return conex   
 ```
 
-## Selección de datos 
+## Selección de datos
 
 
 ```python
-conn = connection()
-    
+conex = conexion()
+
 sql = "select first_name,last_name,email,address_id from customer"
-        
-titles='Nombre Apellido EMAIL ADDRESS_ID'.split()
-        
-df=pd.read_sql(sql,con=conn)
-        
-df.columns = titles
-           
-conn.close()
+
+titulos = 'Nombre Apellido Email Direccion'.split()
+
+df =pd.read_sql(sql, con=conex)
+
+df.columns = titulos
+
+conex.close()
 df.head()
 ```
 
     Conexion Exitosa
-    
+
 
 
 
@@ -69,8 +69,8 @@ df.head()
       <th></th>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th>EMAIL</th>
-      <th>ADDRESS_ID</th>
+      <th>Email</th>
+      <th>Direccion</th>
     </tr>
   </thead>
   <tbody>
@@ -117,18 +117,18 @@ df.head()
 
 
 ```python
-conn = connection()
+conex = conexion()
 sql = "select concat(a.first_name ,' ', a.last_name) as name,a.email,b.address from customer a join address b on a.address_id = b.address_id"
-titles='Nombre EMAIL ADDRESS_ID'.split()
-df=pd.read_sql(sql,con=conn)
-df.columns = titles
-            
-conn.close()
+titulos = 'Nombre Email Direccion'.split()
+df = pd.read_sql(sql, con=conex)
+df.columns = titulos
+
+conex.close()
 df.head()
 ```
 
     Conexion Exitosa
-    
+
 
 
 
@@ -152,8 +152,8 @@ df.head()
     <tr style="text-align: right;">
       <th></th>
       <th>Nombre</th>
-      <th>EMAIL</th>
-      <th>ADDRESS_ID</th>
+      <th>Email</th>
+      <th>Direccion</th>
     </tr>
   </thead>
   <tbody>
@@ -197,20 +197,20 @@ df.head()
 
 
 ```python
-conn = connection()
+conex = conexion()
 nom = 'JA'
 
 sql = "select concat(a.first_name ,' ', a.last_name) as name,a.email,b.address from customer a join address b on a.address_id = b.address_id where first_name like '"+ nom +"%'"
-titles='Nombre EMAIL ADDRESS_ID'.split()
-df=pd.read_sql(sql,con=conn)
-df.columns = titles
-            
-conn.close()
+titulos='Nombre Email Direccion'.split()
+df = pd.read_sql(sql, con=conex)
+df.columns = titulos
+
+conex.close()
 df.head()
 ```
 
     Conexion Exitosa
-    
+
 
 
 
@@ -234,8 +234,8 @@ df.head()
     <tr style="text-align: right;">
       <th></th>
       <th>Nombre</th>
-      <th>EMAIL</th>
-      <th>ADDRESS_ID</th>
+      <th>Email</th>
+      <th>Direccion</th>
     </tr>
   </thead>
   <tbody>
@@ -275,10 +275,10 @@ df.head()
 
 
 
-  
+
  [**Siguiente Lección**](Lecci%C3%B3n%2008%20-%20Procesamiento_Datos.md)    
 
- 
+
 
 ### Reference:
 
