@@ -16,9 +16,13 @@ import numpy as np
 
 ## Carguemos los datos
 
+El conjunto de datos Iris es, probablemente, el mejor conocido dentro de la literatura de reconocimiento de patrones
+Contiene muestras de 3 especies de iris (Iris Setosa, Iris Virginica e Iris Versicolor)
+Las características que se incluyen son la longitud y el ancho de los sépalos y los pétalos en centímetros
+En base a la combinación de estas características, se buscan modelos que permitan diferenciar las especies entre si
 
 ```python
-iris_ = pd.read_csv("../Python_Cursos/data/iris_dataset.csv")
+iris_ = pd.read_csv("data/iris_dataset.csv")
 iris_.head()
 ```
 
@@ -26,19 +30,6 @@ iris_.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -109,19 +100,6 @@ iris.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -201,7 +179,7 @@ sns.violinplot(x = "sepal_length", data=iris)
 
 
 ```python
-# Styles: darkgrid, whitegrid, dark, white, and ticks
+# Estilos: darkgrid, whitegrid, dark, white y ticks
 sns.set_style("whitegrid")
 sns.boxplot("species", "petal_length", data=iris)
 ```
@@ -217,7 +195,7 @@ sns.boxplot("species", "petal_length", data=iris)
 ![png](/images/Seaborn/output_9_1.png)
 
 
-## Grids in Seaborn
+## Grids en Seaborn
 
 
 ```python
@@ -317,7 +295,7 @@ sns.boxplot("species", "petal_length", data=iris)
 
 
 ```python
-# podemos pasarle mas argumentos al set_context() 
+# podemos pasarle mas argumentos a set_context()
 sns.set_context("paper", font_scale=1.8, rc={"font.size":5,"axes.labelsize":1.0})
 sns.boxplot("species", "petal_length", data=iris, palette="husl")
 ```
@@ -508,19 +486,6 @@ iris.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -617,6 +582,10 @@ sns.barplot(x=iris["species"], y=iris["petal_length"], palette="Set2",data=iris,
 
 
 ## Grafico de caja
+El conjunto de datos planets de Seaborn contiene datos planetas que han sido descubiertos alrededor de otras estrellas.
+Algunas de las características que se proporcionan son: periodo orbital, masa, distancia, año de descubrimiento.
+
+
 
 
 ```python
@@ -628,19 +597,6 @@ planets.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -707,6 +663,7 @@ planets.head()
 
 
 ```python
+# Se muestra la relación entre la distancia y las demás características
 sns.set(style="ticks", palette="muted")
 ax = sns.boxplot(x="distance", y="method", data=planets)
 ax.set_xscale("log")
@@ -718,6 +675,7 @@ ax.set_xscale("log")
 
 ## Gráfico de Violin
 
+El conjunto de datos tips contiene información de las propinas dejadas en un restaurante, con información sobre el total de la cuenta, la propina, el sexo de la persona que dejpo la propina, si era fumador, el día en que se produjo, si fue almuerzo o cena, el número de comensales
 
 ```python
 tips = sns.load_dataset('tips')
@@ -728,19 +686,6 @@ tips.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -813,6 +758,7 @@ tips.head()
 
 
 ```python
+# Se muestra la distribución del total de la cuenta, en relación con el momento de la comida (almuerzo o cena)
 sns.set(style="whitegrid")
 sns.violinplot(x="time",y="total_bill", data=tips, palette="rainbow", hue='time')
 ```
@@ -830,6 +776,7 @@ sns.violinplot(x="time",y="total_bill", data=tips, palette="rainbow", hue='time'
 
 
 ```python
+# Se muestra la distribución del total de la cuenta, en relación a el sexo del comensal que dejó la propina y el día de la semana
 sns.violinplot(x="day",y="total_bill", data=tips, palette="rainbow", hue='sex')
 ```
 
@@ -848,6 +795,7 @@ sns.violinplot(x="day",y="total_bill", data=tips, palette="rainbow", hue='sex')
 
 
 ```python
+# Se muestra la distribución del total de la cuenta, en relación al sexo del comensal que dejó la propina y el día de la semana, combinando el sexo en violines divididos
 sns.violinplot(x="day", y="total_bill", hue="sex", data=tips, split=True,inner="quart",
                palette={"Male": "#33FFF8", "Female": "#FDFF33"})
 ```
@@ -881,10 +829,12 @@ sns.pairplot(iris, hue="species", palette='cubehelix')
 ![png](/images/Seaborn/output_47_1.png)
 
 
-### Cat Plot: es la forma general de una trama
-
+### Cat Plot: es la forma general de un grid
+Muestra la relación entre variables numéricas y categóricas
 
 ```python
+# El parámetro kind indica el tipo de gráfica a utilizar
+# Se muestra la distribución del sexo del comensal y el día de la semana, con relación al total de la cuenta
 sns.set(style="ticks")
 g = sns.catplot("day", "total_bill", "sex", data=tips, kind="box", palette='cubehelix')
 g.set_axis_labels("Day", "Total Bill")
@@ -901,11 +851,12 @@ g.set_axis_labels("Day", "Total Bill")
 ![png](/images/Seaborn/output_49_1.png)
 
 
-### FaceGrid
-Se utiliza para dibujar trazados con varios ejes en los que cada eje muestra la misma relación condicionada a diferentes niveles de alguna variable. Es posible condicionar hasta tres variables asignando variables a las filas y columnas de la cuadrícula y usando diferentes colores para los elementos de la trama. El flujo de trabajo básico es inicializar el objeto FacetGrid con el conjunto de datos y las variables que se utilizan para estructurar la cuadrícula. Luego, se pueden aplicar una o más funciones de trazado a cada subconjunto llamando a FacetGrid.map () o FacetGrid.map_dataframe (). Finalmente, la trama se puede ajustar con otros métodos para hacer cosas como cambiar las etiquetas de los ejes, usar diferentes marcas o agregar una leyenda.
+### FacetGrid
+Se utiliza para dibujar trazados con varios ejes, en los que cada eje muestra la misma relación condicionada a diferentes niveles de alguna variable. Es posible condicionar hasta tres variables asignando variables a las filas y columnas de la cuadrícula y usando diferentes colores para los elementos del grid. El flujo de trabajo básico es inicializar el objeto FacetGrid con el conjunto de datos y las variables que se utilizan para estructurar la cuadrícula. Luego, se pueden aplicar una o más funciones de trazado a cada subconjunto llamando a FacetGrid.map () o FacetGrid.map_dataframe (). Finalmente, el grid se puede ajustar con otros métodos, para hacer cosas como cambiar las etiquetas de los ejes, usar diferentes marcas o agregar una leyenda.
 
 
 ```python
+# Se muestra la distribución del total de la cuenta con respecto a si el comensal es fumador y el momento de la comida
 sns.set(style="ticks")
 g = sns.FacetGrid(tips, col="time", row="smoker",height=2)
 ```
@@ -928,6 +879,8 @@ g = g.map(plt.hist, "total_bill", color='red')
 
 
 ```python
+# Se muestra la distribución del total de la cuenta, en relación a si el comensal es fumador
+# Se cambia el tamaño de la gráfica
 g = sns.FacetGrid(tips, col="smoker", col_order=["Yes", "No"], height=4, aspect=1)
 g.map(plt.hist, "total_bill", color="green")
 ```
@@ -947,6 +900,7 @@ g.map(plt.hist, "total_bill", color="green")
 
 
 ```python
+# Se muestra la relación del total de la cuenta con respecto a la propina, identificando el sexo del comensal y el momento de la comida
 kws = dict(s=40, linewidth=.5, edgecolor="w")
 g = sns.FacetGrid(tips, col="sex", hue="time", palette="Set2", hue_order=["Dinner", "Lunch"])
 g = (g.map(plt.scatter, "total_bill", "tip", **kws).add_legend())
@@ -960,6 +914,7 @@ g = (g.map(plt.scatter, "total_bill", "tip", **kws).add_legend())
 
 
 ```python
+# Se muestran los mismos datos, cambiando los marcadores y colores
 palette = dict(Lunch="blue", Dinner="red")
 g = sns.FacetGrid(tips, col="sex", hue="time", palette=palette,
                   hue_order=["Dinner", "Lunch"],
@@ -975,6 +930,8 @@ g = (g.map(plt.scatter, "total_bill", "tip", **kws).add_legend())
 
 
 ```python
+# Se muestra la relación del total de la cuenta con respecto a la propina, identificando el sexo del comensal y si es fumador
+# Se modifican las etiquetas de los ejes
 g = sns.FacetGrid(tips, col="smoker", row="sex")
 g = (g.map(plt.scatter, "total_bill", "tip", color="g", **kws)
      .set_axis_labels("Total bill (USD)", "TIP"))
@@ -1009,7 +966,7 @@ sns.distplot(x, color='red')
 ### Histogramas
 
 
-- Un histograma representa la distribución de datos formando contenedores a lo largo del rango de datos y luego dibujando barras para mostrar el número de observaciones que caen en cada contenedor. También podemos trazar un diagrama de alfombra, que dibuja una pequeña marca vertical en cada observación.
+- Un histograma representa la distribución de datos, formando contenedores a lo largo del rango de datos y luego dibujando barras para mostrar el número de observaciones que caen en cada contenedor. También podemos trazar un diagrama de alfombra, que dibuja una pequeña marca vertical en cada observación.
 
 
 ```python
@@ -1067,6 +1024,7 @@ sns.kdeplot(x, color='orange',shade=True)
 
 ```python
 # Gráficos de barras
+# Se muestra la relación entre las propinas y el total de la cuenta
 sns.set(style="white")
 tips = sns.load_dataset("tips")
 sns.jointplot(x="total_bill", y="tip", data=tips, color='red')
@@ -1088,6 +1046,7 @@ muestra los recuentos de observaciones que se encuentran dentro de los contenedo
 
 
 ```python
+# Se muestra la relación entre las propinas y el total de la cuenta
 sns.jointplot("total_bill", "tip", data=tips, color='green', kind="hex")
 ```
 
@@ -1105,6 +1064,7 @@ sns.jointplot("total_bill", "tip", data=tips, color='green', kind="hex")
 
 ```python
 # kde gráfico 2D
+# Se muestra la relación entre las propinas y el total de la cuenta
 sns.jointplot("total_bill", "tip", data=tips, kind="kde", space=0, color="green")
 ```
 
@@ -1129,19 +1089,6 @@ iris.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1203,6 +1150,7 @@ iris.head()
 
 ```python
 # Gráfico de dispersión
+# Se muestra la relación entre la longitud de los pétalos y los sépalos
 sns.jointplot("petal_length", "sepal_length", data=iris,
                   marginal_kws=dict(bins=15, rug=True),
                   s=40, color='blue', edgecolor="w", linewidth=1,
@@ -1224,6 +1172,8 @@ sns.jointplot("petal_length", "sepal_length", data=iris,
 
 
 ```python
+# Se muestra la relación entre la longitud y ancho de los sépalos
+# Se genera una regresión lineal
 sns.jointplot("sepal_length", "sepal_width", data=iris,color='purple', kind="reg", height=6)
 ```
 
@@ -1282,19 +1232,6 @@ iris.corr()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1342,7 +1279,7 @@ iris.corr()
 
 
 ```python
-# si no se necesita la colorbar cbar=false
+# si no se necesita la barra de color, se define cbar=false
 plt.figure(figsize=(8,6))
 ax = sns.heatmap(iris.corr(), annot=True, linecolor='white',linewidths=.3, fmt='.2f', cbar=True, cmap=(sns.color_palette("Blues")))
 bottom, top = ax.get_ylim()
@@ -1361,7 +1298,7 @@ ax.set_ylim(bottom + 0.5, top - 0.5)
 
 
 ### Conjunto de datos de vuelos:
-
+El conjunto de datos flights contiene información de pasajeros transportados en avión, por mes, entre 1949 y 1960. El número de pasajeros probablemente está en miles, pero no está documentado.
 
 ```python
 flights = sns.load_dataset("flights")
@@ -1372,19 +1309,6 @@ flights.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1433,6 +1357,7 @@ flights.head()
 
 
 ```python
+# Se pivotean los meses a renglones
 f = flights.pivot_table(index='month', columns='year', values='passengers')
 f
 ```
@@ -1441,19 +1366,6 @@ f
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1696,7 +1608,7 @@ sns.clustermap(f,figsize=(8, 10), cmap='coolwarm', linecolor='white', linewidths
 
 
 
-  
+
  [**Ejercicios**](Ejercicios/Seaborn/Seaborn%20Ejercicios.md)    
 
 ## Referencias:
