@@ -27,6 +27,8 @@ def conexion():
 
 ## Selección de datos
 
+La base de datos contiene datos de clientes, entre ellos: nombre, apellido, correo electrónico y el identificador de su dirección.
+
 
 ```python
 conex = conexion()
@@ -104,6 +106,8 @@ df.head()
 
 
 ```python
+# Se importan los datos con una sentencia sql que realiza un join entre dos tablas
+
 conex = conexion()
 sql = "select concat(a.first_name ,' ', a.last_name) as name,a.email,b.address from customer a join address b on a.address_id = b.address_id"
 titulos = 'Nombre Email Direccion'.split()
