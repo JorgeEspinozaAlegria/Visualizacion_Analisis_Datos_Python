@@ -2124,7 +2124,7 @@ df.drop_duplicates(['foo'],'last')
 
 
 ```python
-# Generemos un dataframe
+# Generemos un dataframe de ciudades y su altitud
 dframe = DataFrame({'ciudad':['Alma','Brian Head','Fox Park'],
                     'altitud':[3158,3000,2762]})
 dframe
@@ -2166,7 +2166,7 @@ dframe
 
 
 ```python
-# Se agregará una columna para los estados. Se genera un diccionario
+# Se agregará una columna para los estados a los que corresponden las ciudades. Se genera un diccionario
 estado_dic = {'Alma':'Colorado','Brian Head':'Utah','Fox Park':'Wyoming'}
 estado_dic
 ```
