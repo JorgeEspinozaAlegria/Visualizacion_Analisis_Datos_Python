@@ -956,7 +956,7 @@ ax.legend(loc='best')
 
 
 
-### References:
+### Referencias:
 - http://www.matplotlib.org
 - https://matplotlib.org/users/screenshots.html#simple-plot
 - https://matplotlib.org/users/recipes.html#sharing-axis-limits-and-views
