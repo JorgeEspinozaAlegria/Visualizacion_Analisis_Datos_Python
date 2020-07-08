@@ -2,7 +2,7 @@
 
 ## MATPLOTLIB
 
-### Instalación: 
+### Instalación:
 
 - conda install matplotlib
 - pip install matplotlib
@@ -16,8 +16,8 @@ import numpy as np
 
 ### Gráfico Básico:
 
-
 ```python
+# Se grafican las curvas del seno y coseno, entre -pi y pi
 X = np.linspace(-np.pi, np.pi, 300, endpoint=True)
 s,c = np.sin(X), np.cos(X)
 plt.figure(figsize=(4,4))
@@ -30,10 +30,11 @@ plt.show()
 ![png](images/Matplotlib/output_5_0.png)
 
 
-### Estableciendo límite:
+### Estableciendo límites:
 
 
 ```python
+# Se definen los límites de los ejes
 plt.xlim(X.min()*1.2, X.max()*1.2)
 plt.ylim(c.min()*1.1, c.max()*1.1)
 plt.plot(X,s,color="red", linewidth=2, linestyle="--")
@@ -49,6 +50,8 @@ plt.show()
 
 
 ```python
+# Se cambian las etiquetas, para mostrar los valores de pi en el eje de las x y
+# cambiar los intervalos en el eje de las y
 plt.xticks( [-np.pi, -np.pi/2, -np.pi/4, 0, np.pi/4, np.pi/2, np.pi])
 plt.yticks([-1, -0.5, 0, 0.5, +1])
 plt.plot(X,s,color="red", linewidth=2, linestyle="--")
@@ -60,10 +63,11 @@ plt.show()
 ![png](images/Matplotlib/output_9_0.png)
 
 
-### Configurando mascaras a las etiquetas:
+### Configurando mascaras para las etiquetas:
 
 
 ```python
+# Se cambian las etiquetas en el eje de las x, para mostrar el símbolo de pi
 plt.xticks([-np.pi, -np.pi/2, -np.pi/4, 0, np.pi/4, np.pi/2, np.pi],
        [r'$-\pi$', r'$-\pi/2$', r'$-\pi/4$',r'$0$', r'$-\pi/4$',r'$+\pi/2$', r'$+\pi$'])
 plt.plot(X,s,color="red", linewidth=2, linestyle="--")
@@ -79,6 +83,7 @@ plt.show()
 
 
 ```python
+# Se agregan leyendas para identificar a que corresponde cada curva
 plt.plot(X, c, color="blue", linewidth=2, linestyle="--", label="Cosine")
 plt.plot(X, s, color="red",  linewidth=1.5, linestyle="-", label="Sine")
 
@@ -98,8 +103,8 @@ plt.legend(loc='best',frameon=True)
 
 ### Dibujando Áreas Acumulativas:
 
-
 ```python
+# Se llenan las áreas que se encuentran entre dos curvas
 plt.fill_between(X, 0, c, c > 0, color='blue', alpha=.25)
 plt.fill_between(X, -1, s, s < 0, color='red',  alpha=.25)
 ```
@@ -119,6 +124,7 @@ plt.fill_between(X, -1, s, s < 0, color='red',  alpha=.25)
 
 
 ```python
+# Se agregan gráficas adicionales
 x1 = np.linspace(0,5,20)
 y1 = x1** - x1
 plt.subplot(1,2,1)
@@ -172,6 +178,7 @@ axes[2].set_title("Polynomial Functions")
 
 
 ```python
+# Se agregan textos a las gráficas
 axes[2].text(3, 5, r"$y=2x+0.5$", fontsize=15, color="blue")
 axes[2].text(2.5, 10, r"$y=x^2$", fontsize=15, color="green")
 fig
@@ -188,12 +195,12 @@ fig
 
 
 ```python
-fig.savefig('../Python_Cursos/data/savefig.png',dpi=600)
+fig.savefig('data/savefig.png',dpi=600)
 ```
 
 ### Insertar imagenes:
 
-- Una imagen en color se puede representar como una matriz N x M x 3 correspondiente a N filas, M columnas y 3 canales o colores para el rojo, verde y azul en la representación RGB. También podría ser de 4 canales debido al canal de transparencia alfa con una notación N x M x 4.
+- Una imagen en color se puede representar como una matriz N x M x 3 correspondiente a N filas, M columnas y 3 canales o colores para el rojo, verde y azul en la representación RGB. También podría ser de 4 canales, debido al canal de transparencia  con una notación N x M x 4.
 
 
 ```python
@@ -202,7 +209,7 @@ import matplotlib.image as mpimg
 
 
 ```python
-img=mpimg.imread('../Python_Cursos/data/savefig.png')
+img=mpimg.imread('data/savefig.png')
 img.shape
 ```
 
@@ -215,7 +222,7 @@ img.shape
 
 
 ```python
-# imshow: Mostrando la imagen
+# Mostrando la imagen con imshow
 plt.imshow(img)
 plt.colorbar()
 ```
@@ -244,10 +251,16 @@ import pandas as pd
 
 ### Cargemos los datos
 dataset: https://www.kaggle.com/shivachandel/kc-house-data
+Este conjunto de datos es otro de los más conocidos dentro de la comunidad de Machine Learning.
+El conjunto original (Boston Housing) contiene los precios y las características de varias casas ubicadas en Boston, recolectadas por el Censo de EEUU.
+Esta variante contiene datos históricos de casas del Condado King (en Washington), que fueron vendidas entre mayo de 2014 y 2015.
+En base a la combinación de las características, se buscan modelos que permitan predecir el precio de una casa.
+Algunas de las características son: número de habitaciones, número de baños, pies cuadrados construidos, pies cuadrados totales, número de pisos, código postal.
 
 
 ```python
-data = pd.read_csv('../Python_Cursos/data/kc_house_data.csv')
+# Se cargan los datos a partir del archivo y se crea un dataframe con una muestra de 100 casas
+data = pd.read_csv('data/kc_house_data.csv')
 df = data.sample(100)
 df.head()
 ```
@@ -256,19 +269,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -426,6 +426,7 @@ df.head()
 
 
 ```python
+# Se crean dataframes con los pies cuadrados construidos y el precio
 x = df['sqft_living']
 y = df['price']
 ```
@@ -434,6 +435,7 @@ y = df['price']
 
 
 ```python
+# Se grafican los pies cuadrados vs el precio
 fig, ax = plt.subplots(figsize=(10,6))
 ax.scatter(x, y, color='green')
 ```
@@ -504,7 +506,7 @@ fig
 
 
 ```python
-# Cambiando el color, marker, size and transparency
+# Cambiando el color, marcador, tamaño y transparencia
 ax.scatter(x, y, s=200, marker='+', color='#FF5733', alpha=0.8)
 fig
 ```
@@ -532,7 +534,7 @@ fig
 
 
 ```python
-# aplicando mapas de colores
+# Aplicando mapas de colores
 ax.scatter(x, y, s=300, c=y, marker='+', cmap='Greens', alpha=0.8)
 fig
 ```
@@ -560,6 +562,7 @@ fig
 
 
 ```python
+# Se obtiene la correlación entre los pies cuadrados y el precio
 np.corrcoef(x, y)
 ```
 
@@ -587,6 +590,7 @@ corr_
 
 
 ```python
+# Se utiliza el valor de la correlación como leyenda
 ax.scatter(x, y, s=300, marker='o', color='black', alpha=0.5, label=f'Correlation: {corr_}')
 ax.legend(fancybox=True, prop={'size': 14}, loc='best')
 ax.scatter(x, y, color='w')
@@ -606,6 +610,7 @@ fig
 
 
 ```python
+# Se grafica y = x^2
 x = np.linspace(-5,5,20)
 y = x**2
 plt.scatter(x,y, s=200, color='yellow',marker='.',edgecolors='black')
@@ -626,6 +631,7 @@ plt.scatter(x,y, s=200, color='yellow',marker='.',edgecolors='black')
 
 
 ```python
+# Se crean 4 clases con diferentes valores para mostrar una gráfica de barras
 classes = ['C1', 'C2', 'C3', 'C4']
 colors  = ['#FF5733', '#3533FF', '#33FF5D', '#FDFF33']
 numerical = [[10, 15, 5, 7],
@@ -633,13 +639,13 @@ numerical = [[10, 15, 5, 7],
              [4, 15, 8, 10],
              [7, 6, 13, 8]]
 
-number_groups = len(classes) 
+number_groups = len(classes)
 bin_width = 0.2
 
 fig, ax = plt.subplots(figsize=(8,6))
 
 for i in range(number_groups):
-    ax.bar(x=np.arange(len(classes)) + i*bin_width, 
+    ax.bar(x=np.arange(len(classes)) + i*bin_width,
            height=numerical[i],
            width=bin_width,
            color=colors[i],
@@ -665,6 +671,7 @@ ax.legend(classes, facecolor='w', loc='best')
 
 
 ```python
+# Se genera una muestra de 50 valores para graficar un histograma
 x = np.random.sample(50)
 n, bins, patches = plt.hist(x, bins=20, facecolor='orange', alpha=0.7, density=True)
 plt.setp(patches[3], 'facecolor', 'b')
@@ -681,14 +688,15 @@ plt.grid(color='grey', linestyle='-', linewidth=0.25, alpha=0.5)
 
 
 ```python
-# Pie chart, where the slices are ordered and plotted counter-clockwise:
+# Gráfica de pay, en la que las rebanadas se encuentran ordenadas por su valor
+# y se presentan en sentido contrario a las manecillas del reloj
 labels = 'Segment 1', 'Segment 2', 'Segment 3', 'Segment 4'
-sizes = [30, 35, 25, 10]  # percentages, the sum of all of them must to be 100%
-explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Segment 2')
+sizes = [30, 35, 25, 10]  # porcentajes, la suma debe ser 100%
+explode = (0, 0.1, 0, 0)  # solo separar la segunda rebanada (i.e. 'Segment 2')
 
 fig, ax = plt.subplots()
 ax.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
-ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax.axis('equal')  # el parámetro 'equal' asegura que el pay se dibuje como un círculo
 ```
 
 
@@ -705,16 +713,16 @@ ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 ![png](images/Matplotlib/output_55_1.png)
 
 
-### Cajas
+### Cajas (Box plots)
 
 * Q3: Este es el valor del percentil 75 (bisagra superior) de los datos.
-* Q3: Este es el valor del percentil 25 (bisagra inferior) de los datos.
+* Q1: Este es el valor del percentil 25 (bisagra inferior) de los datos.
 * Caja: es una diferencia entre la bisagra superior y la bisagra inferior.
 * Mediana: este es el punto medio de los datos.
-* Max: esta es la valla interior superior. Es 1,5 veces el paso anterior a Q3.
-* Min: esta es la valla interior inferior. Es 1,5 veces el paso por debajo de Q1.
+* Max: esta es la valla interior superior. Es 1.5 veces el paso anterior a Q3.
+* Min: esta es la valla interior inferior. Es 1.5 veces el paso por debajo de Q1.
 * Cualquier valor que sea mayor que Max o menor que Min se llama un valor atípico.
-* aproximadamente el 95% o se espera que los datos se encuentren entre las cercas internas
+* Se espera que aproximadamente el 95% de los datos se encuentren entre las vallas internas
 
 
 ```python
@@ -759,7 +767,7 @@ plt.boxplot(data,notch=True, vert=True, patch_artist=True)
 
 
 ### Violin
-
+Crea una gráfica de "violín" para cada columna del conjunt de datos. Las áreas sombreadas representan el rango completo de datos, con líneas opcionales en la media, la mediana, el mpinimo, el máximo y las cantidades que se especifiquen.
 
 ```python
 plt.figure(figsize=(9,4))
@@ -925,7 +933,7 @@ z = np.linspace(-3, 3, 100)
 r = z**2 + 1
 x = r * np.sin(v)
 y = r * np.cos(v)
- 
+
 ax.plot(x, y, z, label='3D curve')
 ax.legend(loc='best')
 ```
@@ -940,7 +948,7 @@ ax.legend(loc='best')
 
 ![png](images/Matplotlib/output_72_1.png)
 
-   
+
  [**Ejercicios**](Ejercicios/Matplotlib/Matplotlib%20Ejercicios.md)    
 
 
