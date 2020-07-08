@@ -10,13 +10,13 @@ from pandas import Series,DataFrame
 
 ## Importar datos desde archivos CSV y txt
 
+El conjunto de datos Iris es, probablemente, el mejor conocido dentro de la literatura de reconocimiento de patrones
+Contiene muestras de 3 especies de iris (Iris Setosa, Iris Virginica e Iris Versicolor)
+Las características que se incluyen son la longitud y el ancho de los sépalos y los pétalos en centímetros
+En base a la combinación de estas características, se buscan modelos que permitan diferenciar las especies entre si
+
 
 ```python
-# El conjunto de datos Iris es, probablemente, el mejor conocido dentro de la literatura de reconocimiento de patrones
-# Contiene muestras de 3 especies de iris (Iris Setosa, Iris Virginica e Iris Versicolor)
-# Las características que se incluyen son la longitud y el ancho de los sépalos y los pétalos en centímetros
-# En base a la combinación de estas características, se buscan modelos que permitan diferenciar las especies entre si
-
 # Leer un archivo csv
 dframe = pd.read_csv('data/iris_dataset.csv')
 dframe
@@ -996,6 +996,8 @@ json_obj = """
 """
 ```
 
+Esta estructura json contiene los datos de un animal del zoológico, en el que se se especifican sus características.
+
 
 ```python
 type(json_obj)
@@ -1093,8 +1095,10 @@ dframe
 
 
 ```python
+# Generemos un diccionario y un dataframe a partir de él
+# Por defecto, las llaves del diccionario serán consideradas columnas del dataframe
 datos1 = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', 'd']}
-DataFrame.from_dict(datos1)
+pd.DataFrame.from_dict(datos1)
 ```
 
 
@@ -1138,22 +1142,90 @@ DataFrame.from_dict(datos1)
 
 
 ```python
+# Generemos otro diccionario y un dataframe a partir de él
+# En este caso, indicamos que las llaves se consideren como renglones del dataframe
 datos = {'ren_1': [3, 2, 1, 0], 'ren_2': ['a', 'b', 'c', 'd']}
 pd.DataFrame.from_dict(datos, orient='index')
 ```
 
 
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ren_1</th>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ren_2</th>
+      <td>a</td>
+      <td>b</td>
+      <td>c</td>
+      <td>d</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ```python
+# Generemos otro diccionario y un dataframe a partir de él
+# En este caso, indicamos que las llaves se consideren como renglones del dataframe y las etiquetas para las columnas
 pd.DataFrame.from_dict(datos, orient='index',
                        columns=['A', 'B', 'C', 'D'])
 ```
 
-### Archivos JSON
 
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ren_1</th>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ren_2</th>
+      <td>a</td>
+      <td>b</td>
+      <td>c</td>
+      <td>d</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+### Archivos JSON
 
 ```python
 import json
 
+# Se importa un archivo json que contiene datos de un escuadrón de heroes, con sus características y sus integrantes
 with open('data/ejemplo_JSON.json') as f:
   datos = json.load(f)
 
@@ -1165,6 +1237,7 @@ print(datos)
 
 
 ```python
+# Se muestran los miembros en un dataframe
 dframe = DataFrame(datos['members'])
 dframe
 ```
@@ -1213,6 +1286,7 @@ dframe
 
 
 ```python
+# Se importa un archivo json que contiene datos de clientes y sus características
 with open('data/data.json') as f:
   datos = json.load(f)
 print(datos)
@@ -1223,6 +1297,7 @@ print(datos)
 
 
 ```python
+# Se muestran los clientes en un dataframe
 dframe = DataFrame(datos['clients'])
 dframe
 ```
@@ -1275,6 +1350,8 @@ dframe
 ```python
 # Instalar la libreria request con la instrucción conda install requests
 import requests
+
+# Se importan los datos a partir de la API de geolocalización de IPs
 resp = requests.get('http://ip-api.com/json/208.80.152.201')
 dict_train = json.loads(resp.content)
 dict_train
@@ -1302,6 +1379,7 @@ dict_train
 
 
 ```python
+# Se convierte el diccionario en un dataframe
 train = pd.DataFrame.from_dict(dict_train, orient='index')
 train.reset_index(level=0, inplace=True)
 train
@@ -1400,7 +1478,7 @@ train
 
 
 ```python
-# Generar un diccionario de datos
+# Se genera un diccionario con datos de clientes
 datos = {}
 datos['clients'] = []
 datos['clients'].append({
@@ -1419,7 +1497,7 @@ datos['clients'].append({
      'age': 36,
      'amount': 1.11})
 
-# Crear el archivo JSON con el diccionario anterior
+# Se creaa el archivo JSON con el diccionario anterior
 with open('data/data.json', 'w') as archivo:
     json.dump(datos, archivo, indent=4)
 ```
@@ -1433,7 +1511,7 @@ from pandas import read_html
 import lxml
 import  html5lib
 
-# Se toma una url para la lista de los bancos en quiebra
+# Se toma una url para la lista de los bancos de EEUU que están en quiebra
 url = 'http://www.fdic.gov/bank/individual/failed/banklist.html'
 ```
 
@@ -1608,6 +1686,7 @@ dframe
 
 
 ```python
+# Se despliegan los valores de las columnas
 dframe.columns.values
 ```
 
