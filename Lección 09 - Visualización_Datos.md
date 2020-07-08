@@ -251,9 +251,12 @@ import pandas as pd
 
 ### Cargemos los datos
 dataset: https://www.kaggle.com/shivachandel/kc-house-data
+
 Este conjunto de datos es otro de los más conocidos dentro de la comunidad de Machine Learning.
 El conjunto original (Boston Housing) contiene los precios y las características de varias casas ubicadas en Boston, recolectadas por el Censo de EEUU.
+
 Esta variante contiene datos históricos de casas del Condado King (en Washington), que fueron vendidas entre mayo de 2014 y 2015.
+
 En base a la combinación de las características, se buscan modelos que permitan predecir el precio de una casa.
 Algunas de las características son: número de habitaciones, número de baños, pies cuadrados construidos, pies cuadrados totales, número de pisos, código postal.
 
