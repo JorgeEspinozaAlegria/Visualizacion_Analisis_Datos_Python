@@ -644,7 +644,7 @@ pd.merge(df_izq,df_der, on='llave1',suffixes=('_izq','_der'))
 
 
 ```python
-# Definamos dos dataframes
+# Generemos dos dataframes
 df = pd.DataFrame({'llave': ['K0', 'K1', 'K2', 'K3', 'K4', 'K5'],
                    'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})
 df1 = pd.DataFrame({'llave': ['K0', 'K1', 'K2'],
@@ -855,7 +855,7 @@ Veamos ahora como funciona con Pandas
 ser1 = Series([0,1,2],index=['T','U','V'])
 ser2 = Series([3,4],index=['X','Y'])
 
-# Usemos concat; por default realiza la concatenación sobre los renglones
+# Usemos concat, por default realiza la concatenación sobre los renglones
 pd.concat([ser1,ser2])
 ```
 
@@ -1688,7 +1688,7 @@ dframe.unstack().stack(dropna=False)
 
 
 ```python
-# Generemos un dataframe simple como ejemplo
+# Generemos un dataframe
 df = pd.DataFrame({'foo': ['uno', 'uno', 'uno', 'dos', 'dos','dos'],
                    'bar': ['A', 'B', 'C', 'A', 'B', 'C'],
                    'baz': [1, 2, 3, 4, 5, 6],
@@ -1995,13 +1995,13 @@ df.drop_duplicates()
 
 
 ```python
-#You can filter which duplicates to drop by a single column
+#Se pueden filtrar los duplicados a eliminar dentro de una columna
 df.drop_duplicates(['bar'])
 ```
 
 
 ```python
-# Por default el valor es 'first' y toma el primer valor, pero podemos modificarlo con 'last'
+# Por default, el valor es 'first' y toma el primer valor, pero podemos modificarlo con 'last'
 df.drop_duplicates(['foo'],'last')
 ```
 
@@ -2009,9 +2009,9 @@ df.drop_duplicates(['foo'],'last')
 
 
 ```python
-# generemos el dataframe para ejemplificar
-dframe = DataFrame({'city':['Alma','Brian Head','Fox Park'],
-                    'altitude':[3158,3000,2762]})
+# Generemos un dataframe
+dframe = DataFrame({'ciudad':['Alma','Brian Head','Fox Park'],
+                    'altitud':[3158,3000,2762]})
 dframe
 ```
 
@@ -2019,25 +2019,12 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>city</th>
-      <th>altitude</th>
+      <th>ciudad</th>
+      <th>altitud</th>
     </tr>
   </thead>
   <tbody>
@@ -2064,9 +2051,9 @@ dframe
 
 
 ```python
-# Se necesita agregar una columna para los estados.
-state_map={'Alma':'Colorado','Brian Head':'Utah','Fox Park':'Wyoming'}
-state_map
+# Se agregará una columna para los estados. Se genera un diccionario
+estado_dic = {'Alma':'Colorado','Brian Head':'Utah','Fox Park':'Wyoming'}
+estado_dic
 ```
 
 
@@ -2079,7 +2066,7 @@ state_map
 
 ```python
 # Ahora utilicemos la función "map" para mapear los datos del diccionario con el dataframe
-dframe['state'] = dframe['city'].map(state_map)
+dframe['estado'] = dframe['ciudad'].map(estado_dic)
 dframe
 ```
 
@@ -2087,26 +2074,13 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>city</th>
-      <th>altitude</th>
-      <th>state</th>
+      <th>ciudad</th>
+      <th>altitud</th>
+      <th>estado</th>
     </tr>
   </thead>
   <tbody>
@@ -2134,14 +2108,14 @@ dframe
 
 
 
-El mapeo es una excelente forma de hacer transformación de elementos y otras operaciones de limpieza de datos¡¡
+El mapeo es una excelente forma de hacer transformación de elementos y otras operaciones de limpieza de datos
 
 ## Reemplazar datos
 
 
 ```python
-# Iniciemos sobre las series
-ser1 = Series([1,2,3,4,1,2,3,4])
+# Iniciemos con una serie
+ser1 = Series([1, 2, 3, 4, 1, 2, 3, 4])
 ser1
 ```
 
@@ -2183,7 +2157,7 @@ ser1.replace(1,np.nan)
 
 
 ```python
-# podemos poner reemplazar con una lista
+# Podemos reemplazar usando una lista
 ser1.replace([1,4],[100,400])
 ```
 
@@ -2204,7 +2178,7 @@ ser1.replace([1,4],[100,400])
 
 
 ```python
-#tambien con diccionario
+#Tambien podemos reemplazar usando un diccionario
 ser1.replace({4:np.nan})
 ```
 
@@ -2236,19 +2210,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2305,19 +2266,6 @@ df.replace(5, 7)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2366,7 +2314,7 @@ df.replace(5, 7)
 
 
 ```python
-# Reemplazar con lista
+# Reemplazar usando una lista
 df.replace([0, 1, 2, 3], 4)
 ```
 
@@ -2374,19 +2322,6 @@ df.replace([0, 1, 2, 3], 4)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2442,19 +2377,6 @@ df.replace([0, 1, 2, 3], [4, 3, 2, 1])
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2503,7 +2425,7 @@ df.replace([0, 1, 2, 3], [4, 3, 2, 1])
 
 
 ```python
-# Reemplazar con diccionarios
+# Reemplazar usando un diccionario
 df.replace({0: 10, 1: 100})
 ```
 
@@ -2511,19 +2433,6 @@ df.replace({0: 10, 1: 100})
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2580,19 +2489,6 @@ df.replace({'A': 0, 'B': 5}, 100)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2648,19 +2544,6 @@ df.replace({'A': {0: 100, 4: 400}})
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2711,7 +2594,7 @@ df.replace({'A': {0: 100, 4: 400}})
 
 
 ```python
-# Generemos un dataframe para ejemplificar
+# Generemos un dataframe
 
 dframe= DataFrame(np.arange(12).reshape((3, 4)),
                  index=['NY', 'LA', 'SF'],
@@ -2723,19 +2606,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2785,19 +2655,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2838,6 +2695,7 @@ dframe
 
 
 ```python
+# Si se necesita renombrar indices
 dframe.rename(index={'ny': 'NEW YORK'},
             columns={'A': 'ALPHA', 'B': 'BETA'})
 ```
@@ -2846,19 +2704,6 @@ dframe.rename(index={'ny': 'NEW YORK'},
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2899,7 +2744,7 @@ dframe.rename(index={'ny': 'NEW YORK'},
 
 
 ```python
-# si se requiere persitir las modificaciones se utiliza inplace=True
+# si se requiere persistir las modificaciones, se utiliza inplace=True
 dframe.rename(index={'ny': 'NEW YORK'}, inplace=True)
 dframe
 ```
@@ -2908,19 +2753,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2963,12 +2795,12 @@ dframe
 
 
 ```python
-# Veamos como encontrar valores atípicos en un dataset
+# Veamos como encontrar valores atípicos en un conjunto de datos
 
-# Primero sembremos una semilla para generar los números aleatorios
+# Primero sembremos una semilla, para generar los números aleatorios
 np.random.seed(12345)
 
-# Ahora vreemos el dataframe
+# Ahora generemos el dataframe
 dframe = DataFrame(np.random.randn(1000,4))
 dframe.head()
 ```
@@ -2977,19 +2809,6 @@ dframe.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3044,7 +2863,7 @@ dframe.head()
 
 
 ```python
-# Para sacar estaíisticos básicos
+# Para obtener datos estadísticos básicos
 dframe.describe()
 ```
 
@@ -3052,19 +2871,6 @@ dframe.describe()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3146,7 +2952,7 @@ col = dframe[0]
 
 
 ```python
-# Ahora verifiquemos cuales valores son mayores a 3
+# Verifiquemos cuales valores son mayores a 3
 col[np.abs(col)>3]
 ```
 
@@ -3161,7 +2967,7 @@ col[np.abs(col)>3]
 
 
 ```python
-# Ahora usemos el metodo "any" para hacer el análisis sobre todas las columnas
+# Usemos el metodo "any" para hacer el análisis sobre todas las columnas
 dframe[(np.abs(dframe)>3).any(1)]
 ```
 
@@ -3169,19 +2975,6 @@ dframe[(np.abs(dframe)>3).any(1)]
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3278,13 +3071,17 @@ dframe[(np.abs(dframe)>3).any(1)]
 
 
 ```python
-# Podríamos limitar los datos a 3 Sign -1 - <0 , 0 x=0, 1 x>0
+# Podríamos limitar los datos, para que no tengan valores mayores a 3, usando la función sign
+# Si el valor <0, sign regresa -1
+# Si el valor =0, sign regresa 0
+# Si el valor >0, sign regresa 1
 
 dframe[np.abs(dframe)>3] = np.sign(dframe) *3
 ```
 
 
 ```python
+# Si revisamos de nuevo las estadísticas, veremos que los valores máximos y mínimos no son mayores a 3
 dframe.describe()
 ```
 
@@ -3292,19 +3089,6 @@ dframe.describe()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3382,38 +3166,38 @@ dframe.describe()
 
 
 ```python
-# Veamos como podemos reordenar una serie o las filas en un dataframe
+# Veamos como podemos reordenar una serie o los renglones en un dataframe
+
 # Generemos un dataframe
 dframe = DataFrame(np.arange(4 * 4).reshape((4, 4)))
 print(dframe)
-# Generemos un arreglo con reordenamientos aleatorios de 0,1,2,3
-blender = np.random.permutation(4)
-print(blender)
 ```
 
 
+        0   1   2   3
+    0   0   1   2   3
+    1   4   5   6   7
+    2   8   9  10  11
+    3  12  13  14  15
+
+
 ```python
-# Ahora reordenemos los datos en base a blender
-dframe.take(blender)
+# Generemos un arreglo con reordenamientos aleatorios de 0,1,2,3
+mezcla = np.random.permutation(4)
+print(mezcla)
+```
+
+[1 3 0 2]
+
+```python
+# Ahora reordenemos los datos en base a la mezcla
+dframe.take(mezcla)
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
