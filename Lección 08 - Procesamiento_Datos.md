@@ -1988,10 +1988,60 @@ df.duplicated()
 ```
 
 
+    0    False
+    1     True
+    2    False
+    3    False
+    4    False
+    dtype: bool
+
+
 ```python
 # Se eliminan los duplicados con la función "drop duplicates"
 df.drop_duplicates()
 ```
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>foo</th>
+      <th>bar</th>
+      <th>baz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>uno</td>
+      <td>A</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>dos</td>
+      <td>B</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>dos</td>
+      <td>C</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>dos</td>
+      <td>C</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ```python
@@ -2000,10 +2050,75 @@ df.drop_duplicates(['bar'])
 ```
 
 
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>foo</th>
+      <th>bar</th>
+      <th>baz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>uno</td>
+      <td>A</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>dos</td>
+      <td>B</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>dos</td>
+      <td>C</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ```python
 # Por default, el valor es 'first' y toma el primer valor, pero podemos modificarlo con 'last'
 df.drop_duplicates(['foo'],'last')
 ```
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>foo</th>
+      <th>bar</th>
+      <th>baz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>uno</td>
+      <td>A</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>dos</td>
+      <td>C</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Mapeo
 
