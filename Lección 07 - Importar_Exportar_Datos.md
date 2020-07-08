@@ -12,6 +12,11 @@ from pandas import Series,DataFrame
 
 
 ```python
+# El conjunto de datos Iris es, probablemente, el mejor conocido dentro de la literatura de reconocimiento de patrones
+# Contiene muestras de 3 especies de iris (Iris Setosa, Iris Virginica e Iris Versicolor)
+# Las características que se incluyen son la longitud y el ancho de los sépalos y los pétalos en centímetros
+# En base a la combinación de estas características, se buscan modelos que permitan diferenciar las especies entre si
+
 # Leer un archivo csv
 dframe = pd.read_csv('data/iris_dataset.csv')
 dframe
