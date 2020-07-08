@@ -1718,13 +1718,13 @@ df.pivot(index='foo', columns='bar', values='baz')
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>foo</th>
+      <th>bar</th>
       <th>A</th>
       <th>B</th>
       <th>C</th>
     </tr>
     <tr>
-      <th>bar</th>
+      <th>foo</th>
       <th></th>
       <th></th>
       <th></th>
