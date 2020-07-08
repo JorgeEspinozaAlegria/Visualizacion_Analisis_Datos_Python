@@ -249,7 +249,7 @@ import pandas as pd
 %matplotlib inline
 ```
 
-### Cargemos los datos
+### Carguemos los datos
 dataset: https://www.kaggle.com/shivachandel/kc-house-data
 
 Este conjunto de datos es otro de los más conocidos dentro de la comunidad de Machine Learning.
@@ -691,7 +691,7 @@ plt.grid(color='grey', linestyle='-', linewidth=0.25, alpha=0.5)
 
 
 ```python
-# Gráfica de pay, en la que las rebanadas se encuentran ordenadas por su valor
+# Gráfica de pastel, en la que las rebanadas se encuentran ordenadas por su valor
 # y se presentan en sentido contrario a las manecillas del reloj
 labels = 'Segment 1', 'Segment 2', 'Segment 3', 'Segment 4'
 sizes = [30, 35, 25, 10]  # porcentajes, la suma debe ser 100%
@@ -699,7 +699,7 @@ explode = (0, 0.1, 0, 0)  # solo separar la segunda rebanada (i.e. 'Segment 2')
 
 fig, ax = plt.subplots()
 ax.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
-ax.axis('equal')  # el parámetro 'equal' asegura que el pay se dibuje como un círculo
+ax.axis('equal')  # el parámetro 'equal' asegura que el pastel se dibuje como un círculo
 ```
 
 
