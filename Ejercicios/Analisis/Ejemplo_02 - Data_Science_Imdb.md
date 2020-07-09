@@ -306,7 +306,6 @@ El conjunto de datos contiene información de varias películas, cuyas caracter�
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Variable</th>
       <th>Definición</th>
       <th>Valores</th>
     </tr>
