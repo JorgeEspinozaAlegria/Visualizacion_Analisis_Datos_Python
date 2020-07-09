@@ -350,7 +350,7 @@ mat
 
 
 
-# Buen trabajo¡¡
+# ¡¡Buen trabajo¡¡
 
 
 [**Ejercicios Resueltos**](Numpy%20Ejercicios%20-%20Soluci%C3%B3n.md)    
