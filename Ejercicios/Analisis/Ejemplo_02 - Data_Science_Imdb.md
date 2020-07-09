@@ -1,7 +1,9 @@
-# Ejemplo 2 - Data Science on Internet Movie Database (IMDb)
+# Ejemplo 2 - Data Science en Internet Movie Database (IMDb)
 
+IMDb es una base de datos en línea que contiene información de películas, programas de televisión, videos caseros, videojuegos y contenido de streaming en línea. Incluye elencos, equipos de producción, biografías personales, resumen de argumentos, trivia, calificaciones y comentarios de fans y críticos
 
 ```python
+# Importemos las librerías que vamos a utilizar
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -14,7 +16,8 @@ import matplotlib.pyplot as plt
 
 
 ```python
-df = pd.read_csv('d:/Python_Cursos/data/IMDB.csv', encoding='utf-8')
+# Carguemos los datos y visualicemos sus características
+df = pd.read_csv('../../data/IMDB.csv', encoding='utf-8')
 df.head()
 ```
 
@@ -22,19 +25,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -150,19 +140,6 @@ df.describe()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -263,19 +240,6 @@ df.describe(include=['O'])
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -334,14 +298,97 @@ df.describe(include=['O'])
 </table>
 </div>
 
+El conjunto de datos contiene información de varias películas, cuyas características son:
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Variable</th>
+      <th>Definición</th>
+      <th>Valores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>color</th>
+      <td>Si la película es a color</td>
+      <td>Null = No, Color = Si</td>
+    </tr>
+    <tr>
+      <th>director_name</th>
+      <td>Nombre del director</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>duration</th>
+      <td>Duración en minutos</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>gross</th>
+      <td>Ingreso bruto</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>genres</th>
+      <td>Géneros separados por |</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>movie_title</th>
+      <td>Título de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>title_tear</th>
+      <td>Año de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>language</th>
+      <td>Lenguaje de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>country</th>
+      <td>País de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>budget</th>
+      <td>Presupuesto de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>imdb_score</th>
+      <td>Calificación de la película en IMDb</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>actores</th>
+      <td>Lista de los 3 principales actores</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>movie_facebook_likes</th>
+      <td>Número de likes en Facebook</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 ## Limpieza de datos
 
-### Exploring Data
+### Exploración de los datos
 
 
 ```python
+# Revisemos si hay datos nulos
 df.isnull().values.any()
 ```
 
@@ -354,6 +401,7 @@ df.isnull().values.any()
 
 
 ```python
+# Revisemos en que columnas hay datos nulos
 df.isnull().any()
 ```
 
@@ -379,6 +427,7 @@ df.isnull().any()
 
 
 ```python
+# Obtengamos el número de datos nulos por columna
 df.isnull().sum()
 ```
 
@@ -406,6 +455,7 @@ df.isnull().sum()
 
 
 ```python
+# Eliminemos las columnas cuya información no es relevante para el análisis
 df.drop(['color','language'], axis=1, inplace=True)
 df.head()
 ```
@@ -414,19 +464,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -525,6 +562,7 @@ df.head()
 
 
 ```python
+# Sustituyamos los datos categóricos nulos
 df['director_name'].fillna('', inplace=True)
 ```
 
@@ -532,6 +570,7 @@ df['director_name'].fillna('', inplace=True)
 
 
 ```python
+# Sustituyamos los datos numéricos nulos
 df['gross'].fillna(0, inplace=True)
 df['budget'].fillna(0, inplace=True)
 ```
@@ -540,6 +579,7 @@ df['budget'].fillna(0, inplace=True)
 
 
 ```python
+# Unifiquemos los nombres de los países, convirtiéndolos a mayusculas y la codificación de USA
 df['country']=df['country'].str.upper()
 df['country'] = np.where(df['country']=='UNITED STATES','USA', df['country'])
 df.head(20)
@@ -549,19 +589,6 @@ df.head(20)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -870,6 +897,7 @@ df.head(20)
 
 
 ```python
+# Corrijamos la codificación de datos nulos
 df['director_name'] = np.where(df['director_name']=='N/A','', df['director_name'])
 df['director_name'] = np.where(df['director_name']=='Nan','', df['director_name'])
 df['director_name'] = np.where(df['director_name']=='Null','', df['director_name'])
@@ -879,10 +907,15 @@ df['director_name'] = np.where(df['director_name']=='Null','', df['director_name
 
 
 ```python
+# Cambiemos los datos numéricos a float
 df["gross"]=df["gross"].astype(float)
 df["duration"]=df["duration"].astype(float)
 df["budget"]=df["budget"].astype(float)
 
+# Eliminemos datos atípicos:
+# Duraciones de películas menores a 10 minutos y mayores a 300 minutos
+# Calificaciones IMDb negativas
+# Años anteriores a 2010
 df['duration'] = np.where(df['duration']<=10,0, df['duration'])
 df['duration'] = np.where(df['duration']>300,0, df['duration'])
 df['imdb_score'] = np.where(df['imdb_score']<=0,0, df['imdb_score'])
@@ -893,10 +926,11 @@ df['title_year'] = np.where(df['title_year']<2010,0, df['title_year'])
 
 
 ```python
+# Separemos los datos de los actores en 3 columnas
 actor_list = df["actors"].str.split(",", n = 2, expand = True) # n : max index
-df["actor1"]= actor_list[0] 
-df["actor2"]= actor_list[1] 
-df["actor3"]= actor_list[2] 
+df["actor1"]= actor_list[0]
+df["actor2"]= actor_list[1]
+df["actor3"]= actor_list[2]
 df.drop(columns=['actors'], inplace=True)
 ```
 
@@ -904,11 +938,13 @@ df.drop(columns=['actors'], inplace=True)
 
 
 ```python
+# Generemos la nueva métrica
 df['GOB'] = df.apply(lambda row: row['gross']/row['budget'] if row['budget']!=0 else 0, axis=1)
 ```
 
 
 ```python
+# Veamos cuales son las películas con el valor más alto
 top_GOB=df.sort_values('GOB',ascending=False).head(10)
 print(top_GOB)
 ```
@@ -924,7 +960,7 @@ print(top_GOB)
     94      Steve McQueen     134.0   56667870.0   
     8         Joss Whedon     173.0  623279547.0   
     9         Joss Whedon     173.0  623279547.0   
-    
+
                                      genres                      movie_title  \
     43                                Drama                         The Help   
     15                                Drama                          Boyhood   
@@ -936,7 +972,7 @@ print(top_GOB)
     94              Biography|Drama|History                 12 Years a Slave   
     8               Action|Adventure|Sci-Fi                     The Avengers   
     9               Action|Adventure|Sci-Fi                     The Avengers   
-    
+
         title_year country       budget  imdb_score  movie_facebook_likes  \
     43        2011     USA   25000000.0         8.1                 75000   
     15        2014     USA    4000000.0         8.0                 92000   
@@ -948,7 +984,7 @@ print(top_GOB)
     94        2013     USA   20000000.0         8.1                 83000   
     8         2012     USA  220000000.0         8.1                123000   
     9         2012     USA  220000000.0         8.1                123000   
-    
+
                    actor1               actor2                 actor3       GOB  
     43         Emma Stone  Bryce Dallas Howard             Mike Vogel  6.788223  
     15     Ellar Coltrane    Lorelei Linklater          Libby Villari  6.339800  
@@ -960,20 +996,21 @@ print(top_GOB)
     94  Quvenzhané Wallis        Scoot McNairy           Taran Killam  2.833394  
     8     Chris Hemsworth    Robert Downey Jr.     Scarlett Johansson  2.833089  
     9     Chris Hemsworth    Robert Downey Jr.     Scarlett Johansson  2.833089  
-    
+
 
 ### Guardar los datos
 
 
 ```python
-df.to_csv(r'../Python_Cursos/data/new_IMDB.csv', index=None)
+df.to_csv(r'../../data/new_IMDB.csv', index=None)
 ```
 
 ### Análisis de datos
 
 
 ```python
-df_imdb = pd.read_csv('../Python_Cursos/data/new_IMDB.csv')
+# Leamos los datos guardados en un dataframe
+df_imdb = pd.read_csv('../../data/new_IMDB.csv')
 df_imdb.head()
 ```
 
@@ -981,19 +1018,6 @@ df_imdb.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1116,20 +1140,23 @@ df_imdb.head()
 
 ```
 
-### Directores de las mejores películas de GOB:
+### Directores cuyas películas tienen el mayor de ingresos brutos con respecto a su presupuesto (GOB):
 
 
 ```python
+# Ordenemos los datos por GOB
 top_GOB = df_imdb.sort_values('GOB',ascending=False).head(15)
 ```
 
 
 ```python
+# Obtengamos el apellido del director
 top_GOB['director_familyName'] = df_imdb["director_name"].str.split(" ", n = 2, expand = True) [1]
 ```
 
 
 ```python
+# Grafiquemos los datos
 fig,ax = plt.subplots(figsize=(8, 5))
 ax = sns.barplot(x="director_familyName", y="GOB", data=top_GOB)
 
@@ -1147,8 +1174,12 @@ ax.tick_params(axis='y', labelsize=14)
 
 ### Agrupación de películas
 
+Revisaremos si la calificación IMDb tiene alguna relación con los ingresos brutos con respecto al presupuesto.
+De esta manera, podemos predecir los ingresos brutos que tendrá una nueva película
+
 
 ```python
+# Obtengamos ambas columnas
 df_c=df_imdb.loc[(df_imdb['GOB']>0) & df_imdb['imdb_score']>0][['imdb_score','GOB']]
 df_c.head()
 ```
@@ -1157,19 +1188,6 @@ df_c.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1212,27 +1230,17 @@ df_c.head()
 
 
 ```python
+# Importemos las librerías que vamos a utilizar
 from sklearn.cluster import KMeans
 from scipy.spatial.distance import cdist
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    ModuleNotFoundError                       Traceback (most recent call last)
-
-    <ipython-input-24-e10814f8fb1b> in <module>
-    ----> 1 from sklearn.cluster import KMeans
-          2 from scipy.spatial.distance import cdist
-    
-
-    ModuleNotFoundError: No module named 'sklearn'
 
 
 ### Elbow Method
 
 
 ```python
+# Apliquemos un algoritmo de Kmeans para determinar en cuantos grupos se puede dividor la información
 K = range(1, 10)
 meandist = []
 for k in K:
@@ -1245,16 +1253,21 @@ plt.ylabel('Average SSE')
 plt.title('Selecting the best K')
 ```
 
-### Centroids
+![png](/images/lmdb/output_38_0.png)
+
+### Centroides
 
 
 ```python
+# Como se observa en la gráfica, el número óptimo de grupos es 3
+# Utilicemos este valor para definir los centroides y entrenar el modelo
 km_ = KMeans(n_clusters=3)
 km_.fit(df_c)
 ```
 
 
 ```python
+# Despleguemos los resultados del entrenamiento
 centroids=km_.cluster_centers_
 labels = km_.labels_
 ```
@@ -1265,10 +1278,11 @@ print(centroids)
 print(labels)
 ```
 
-### Plotting Centroids
+### Graficar los centroides
 
 
 ```python
+# Grafiquemos los grupos generados
 fig = plt.figure(figsize=(8,6))
 colors = ["yellow","red","green"]
 df_array = np.array(df_c)
@@ -1282,64 +1296,86 @@ plt.ylabel('GOB')
 plt.xlabel('IMDB Score')
 ```
 
-## Relationship between IMDB Score and Facebook likes of movies
+Text(0.5, 0, 'IMDB Score')
 
+![png](/images/lmdb/output_39_0.png)
+
+
+## Relación entre la calificación IMDb Score y los likes en Facebook
+
+Revisaremos si la calificación IMDb tiene alguna relación con los likes en Facebook.
+De esta manera, podemos predecir los likes que tendrá una nueva película
 
 ```python
-# re scaling the data
+# Se rescalan los datos de los likes, para que esten en una escala similar a la de la calificación IMDb
 df_imdb['movie_facebook_likes']=df_imdb['movie_facebook_likes'].apply(lambda row: row/10000)
 ```
 
-### Regression with Seaborn
+### Regresion Lineal con Seaborn
 
 
 ```python
+# Utilicemos la función preconstruída de Seaborn, para realizar una regresión linear entre la calificación IMDb y los likes de Facebook
 fig = plt.figure(figsize=(8,8))
 sns.regplot('imdb_score', 'movie_facebook_likes', df_imdb, fit_reg=True,order=2,color='red')
 ```
 
-### Linear Regression with prediction for an IMDB score
+     <matplotlib.axes._subplots.AxesSubplot at 0x1c7827517c8>
+
+![png](/images/lmdb/output_40_0.png)
+
+
+### Regresión Lineal para predecir la calificación IMDb
 
 
 ```python
+# Asignemos la calificación IMDb como característica y los likes de Facebook como valor a predecir
 X = df_imdb['imdb_score'].values[:,np.newaxis]
 y = df_imdb['movie_facebook_likes'].values
 ```
 
 
 ```python
+# Importemos las librerías a utilizar
 from sklearn.linear_model import LinearRegression
 ```
 
 
 ```python
+# Generemos un modelo de regresión lineal
 lr = LinearRegression()
 ```
 
 
 ```python
+# Entrenemos el modelo con los datos
 lr.fit(X, y)
 ```
+     LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
 
-#### Prediction:
+#### Predicción:
 
 
 ```python
+# Hagamos la predicción de un nuevo dato
 IMDB_score=8.8
 X_test=np.array([IMDB_score]).reshape(1,-1)
 X_test
 ```
-
+     array([[8.8]])
 
 ```python
 y_pred = lr.predict(X_test)
 print(f"Facebook likes estimation (10k) for a IMDB score:{IMDB_score}-->{y_pred}")
 ```
 
-#### Plotting the model and prediction
+     Facebook likes estimation (10k) for a IMDB score:8.8-->[9.34539641]
+
+#### Graficar el modelo y la predicción
 
 
 ```python
+# Grafiquemos los resultados
 fig,ax = plt.subplots(figsize=(10, 7))
 
 plt.xlabel('IMDB score');
@@ -1348,10 +1384,9 @@ plt.ylabel('Facebook like (10K)');
 plt.scatter(X, y,color='blue')
 plt.plot(X, lr.predict(X), color='red', linestyle='--', lw=3)
 
-plt.scatter(X_test, y_pred, color='yellow', s=300, edgecolors='black') 
+plt.scatter(X_test, y_pred, color='yellow', s=300, edgecolors='black')
 ```
 
+     <matplotlib.collections.PathCollection at 0x1c7827f5088>
 
-```python
-
-```
+![png](/images/lmdb/output_41_0.png)
