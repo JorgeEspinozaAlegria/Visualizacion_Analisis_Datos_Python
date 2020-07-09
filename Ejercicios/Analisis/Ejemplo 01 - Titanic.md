@@ -1416,7 +1416,7 @@ Así que murieron muchas más personas que las que sobrevivieron. Veamos si la c
 
 
 ```python
-# Generemos la grpafica utilizando la clase
+# Generemos la gráfica utilizando la clase
 #sns.factorplot('Pclass','Survived',data=titanic_df)
 sns.catplot('Pclass','Survived',data=titanic_df,kind='point')
 ```
