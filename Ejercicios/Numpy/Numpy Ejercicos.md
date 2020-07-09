@@ -1,15 +1,15 @@
 # NumPy Ejercicios
 
-Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremos con algunas tareas simples y luego se le harán algunas preguntas más complicadas.
+Ahora que hemos aprendido sobre NumPy, revisemos tus conocimientos. Comenzaremos con algunas tareas simples y luego se harán algunas preguntas más complicadas.
 
-#### Import NumPy as np
+#### Importa NumPy como np
 
 
 ```python
 
 ```
 
-#### Crear un arreglo de 10 ceros 
+#### Creaa un arreglo de 10 ceros
 
 
 ```python
@@ -23,7 +23,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 
-#### Crear un arreglo de 10 unos
+#### Crea un arreglo de 10 unos
 
 
 ```python
@@ -37,7 +37,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 
-#### Crear un arreglo de 10 cincos
+#### Crea un arreglo de 10 cincos
 
 
 ```python
@@ -51,7 +51,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 
-#### Crear un arreglo del 1 al 50
+#### Crea un arreglo del 1 al 50
 
 
 ```python
@@ -67,7 +67,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 
-#### Crear un arreglo de todos los números pares que exiten entre 10 y 50
+#### Crea un arreglo de todos los números pares que existen entre 10 y 50
 
 
 ```python
@@ -82,7 +82,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 
-#### Crear una matriz 3X3 con valores entre 0 y 8
+#### Crea una matriz 3X3 con valores entre 0 y 8
 
 
 ```python
@@ -98,7 +98,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 
-#### Crear una matriz identidad de tamaño 3X3
+#### Crea una matriz identidad de tamaño 3X3
 
 
 ```python
@@ -128,7 +128,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 
-#### Use Numpy para generar un arreglo de 25 números aleatorios de una distribución normal.
+#### Usa Numpy para generar un arreglo de 25 números aleatorios de una distribución normal.
 
 
 ```python
@@ -146,7 +146,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 
-#### Cree la siguiente matriz:
+#### Crea la siguiente matriz:
 
 
 ```python
@@ -169,7 +169,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 
-#### Crear un arreglo linealmente espaciado entre 0 y 1:
+#### Crea un arreglo linealmente espaciado entre 0 y 1:
 
 
 ```python
@@ -187,7 +187,7 @@ Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremo
 
 
 ## Numpy Selección e Indíces
-Ahora se le darán algunas matrices y se le pedirá que replique los resultados de la matriz resultante:
+Ahora se proporcionarán algunas matrices y se te pedirá que repliques los resultados de la matriz resultante:
 
 
 ```python
@@ -208,9 +208,9 @@ mat
 
 
 ```python
-# ESCRIBA EL CÓDIGO AQUÍ QUE REPRODUCE LA SALIDA DE LA CELDA ABAJO
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
 # TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
-# PUEDE VER LA PRODUCCIÓN MÁS
+# SE PODRÁ VER EL RESULTADO ESPERADO
 ```
 
 
@@ -229,9 +229,9 @@ mat
 
 
 ```python
-# ESCRIBA EL CÓDIGO AQUÍ QUE REPRODUCE LA SALIDA DE LA CELDA ABAJO
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
 # TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
-# PUEDE VER LA PRODUCCIÓN MÁS
+# SE PODRÁ VER EL RESULTADO ESPERADO
 ```
 
 
@@ -248,9 +248,9 @@ mat
 
 
 ```python
-# ESCRIBA EL CÓDIGO AQUÍ QUE REPRODUCE LA SALIDA DE LA CELDA ABAJO
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
 # TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
-# PUEDE VER LA PRODUCCIÓN MÁS
+# SE PODRÁ VER EL RESULTADO ESPERADO
 ```
 
 
@@ -269,9 +269,9 @@ mat
 
 
 ```python
-# ESCRIBA EL CÓDIGO AQUÍ QUE REPRODUCE LA SALIDA DE LA CELDA ABAJO
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
 # TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
-# PUEDE VER LA PRODUCCIÓN MÁS
+# SE PODRÁ VER EL RESULTADO ESPERADO
 ```
 
 
@@ -288,9 +288,9 @@ mat
 
 
 ```python
-# ESCRIBA EL CÓDIGO AQUÍ QUE REPRODUCE LA SALIDA DE LA CELDA ABAJO
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
 # TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
-# PUEDE VER LA PRODUCCIÓN MÁS
+# SE PODRÁ VER EL RESULTADO ESPERADO
 ```
 
 
@@ -306,9 +306,9 @@ mat
 
 
 
-### Ahora haga lo siguiente
+### Ahora haz lo siguiente
 
-#### Obtenga la suma de todos los valores en mat
+#### Obten la suma de todos los valores en la matriz
 
 
 ```python
@@ -322,7 +322,7 @@ mat
 
 
 
-#### Obtenga la desviación estándar de los valores en mat
+#### Obten la desviación estándar de los valores en la matriz
 
 
 ```python
@@ -336,7 +336,7 @@ mat
 
 
 
-#### Obtenga la suma de todas las columnas en mat
+#### Obten la suma de todas las columnas en la matriz
 
 
 ```python
@@ -352,7 +352,5 @@ mat
 
 # Buen trabajo¡¡
 
-   
-[**Ejercicios Resueltos**](Numpy%20Ejercicios%20-%20Soluci%C3%B3n.md)    
- 
 
+[**Ejercicios Resueltos**](Numpy%20Ejercicios%20-%20Soluci%C3%B3n.md)    
