@@ -1168,7 +1168,7 @@ ax.tick_params(axis='y', labelsize=14)
 ```
 
 
-![png](/images/lmdb/output_37_0.png)
+![png](images/lmdb/output_37_0.png)
 
 
 ### Agrupación de películas
@@ -1252,7 +1252,7 @@ plt.ylabel('Average SSE')
 plt.title('Selecting the best K')
 ```
 
-![png](/images/lmdb/output_38_0.png)
+![png](images/lmdb/output_38_0.png)
 
 ### Centroides
 
@@ -1297,7 +1297,7 @@ plt.xlabel('IMDB Score')
 
 Text(0.5, 0, 'IMDB Score')
 
-![png](/images/lmdb/output_39_0.png)
+![png](images/lmdb/output_39_0.png)
 
 
 ## Relación entre la calificación IMDb Score y los likes en Facebook
@@ -1321,7 +1321,7 @@ sns.regplot('imdb_score', 'movie_facebook_likes', df_imdb, fit_reg=True,order=2,
 
      <matplotlib.axes._subplots.AxesSubplot at 0x1c7827517c8>
 
-![png](/images/lmdb/output_40_0.png)
+![png](images/lmdb/output_40_0.png)
 
 
 ### Regresión Lineal para predecir la calificación IMDb
@@ -1388,4 +1388,4 @@ plt.scatter(X_test, y_pred, color='yellow', s=300, edgecolors='black')
 
      <matplotlib.collections.PathCollection at 0x1c7827f5088>
 
-![png](/images/lmdb/output_41_0.png)
+![png](images/lmdb/output_41_0.png)
