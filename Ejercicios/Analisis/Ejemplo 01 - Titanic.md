@@ -227,7 +227,6 @@ El significado de las variables de este conjunto de datos es el siguiente:
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Variable</th>
       <th>Definición</th>
       <th>Valores</th>
     </tr>
