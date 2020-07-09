@@ -176,7 +176,7 @@ sns.jointplot(x='fare',y='age',data=titanic)
 
 
 
-![png](/images/output_8_1.png)
+![png](images/output_8_1.png)
 
 
 
