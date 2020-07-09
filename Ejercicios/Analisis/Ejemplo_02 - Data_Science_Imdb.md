@@ -333,7 +333,7 @@ El conjunto de datos contiene información de varias películas, cuyas caracter�
     </tr>
     <tr>
       <th>genres</th>
-      <td>Géneros separados por |</td>
+      <td>Géneros de la película</td>
       <td></td>
     </tr>
     <tr>
