@@ -1,6 +1,6 @@
 # SF Salaries Exercise - Solución
 
-¡Bienvenido a un ejercicio rápido para que practiques tus habilidades de pandas! Utilizaremos el [Conjunto de datos de salarios SF] (https://www.kaggle.com/kaggle/sf-salaries) de Kaggle! Simplemente siga y complete las tareas descritas en negrita a continuación. Las tareas serán cada vez más difíciles a medida que avanza.
+¡Bienvenido a un ejercicio rápido para que practiques tus habilidades de pandas! Utilizaremos el [Conjunto de datos de salarios SF] (https://www.kaggle.com/kaggle/sf-salaries) de Kaggle! Simplemente sigue y completa las tareas descritas en negrita a continuación. Las tareas serán cada vez más difíciles a medida que avanzas.
 
 ** Import pandas as pd.**
 
@@ -9,14 +9,14 @@
 import pandas as pd
 ```
 
-** Cargue el archivo Salaries.csv en un dataframe llamado "sal".**
+** Carga el archivo Salaries.csv en un dataframe llamado "sal".**
 
 
 ```python
 sal = pd.read_csv('Salaries.csv')
 ```
 
-** Verifique el encabezado del DataFrame. **
+** Visualiza el encabezado del DataFrame. **
 
 
 ```python
@@ -27,19 +27,6 @@ sal.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -159,8 +146,8 @@ sal.info()
      #   Column            Non-Null Count   Dtype  
     ---  ------            --------------   -----  
      0   Id                148654 non-null  int64  
-     1   EmployeeName      148654 non-null  object 
-     2   JobTitle          148654 non-null  object 
+     1   EmployeeName      148654 non-null  object
+     2   JobTitle          148654 non-null  object
      3   BasePay           148045 non-null  float64
      4   OvertimePay       148650 non-null  float64
      5   OtherPay          148650 non-null  float64
@@ -169,11 +156,11 @@ sal.info()
      8   TotalPayBenefits  148654 non-null  float64
      9   Year              148654 non-null  int64  
      10  Notes             0 non-null       float64
-     11  Agency            148654 non-null  object 
+     11  Agency            148654 non-null  object
      12  Status            0 non-null       float64
     dtypes: float64(8), int64(2), object(3)
     memory usage: 14.7+ MB
-    
+
 
 ** ¿Cuál es el promedio de BasePay? **
 
@@ -246,19 +233,6 @@ sal[sal['TotalPayBenefits']== sal['TotalPayBenefits'].max()] #['EmployeeName']
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -316,19 +290,6 @@ sal[sal['TotalPayBenefits']== sal['TotalPayBenefits'].min()] #['EmployeeName']
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -371,7 +332,7 @@ sal[sal['TotalPayBenefits']== sal['TotalPayBenefits'].min()] #['EmployeeName']
 
 
 
-** ¿Cuál fue el promedio (promedio) de BasePay de todos los empleados por año? (2011-2014)? **
+** ¿Cuál fue el promedio de BasePay de todos los empleados por año? (2011-2014)? **
 
 
 ```python
@@ -476,19 +437,6 @@ sal[['title_len','TotalPayBenefits']].corr()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -514,4 +462,4 @@ sal[['title_len','TotalPayBenefits']].corr()
 
 
 
-# Buen trabajo!
+# ¡Buen trabajo!
