@@ -307,7 +307,7 @@ ecom['Job'].value_counts().head(5)
 
 
 
-    ** Alguien realizó una compra que provino del lote (Lot): "90 WT", ¿cuál fue el precio de compra (Purchase Price) de esta transacción? **
+** Alguien realizó una compra que provino del lote (Lot): "90 WT", ¿cuál fue el precio de compra (Purchase Price) de esta transacción? **
 
 
 ```python
@@ -365,7 +365,7 @@ ecom[(ecom['CC Provider']=='American Express') & (ecom['Purchase Price']>95)].co
 
 
 
-** Difícil: ¿Cuántas personas tienen una tarjeta de crédito que caduca en 2025 (CC Exp Date)? ** 
+** Difícil: ¿Cuántas personas tienen una tarjeta de crédito que caduca en 2025 (CC Exp Date)? **
 
 
 ```python
