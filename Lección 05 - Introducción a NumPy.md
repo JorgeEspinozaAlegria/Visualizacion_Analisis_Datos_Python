@@ -1,12 +1,12 @@
 # Introducción a Numpy
 
 ## ¿Qué es NumPy?
-NumPy es el paquete fundamental para la computación científica en Python. Es una biblioteca de Python que proporciona un objeto de matriz multidimensional, varios objetos derivados (como matrices y matrices enmascaradas) y una variedad de rutinas para operaciones rápidas en matrices, incluidas la matemática, lógica, manipulación de formas, clasificación, selección, E / S , transformadas discretas de Fourier, álgebra lineal básica, operaciones estadísticas básicas, simulación aleatoria y mucho más.
+NumPy es el paquete fundamental para la computación científica en Python. Es una biblioteca de Python que proporciona un objeto de matriz multidimensional, varios objetos derivados (como matrices y matrices enmascaradas) y una variedad de rutinas para operaciones rápidas en matrices, incluidas la matemática, lógica, manipulación de formas, clasificación, selección, E / S , transformadas discretas de Fourier, álgebra lineal básica, operaciones estadísticas básicas, simulación aleatoria y mucho más.  
 
-En el núcleo del paquete NumPy, está el objeto `ndarray`. Este encapsula matrices n-dimensionales de tipos de datos homogéneos, con muchas operaciones que se realizan en código compilado para el rendimiento.
+En el núcleo del paquete NumPy, está el objeto `ndarray`. Este encapsula matrices n-dimensionales de tipos de datos homogéneos, con muchas operaciones que se realizan en código compilado para el rendimiento.  
 
 ## ¿Por qué es rápido NumPy?
-La vectorización describe la ausencia de cualquier bucle explícito, indexación, etc., en el código; estas cosas están ocurriendo, por supuesto, solo "detrás de escena" en un código C precompilado optimizado. El código vectorizado tiene muchas ventajas, entre las cuales se encuentran:
+La vectorización describe la ausencia de cualquier bucle explícito, indexación, etc., en el código; estas cosas están ocurriendo, por supuesto, solo "detrás de escena" en un código C precompilado optimizado. El código vectorizado tiene muchas ventajas, entre las cuales se encuentran:  
 
 - el código vectorizado es más conciso y más fácil de leer.
 - menos líneas de código generalmente significa menos errores.
@@ -22,7 +22,7 @@ Para instalar Numpy realiza los siguientes pasos:
 4. Teclear `conda install numpy`
 
 ## Crear matrices a partir de listas de Python
-Primero, podemos usar `np.array` para crear matrices de listas de Python:
+Primero, podemos usar `np.array` para crear matrices de listas de Python:  
 
 
 ```python
@@ -33,67 +33,39 @@ import numpy as np
 # Matriz de tipo entero
 np.array([1, 4, 2, 5, 3])
 ```
-
-
-
-
-    array([1, 4, 2, 5, 3])
-
-
-
+array([1, 4, 2, 5, 3])  
 
 ```python
 # Matriz de tipo flotante
 np.array([3.14, 4, 2, 3])
 ```
-
-
-
-
-    array([3.14, 4., 2., 3.])
-
-
-
+array([3.14, 4., 2., 3.])  
 
 ```python
 # Establecer explícitamente el tipo de datos de la matriz
 np.array([1, 2, 3, 4], dtype='float32')
 ```
-
-
-
-
-    array([1., 2., 3., 4.], dtype=float32)
-
-
+array([1., 2., 3., 4.], dtype=float32)  
 
 Recuerda que, a diferencia de las listas de Python, NumPy está restringido a matrices que contienen el mismo tipo. Si los tipos no coinciden, NumPy cambia los enteros a flotante.  
-Finalmente, a diferencia de las listas de Python, las matrices de NumPy pueden ser explícitamente multidimensionales. Esta es una forma de inicializar una matriz multidimensional, utilizando una lista de listas
+Finalmente, a diferencia de las listas de Python, las matrices de NumPy pueden ser explícitamente multidimensionales. Esta es una forma de inicializar una matriz multidimensional, utilizando una lista de listas  
 
 
 ```python
 # listas anidadas dan como resultado matrices multidimensionales
 np.array([range(i, i + 3)  for i in [2, 4, 6]])
 ```
-
-
-
-
-    array([[2, 3, 4],
-           [4, 5, 6],
-           [6, 7, 8]])
-
-
-
+array([[2, 3, 4],  
+       [4, 5, 6],  
+       [6, 7, 8]])  
 
 ```python
 for i in [2, 4, 6]:
     print(i)
 ```
-
-    2
-    4
-    6
+2  
+4  
+6  
 
 
 Las listas internas se tratan como filas de la matriz bidimensional resultante.
@@ -248,7 +220,7 @@ np.empty(3)
 
 
 
-## Atributos de las matriz de NumPy
+## Atributos de las matrices de NumPy
 
 
 ```python
