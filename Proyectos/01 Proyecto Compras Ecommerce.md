@@ -211,7 +211,7 @@ ____
 
 
 
-** ¿Cuántas personas tienen el inglés 'en' como idioma de elección (Language)en el sitio web? **
+** ¿Cuántas personas tienen el inglés 'en' como idioma de elección (Language) en el sitio web? **
 
 
 ```python
