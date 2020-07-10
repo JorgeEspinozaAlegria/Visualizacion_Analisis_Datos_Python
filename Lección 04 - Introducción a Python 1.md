@@ -2,7 +2,7 @@
 
 ## Tipos de Datos y Operadores
 
-En esta lección repasaremos acerca de:
+En esta lección repasaremos acerca de:  
 
 - Operadores
 	- Aritméticos
@@ -29,7 +29,6 @@ En esta lección repasaremos acerca de:
 -   `%` Residuo (el remanente después de una división)
 -   `**` Exponenciación
 -   `//` Divide y redondea al entero más cercano
-
 
 ```python
 100+200
@@ -67,10 +66,10 @@ En esta lección repasaremos acerca de:
 0  
 
 
+
 #### Operadores de Asignación
 
 ![img_04_dt_01](images/img_04_dt_01.png)
-
 
 ```python
 x = 3
@@ -97,6 +96,7 @@ print(z,y,x)
 10 8 5  
 
 
+
 ### Operadores de Comparación
 
 | Símbolo/Caso de Uso | Booleano | Operación |
@@ -109,6 +109,7 @@ print(z,y,x)
 | 3 != 5| True 	| No igual a 		|
 
 
+
 ### Operadores Lógicos
 
 | Símbolo/Caso de Uso | Booleano | Operación |
@@ -116,6 +117,7 @@ print(z,y,x)
 | 5 < 3 `and` 5 == 5	| False	| `and` evalúa si todas las declaraciones son ciertas (True)|
 | 5 < 3 `or` 5 == 5	| True	| `or` evalúa si alguna de las declaraciones es cierta (True)|
 | `not` 5 < 3		| True	| `not` Invierte el valor del resultado|
+
 
 
 ### Tipos de Datos
@@ -126,7 +128,6 @@ print(z,y,x)
 -   **float** - para valores decimales o de punto flotante
 -   **bool** - para valores lógicos
 -   **str** - para cadenas de texto
-
 
 ```python
 X = 50
@@ -173,12 +174,12 @@ type(v)
 str  
 
 
+
 #### Cadena (String)
 
 Las cadenas en Python se muestran como el tipo variable `str`. Se puede definir una cadena con comillas dobles `"` o comillas simples `'`  
 
 Si la cadena que se está creando contiene uno de estos dos caracteres, se debe tener cuidado para asegurarse de que el código no genere un error.  
-
 
 ```python
 mi_cadena = '¡esta es una cadena!'
@@ -195,13 +196,15 @@ print(mi_cadena,mi_cadena2,sep='\n')
 ¡esta también es un cadena!!!  
 
 
-Podemos incluir el caracter `\` en una cadena para incluir comillas simples como parte de la misma cadena:
+
+Podemos incluir el caracter `\` en una cadena para incluir comillas simples como parte de la misma cadena:  
 
 ```python
 esta_cadena = 'El título del libro es \'Don Quijote\'.'
 print(esta_cadena)
 ```
 El título del libro es 'Don Quijote'.  
+
 
 
 ### Operaciones con cadenas de texto
@@ -257,7 +260,7 @@ D
 
 
 #### Dividir una cadena de texto
-El método `split()` divide una cadena en palabras y lo devuelve como una lista.
+El método `split()` divide una cadena en palabras y lo devuelve como una lista.  
 
 ```python
 nueva_cadena = "La vaca saltó sobre la luna."
@@ -266,7 +269,7 @@ nueva_cadena.split()
 ['La', 'vaca', 'saltó', 'sobre', 'la', 'luna.']  
 
 
-Especificando un separador y limitando el número de divisiones:
+Especificando un separador y limitando el número de divisiones:  
 
 ```python
 nueva_cadena.split(' ', 3)
@@ -372,7 +375,7 @@ IndexError                                Traceback (most recent call last)
 ----> 1 lista_de_elementos[len(lista_de_elementos)]
 
 
-IndexError: list index out of range
+IndexError: list index out of range  
 
 
 
@@ -554,7 +557,6 @@ TypeError: 'tuple' object does not support item assignment
 
 Un **conjunto** es un tipo de datos para colecciones **mutables, no ordenadas** de elementos **únicos**. Una aplicación de un conjunto es eliminar rápidamente los duplicados de una lista.  
 
-
 ```python
 numeros = [1, 2, 6, 3, 1, 1, 6]
 numeros_unicos = set(numeros)
@@ -571,7 +573,6 @@ set
 ## Diccionarios
 
 Un diccionario es un tipo de dato **mutable** que almacena asignaciones de claves únicas a valores  
-
 
 ```python
 elementos = {"hidrogeno": 1, "helio": 2, "carbono": 6}
@@ -597,7 +598,6 @@ True
 # Estructuras de datos compuestas
 
 Una característica interesante en Python es el poder incluir contenedores dentro de otros contenedores, para crear estructuras de datos compuestas.  
-
 
 ```python
 elementos = {"hidrogeno": {"numero": 1,
@@ -628,8 +628,7 @@ print('elementos = ', elementos)
 elementos =  {'hidrogeno': {'numero': 1, 'peso': 1.00794, 'simbolo': 'H'}, 'helio': {'numero': 2, 'peso': 4.002602, 'simbolo': 'He'}, 'oxigeno': {'numero': 8, 'peso': 15.999, 'simbolo': 'O'}}  
 
 
-En resumen se tiene:
-
+En resumen se tiene:  
 
 | Estructura de Datos | Ordenado | Mutable | Constructor | Ejemplo |
 |--|--|--|--|--|
