@@ -16,9 +16,8 @@ if saldo_telefono < 5:
 print(saldo_telefono)
 print(saldo_bancario)
 ```
-
-     10
-     -10
+  10
+  -10
 
 
 Analicemos esto:
