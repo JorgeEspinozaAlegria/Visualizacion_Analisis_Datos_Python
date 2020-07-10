@@ -132,91 +132,45 @@ print(z,y,x)
 X = 50
 X
 ```
-
-
-
-
-    50
-
-
-
+50
 
 ```python
 type(X)
 ```
-
-
-
-
-    int
-
-
-
+int
 
 ```python
 y=12.2
 y
 ```
-
-
-
-
-    12.2
-
-
-
+12.2
 
 ```python
 type(y)
 ```
-
-
-
-
-    float
-
-
-
+float
 
 ```python
 z=(3<5)
 z
 ```
-
-
-
-
-    True
-
-
-
+True
 
 ```python
 type(z)
 ```
-
-
-
-
-    bool
-
-
-
+bool
 
 ```python
 v='texto'
+v
 ```
-
+'texto'
 
 ```python
 type(v)
 ```
-
-
-
-
-    str
-
+str
 
 
 #### Cadena (String)
@@ -226,203 +180,134 @@ Las cadenas en Python se muestran como el tipo variable `str`. Se puede definir 
 Si la cadena que se está creando contiene uno de estos dos caracteres, se debe tener cuidado para asegurarse de que el código no genere un error.
 
 
-
 ```python
 mi_cadena = '¡esta es una cadena!'
 mi_cadena2 = "¡esta también es un cadena!!!"
 mi_cadena
 mi_cadena2
 ```
-
-
-
-
-    '¡esta también es un cadena!!!'
-
-
-
+'¡esta también es un cadena!!!'
 
 ```python
 print(mi_cadena,mi_cadena2,sep='\n')
 ```
-
-    ¡esta es una cadena!
-    ¡esta también es un cadena!!!
+¡esta es una cadena!
+¡esta también es un cadena!!!
 
 
 Podemos incluir el caracter `\` en una cadena para incluir comillas simples como parte de la misma cadena:
 
-
 ```python
 esta_cadena = 'El título del libro es \'Don Quijote\'.'
 print(esta_cadena)
-
 ```
-
-    El título del libro es 'Don Quijote'.
+El título del libro es 'Don Quijote'.
 
 
 ### Operaciones con cadenas de texto
 #### Concatenar cadenas
-
 
 ```python
 primera_palabra = 'Hola'
 segunda_palabra = 'Mundo'
 print(primera_palabra + segunda_palabra)
 ```
-
-    HolaMundo
-
-
+HolaMundo
 
 ```python
 print(primera_palabra + ' ' + segunda_palabra)
 ```
-
-    Hola Mundo
+Hola Mundo
 
 
 #### Acceder a un elemento de la cadena
 
-
 ```python
 primera_palabra[0]
 ```
-
-
-
-
-    'H'
-
-
-
+'H'
 
 ```python
 primera_palabra[-1]
 ```
-
-
-
-
-    'a'
-
+'a'
 
 
 #### Multiplicar cadenas
 
-
 ```python
 print(primera_palabra * 5)
 ```
-
-    HolaHolaHolaHolaHola
+HolaHolaHolaHolaHola
 
 
 #### Longitud de cadenas
-
 
 ```python
 L=len(primera_palabra)
 L
 ```
-
-
-
-
-    4
-
-
-
+4
 
 ```python
 D=len(primera_palabra)/len(segunda_palabra)
 D
 ```
-
-
-
-
-    0.8
-
+0.8
 
 
 #### Dividir una cadena de texto
 El método `split()` divide una cadena en palabras y lo devuelve como una lista.
 
-
 ```python
 nueva_cadena = "La vaca saltó sobre la luna."
 nueva_cadena.split()
 ```
-
-
-
-
-    ['La', 'vaca', 'saltó', 'sobre', 'la', 'luna.']
-
+['La', 'vaca', 'saltó', 'sobre', 'la', 'luna.']
 
 
 Especificando un separador y limitando el número de divisiones:
 
-
 ```python
 nueva_cadena.split(' ', 3)
 ```
-
-
-
-
-    ['La', 'vaca', 'saltó', 'sobre la luna.']
-
+['La', 'vaca', 'saltó', 'sobre la luna.']
 
 
 Para conocer todos los métodos que podemos usar, véase la [documentación de Python](https://docs.python.org/3.7/library/stdtypes.html#string-methods).
+
 
 #### Reemplazar o complementar partes de una cadena
 
 El método cadena `format()` es uno de los métodos más útiles, que estaremos usando en el transcurso de nuestro curso. Este método reemplaza o complementa partes de una cadena, con los valores de otros objetos o variables.
 
-
 ```python
 print("Juan tiene {} globos".format(27))
 ```
-
-    Juan tiene 27 globos
-
-
+Juan tiene 27 globos
 
 ```python
 animal = "perro"
 accion = "muerde"
 print("¿Tu {} {}?".format(animal, accion))
 ```
-
-    ¿Tu perro muerde?
-
-
+¿Tu perro muerde?
 
 ```python
 maria_cadena = "A Maria le gustan {} y {}"
 print(maria_cadena.format("las matemáticas", "la estadística"))
 ```
-
-    A Maria le gustan las matemáticas y la estadística
-
-
+A Maria le gustan las matemáticas y la estadística
 
 ```python
 print("¿Tu %s %s?" % (animal, accion))
 ```
-
-    ¿Tu perro muerde?
+¿Tu perro muerde?
 
 
 ### Conversión de datos
 
 Para poder convertir un tipo de datos a otro, podemos usar las siguientes funciones de conversión (cast):
-
-
 
 ```python
 print(str(14))
@@ -430,11 +315,10 @@ print(int(4.7))
 print(float(5))
 print(bool(1))
 ```
-
-    14
-    4
-    5.0
-    True
+14
+4
+5.0
+True
 
 
 ## Estructuras de Datos
@@ -450,6 +334,7 @@ En esta lección conoceremos los diferentes tipos de estructuras de datos usados
 
 - Operadores  de Identidad
 
+
 ### Listas
 
 Las **estructuras de datos** son contenedores que organizan y agrupan los tipos de datos de diferentes formas, las **listas** son una de las estructuras de datos más comunes y básicas en Python.  
@@ -457,126 +342,81 @@ Las listas deben ser creadas usando **corchetes** y pueden contener cualquier co
 
 #### Crear una lista
 
-
 ```python
 lista_de_elementos = [1, 3.4, 'una cadena', True]
 lista_de_elementos
 ```
-
-
-
-
-    [1, 3.4, 'una cadena', True]
-
+[1, 3.4, 'una cadena', True]
 
 
 #### Acceder a un elemento de la lista
 
-
 ```python
 lista_de_elementos[0]
 ```
-
-
-
-
-    1
-
-
-
+1
 
 ```python
 lista_de_elementos[-1]
 ```
-
-
-
-
-    True
-
-
-
+True
 
 ```python
 lista_de_elementos[len(lista_de_elementos)]
 ```
+---------------------------------------------------------------------------
+
+IndexError                                Traceback (most recent call last)
+
+<ipython-input-40-dcf8dd71bbd3> in <module>
+----> 1 lista_de_elementos[len(lista_de_elementos)]
 
 
-    ---------------------------------------------------------------------------
-
-    IndexError                                Traceback (most recent call last)
-
-    <ipython-input-40-dcf8dd71bbd3> in <module>
-    ----> 1 lista_de_elementos[len(lista_de_elementos)]
-
-
-    IndexError: list index out of range
+IndexError: list index out of range
 
 
 
 ```python
 lista_de_elementos[len(lista_de_elementos)-1]
 ```
-
-
-
-
-    True
-
+True
 
 
 #### Rebanar y cortar (Slice & Dice)
 
-
 ```python
 lista_de_elementos = [1, 3.4, 'una cadena', True]
 lista_de_elementos[1:2]
-
 ```
+[3.4]
 
-
-    [3.4]
-
-
-```python
 #### IN o NOT IN
 
-'esta' in 'esta es una cadena'
-True
->>> 'en' in 'esta es una cadena'
-True
->>> 'esuna' in 'esta es una cadena'
-False
->>> 5 not in [1, 2, 3, 4, 6]
-True
->>> 5 in [1, 2, 3, 4, 6]
-False
-```
-
-
 ```python
 'esta' in 'esta es una cadena'
 ```
-
+True
 
 ```python
 'en' in 'esta es una cadena'
 ```
-
+True
 
 ```python
 'esuna' in 'esta es una cadena'
 ```
-
+False
 
 ```python
 5 not in [1, 2, 3, 4, 6]
 ```
-
+True
 
 ```python
 5 in [1, 2, 3, 4, 6]
 ```
+False
+
 
 ## Mutabilidad y Orden
 
@@ -584,26 +424,35 @@ El concepto de **mutabilidad** en Python indica si podemos cambiar o no un objet
 
 Sin embargo, si un objeto no se puede cambiar, entonces el objeto se considera **inmutable**.
 
-
-
 ```python
 # Ejemplo de mutabilidad:
-
 mi_lista = [1, 2, 3, 4, 5]
 mi_lista[0] = 'uno'
 print(mi_lista)
 ```
-
+['uno', 2, 3, 4, 5]
 
 ```python
 # Ejemplo de un objeto inmutable:
 mi_cadena = "Hola Mundo"
 mi_cadena[0] = 'M'
+print(mi_cadena)
 ```
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-49-f23bf4ad3a22> in <module>
+      1 # Ejemplo de un objeto inmutable:
+      2 mi_cadena = "Hola Mundo"
+----> 3 mi_cadena[0] = 'M'
+      4 print(mi_cadena)
+
+TypeError: 'str' object does not support item assignment
+
 
 El concepto de **orden** en Python indica, si la posición de un elemento en el objeto se puede utilizar para accederlo. Ambas cadenas y listas están ordenadas. Podemos usar el orden para acceder partes de una lista y cadena.
 
 En lecciones posteriores veremos que en diferentes tipos de datos, es importante tener en cuenta las propiedades de mutabilidad y ordenamiento, para poder accederlos y manipularlos.
+
 
 ## Funciones básicas
 
@@ -631,12 +480,12 @@ En lecciones posteriores veremos que en diferentes tipos de datos, es importante
 mi_lista_de_cadenas = ['Z', 'ALZ', 'B']
 max(mi_lista_de_cadenas)
 ```
-
+'Z'
 
 ```python
 sorted(mi_lista_de_cadenas)
 ```
-
+['ALZ', 'B', 'Z']
 
 ```python
 mi_separador= "\n"
@@ -644,14 +493,18 @@ mi_lista_de_cadenas = ["Este", "es", "mi", "curso", "Python"]
 nueva_cadena = mi_separador.join(mi_lista_de_cadenas)
 print(nueva_cadena)
 ```
-
+Este
+es
+mi
+curso
+Python
 
 ```python
 letras = ['a', 'b', 'c', 'd']
 letras.append('z')
 print(letras)
 ```
-
+['a', 'b', 'c', 'd', 'z']
 
 ```python
 letras = ['a', 'b', 'c', 'd']
@@ -665,6 +518,10 @@ print(verso, "\n")
 verso_lista = verso.split()
 print(verso_lista, '\n')
 ```
+si puedes mantener la cabeza en su sitio cuando todos a tu alrededor la pierden y te culpan a ti   si puedes seguir creyendo en ti mismo cuando todos dudan de ti     pero también aceptas que tengan dudas   si puedes esperar y no cansarte de la espera      o si siendo engañado no respondes con engaños   o si siendo odiado no incurres en el odio      Y aun así no te las das de bueno ni de sabio
+
+['si', 'puedes', 'mantener', 'la', 'cabeza', 'en', 'su', 'sitio', 'cuando', 'todos', 'a', 'tu', 'alrededor', 'la', 'pierden', 'y', 'te', 'culpan', 'a', 'ti', 'si', 'puedes', 'seguir', 'creyendo', 'en', 'ti', 'mismo', 'cuando', 'todos', 'dudan', 'de', 'ti', 'pero', 'también', 'aceptas', 'que', 'tengan', 'dudas', 'si', 'puedes', 'esperar', 'y', 'no', 'cansarte', 'de', 'la', 'espera', 'o', 'si', 'siendo', 'engañado', 'no', 'respondes', 'con', 'engaños', 'o', 'si', 'siendo', 'odiado', 'no', 'incurres', 'en', 'el', 'odio', 'Y', 'aun', 'así', 'no', 'te', 'las', 'das', 'de', 'bueno', 'ni', 'de', 'sabio']
+
 
 ### Tuplas
 
@@ -676,11 +533,21 @@ ubicacion = (13.4125, 103.866667)
 print("Latitud:", ubicacion[0])
 print("Longitud:", ubicacion[1])
 ```
-
+Latitud: 13.4125
+Longitud: 103.866667
 
 ```python
 ubicacion[0] = 12.1
+print("Latitud:", ubicacion[0])
 ```
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-57-3de36f8b6071> in <module>
+----> 1 ubicacion[0] = 12.1
+      2 print("Latitud:", ubicacion[0])
+
+TypeError: 'tuple' object does not support item assignment
+
 
 ### Conjunto
 
@@ -692,11 +559,13 @@ numeros = [1, 2, 6, 3, 1, 1, 6]
 numeros_unicos = set(numeros)
 print(numeros_unicos)
 ```
-
+{1, 2, 3, 6}
 
 ```python
 type(numeros_unicos)
 ```
+set
+
 
 ## Diccionarios
 
@@ -709,7 +578,8 @@ print(elementos["helio"])
 elementos["litio"] = 3  # Insertar "litio" con el valor 3 dentro del diccionario
 print(elementos)
 ```
-
+2
+{'hidrogeno': 1, 'helio': 2, 'carbono': 6, 'litio': 3}
 
 ```python
 print("carbono" in elementos)
@@ -717,9 +587,14 @@ print(elementos.get("litio"))
 print(elementos.get("hidrogeno"))
 print(elementos["hidrogeno"])
 ```
+True
+3
+1
+1
+
 
 # Estructuras de datos compuestas
-Una característica interesante en Python es el poder incluir contenedores dentro de otros contenedores para crear estructuras de datos compuestos.
+Una característica interesante en Python es el poder incluir contenedores dentro de otros contenedores, para crear estructuras de datos compuestas.
 
 
 ```python
@@ -731,7 +606,8 @@ elementos = {"hidrogeno": {"numero": 1,
                          "simbolo": "He"}}
 elementos
 ```
-
+{'hidrogeno': {'numero': 1, 'peso': 1.00794, 'simbolo': 'H'},
+ 'helio': {'numero': 2, 'peso': 4.002602, 'simbolo': 'He'}}
 
 ```python
 helio = elementos["helio"]
@@ -739,13 +615,16 @@ hidrogeno_peso = elementos["hidrogeno"]["peso"]
 print(helio)
 print(hidrogeno_peso)
 ```
-
+{'numero': 2, 'peso': 4.002602, 'simbolo': 'He'}
+1.00794
 
 ```python
 oxigeno = {"numero":8,"peso":15.999,"simbolo":"O"}  # crear un diccionario
 elementos["oxigeno"] = oxigeno  # asignar el diccionario al diccionario compuesto
 print('elementos = ', elementos)
 ```
+elementos =  {'hidrogeno': {'numero': 1, 'peso': 1.00794, 'simbolo': 'H'}, 'helio': {'numero': 2, 'peso': 4.002602, 'simbolo': 'He'}, 'oxigeno': {'numero': 8, 'peso': 15.999, 'simbolo': 'O'}}
+
 
 En resumen se tiene:
 
