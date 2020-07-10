@@ -15,8 +15,8 @@ if saldo_telefono < 5:
 print(saldo_telefono)
 print(saldo_bancario)
 ```
-  10  
-  -10  
+    10  
+    -10  
 
 
 Analicemos esto:  
@@ -43,7 +43,7 @@ elif estacion == 'invierno':
 else:
     print('estación no reconocida')
 ```
-¡planta el jardín!  
+    ¡planta el jardín!  
 
 
 ### Expresiones Booleanas complejas
@@ -56,13 +56,13 @@ ubicacion = 'USA'
 if (not no_inscrito) and (ubicacion == "USA" or ubicacion == "CAN"):
     print("mandar correo electrónico")
 ```
-mandar correo electrónico  
+    mandar correo electrónico  
 
 ```python
 if True:
     print("Este código indentado siempre será ejecutado.")
 ```
-Este código indentado siempre será ejecutado.  
+    Este código indentado siempre será ejecutado.  
 
 ```python
 # Un mal ejemplo
@@ -70,14 +70,14 @@ hace_frio=1
 if hace_frio == True:
     print("¡El clima está frio!")
 ```
-¡El clima está frio!  
+    ¡El clima está frio!  
 
 ```python
 # Un buen ejemplo
 if hace_frio:
     print("¡El clima está frio!")
 ```
-¡El clima está frio!  
+    ¡El clima está frio!  
 
 
 ## Bucles
@@ -92,11 +92,11 @@ for ciudad in ciudades:
     print(ciudad)
 print("¡Listo!")
 ```
-CDMX  
-Monterrey  
-Guadalajara  
-Aguascalientes  
-¡Listo!  
+    CDMX  
+    Monterrey  
+    Guadalajara  
+    Aguascalientes  
+    ¡Listo!  
 
 
 #### Usando la función `range()` con bucles `for`
@@ -108,9 +108,9 @@ Aguascalientes
 for i in range(3):
     print("¡Hola!")
 ```
-¡Hola!  
-¡Hola!  
-¡Hola!  
+    ¡Hola!  
+    ¡Hola!  
+    ¡Hola!  
 
 
 #### range(start=0, stop, step=1)
@@ -134,7 +134,7 @@ for ciudad in ciudades:
     ciudades_mayusculas.append(ciudad.title())
 print(ciudades_mayusculas)
 ```
-['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']  
+    ['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']  
 
 ```python
 ciudades = ['cdmx', 'monterrey', 'guadalajara', 'aguascalientes']
@@ -144,7 +144,7 @@ for indice in range(len(ciudades)):
 
 ciudades
 ```
-['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']  
+    ['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']  
 
 
 
@@ -166,7 +166,7 @@ for palabra in titulo_libro:
         contador_palabras[palabra] += 1
 print(contador_palabras)
 ```
-{'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}  
+    {'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}  
 
 
 #### Usando el método `get()`
@@ -181,7 +181,7 @@ for palabra in titulo_libro:
     contador_palabras[palabra] = contador_palabras.get(palabra, 0) + 1
 print(contador_palabras)
 ```
-{'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}  
+    {'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}  
 
 
 #### Iterando a través de Diccionarios
@@ -199,21 +199,21 @@ elenco = {
 for llave in elenco:
     print(llave)
 ```
-Jerry Seinfeld  
-Julia Louis-Dreyfus  
-Jason Alexander  
-Michael Richards  
+    Jerry Seinfeld  
+    Julia Louis-Dreyfus  
+    Jason Alexander  
+    Michael Richards  
 
 ```python
 print(elenco.items())
 for llave, valor in elenco.items():
     print("Actor: {}    Personaje: {}".format(llave, valor))
 ```
-dict_items([('Jerry Seinfeld', 'Jerry Seinfeld'), ('Julia Louis-Dreyfus', 'Elaine Benes'), ('Jason Alexander', 'George Costanza'), ('Michael Richards', 'Cosmo Kramer')])  
-Actor: Jerry Seinfeld    Personaje: Jerry Seinfeld  
-Actor: Julia Louis-Dreyfus    Personaje: Elaine Benes  
-Actor: Jason Alexander    Personaje: George Costanza  
-Actor: Michael Richards    Personaje: Cosmo Kramer  
+    dict_items([('Jerry Seinfeld', 'Jerry Seinfeld'), ('Julia Louis-Dreyfus', 'Elaine Benes'), ('Jason Alexander', 'George Costanza'), ('Michael Richards', 'Cosmo Kramer')])  
+    Actor: Jerry Seinfeld    Personaje: Jerry Seinfeld  
+    Actor: Julia Louis-Dreyfus    Personaje: Elaine Benes  
+    Actor: Jason Alexander    Personaje: George Costanza  
+    Actor: Michael Richards    Personaje: Cosmo Kramer  
 
 
 ### Bucles While
@@ -229,10 +229,10 @@ while sum(mano) < 17:
     print(sum(mano))
 ```
 
-[10]  
-10  
-[10, 8]  
-18  
+    [10]  
+    10  
+    [10, 8]  
+    18  
 
 
 ### Break & Continue
@@ -260,7 +260,7 @@ for titular in titulares:
 
 print(teletipo_noticias)
 ```
-Oso Comido por un Hombre Legisladores Anuncian Nuevas Leyes Ciudadano Descubre Violencia Inherente en el Sistema Gato Rescata a Bombero Ator  
+    Oso Comido por un Hombre Legisladores Anuncian Nuevas Leyes Ciudadano Descubre Violencia Inherente en el Sistema Gato Rescata a Bombero Ator  
 
 
 ## Funciones
@@ -278,7 +278,7 @@ def volumen_cilindro(altura, radio):
 ```python
 volumen_cilindro(10, 3)
 ```
-282.7431  
+    282.7431  
 
 
 ### Argumentos por Default
@@ -295,7 +295,7 @@ def volumen_cilindro(altura, radio=5):
 volumen_cilindro(10, 7)  # por posición
 volumen_cilindro(altura=10, radio=7)  # por nombre de argumento
 ```
-1539.3791  
+    1539.3791  
 
 
 ### Alcance de Variables
@@ -311,14 +311,13 @@ def una_funcion():
 print(palabra)
 ```
 
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-<ipython-input-1-3328aca760a1> in <module>
-      2     palabra = "hola"
-      3
-----> 4 print(palabra)
-
-NameError: name 'palabra' is not defined  
+    ---------------------------------------------------------------------------
+    NameError                                 Traceback (most recent call last)
+    <ipython-input-1-3328aca760a1> in <module>
+    2     palabra = "hola"
+    3
+    ----> 4 print(palabra)
+    NameError: name 'palabra' is not defined  
 
 
 ```python
@@ -329,7 +328,7 @@ def una_funcion():
 
 una_funcion()
 ```
-hola  
+    hola  
 
 
 ## Expresiones Lambda
@@ -351,7 +350,7 @@ puede ser reducida a:
 multiplica = lambda x, y: x * y
 multiplica(2,10)
 ```
-20  
+    20  
 
 ```python
 numeros = [
@@ -364,7 +363,7 @@ numeros = [
 promedios = list(map(lambda x: sum(x) / len(x), numeros))
 print(promedios)
 ```
-[57.0, 58.2, 50.6, 27.2]  
+    [57.0, 58.2, 50.6, 27.2]  
 
 ```python
 ciudades = ["CDMX", "Monterrey", "Guadalajara", "Aguascalientes", "Oaxaca", "Cancún"]
@@ -372,7 +371,7 @@ ciudades = ["CDMX", "Monterrey", "Guadalajara", "Aguascalientes", "Oaxaca", "Can
 ciudades_menores = list(filter(lambda x: len(x) < 10, ciudades))
 print(ciudades_menores)
 ```
-['CDMX', 'Monterrey', 'Oaxaca', 'Cancún']  
+    ['CDMX', 'Monterrey', 'Oaxaca', 'Cancún']  
 
 
 ## ¡¡¡Felicidades ahora ya tienes los conceptos basicos de Python!!!
