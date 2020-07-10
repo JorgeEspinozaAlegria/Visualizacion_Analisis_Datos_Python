@@ -31,8 +31,6 @@ En esta lección repasaremos acerca de:
 -   `//` Divide y redondea al entero más cercano
 
 
-
-
 ```python
 100+200
 ```
@@ -69,64 +67,37 @@ En esta lección repasaremos acerca de:
 0
 
 
-
 #### Operadores de Asignación
 
 ![img_04_dt_01](images/img_04_dt_01.png)
-
 
 
 ```python
 x = 3
 x
 ```
-
-
-
-
-    3
-
-
-
+3
 
 ```python
 x += 2
 x
 ```
-
-
-
-
-    5
-
-
-
+5
 
 ```python
 x -= 2
 x
 ```
-
-
-
-
-    3
-
-
-
+3
 
 ```python
 x,y,z = 5,8,10
 print(z,y,x)
 ```
+10 8 5
 
-    10 8 5
-
-
-<div style="text-align: left">
 
 ### Operadores de Comparación
-
 
 | Símbolo/Caso de Uso | Booleano | Operación |
 |---|---|---|
@@ -137,6 +108,7 @@ print(z,y,x)
 | 3 == 5| False	| Igual a 		|
 | 3 != 5| True 	| No igual a 		|
 
+
 ### Operadores Lógicos
 
 | Símbolo/Caso de Uso | Booleano | Operación |
@@ -144,7 +116,6 @@ print(z,y,x)
 | 5 < 3 `and` 5 == 5	| False	| `and` evalúa si todas las declaraciones son ciertas (True)|
 | 5 < 3 `or` 5 == 5	| True	| `or` evalúa si alguna de las declaraciones es cierta (True)|
 | `not` 5 < 3		| True	| `not` Invierte el valor del resultado|
-
 
 
 ### Tipos de Datos
