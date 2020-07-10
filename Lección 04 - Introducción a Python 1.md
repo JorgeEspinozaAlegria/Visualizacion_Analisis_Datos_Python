@@ -40,7 +40,7 @@ En esta lección repasaremos acerca de:
 
 
 
-    300
+300
 
 
 
