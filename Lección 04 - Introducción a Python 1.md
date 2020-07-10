@@ -191,8 +191,8 @@ mi_cadena2
 ```python
 print(mi_cadena,mi_cadena2,sep='\n')
 ```
-¡esta es una cadena!
-¡esta también es un cadena!!!
+¡esta es una cadena!  
+¡esta también es un cadena!!!  
 
 
 Podemos incluir el caracter `\` en una cadena para incluir comillas simples como parte de la misma cadena:
@@ -315,10 +315,10 @@ print(int(4.7))
 print(float(5))
 print(bool(1))
 ```
-14
-4
-5.0
-True
+14  
+4  
+5.0  
+True  
 
 
 ## Estructuras de Datos
