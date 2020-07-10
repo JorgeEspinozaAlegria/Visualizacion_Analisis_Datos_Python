@@ -18,7 +18,6 @@ print(saldo_bancario)
 ```
 
 10
-
 -10
 
 
@@ -211,7 +210,7 @@ for llave in elenco:
 Jerry Seinfeld
 Julia Louis-Dreyfus
 Jason Alexander
-Michael Richards
+Michael Richards 
 
 ```python
 print(elenco.items())
