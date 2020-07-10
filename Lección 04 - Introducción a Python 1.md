@@ -33,12 +33,12 @@ En esta lección repasaremos acerca de:
 ```python
 100+200
 ```
-  300  
+  300
 
 ```python
 150000-25000
 ```
-  125000  
+  125000
 
 ```python
 25*100
