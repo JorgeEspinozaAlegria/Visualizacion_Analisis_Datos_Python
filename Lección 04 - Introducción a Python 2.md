@@ -18,6 +18,7 @@ print(saldo_bancario)
 ```
 
 10
+
 -10
 
 
