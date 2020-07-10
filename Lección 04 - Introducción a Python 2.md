@@ -17,8 +17,8 @@ print(saldo_telefono)
 print(saldo_bancario)
 ```
 
-    10
-    -10
+10
+-10
 
 
 Analicemos esto:
@@ -45,14 +45,12 @@ elif estacion == 'invierno':
 else:
     print('estación no reconocida')
 ```
-
-    ¡planta el jardín!
+¡planta el jardín!
 
 
 ### Expresiones Booleanas complejas
 
 Para condiciones complejas podemos usar los operadores lógicos `and`, `or` y `not`.
-
 
 ```python
 no_inscrito = 0
@@ -60,19 +58,13 @@ ubicacion = 'USA'
 if (not no_inscrito) and (ubicacion == "USA" or ubicacion == "CAN"):
     print("mandar correo electrónico")
 ```
-
-    mandar correo electrónico
-
-
+mandar correo electrónico
 
 ```python
 if True:
     print("Este código indentado siempre será ejecutado.")
 ```
-
-    Este código indentado siempre será ejecutado.
-
-
+Este código indentado siempre será ejecutado.
 
 ```python
 # Un mal ejemplo
@@ -80,24 +72,21 @@ hace_frio=1
 if hace_frio == True:
     print("¡El clima está frio!")
 ```
-
-    ¡El clima está frio!
-
-
+¡El clima está frio!
 
 ```python
 # Un buen ejemplo
 if hace_frio:
     print("¡El clima está frio!")
 ```
-
-    ¡El clima está frio!
+¡El clima está frio!
 
 
 ## Bucles
 Un objeto **iterable** es un objeto que puede devolver uno de sus elementos a la vez. Estos objetos pueden incluir tipos de secuencia, como cadenas, listas y tuplas, así como tipos que no son de secuencia, como diccionarios y archivos.
-### Bucles For
 
+
+### Bucles For
 
 ```python
 ciudades = ['CDMX', 'Monterrey', 'Guadalajara', 'Aguascalientes']
@@ -105,12 +94,11 @@ for ciudad in ciudades:
     print(ciudad)
 print("¡Listo!")
 ```
-
-    CDMX
-    Monterrey
-    Guadalajara
-    Aguascalientes
-    ¡Listo!
+CDMX
+Monterrey
+Guadalajara
+Aguascalientes
+¡Listo!
 
 
 #### Usando la función `range()` con bucles `for`
@@ -122,10 +110,9 @@ print("¡Listo!")
 for i in range(3):
     print("¡Hola!")
 ```
-
-    ¡Hola!
-    ¡Hola!
-    ¡Hola!
+¡Hola!
+¡Hola!
+¡Hola!
 
 
 #### range(start=0, stop, step=1)
@@ -149,10 +136,7 @@ for ciudad in ciudades:
     ciudades_mayusculas.append(ciudad.title())
 print(ciudades_mayusculas)
 ```
-
-    ['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']
-
-
+['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']
 
 ```python
 ciudades = ['cdmx', 'monterrey', 'guadalajara', 'aguascalientes']
@@ -162,11 +146,7 @@ for indice in range(len(ciudades)):
 
 ciudades
 ```
-
-
-
-
-    ['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']
+['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']
 
 
 
@@ -176,7 +156,6 @@ ciudades
 ```python
 titulo_libro =  ['don', 'quijote', 'de', 'la', 'mancha', 'cien', 'años', 'de', 'soledad','crimen','y','castigo','el','conde','de','montecristo','el','principito']
 ```
-
 
 ```python
 contador_palabras = {}
@@ -191,8 +170,7 @@ for palabra in titulo_libro:
         contador_palabras[palabra] += 1
 print(contador_palabras)
 ```
-
-    {'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}
+{'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}
 
 
 #### Usando el método `get()`
@@ -209,8 +187,7 @@ for palabra in titulo_libro:
     contador_palabras[palabra] = contador_palabras.get(palabra, 0) + 1
 print(contador_palabras)
 ```
-
-    {'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}
+{'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}
 
 
 #### Iterando a través de Diccionarios
@@ -222,7 +199,7 @@ elenco = {
            "Julia Louis-Dreyfus": "Elaine Benes",
            "Jason Alexander": "George Costanza",
            "Michael Richards": "Cosmo Kramer"
-       }
+         }
 ```
 
 
@@ -230,13 +207,10 @@ elenco = {
 for llave in elenco:
     print(llave)
 ```
-
-    Jerry Seinfeld
-    Julia Louis-Dreyfus
-    Jason Alexander
-    Michael Richards
-
-
+Jerry Seinfeld
+Julia Louis-Dreyfus
+Jason Alexander
+Michael Richards
 
 ```python
 print(elenco.items())
@@ -244,11 +218,11 @@ for llave, valor in elenco.items():
     print("Actor: {}    Personaje: {}".format(llave, valor))
 ```
 
-    dict_items([('Jerry Seinfeld', 'Jerry Seinfeld'), ('Julia Louis-Dreyfus', 'Elaine Benes'), ('Jason Alexander', 'George Costanza'), ('Michael Richards', 'Cosmo Kramer')])
-    Actor: Jerry Seinfeld    Personaje: Jerry Seinfeld
-    Actor: Julia Louis-Dreyfus    Personaje: Elaine Benes
-    Actor: Jason Alexander    Personaje: George Costanza
-    Actor: Michael Richards    Personaje: Cosmo Kramer
+dict_items([('Jerry Seinfeld', 'Jerry Seinfeld'), ('Julia Louis-Dreyfus', 'Elaine Benes'), ('Jason Alexander', 'George Costanza'), ('Michael Richards', 'Cosmo Kramer')])
+Actor: Jerry Seinfeld    Personaje: Jerry Seinfeld
+Actor: Julia Louis-Dreyfus    Personaje: Elaine Benes
+Actor: Jason Alexander    Personaje: George Costanza
+Actor: Michael Richards    Personaje: Cosmo Kramer
 
 
 ### Bucles While
@@ -269,14 +243,6 @@ while sum(mano) < 17:
     10
     [10, 8]
     18
-    [10, 8, 2]
-    20
-    [10, 8, 2, 13]
-    33
-    [10, 8, 2, 13, 5]
-    38
-    [10, 8, 2, 13, 5, 8]
-    46
 
 
 ### Break & Continue
@@ -306,8 +272,7 @@ for titular in titulares:
 
 print(teletipo_noticias)
 ```
-
-    Oso Comido por un Hombre Legisladores Anuncian Nuevas Leyes Ciudadano Descubre Violencia Inherente en el Sistema Gato Rescata a Bombero Ator
+Oso Comido por un Hombre Legisladores Anuncian Nuevas Leyes Ciudadano Descubre Violencia Inherente en el Sistema Gato Rescata a Bombero Ator
 
 
 ## Funciones
@@ -323,16 +288,10 @@ def volumen_cilindro(altura, radio):
     return altura * pi * radio ** 2
 ```
 
-
 ```python
 volumen_cilindro(10, 3)
 ```
-
-
-
-
-    282.7431
-
+282.7431
 
 
 ### Argumentos por Default
@@ -346,17 +305,11 @@ def volumen_cilindro(altura, radio=5):
     return altura * pi * radio ** 2
 ```
 
-
 ```python
 volumen_cilindro(10, 7)  # por posición
 volumen_cilindro(altura=10, radio=7)  # por nombre de argumento
 ```
-
-
-
-
-    1539.3791
-
+1539.3791
 
 
 ### Alcance de Variables
@@ -370,7 +323,6 @@ Es importante tener en cuenta el alcance cuando se usan variables en funciones. 
 # Esto provocará un error
 def una_funcion():
     palabra = "hola"
-
 print(palabra)
 ```
 
@@ -392,8 +344,7 @@ def una_funcion():
 
 una_funcion()
 ```
-
-    hola
+hola
 
 
 ## Expresiones Lambda
@@ -404,8 +355,6 @@ Son útiles para crear funciones rápidas que no se necesitan más adelante en e
 
 Una función normal:
 
-
-
 ```python
 def multiplica(x, y):
     return x * y
@@ -413,21 +362,11 @@ def multiplica(x, y):
 
 puede ser reducida a:
 
-
 ```python
 multiplica = lambda x, y: x * y
 multiplica(2,10)
-
-
 ```
-
-
-
-
-    20
-
-
-
+20
 
 ```python
 numeros = [
@@ -440,10 +379,7 @@ numeros = [
 promedios = list(map(lambda x: sum(x) / len(x), numeros))
 print(promedios)
 ```
-
-    [57.0, 58.2, 50.6, 27.2]
-
-
+[57.0, 58.2, 50.6, 27.2]
 
 ```python
 ciudades = ["CDMX", "Monterrey", "Guadalajara", "Aguascalientes", "Oaxaca", "Cancún"]
@@ -451,8 +387,7 @@ ciudades = ["CDMX", "Monterrey", "Guadalajara", "Aguascalientes", "Oaxaca", "Can
 ciudades_menores = list(filter(lambda x: len(x) < 10, ciudades))
 print(ciudades_menores)
 ```
-
-    ['CDMX', 'Monterrey', 'Oaxaca', 'Cancún']
+['CDMX', 'Monterrey', 'Oaxaca', 'Cancún']
 
 
 ## ¡¡¡Felicidades ahora ya tienes los conceptos basicos de Python!!!
