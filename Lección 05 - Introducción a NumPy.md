@@ -1031,7 +1031,7 @@ La siguiente tabla proporciona una lista de funciones de agregación útiles dis
 
 |Nombre de la función|Versión NaN-safe|Descripción|
 |---|---|---|
-|np.sum	np.nansum|Calcula la suma de elementos|
+|np.sum|np.nansum|Calcula la suma de elementos|
 |np.prod|np.nanprod|Calcula el producto de elementos|
 |np.mean|np.nanmean|Calcula la media de elementos|
 |np.std|np.nanstd|Calcula la desviación estándar|
