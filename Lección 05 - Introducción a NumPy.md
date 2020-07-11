@@ -653,7 +653,7 @@ print(x2)
      [ 1  6  7  7]]
 
 
-Este comportamiento predeterminado es realmente bastante útil: significa que cuando trabajamos con grandes conjuntos de datos, podemos acceder y procesar partes de estos conjuntos de datos. sin la necesidad de copiar el búfer de datos correspondiente.
+Este comportamiento predeterminado es realmente bastante útil: significa que cuando trabajamos con grandes conjuntos de datos, podemos acceder y procesar partes de estos conjuntos de datos, sin la necesidad de copiar el búfer de datos correspondiente.
 
 ### Crear copias de matrices
 A pesar de las buenas características de las vistas de matriz, a veces es útil copiar explícitamente los datos dentro de una matriz o una submatriz. Esto se puede hacer más fácilmente con el método `copy()`.
@@ -803,8 +803,8 @@ np.vstack([x, cuadricula])
 
 
     array([[1, 2, 3],
-           [1, 2, 3],
-           [4, 5, 6]])
+           [9, 8, 7],
+           [6, 5, 4]])
 
 
 
@@ -819,13 +819,13 @@ np.hstack([cuadricula, y])
 
 
 
-    array([[1, 2, 3, 99],
-           [4, 5, 6, 99]])
+    array([[9, 8, 7, 99],
+           [6, 5, 4, 99]])
 
 
 
 ### División de matrices
-Lo contrario a la concatenación es la división, que es implementada por las funciones `np.split`, `np.hsplit`, y `np.vsplit`. Para cada uno de estas, podemos pasar una lista de índices que indican los puntos de división.
+Lo contrario a la concatenación es la división, que es implementada por las funciones `np.split`, `np.hsplit` y `np.vsplit`. Para cada uno de estas, podemos pasar una lista de índices que indican los puntos de división.
 
 
 ```python
@@ -855,7 +855,7 @@ cuadricula
 
 
 ```python
-superior, inferior = np.vsplit(grid, [2])
+superior, inferior = np.vsplit(cuadricula, [2])
 print(superior)
 print(inferior)
 ```
@@ -868,7 +868,7 @@ print(inferior)
 
 
 ```python
-izquierda, derecha = np.hsplit(grid, [2])
+izquierda, derecha = np.hsplit(cuadricula, [2])
 print(izquierda)
 print(derecha)
 ```
@@ -922,7 +922,7 @@ matriz_grande = np.random.rand(1000000)
 
 ```
 
-    133 ms ± 2.19 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+    128 ms ± 6.18 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 
 
 
@@ -930,7 +930,7 @@ matriz_grande = np.random.rand(1000000)
 %timeit np.sum(matriz_grande)
 ```
 
-    862 µs ± 43.8 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+    689 µs ± 73.8 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 
 
 ### Mínimo y Máximo
@@ -938,7 +938,7 @@ matriz_grande = np.random.rand(1000000)
 
 ```python
 # funciones de python
-min(matriz_grande), max(matriz grande)
+min(matriz_grande), max(matriz_grande)
 ```
 
 
