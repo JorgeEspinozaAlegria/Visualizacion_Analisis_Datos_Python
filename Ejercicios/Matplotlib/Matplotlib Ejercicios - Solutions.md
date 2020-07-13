@@ -25,7 +25,7 @@ z = x**2
 ```python
 import matplotlib.pyplot as plt
 %matplotlib inline
-# plt.show() for non-notebook users
+# plt.show()
 ```
 
 ## Ejercicio 1
@@ -194,4 +194,4 @@ axes[1].set_ylabel('z')
 ![png](images/output_19_1.png)
 
 
-# !Excelente trabajo!
+# ¡Excelente trabajo!
