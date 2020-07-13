@@ -1,6 +1,6 @@
 # Introducción a Pandas
 
-Pandas proporciona estructuras y funciones de datos enriquecidas, diseñadas para trabajar con datos estructurados de forma fácil, rápida y eficiente.
+Pandas proporciona estructuras y funciones de datos enriquecidas, diseñadas para trabajar con datos estructurados de forma fácil, rápida y eficiente.  
 Combina las características de computación de matrices de alto rendimiento de NumPy, con las capacidades flexibles de manipulación de datos de hojas de Excel y bases de datos relacionales (como SQL).
 
 Los principales componentes de Pandas son:
@@ -271,7 +271,7 @@ Un `DataFrame` es una estructura de datos en 2 dimensiones, con columnas de dife
 ```python
 #Usando una matriz numpy
 matriz = np.array([[0.8, 5.5], [3.7, 12.4]])
-df1 = pd.DataFrame({'Columna1': array[:, 0], 'Columna2': array[:, 1]}, index=['A','B'])
+df1 = pd.DataFrame({'Columna1': matriz[:, 0], 'Columna2': matriz[:, 1]}, index=['A','B'])
 print(df1)
 ```
 
@@ -377,7 +377,6 @@ df
 ```python
 # seleccionando una columna
 df['columna_1']
-
 ```
 
 
