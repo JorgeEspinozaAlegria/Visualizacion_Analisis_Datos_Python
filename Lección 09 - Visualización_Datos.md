@@ -63,7 +63,7 @@ plt.show()
 ![png](images/Matplotlib/output_9_0.png)
 
 
-### Configurando mascaras para las etiquetas:
+### Configurando máscaras para las etiquetas:
 
 
 ```python
@@ -770,7 +770,7 @@ plt.boxplot(data,notch=True, vert=True, patch_artist=True)
 
 
 ### Violin
-Crea una gráfica de "violín" para cada columna del conjunto de datos. Las áreas sombreadas representan el rango completo de datos, con líneas opcionales en la media, la mediana, el mínimo, el máximo y las cantidades que se especifiquen.
+Se crea una gráfica de "violín" para cada columna del conjunto de datos. Las áreas sombreadas representan el rango completo de datos, con líneas opcionales en la media, la mediana, el mínimo, el máximo y las cantidades que se especifiquen.
 
 ```python
 plt.figure(figsize=(9,4))
