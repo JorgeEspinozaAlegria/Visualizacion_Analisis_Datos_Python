@@ -682,7 +682,6 @@ fig.map(sns.kdeplot,'Age',shade= True)
 oldest = titanic_df['Age'].max()
 fig.set(xlim=(0,oldest))
 fig.add_legend()
-
 ```
 
 
@@ -1008,7 +1007,7 @@ sns.catplot('Cabin',data=cabin_df,kind="count",palette='summer')
 
 
 Nota rápida: utilizamos 'winter_d' y 'summer' como paletas, pero se puede elegir la paleta que se desee.
-Consulta este enlace para ver más nombres de paletas; puede agregar '_d' al final de cualquier nombre de paleta para oscurecerlo.
+Consulta este enlace para ver más nombres de paletas; puede agregar '_d' al final de cualquier nombre de paleta para oscurecerlo.  
 
 Link: http://matplotlib.org/users/colormaps.html
 
@@ -1191,9 +1190,6 @@ Ahora sabemos que si la columna 'Alone' es cualquier cosa menos 0, entonces el p
 # Observemos que >0 o ==0 para poner el estatus de 'Alone'
 titanic_df['Alone'].loc[titanic_df['Alone'] >0] = 'With Family'
 titanic_df['Alone'].loc[titanic_df['Alone'] == 0] = 'Alone'
-
-# Ten en cuenta que está bien ignorar un error que a veces aparece aquí. Para más información revisa este enlace
-url_info = 'http://stackoverflow.com/questions/20625582/how-to-deal-with-this-pandas-warning'
 ```
 
 
@@ -1247,9 +1243,12 @@ url_info = 'http://stackoverflow.com/questions/20625582/how-to-deal-with-this-pa
     TypeError: '>' not supported between instances of 'str' and 'int'
 
 
+Ten en cuenta que está bien ignorar un error que a veces aparece aquí. Para más información revisa este enlace  
+url_info = 'http://stackoverflow.com/questions/20625582/how-to-deal-with-this-pandas-warning'
+
 
 ```python
-# TRevisemos si funcionó
+# Revisemos si funcionó
 titanic_df.head()
 ```
 
