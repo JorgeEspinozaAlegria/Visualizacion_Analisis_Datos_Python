@@ -640,11 +640,6 @@ animales.groupby ([len, llaves]). max ()
     <th>Y</th>
     <th>Z</th>
   </tr>
-  <tr>
-    <th>4</th>
-    <th>B</th>
-    <th></th>
-  </tr>
 </thead>
 <tbody>
   <tr>
