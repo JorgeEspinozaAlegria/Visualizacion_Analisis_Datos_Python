@@ -378,20 +378,22 @@ grupo_dato2.mean()
 </thead>
 <tbody>
   <tr>
-    <th rowspan=\"2\" valign=\"top\">X</th>
+    <th>X</th>
     <th>alpha</th>
     <td>0.538815</td>
   </tr>
   <tr>
+    <th></th>
     <th>beta</th>
     <td>0.871757</td>
   </tr>
   <tr>
-    <th rowspan=\"2\" valign=\"top\">Y</th>
+    <th>Y</th>
     <th>alpha</th>
     <td>-0.107305</td>
   </tr>
   <tr>
+    <th></th>
     <th>beta</th>
     <td>0.123704</td>
   </tr>
