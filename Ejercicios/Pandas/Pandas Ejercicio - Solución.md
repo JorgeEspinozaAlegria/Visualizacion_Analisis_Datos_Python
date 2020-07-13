@@ -133,7 +133,7 @@ sal.head()
 
 
 
-** Use el método .info () para averiguar cuántas entradas hay. **
+** Usa el método .info () para averiguar cuántas entradas hay. **
 
 
 ```python
@@ -190,7 +190,7 @@ sal['OvertimePay'].max()
 
 
 
-** ¿Cuál es el título del trabajo de JOSEPH DRISCOLL? Nota: use mayúsculas, de lo contrario, puede obtener una respuesta que no coincide (también hay una minúscula Joseph Driscoll). **
+** ¿Cuál es el título del trabajo de JOSEPH DRISCOLL? Nota: usa mayúsculas, de lo contrario, puedes obtener una respuesta que no coincide (también hay una minúscula Joseph Driscoll). **
 
 
 ```python
@@ -279,11 +279,9 @@ sal[sal['TotalPayBenefits']== sal['TotalPayBenefits'].max()] #['EmployeeName']
 
 
 ```python
-
 sal[sal['TotalPayBenefits']== sal['TotalPayBenefits'].min()] #['EmployeeName']
 # o
 # sal.loc[sal['TotalPayBenefits'].idxmax()]['EmployeeName']
-
 ```
 
 
@@ -332,7 +330,7 @@ sal[sal['TotalPayBenefits']== sal['TotalPayBenefits'].min()] #['EmployeeName']
 
 
 
-** ¿Cuál fue el promedio de BasePay de todos los empleados por año? (2011-2014)? **
+** ¿Cuál fue el promedio (mean) de BasePay de todos los empleados por año? (2011-2014)? **
 
 
 ```python
