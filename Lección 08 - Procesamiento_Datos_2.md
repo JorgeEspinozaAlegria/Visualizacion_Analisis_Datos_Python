@@ -418,11 +418,11 @@ animales = DataFrame(np.arange(16).reshape(4, 4),
 print(animales)
 ```
 
-W   X   Y   Z
-Perro   0   1   2   3
-Gato    4   5   6   7
-Pajaro  8   9  10  11
-Raton  12  13  14  15
+            W   X   Y   Z
+    Perro   0   1   2   3
+    Gato    4   5   6   7
+    Pajaro  8   9  10  11
+    Raton  12  13  14  15
 
 
 ```python
@@ -631,51 +631,31 @@ animales.groupby ([len, llaves]). max ()
 
 <div>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>W</th>
-      <th>X</th>
-      <th>Y</th>
-      <th>Z</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="2" valign="top">3</th>
-      <th>4</th>
-      <th>B</th>
-      <td>NaN</td>
-      <td>5</td>
-      <td>NaN</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <th>A</th>
-      <td>0.0</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <th>B</th>
-      <td>12.0</td>
-      <td>13</td>
-      <td>14.0</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <th>A</th>
-      <td>8.0</td>
-      <td>9</td>
-      <td>10.0</td>
-      <td>11</td>
-    </tr>
-  </tbody>
+<thead>
+  <tr style=\"text-align: right;\">
+    <th></th>
+    <th></th>
+    <th>W</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Z</th>
+  </tr>
+  <tr>
+    <th>4</th>
+    <th>B</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th rowspan=\"2\" valign=\"top\">4</th>
+    <th>B</th>
+    <td>NaN</td>
+    <td>5</td>
+    <td>NaN</td>
+    <td>7</td>
+  </tr>
+</tbody>
 </table>
 </div>
 
