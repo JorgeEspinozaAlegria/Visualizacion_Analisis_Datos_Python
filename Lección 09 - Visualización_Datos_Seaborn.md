@@ -16,10 +16,10 @@ import numpy as np
 
 ## Carguemos los datos
 
-El conjunto de datos Iris es, probablemente, el mejor conocido dentro de la literatura de reconocimiento de patrones
-Contiene muestras de 3 especies de iris (Iris Setosa, Iris Virginica e Iris Versicolor)
-Las características que se incluyen son la longitud y el ancho de los sépalos y los pétalos en centímetros
-En base a la combinación de estas características, se buscan modelos que permitan diferenciar las especies entre si
+El conjunto de datos Iris es, probablemente, el mejor conocido dentro de la literatura de reconocimiento de patrones  
+Contiene muestras de 3 especies de iris (Iris Setosa, Iris Virginica e Iris Versicolor)  
+Las características que se incluyen son la longitud y el ancho de los sépalos y los pétalos en centímetros  
+En base a la combinación de estas características, se buscan modelos que permitan diferenciar las especies entre si  
 
 ```python
 iris_ = pd.read_csv("data/iris_dataset.csv")
@@ -582,7 +582,7 @@ sns.barplot(x=iris["species"], y=iris["petal_length"], palette="Set2",data=iris,
 
 
 ## Grafico de caja
-El conjunto de datos planets de Seaborn contiene datos planetas que han sido descubiertos alrededor de otras estrellas.
+El conjunto de datos **planets** de Seaborn contiene datos planetas que han sido descubiertos alrededor de otras estrellas.  
 Algunas de las características que se proporcionan son: periodo orbital, masa, distancia, año de descubrimiento.
 
 
@@ -675,7 +675,7 @@ ax.set_xscale("log")
 
 ## Gráfico de Violin
 
-El conjunto de datos tips contiene información de las propinas dejadas en un restaurante, con información sobre el total de la cuenta, la propina, el sexo de la persona que dejpo la propina, si era fumador, el día en que se produjo, si fue almuerzo o cena, el número de comensales
+El conjunto de datos **tips** contiene información de las propinas dejadas en un restaurante, con información sobre el total de la cuenta, la propina, el sexo de la persona que dejpo la propina, si era fumador, el día en que se produjo, si fue almuerzo o cena, el número de comensales
 
 ```python
 tips = sns.load_dataset('tips')
@@ -852,7 +852,11 @@ g.set_axis_labels("Day", "Total Bill")
 
 
 ### FacetGrid
-Se utiliza para dibujar trazados con varios ejes, en los que cada eje muestra la misma relación condicionada a diferentes niveles de alguna variable. Es posible condicionar hasta tres variables asignando variables a las filas y columnas de la cuadrícula y usando diferentes colores para los elementos del grid. El flujo de trabajo básico es inicializar el objeto FacetGrid con el conjunto de datos y las variables que se utilizan para estructurar la cuadrícula. Luego, se pueden aplicar una o más funciones de trazado a cada subconjunto llamando a FacetGrid.map () o FacetGrid.map_dataframe (). Finalmente, el grid se puede ajustar con otros métodos, para hacer cosas como cambiar las etiquetas de los ejes, usar diferentes marcas o agregar una leyenda.
+Se utiliza para dibujar trazados con varios ejes, en los que cada eje muestra la misma relación condicionada a diferentes niveles de alguna variable.
+Es posible condicionar hasta tres variables asignando variables a las filas y columnas de la cuadrícula y usando diferentes colores para los elementos del grid.
+El flujo de trabajo básico es inicializar el objeto FacetGrid con el conjunto de datos y las variables que se utilizan para estructurar la cuadrícula.
+Luego, se pueden aplicar una o más funciones de trazado a cada subconjunto llamando a FacetGrid.map () o FacetGrid.map_dataframe ().
+Finalmente, el grid se puede ajustar con otros métodos, para hacer cosas como cambiar las etiquetas de los ejes, usar diferentes marcas o agregar una leyenda.
 
 
 ```python
@@ -875,7 +879,7 @@ g = g.map(plt.hist, "total_bill", color='red')
 ![png](/images/Seaborn/output_52_0.png)
 
 
-### Cambie el tamaño y la relación del aspecto de cada faceta:
+### Cambiemos el tamaño y la relación del aspecto de cada faceta:
 
 
 ```python
@@ -910,7 +914,7 @@ g = (g.map(plt.scatter, "total_bill", "tip", **kws).add_legend())
 ![png](/images/Seaborn/output_56_0.png)
 
 
-### Use un marcador diferente para los niveles de tono:
+### Usemos un marcador diferente para los niveles de tono:
 
 
 ```python
@@ -926,7 +930,7 @@ g = (g.map(plt.scatter, "total_bill", "tip", **kws).add_legend())
 ![png](/images/Seaborn/output_58_0.png)
 
 
-### Use diferentes etiquetas de ejes después de trazar:
+### Usemos diferentes etiquetas de ejes después de trazar:
 
 
 ```python
@@ -1042,7 +1046,7 @@ sns.jointplot(x="total_bill", y="tip", data=tips, color='red')
 
 
 ### Gráficos de hexbin:
-muestra los recuentos de observaciones que se encuentran dentro de los contenedores hexagonales
+Muestra los recuentos de observaciones que se encuentran dentro de los contenedores hexagonales
 
 
 ```python
@@ -1081,6 +1085,7 @@ sns.jointplot("total_bill", "tip", data=tips, kind="kde", space=0, color="green"
 
 
 ```python
+# Utilicemos nuevamente el conjunto de datos iris
 iris = sns.load_dataset("iris")
 iris.head()
 ```
@@ -1225,6 +1230,7 @@ sns.pairplot(iris, kind="reg", hue="species", palette="coolwarm", height=2, aspe
 
 
 ```python
+# Visualicemos la correlación entre las diferentes características
 iris.corr()
 ```
 
@@ -1298,7 +1304,7 @@ ax.set_ylim(bottom + 0.5, top - 0.5)
 
 
 ### Conjunto de datos de vuelos:
-El conjunto de datos flights contiene información de pasajeros transportados en avión, por mes, entre 1949 y 1960. El número de pasajeros probablemente está en miles, pero no está documentado.
+El conjunto de datos **flights** contiene información de pasajeros transportados en avión, por mes, entre 1949 y 1960. El número de pasajeros probablemente está en miles, pero no está documentado.
 
 ```python
 flights = sns.load_dataset("flights")
