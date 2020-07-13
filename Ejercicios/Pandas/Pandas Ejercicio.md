@@ -190,7 +190,7 @@
 
 
 
-** ¿Cuál es el título del trabajo de JOSEPH DRISCOLL? Nota: use mayúsculas, de lo contrario, puede obtener una respuesta que no coincide (también hay una minúscula Joseph Driscoll). **
+** ¿Cuál es el título del trabajo de JOSEPH DRISCOLL? Nota: usa mayúsculas, de lo contrario, puedes obtener una respuesta que no coincide (también hay una minúscula Joseph Driscoll). **
 
 
 ```python
@@ -332,7 +332,7 @@
 
 
 
-** ¿Cuál fue el promedio de BasePay de todos los empleados por año? (2011-2014)? **
+** ¿Cuál fue el promedio (mean) de BasePay de todos los empleados por año? (2011-2014)? **
 
 
 ```python
