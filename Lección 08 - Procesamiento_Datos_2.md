@@ -355,7 +355,7 @@ grupo_d['Y']
 
 ```python
 # Por ejemplo, si solo necesitamos agrupar la columna dato2 por ambos conjuntos de llaves
-grupo_dato2 = dframe.groupby(['k1','k2'])[['dato2']]
+grupo_dato2 = dframe.groupby(['k1','k2'])[['datos2']]
 grupo_dato2.mean()
 ```
 
@@ -364,50 +364,43 @@ grupo_dato2.mean()
 
 <div>
 <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>dato2</th>
-      <th>dato1</th>
-    </tr>
-    <tr>
-      <th>k1</th>
-      <th>k2</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="2" valign="top">X</th>
-      <th>alpha</th>
-      <td>0.737260</td>
-      <td>1.141619</td>
-    </tr>
-    <tr>
-      <th>beta</th>
-      <td>0.170866</td>
-      <td>-0.430231</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">Y</th>
-      <th>alpha</th>
-      <td>1.114514</td>
-      <td>0.570391</td>
-    </tr>
-    <tr>
-      <th>beta</th>
-      <td>0.447751</td>
-      <td>-2.175396</td>
-    </tr>
-    <tr>
-      <th>Z</th>
-      <th>alpha</th>
-      <td>1.589869</td>
-      <td>-0.084418</td>
-    </tr>
-  </tbody>
+<thead>
+  <tr style=\"text-align: right;\">
+    <th></th>
+    <th></th>
+    <th>datos2</th>
+  </tr>
+  <tr>
+    <th>k1</th>
+    <th>k2</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th rowspan=\"2\" valign=\"top\">X</th>
+    <th>alpha</th>
+    <td>0.538815</td>
+  </tr>
+  <tr>
+    <th>beta</th>
+    <td>0.871757</td>
+  </tr>
+  <tr>
+    <th rowspan=\"2\" valign=\"top\">Y</th>
+    <th>alpha</th>
+    <td>-0.107305</td>
+  </tr>
+  <tr>
+    <th>beta</th>
+    <td>0.123704</td>
+  </tr>
+  <tr>
+    <th>Z</th>
+    <th>alpha</th>
+    <td>0.008294</td>
+  </tr>
+</tbody>
 </table>
 </div>
 
@@ -423,18 +416,21 @@ animales = DataFrame(np.arange(16).reshape(4, 4),
                    columns=['W', 'X', 'Y', 'Z'],
                    index=['Perro', 'Gato', 'Pajaro', 'Raton'])
 print(animales)
+```
 
+W   X   Y   Z
+Perro   0   1   2   3
+Gato    4   5   6   7
+Pajaro  8   9  10  11
+Raton  12  13  14  15
+
+
+```python
 # Agreguemos algunos datos NAN
 # animales.ix[1:2, ['W', 'Y']] = np.nan
 animales.loc[1:2, ['W', 'Y']]  = np.nan
 print(animales)
 ```
-
-            W   X   Y   Z
-    Perro   0   1   2   3
-    Gato    4   5   6   7
-    Pajaro  8   9  10  11
-    Raton  12  13  14  15
               W   X     Y   Z
     Perro   0.0   1   2.0   3
     Gato    NaN   5   NaN   7
@@ -594,25 +590,25 @@ animales.groupby(len).sum()
   </thead>
   <tbody>
     <tr>
-      <th>3</th>
-      <td>0.0</td>
-      <td>6</td>
-      <td>2.0</td>
-      <td>10</td>
-    </tr>
-    <tr>
       <th>4</th>
-      <td>8.0</td>
-      <td>9</td>
-      <td>10.0</td>
-      <td>11</td>
+      <td>0.0</td>
+      <td>5</td>
+      <td>0.0</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>5</th>
       <td>12.0</td>
-      <td>13</td>
-      <td>14.0</td>
-      <td>15</td>
+      <td>14</td>
+      <td>16.0</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>8.0</td>
+      <td>9</td>
+      <td>10.0</td>
+      <td>11</td>
     </tr>
   </tbody>
 </table>
@@ -648,13 +644,7 @@ animales.groupby ([len, llaves]). max ()
   <tbody>
     <tr>
       <th rowspan="2" valign="top">3</th>
-      <th>A</th>
-      <td>0.0</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>3</td>
-    </tr>
-    <tr>
+      <th>4</th>
       <th>B</th>
       <td>NaN</td>
       <td>5</td>
@@ -662,12 +652,12 @@ animales.groupby ([len, llaves]). max ()
       <td>7</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>5</th>
       <th>A</th>
-      <td>8.0</td>
-      <td>9</td>
-      <td>10.0</td>
-      <td>11</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>5</th>
@@ -676,6 +666,14 @@ animales.groupby ([len, llaves]). max ()
       <td>13</td>
       <td>14.0</td>
       <td>15</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <th>A</th>
+      <td>8.0</td>
+      <td>9</td>
+      <td>10.0</td>
+      <td>11</td>
     </tr>
   </tbody>
 </table>
