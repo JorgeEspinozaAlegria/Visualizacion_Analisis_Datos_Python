@@ -659,7 +659,7 @@ animales.groupby ([len, llaves]). max ()
       <td>3</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th></th>
       <th>B</th>
       <td>12.0</td>
       <td>13</td>
