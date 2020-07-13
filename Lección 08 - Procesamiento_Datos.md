@@ -429,7 +429,7 @@ df_der = DataFrame({'llave1': ['SF', 'SF', 'LA', 'LA'],
                    'llave2': ['uno', 'uno', 'uno', 'dos'],
                    'dato_der': [40, 50, 60, 70]})
 #Merge
-pd.merge(df_left, df_right, on=['llave1', 'llave2'], how='outer')
+pd.merge(df_izq, df_der, on=['llave1', 'llave2'], how='outer')
 ```
 
 
