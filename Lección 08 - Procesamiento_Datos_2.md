@@ -687,7 +687,7 @@ animales.groupby ([len, llaves]). max ()
 # También podemos usar groupby con niveles de índice jerárquico
 
 # Crear un índice de columna jerárquica
-jerarq_col = pd.MultiIndex.from_arrays([['MX','MX','MX','US','US'],[1,2,3,1,2]],nombres=['Ciudad','Valor'])
+jerarq_col = pd.MultiIndex.from_arrays([['MX','MX','MX','US','US'],[1,2,3,1,2]],names=['Ciudad','Valor'])
 
 # Crear un dataframe con índice jerárquico
 dframe = DataFrame(np.arange(25).reshape(5,5),columns=jerarq_col)
@@ -772,7 +772,7 @@ dframe
 # Se guarda el archivo winquality.csv en la misma carpeta que los notebooks Python, tenga en cuenta el delimitador utilizado ;
 # El archivo contiene medidas de características de diferentes vinos, como acidez, azúcar, densidad, etc.
 # La columna de calidad (quality) es una calificación asignada a cada vino
-dframe_vino = pd.read_csv('/data/winequality-red.csv',sep=';')
+dframe_vino = pd.read_csv('data/winequality-red.csv',sep=';')
 dframe_vino
 ```
 
@@ -1212,7 +1212,8 @@ vino.describe()
 
 
 ```python
-# Ahora podemos aplicar nuestra propia función de agregación; esta función toma el valor máximo de la columna y resta el valor mínimo de la columna
+# Ahora podemos aplicar nuestra propia función de agregación; esta función toma el valor máximo de la columna
+# y resta el valor mínimo de la columna
 vino.agg(max_a_min)
 ```
 
@@ -1477,7 +1478,7 @@ vino.agg('mean')
 
 ```python
 # Agreguemos una proporción entre la calidad (quality) y el contenido alcoholico (alcohol)
-dframe_vino['qual/alc ratio'] = dframe_vino['quality']/dframe_wine['alcohol']
+dframe_vino['qual/alc ratio'] = dframe_vino['quality']/dframe_vino['alcohol']
 dframe_vino.head()
 ```
 
@@ -1751,7 +1752,7 @@ def rango(df):
 dframe_vino.sort_values('alcohol',ascending=False,inplace=True)
 
 # Se agrupa por su calidad y se aplica la función de rango
-dframe_vino = dframe_vio.groupby('quality').apply(rango)
+dframe_vino = dframe_vino.groupby('quality').apply(rango)
 dframe_vino.head()
 ```
 
@@ -1876,7 +1877,7 @@ dframe_vino.head()
 # Ahora finalmente podemos llamar al dataframe donde elrango del contenido de alcohol (alc_content_rank) es 1
 # Se obtiene el número de conteos de calidad
 num_de_calidad = dframe_vino['quality'].value_counts()
-num_of_calidad
+num_de_calidad
 ```
 
 
