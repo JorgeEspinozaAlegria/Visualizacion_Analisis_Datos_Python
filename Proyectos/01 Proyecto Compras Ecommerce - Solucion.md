@@ -272,7 +272,7 @@ ecom[ecom['Job'] == 'Lawyer'].info()
 
 ** ¿Cuántas personas hicieron la compra durante la mañana y cuántas personas hicieron la compra durante la tarde (AM or PM)? **
 
-**(Pista: Revisa [value_counts()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html) ) **
+  **(Pista: Revisa [value_counts()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html) ) **
 
 
 ```python
@@ -399,6 +399,6 @@ ecom['Email'].apply(lambda x: x.split('@')[1]).value_counts().head(5)
 
 
 
-# Excelente trabajo!
+# ¡Excelente trabajo!
 
 [**Siguiente Proyecto**](02%20Proyecto%20llamadas%20al%20911.ipynb)  
