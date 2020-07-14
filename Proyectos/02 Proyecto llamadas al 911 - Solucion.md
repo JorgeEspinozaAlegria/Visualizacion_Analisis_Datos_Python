@@ -1,6 +1,6 @@
 # Llamadas al 911 - Solución
 
-Para este proyecto final, analizaremos algunos datos de llamadas al 911 de [Kaggle] (https://www.kaggle.com/mchirico/montcoalert). Los datos contienen los siguientes campos:
+Para este proyecto, analizaremos algunos datos de llamadas al 911 de [Kaggle] (https://www.kaggle.com/mchirico/montcoalert). Los datos contienen los siguientes campos:
 
 * lat: String variable, latitud
 * lng: String variable, longitud
@@ -175,7 +175,7 @@ df['twp'].value_counts().head(5)
 
 
 
-** Eche un vistazo a la columna 'title', ¿cuántos códigos de título únicos hay? **
+** Echa un vistazo a la columna 'title', ¿cuántos códigos de título únicos hay? **
 
 
 ```python
