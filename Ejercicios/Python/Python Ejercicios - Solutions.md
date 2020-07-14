@@ -252,4 +252,4 @@ velocimetro(81,False)
 
 
 
-# Buen trabajo¡¡
+# ¡Buen trabajo!
