@@ -175,7 +175,7 @@ Para este proyecto final, analizaremos algunos datos de llamadas al 911 de [Kagg
 
 
 
-** Eche un vistazo a la columna 'title', ¿cuántos códigos de título únicos hay? **
+** Echa un vistazo a la columna 'title', ¿cuántos códigos de título únicos hay? **
 
 
 ```python
