@@ -166,7 +166,7 @@ secuencia = ['sopa','perro','sol','gato','genial']
   Si tu velocidad es de 60 o menos, el resultado es "Sin Multa". Si la velocidad está entre 61
   y 80 inclusive, el resultado es "Multa Pequeña". Si la velocidad es 81 o más, el resultado es "Multa Grande". A menos que sea tu cumpleaños (codificado como un valor booleano en los parámetros de la función); en tu cumpleaños, tu velocidad puede ser 5 más alta en total. **
 
-# Buen trabajo¡¡
+# ¡Buen trabajo!
 
 
  [**Ejercicios Resueltos**](Python%20Ejercicios%20-%20Solutions.md)    
