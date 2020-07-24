@@ -1,10 +1,10 @@
 # Python Ejercicios
 
-Este es un ejercicio opcional para evaluar su comprensión de Python Basics. Si encuentra esto extremadamente desafiante, entonces probablemente todavía no esté listo para el resto de este curso y no tenga suficiente experiencia en programación para continuar.
+Este es un ejercicio opcional, para evaluar tu comprensión de los conceptos básicos de Python. Si encuentras esto extremadamente desafiante, entonces probablemente todavía no estés listo para el resto de este curso y no tengas suficiente experiencia en programación para continuar.
 
 ## Ejercicios
 
-Responda las preguntas o complete las tareas descritas en negrita a continuación, utilice el método específico descrito, si corresponde.
+Responde las preguntas o completa las tareas descritas en negrita que se encuentran a continuación; utiliza el método específico que se describe, si corresponde.
 
 Eleva 7 a la cuarta potencia
 
@@ -20,15 +20,15 @@ Eleva 7 a la cuarta potencia
 
 
 
-** Dividir esta cadena: **
+** Divide esta cadena: **
 
-    s = "Hola Sam!"
-    
+    s = "¡Hola Sam!"
+
 ** en una lista. ** **
 
 
 ```python
-s = 'Hi there Sam!'
+s = '¡Hola Sam!'
 ```
 
 
@@ -39,16 +39,16 @@ s = 'Hi there Sam!'
 ** Dadas las variables: **
 
     planeta = "Tierra"
-    diámetro = 12742
+    diametro = 12742
 
-** Use .format () para imprimir la siguiente cadena: **
+** Usa .format () para imprimir la siguiente cadena: **
 
     El diámetro de la Tierra es de 12742 kilómetros.
 
 
 ```python
-planet = "Tierra"
-diameter = 12742
+planeta = "Tierra"
+diametro = 12742
 ```
 
 
@@ -56,11 +56,11 @@ diameter = 12742
 
 ```
 
-** Dada esta lista anidada, use la indexación para tomar la palabra "hello" **
+** Dada esta lista anidada, usa la indexación para obtener la palabra "hola" **
 
 
 ```python
-lst = [1,2,[3,4],[5,[100,200,['hello']],23,11],1,7]
+lista = [1,2,[3,4],[5,[100,200,['hola']],23,11],1,7]
 ```
 
 
@@ -68,11 +68,11 @@ lst = [1,2,[3,4],[5,[100,200,['hello']],23,11],1,7]
 
 ```
 
-** Dado este diccionario de nidos, toma la palabra "hello". Esté preparado, esto será molesto / complicado**
+** Dado este diccionario anidado, obten la palabra "hola". Esto puede ser complicado**
 
 
 ```python
-d = {'k1':[1,2,3,{'tricky':['oh','man','inception',{'target':[1,2,3,'hello']}]}]}
+d = {'k1':[1,2,3,{'truco':['ay','hombre','inception',{'objetivo':[1,2,3,'hola']}]}]}
 ```
 
 
@@ -87,11 +87,11 @@ d = {'k1':[1,2,3,{'tricky':['oh','man','inception',{'target':[1,2,3,'hello']}]}]
 
 ```
 
-** Cree una función que tome el dominio del sitio web de correo electrónico de una cadena en el formulario: **
+** Crea una función que tome el dominio del sitio web, del correo electrónico de una cadena con este formato: **
 
     usuario@dominio.com
-    
-** Entonces, por ejemplo, pasar "user@domain.com" devolvería: domain.com **
+
+** Entonces, por ejemplo, si usas "user@domain.com" devolvería: domain.com **
 
 
 ```python
@@ -103,7 +103,7 @@ d = {'k1':[1,2,3,{'tricky':['oh','man','inception',{'target':[1,2,3,'hello']}]}]
 
 ```
 
-** Cree una función básica que devuelva True si la palabra 'dog' está contenida en la cadena de entrada. No se preocupe por los casos extremos como una puntuación que se adjunta a la palabra dog, pero tenga en cuenta las mayúsculas. ** 
+** Crea una función básica que devuelva True si la palabra 'perro' está contenida en la cadena de entrada. No te preocupes por los casos extremos, como signos de puntuación que estén junto a la palabra 'perro', pero ten en cuenta las mayúsculas. **
 
 
 ```python
@@ -112,7 +112,7 @@ d = {'k1':[1,2,3,{'tricky':['oh','man','inception',{'target':[1,2,3,'hello']}]}]
 
 
 ```python
-findDog('Is there a dog here?')
+buscaPerro('¿Hay un perro aqui?')
 ```
 
 
@@ -122,7 +122,7 @@ findDog('Is there a dog here?')
 
 
 
-** Cree una función que cuente la cantidad de veces que la palabra "dog" aparece en una cadena. Nuevamente ignore los casos extremos. **
+** Crea una función que cuente la cantidad de veces que la palabra 'perro' aparece en una cadena. Nuevamente, ignora los casos extremos. **
 
 
 ```python
@@ -131,7 +131,7 @@ findDog('Is there a dog here?')
 
 
 ```python
-countDog('This dog runs faster than the other dog dude!')
+cuentaPerro('Este perro corre más rápido que el otro perro')
 ```
 
 
@@ -141,17 +141,17 @@ countDog('This dog runs faster than the other dog dude!')
 
 
 
-** Use expresiones lambda y la función filter () para filtrar palabras de una lista que no comience con la letra 's'. Por ejemplo:**
+** Usa expresiones lambda y la función filter () para eliminar palabras de una lista, que no comiencen con la letra 's'. Por ejemplo:**
 
-    seq = ['soup','dog','salad','cat','great']
+    secuencia = ['sopa','perro','sol','gato','genial']
 
 ** debe filtrarse a: **
 
-    ['soup','salad']
+    ['sopa','sol']
 
 
 ```python
-seq = ['soup','dog','salad','cat','great']
+secuencia = ['sopa','perro','sol','gato','genial']
 ```
 
 
@@ -161,17 +161,12 @@ seq = ['soup','dog','salad','cat','great']
 
 ### Problema Final
 
-** Conduces demasiado rápido y un oficial de policía te detiene. Escribir una función
-  para devolver uno de los 3 resultados posibles: "No ticket", "Small ticket", or "Big Ticket".
-  Si su velocidad es 60 o menos, el resultado es "No Ticket". Si la velocidad está entre 61
-  y 80 inclusive, el resultado es "Small ticket". Si la velocidad es 81 o más, el resultado es "Big Ticket". A menos que sea su cumpleaños (codificado como un valor booleano en los parámetros de la función), en su cumpleaños, su velocidad puede ser 5 más alta en total
-  casos. **
+** Conduces demasiado rápido y un oficial de policía te detiene. Escribe una función
+  para devolver uno de los 3 resultados posibles: "Sin Multa", "Multa Pequeña", o "Multa Grande".
+  Si tu velocidad es de 60 o menos, el resultado es "Sin Multa". Si la velocidad está entre 61
+  y 80 inclusive, el resultado es "Multa Pequeña". Si la velocidad es 81 o más, el resultado es "Multa Grande". A menos que sea tu cumpleaños (codificado como un valor booleano en los parámetros de la función); en tu cumpleaños, tu velocidad puede ser 5 más alta en total. **
 
-# Buen trabajo¡¡
+# ¡Buen trabajo!
 
-  
+
  [**Ejercicios Resueltos**](Python%20Ejercicios%20-%20Solutions.md)    
-
-
-  
- 

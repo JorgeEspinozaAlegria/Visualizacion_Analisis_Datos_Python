@@ -1,6 +1,6 @@
 # Llamadas al 911 - Solución
 
-Para este proyecto final, analizaremos algunos datos de llamadas al 911 de [Kaggle] (https://www.kaggle.com/mchirico/montcoalert). Los datos contienen los siguientes campos:
+Para este proyecto, analizaremos algunos datos de llamadas al 911 de [Kaggle] (https://www.kaggle.com/mchirico/montcoalert). Los datos contienen los siguientes campos:
 
 * lat: String variable, latitud
 * lng: String variable, longitud
@@ -12,7 +12,7 @@ Para este proyecto final, analizaremos algunos datos de llamadas al 911 de [Kagg
 * addr: String variable, dirección
 * e: String variable, variable ficticia (siempre 1)
 
-¡Simplemente siga este cuaderno e intente completar las instrucciones o responda las preguntas en negrita usando sus habilidades de Python y Data Science!
+¡Simplemente sigue este cuaderno e intenta completar las instrucciones o responde a las preguntas en negrita, usando tus habilidades de Python y Data Science!
 
 ## Datos y Configuración
 
@@ -34,14 +34,14 @@ sns.set_style('whitegrid')
 %matplotlib inline
 ```
 
-** Cargue el archivo "911,csv" en un dataframe llamado df **
+** Carga el archivo "911,csv" en un dataframe llamado df **
 
 
 ```python
 df = pd.read_csv('911.csv')
 ```
 
-** valide la info() del df **
+** Revisa la info() del df **
 
 
 ```python
@@ -55,18 +55,18 @@ df.info()
     ---  ------     --------------  -----  
      0   lat        99492 non-null  float64
      1   lng        99492 non-null  float64
-     2   desc       99492 non-null  object 
+     2   desc       99492 non-null  object
      3   zip        86637 non-null  float64
-     4   title      99492 non-null  object 
-     5   timeStamp  99492 non-null  object 
-     6   twp        99449 non-null  object 
-     7   addr       98973 non-null  object 
+     4   title      99492 non-null  object
+     5   timeStamp  99492 non-null  object
+     6   twp        99449 non-null  object
+     7   addr       98973 non-null  object
      8   e          99492 non-null  int64  
     dtypes: float64(3), int64(1), object(5)
     memory usage: 6.8+ MB
-    
 
-** Valide el encabezado **
+
+** Revisa el encabezado **
 
 
 ```python
@@ -137,7 +137,7 @@ df.head(3)
 
 ## Preguntas Básicas
 
-** ¿Cuáles son los 5 códigos postales principales de llamadas al 911? **
+** ¿Cuáles son los 5 códigos postales (zip) principales de llamadas al 911? **
 
 
 ```python
@@ -175,7 +175,7 @@ df['twp'].value_counts().head(5)
 
 
 
-** Eche un vistazo a la columna 'title', ¿cuántos códigos de título únicos hay? ** **
+** Echa un vistazo a la columna 'title', ¿cuántos códigos de título únicos hay? **
 
 
 ```python
@@ -191,9 +191,9 @@ df['title'].nunique()
 
 ## Crear nuevas características
 
-** En la columna de "column" hay "Reasons/Departments" especificados antes del código del título. Estos son EMS, Fuego y Tráfico. Use .apply () con una expresión lambda personalizada para crear una nueva columna llamada "Razón" que contenga este valor de cadena. **
+** La columna 'title' es una combinación de la razón de la llamada (por categoría) y una descripción. Las razones son EMS (Emergency Medial Services) , Fire y Traffic. Use .apply () con una expresión lambda personalizada, para crear una nueva columna llamada 'Reason' que contenga este valor. **
 
-**For example, if the title column value is EMS: BACK PAINS/INJURY , the Reason column value would be EMS. **
+**Por ejemplo, si la columna 'title' es EMS: BACK PAINS/INJURY, la columna 'Reason' debe ser EMS. **
 
 
 
@@ -201,7 +201,7 @@ df['title'].nunique()
 df['Reason'] = df['title'].apply(lambda title: title.split(':')[0])
 ```
 
-** ¿Cuál es la razón más común para una llamada al 911 basada en esta nueva columna? **
+** ¿Cuál es la razón más común para una llamada al 911, basada en esta nueva columna? **
 
 
 ```python
@@ -218,7 +218,7 @@ df['Reason'].value_counts()
 
 
 
-** Ahora use seaborn para crear un diagrama de conteo de llamadas al 911 por Reason. **
+** Ahora usa seaborn para crear un diagrama de conteo de llamadas al 911 por Reason. **
 
 
 ```python
@@ -233,7 +233,7 @@ sns.countplot(x='Reason',data=df,palette='viridis')
 
 
 
-![png](/images/output_26_1.png)
+![png](images/output_26_1.png)
 
 
 ** Ahora comencemos a enfocarnos en la información del tiempo. ¿Cuál es el tipo de datos de los objetos en la columna timeStamp? **
@@ -250,19 +250,19 @@ type(df['timeStamp'].iloc[0])
 
 
 
-** Deberías haber visto que estas marcas de tiempo siguen siendo cadenas. Use [pd.to_datetime](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_datetime.html) para convertir la columna de cadenas a objetos DateTime. **
+** Como puedes observar, esta columna de tiempo sigue siendo una cadena. Usa [pd.to_datetime](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_datetime.html) para convertir la columna de cadenas a objetos DateTime. **
 
 
 ```python
 df['timeStamp'] = pd.to_datetime(df['timeStamp'])
 ```
 
-** Ahora puede obtener atributos específicos de un objeto Datetime llamándolos. Por ejemplo:**
+** Ahora puedes obtener atributos específicos de un objeto Datetime llamándolos. Por ejemplo:**
 
     time = df ['timeStamp']. iloc [0]
     time.hour
 
-** Puede usar el método de tabulación de Jupyter para explorar los diversos atributos que puede llamar. Ahora que la columna de fecha y hora son en realidad objetos de fecha y hora, use .apply () para crear 3 nuevas columnas llamadas Hour, Month y Day de la semana. Creará estas columnas a partir de la columna timeStamp, haga referencia a las soluciones si se atasca en este paso. **
+** Puedes usar el método de tabulación de Jupyter, para explorar los diversos atributos que se pueden llamar. Ahora que la columna de fecha y hora son en realidad objetos de fecha y hora, usa .apply () para crear 3 nuevas columnas llamadas 'Hour', 'Month' y 'Day of Week'. Crea estas columnas a partir de la columna timeStamp, haz referencia a las soluciones si este paso es demasiado difícil. **
 
 
 ```python
@@ -271,7 +271,7 @@ df['Month'] = df['timeStamp'].apply(lambda time: time.month)
 df['Day of Week'] = df['timeStamp'].apply(lambda time: time.dayofweek)
 ```
 
-** Observe cómo el Día de la semana es un entero 0-6. Use el .map () con este diccionario para asignar los nombres de cadena reales al día de la semana: **
+** Observa cómo el Día de la semana es un entero entre 0-6. Usa .map () con este diccionario, para asignar los nombres de cadena al día de la semana: **
 
     dmap = {0:'Mon',1:'Tue',2:'Wed',3:'Thu',4:'Fri',5:'Sat',6:'Sun'}
 
@@ -285,7 +285,7 @@ dmap = {0:'Mon',1:'Tue',2:'Wed',3:'Thu',4:'Fri',5:'Sat',6:'Sun'}
 df['Day of Week'] = df['Day of Week'].map(dmap)
 ```
 
-** Ahora use seaborn para crear un diagrama de conteo de la columna Día de la semana con el tono basado en la columna Razón. **
+** Ahora usa seaborn para crear un diagrama de conteo, de la columna 'Day of Week' con el tono basado en la columna 'Reason'. **
 
 
 ```python
@@ -303,10 +303,10 @@ plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 
 
 
-![png](/images/output_37_1.png)
+![png](images/output_37_1.png)
 
 
-** Haga lo mismo para Month:**
+** Haz lo mismo para 'Month'**
 
 
 ```python
@@ -324,7 +324,7 @@ plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 
 
 
-![png](/images/output_39_1.png)
+![png](images/output_39_1.png)
 
 
 ** ¿Notaste algo extraño en el gráfico? **
@@ -334,9 +334,9 @@ plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 # Faltan algunos meses! 9,10 y 11 no están allí.
 ```
 
-** Deberías haber notado que faltaban algunos meses, veamos si tal vez podamos completar esta información trazando la información de otra manera, posiblemente un diagrama lineal simple que complete los meses faltantes, para hacer esto, ' Necesitaré trabajar con pandas ... **
+** Deberías haber notado que faltaban algunos meses, veamos si tal vez podemos completar esta información trazando la información de otra manera; posiblemente un diagrama lineal simple que complete los meses faltantes. Para hacer esto, ' Necesitaremos trabajar con pandas ... **
 
-** Ahora cree un objeto gropuby llamado por Month, donde agrupe el dataframe por la columna del Month y use el método count () para la agregación. Use el método head () en este DataFrame devuelto. **
+** Ahora crea dataframe llamado 'byMonth' mediante groupby usando 'Month', donde se agrupe el dataframe por la columna 'Month' y usa el método count () para la agregación. Usa el método head () en este DataFrame, para verificar que es correcto. **
 
 
 ```python
@@ -348,19 +348,6 @@ byMonth.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -476,11 +463,11 @@ byMonth.head()
 
 
 
-** Ahora cree un diagrama simple fuera del marco de datos que indica el recuento de llamadas por mes. **
+** Ahora crea un diagrama simple con el dataframe, que indique el recuento de llamadas por mes. **
 
 
 ```python
-# Could be any column
+# Puede usarse cualquier columna
 byMonth['twp'].plot()
 ```
 
@@ -492,7 +479,7 @@ byMonth['twp'].plot()
 
 
 
-![png](/images/output_46_1.png)
+![png](images/output_46_1.png)
 
 
 ** Ahora vea si puede usar lmplot () de seaborn para crear un ajuste lineal en la cantidad de llamadas por mes. Tenga en cuenta que es posible que deba restablecer el índice a una columna. **
@@ -510,17 +497,17 @@ sns.lmplot(x='Month',y='twp',data=byMonth.reset_index())
 
 
 
-![png](/images/output_48_1.png)
+![png](images/output_48_1.png)
 
 
-** Cree una nueva columna llamada 'Date' que contenga la fecha de la columna timeStamp. Deberá usar apply junto con el método .date (). **
+** Crea una nueva columna llamada 'Date', que contenga la fecha de la columna timeStamp. Deberá usar apply junto con el método .date (). **
 
 
 ```python
 df['Date']=df['timeStamp'].apply(lambda t: t.date())
 ```
 
-** Ahora agrupe por esta columna "Date" con el agregado count () y cree un diagrama de recuentos de llamadas al 911. **
+** Ahora agrupa por esta columna 'Date' con el agregado count () y crea un diagrama de recuentos de llamadas al 911. **
 
 
 ```python
@@ -529,10 +516,10 @@ plt.tight_layout()
 ```
 
 
-![png](/images/output_52_0.png)
+![png](images/output_52_0.png)
 
 
-** Ahora recrea el gráfico pero ahora crea 3 gráficos separados para representar el motivo de la llamada al 911 **
+** Ahora recrea el gráfico, pero ahora crea 3 gráficos separados para representar el motivo de la llamada al 911 **
 
 
 ```python
@@ -542,7 +529,7 @@ plt.tight_layout()
 ```
 
 
-![png](/images/output_54_0.png)
+![png](images/output_54_0.png)
 
 
 
@@ -553,7 +540,7 @@ plt.tight_layout()
 ```
 
 
-![png](/images/output_55_0.png)
+![png](images/output_55_0.png)
 
 
 
@@ -564,13 +551,11 @@ plt.tight_layout()
 ```
 
 
-![png](/images/output_56_0.png)
+![png](images/output_56_0.png)
 
 
 ____
-** Now let's move on to creating  heatmaps with seaborn and our data. We'll first need to restructure the dataframe so that the columns become the Hours and the Index becomes the Day of the Week. There are lots of ways to do this, but I would recommend trying to combine groupby with an [unstack](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.unstack.html) method. Reference the solutions if you get stuck on this!**
-
-** Ahora pasemos a crear mapas de calor con seaborn y nuestros datos. Primero tendremos que reestructurar el dataframe para que las columnas se conviertan en las horas y el índice se convierta en el día de la semana. Hay muchas maneras de hacer esto, pero recomendaría intentar combinar groupby con un método [unstack] (http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.unstack.html) . ¡Consulta las soluciones si te quedas atascado en esto! **
+** Ahora pasemos a crear mapas de calor con seaborn y nuestros datos. Primero tendremos que reestructurar el dataframe, para que las columnas se conviertan en las horas y el índice se convierta en el día de la semana. Hay muchas maneras de hacer esto, pero recomendaría intentar combinar groupby con un método [unstack] (http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.unstack.html) . ¡Consulta las soluciones si esto es demasiado complicado! **
 
 
 ```python
@@ -582,19 +567,6 @@ dayHour.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -774,7 +746,7 @@ dayHour.head()
 
 
 
-** Ahora cree un HeatMap usando este nuevo DataFrame. **
+** Ahora crea un HeatMap usando este nuevo DataFrame. **
 
 
 ```python
@@ -790,7 +762,7 @@ sns.heatmap(dayHour,cmap='viridis')
 
 
 
-![png](/images/output_60_1.png)
+![png](images/output_60_1.png)
 
 
 ** Ahora cree un mapa de clúster con este DataFrame. **
@@ -808,10 +780,10 @@ sns.clustermap(dayHour,cmap='viridis')
 
 
 
-![png](/images/output_62_1.png)
+![png](images/output_62_1.png)
 
 
-** Ahora repita estos mismos gráficos y operaciones, para un DataFrame que muestra el Mes como la columna. **
+** Ahora repite estos mismos gráficos y operaciones, para un DataFrame que muestra el Mes como la columna. **
 
 
 ```python
@@ -823,19 +795,6 @@ dayMonth.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -944,7 +903,7 @@ sns.heatmap(dayMonth,cmap='viridis')
 
 
 
-![png](/images/output_65_1.png)
+![png](images/output_65_1.png)
 
 
 
@@ -960,7 +919,7 @@ sns.clustermap(dayMonth,cmap='viridis')
 
 
 
-![png](/images/output_66_1.png)
+![png](images/output_66_1.png)
 
 
 

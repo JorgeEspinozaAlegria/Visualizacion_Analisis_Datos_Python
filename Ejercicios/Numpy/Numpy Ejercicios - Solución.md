@@ -1,16 +1,22 @@
 # NumPy Ejercicios - Solución
 
-Ahora que hemos aprendido sobre NumPy, analicemos sus conocimientos. Comenzaremos con algunas tareas simples y luego se le harán algunas preguntas más complicadas.
+Ahora que hemos aprendido sobre NumPy, revisemos tus conocimientos. Comenzaremos con algunas tareas simples y luego se harán algunas preguntas más complicadas.
 
-#### Import NumPy as np
+#### Importa NumPy como np
 
 
 ```python
 import numpy as np
 ```
 
-#### Crear un arreglo de 10 ceros 
+#### Crea un arreglo de 10 ceros
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.zeros(10)
@@ -23,8 +29,14 @@ np.zeros(10)
 
 
 
-#### Crear un arreglo de 10 unos
+#### Crea un arreglo de 10 unos
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.ones(10)
@@ -37,8 +49,14 @@ np.ones(10)
 
 
 
-#### Crear un arreglo de 10 cincos
+#### Crea un arreglo de 10 cincos
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.ones(10) * 5
@@ -51,8 +69,14 @@ np.ones(10) * 5
 
 
 
-#### Crear un arreglo del 1 al 50
+#### Crea un arreglo del 1 al 50
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.arange(10,51)
@@ -67,8 +91,14 @@ np.arange(10,51)
 
 
 
-#### Crear un arreglo de todos los números pares que exiten entre 10 y 50
+#### Crea un arreglo de todos los números pares que existen entre 10 y 50
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.arange(10,51,2)
@@ -82,8 +112,14 @@ np.arange(10,51,2)
 
 
 
-#### Crear una matriz 3X3 con valores entre 0 y 8
+#### Crea una matriz 3X3 con valores entre 0 y 8
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.arange(9).reshape(3,3)
@@ -98,8 +134,14 @@ np.arange(9).reshape(3,3)
 
 
 
-#### Crear una matriz identidad de tamaño 3X3
+#### Crea una matriz identidad de tamaño 3X3
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.eye(3)
@@ -116,6 +158,12 @@ np.eye(3)
 
 #### Use Numpy para generar numeros aleatorios entre 0 y 1
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.random.rand(1)
@@ -128,8 +176,14 @@ np.random.rand(1)
 
 
 
-#### Use Numpy para generar un arreglo de 25 números aleatorios de una distribución normal.
+#### Usa Numpy para generar un arreglo de 25 números aleatorios de una distribución normal.
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.random.randn(25)
@@ -146,8 +200,14 @@ np.random.randn(25)
 
 
 
-#### Cree la siguiente matriz:
+#### Crea la siguiente matriz:
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.arange(1,101).reshape(10,10) / 100
@@ -169,8 +229,14 @@ np.arange(1,101).reshape(10,10) / 100
 
 
 
-#### Crear un arreglo linealmente espaciado entre 0 y 1:
+#### Crea un arreglo linealmente espaciado entre 0 y 1:
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 np.linspace(0,1,20)
@@ -187,7 +253,7 @@ np.linspace(0,1,20)
 
 
 ## Numpy Selección e Indíces
-Ahora se le darán algunas matrices y se le pedirá que replique los resultados de la matriz resultante:
+Ahora se proporcionarán algunas matrices y se te pedirá que repliques los resultados de la matriz resultante:
 
 
 ```python
@@ -208,9 +274,10 @@ mat
 
 
 ```python
-# ESCRIBA EL CÓDIGO AQUÍ QUE REPRODUCE LA SALIDA DE LA CELDA ABAJO
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
 # TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
-# PUEDE VER LA PRODUCCIÓN MÁS
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
 ```
 
 
@@ -229,9 +296,9 @@ mat[2:,1:]
 
 
 ```python
-# ESCRIBA EL CÓDIGO AQUÍ QUE REPRODUCE LA SALIDA DE LA CELDA ABAJO
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
 # TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
-# PUEDE VER LA PRODUCCIÓN MÁS
+# SE PODRÁ VER EL RESULTADO ESPERADO
 ```
 
 
@@ -248,9 +315,9 @@ mat[3,4]
 
 
 ```python
-# ESCRIBA EL CÓDIGO AQUÍ QUE REPRODUCE LA SALIDA DE LA CELDA ABAJO
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
 # TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
-# PUEDE VER LA PRODUCCIÓN MÁS
+# SE PODRÁ VER EL RESULTADO ESPERADO
 ```
 
 
@@ -269,9 +336,9 @@ mat[:3,1:2]
 
 
 ```python
-# ESCRIBA EL CÓDIGO AQUÍ QUE REPRODUCE LA SALIDA DE LA CELDA ABAJO
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
 # TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
-# PUEDE VER LA PRODUCCIÓN MÁS
+# SE PODRÁ VER EL RESULTADO ESPERADO
 ```
 
 
@@ -293,7 +360,6 @@ mat[4,:]
 # PUEDE VER LA PRODUCCIÓN MÁS
 ```
 
-
 ```python
 mat[3:5,:]
 ```
@@ -306,10 +372,16 @@ mat[3:5,:]
 
 
 
-### Ahora haga lo siguiente
+### Ahora haz lo siguiente
 
-#### Obtenga la suma de todos los valores en mat
+#### Obten la suma de todos los valores en la matriz
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 mat.sum()
@@ -322,8 +394,14 @@ mat.sum()
 
 
 
-#### Obtenga la desviación estándar de los valores en mat
+#### Obten la desviación estándar de los valores en la matriz
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 mat.std()
@@ -336,8 +414,14 @@ mat.std()
 
 
 
-#### Obtenga la suma de todas las columnas en mat
+#### Obten la suma de todas las columnas en la matriz
 
+```python
+# ESCRIBE AQUÍ EL CÓDIGO QUE REPRODUCE LA SALIDA DE LA CELDA QUE SE MUESTRA ABAJO
+# TEN CUIDADO DE NO EJECUTAR LA CELDA A CONTINUACIÓN, DE LO CONTRARIO NO
+# SE PODRÁ VER EL RESULTADO ESPERADO
+
+```
 
 ```python
 mat.sum(axis=0)
@@ -350,4 +434,4 @@ mat.sum(axis=0)
 
 
 
-# Buen trabajo¡¡
+# ¡Buen trabajo!

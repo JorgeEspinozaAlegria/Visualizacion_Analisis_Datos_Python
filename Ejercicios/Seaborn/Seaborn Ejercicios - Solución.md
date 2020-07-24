@@ -1,10 +1,10 @@
 # Seaborn Ejercicios - Solución
 
-¡Es hora de practicar tus nuevas habilidades natales! Intente recrear los gráficos a continuación (no se preocupe por los esquemas de color, solo el gráfico en si mismo).
+¡Es hora de practicar tus nuevas habilidades en Seaborn! Intenta recrear los gráficos a continuación (no se te preocupes por los esquemas de color, solo el gráfico en si mismo).
 
 ## Datos
 
-Trabajaremos con un famoso conjunto de datos del Titanic para estos ejercicios. Nos centraremos en la visualización de los datos con seaborn:
+Trabajaremos con un famoso conjunto de datos del Titanic para estos ejercicios. Nos centraremos en la visualización de los datos con Seaborn:
 
 
 ```python
@@ -32,19 +32,6 @@ titanic.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -166,9 +153,9 @@ titanic.head()
 # Ejercicios
 
 
-** Recree los gráficos que a continuación se muestran, utilizando el dataframe "titanic". Hay muy pocas sugerencias ya que la mayoría de los trazados se pueden hacer con solo una o dos líneas de código y una sugerencia básicamente daría la solución. Presta especial atención a las etiquetas x e y para obtener pistas. **
+** Recrea los gráficos que a continuación se muestran, utilizando el dataframe "titanic". Hay muy pocas sugerencias ya que la mayoría de los trazados se pueden hacer con solo una o dos líneas de código y una sugerencia básicamente daría la solución. Presta especial atención a las etiquetas x e y para obtener pistas. **
 
-** ¡Nota! Para no perder la imagen del diagrama, asegúrese de no codificar en la celda que está directamente arriba del diagrama, ¡hay una celda adicional arriba de esa que no sobrescribirá ese diagrama! **
+** ¡Nota! Para no perder la imagen del diagrama, asegúrate de no codificar en la celda que está directamente arriba del diagrama, ¡hay una celda adicional arriba de esa que no sobrescribirá ese diagrama! **
 
 
 
@@ -189,7 +176,7 @@ sns.jointplot(x='fare',y='age',data=titanic)
 
 
 
-![png](/images/output_8_1.png)
+![png](images/output_8_1.png)
 
 
 
@@ -205,7 +192,7 @@ sns.distplot(titanic['fare'],bins=30,kde=False,color='red')
 
 
 
-![png](/images/output_9_1.png)
+![png](images/output_9_1.png)
 
 
 
@@ -226,7 +213,7 @@ sns.boxplot(x='class',y='age',data=titanic,palette='rainbow')
 
 
 
-![png](/images/output_11_1.png)
+![png](images/output_11_1.png)
 
 
 
@@ -247,7 +234,7 @@ sns.swarmplot(x='class',y='age',data=titanic,palette='Set2')
 
 
 
-![png](/images/output_13_1.png)
+![png](images/output_13_1.png)
 
 
 
@@ -268,7 +255,7 @@ sns.countplot(x='sex',data=titanic)
 
 
 
-![png](/images/output_15_1.png)
+![png](images/output_15_1.png)
 
 
 
@@ -290,7 +277,7 @@ plt.title('titanic.corr()')
 
 
 
-![png](/images/output_17_1.png)
+![png](images/output_17_1.png)
 
 
 
@@ -312,7 +299,7 @@ g.map(plt.hist,'age')
 
 
 
-![png](/images/output_19_1.png)
+![png](images/output_19_1.png)
 
 
-# Buen trabajo!
+# ¡Buen trabajo!

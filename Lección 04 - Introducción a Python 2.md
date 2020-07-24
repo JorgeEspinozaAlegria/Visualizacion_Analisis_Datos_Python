@@ -4,129 +4,114 @@
 
 ### IF
 
-Una sentencia `if` es una declaración condicional que ejecuta u omite código en función de si una condición es verdadera o falsa.
-
+Una sentencia `if` es una declaración condicional que ejecuta u omite código en función de si una condición es verdadera o falsa.  
 
 ```python
-phone_balance=0
-bank_balance=0
-if phone_balance < 5:
-    phone_balance += 10
-    bank_balance -= 10
-print(phone_balance)
-print(bank_balance)
+saldo_telefono=0
+saldo_bancario=0
+if saldo_telefono < 5:
+    saldo_telefono += 10
+    saldo_bancario -= 10
+print(saldo_telefono)
+print(saldo_bancario)
 ```
+    10  
+    -10  
 
-    10
-    -10
-    
 
-Analicemos esto:
+Analicemos esto:  
 
-- Una instrucción `if` comienza con la palabra clave `if`, seguida de la condición a evaluar, en este caso `phone_balance <5`, y luego **dos puntos**. La condición se especifica en una expresión booleana que se evalúa como Verdadero (`True`) o Falso (`False`).  
+- Una instrucción `if` comienza con la palabra clave `if`, seguida de la condición a evaluar, en este caso `saldo_telefono < 5`, y luego **dos puntos**. La condición se especifica en una expresión booleana que se evalúa como Verdadero (`True`) o Falso (`False`).  
 
-- Después de esta línea hay un bloque de código **identado** que se ejecutará si esa condición es verdadera. Si no, el código en este bloque si simplemente se omite.
+- Después de esta línea hay un bloque de código **indentado** que se ejecutará si esa condición es verdadera. Si no, el código en este bloque simplemente se omite.  
+
 
 ### ELSE IF
 
-Además de la cláusula `if`, hay otras dos cláusulas opcionales que a menudo se usan con una declaración: `else` y `elif`. Veamos un ejemplo
-
+Además de la cláusula `if`, hay otras dos cláusulas opcionales que a menudo se usan con una declaración: `else` y `elif`. Veamos un ejemplo  
 
 ```python
-season = 'spring'
-if season == 'spring':
-    print('plant the garden!')
-elif season == 'summer':
-    print('water the garden!')
-elif season == 'fall':
-    print('harvest the garden!')
-elif season == 'winter':
-    print('stay indoors!')
+estacion = 'primavera'
+if estacion == 'primavera':
+    print('¡planta el jardín!')
+elif estacion == 'verano':
+    print('¡riega el jardín!')
+elif estacion == 'otoño':
+    print('¡cosecha el jardín!')
+elif estacion == 'invierno':
+    print('¡quédate en casa!')
 else:
-    print('unrecognized season')
+    print('estación no reconocida')
 ```
+    ¡planta el jardín!  
 
-    plant the garden!
-    
 
 ### Expresiones Booleanas complejas
 
-Para condiciones complejas podemos usar los operadores lógicos `and`, `or` y `not`.
-
+Para condiciones complejas podemos usar los operadores lógicos `and`, `or` y `not`.  
 
 ```python
-unsubscribed = 0
-location = 'USA'
-if (not unsubscribed) and (location == "USA" or location == "CAN"):
-    print("send email")
+no_inscrito = 0
+ubicacion = 'USA'
+if (not no_inscrito) and (ubicacion == "USA" or ubicacion == "CAN"):
+    print("mandar correo electrónico")
 ```
-
-    send email
-    
-
+    mandar correo electrónico  
 
 ```python
 if True:
-    print("This indented code will always get run.")
+    print("Este código indentado siempre será ejecutado.")
 ```
-
-    This indented code will always get run.
-    
-
+    Este código indentado siempre será ejecutado.  
 
 ```python
 # Un mal ejemplo
-is_cold=1
-if is_cold == True:
-    print("The weather is cold!")
+hace_frio=1
+if hace_frio == True:
+    print("¡El clima está frio!")
 ```
-
-    The weather is cold!
-    
-
+    ¡El clima está frio!  
 
 ```python
 # Un buen ejemplo
-if is_cold:
-    print("The weather is cold!")
+if hace_frio:
+    print("¡El clima está frio!")
 ```
+    ¡El clima está frio!  
 
-    The weather is cold!
-    
 
 ## Bucles
-Un objeto **iterable** es un objeto que puede devolver uno de sus elementos a la vez. Estos objetos pueden incluir tipos de secuencia, como cadenas, listas y tuplas, así como tipos que no son de secuencia, como diccionarios y archivos.
+Un objeto **iterable** es un objeto que puede devolver uno de sus elementos a la vez. Estos objetos pueden incluir tipos de secuencia, como cadenas, listas y tuplas, así como tipos que no son de secuencia, como diccionarios y archivos.  
+
+
 ### Bucles For
 
-
 ```python
-cities = ['new york city', 'mountain view', 'chicago', 'los angeles']
-for city in cities:
-    print(city)
-print("Done!")
+ciudades = ['CDMX', 'Monterrey', 'Guadalajara', 'Aguascalientes']
+for ciudad in ciudades:
+    print(ciudad)
+print("¡Listo!")
 ```
+    CDMX  
+    Monterrey  
+    Guadalajara  
+    Aguascalientes  
+    ¡Listo!  
 
-    new york city
-    mountain view
-    chicago
-    los angeles
-    Done!
-    
 
 #### Usando la función `range()` con bucles `for`
 
-`range ()` es una función incorporada utilizada para crear una secuencia iterativa de números. Con frecuencia usará range () con un bucle for para repetir una acción un cierto número de veces.
+`range ()` es una función incorporada, utilizada para crear una secuencia iterativa de números. Con frecuencia usará `range ()` con un bucle `for` para repetir una acción un cierto número de veces.  
 
 
 ```python
 for i in range(3):
-    print("Hello!")
+    print("¡Hola!")
 ```
+    ¡Hola!  
+    ¡Hola!  
+    ¡Hola!  
 
-    Hello!
-    Hello!
-    Hello!
-    
 
 #### range(start=0, stop, step=1)
 
@@ -138,338 +123,258 @@ La función `range()` toma **tres argumentos enteros**, el primero y el tercero 
 
 - `step`. Es la diferencia entre cada número en la secuencia. Si no se especifica, el `step` predeterminado es 1.
 
+
 #### Creando y modificando listas
 
+```python
+ciudades = ['cdmx', 'monterrey', 'guadalajara', 'aguascalientes']
+ciudades_mayusculas = []
+
+for ciudad in ciudades:
+    ciudades_mayusculas.append(ciudad.title())
+print(ciudades_mayusculas)
+```
+    ['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']  
 
 ```python
-cities = ['new york city', 'mountain view', 'chicago', 'los angeles']
-capitalized_cities = []
+ciudades = ['cdmx', 'monterrey', 'guadalajara', 'aguascalientes']
 
-for city in cities:
-    capitalized_cities.append(city.title())
-print(capitalized_cities)
+for indice in range(len(ciudades)):
+    ciudades[indice] = ciudades[indice].title()
+
+ciudades
 ```
-
-    ['New York City', 'Mountain View', 'Chicago', 'Los Angeles']
-    
-
-
-```python
-cities = ['new york city', 'mountain view', 'chicago', 'los angeles']
-
-for index in range(len(cities)):
-    cities[index] = cities[index].title()
-    
-cities
-```
-
-
-
-
-    ['New York City', 'Mountain View', 'Chicago', 'Los Angeles']
+    ['Cdmx', 'Monterrey', 'Guadalajara', 'Aguascalientes']  
 
 
 
 #### Construyendo Diccionarios
 
-
 ```python
-book_title =  ['great', 'expectations','the', 'adventures', 'of', 'sherlock','holmes','the','great','gasby','hamlet','adventures','of','huckleberry','fin']
+titulo_libro =  ['don', 'quijote', 'de', 'la', 'mancha', 'cien', 'años', 'de', 'soledad','crimen','y','castigo','el','conde','de','montecristo','el','principito']
 ```
 
-
 ```python
-word_counter = {}
+contador_palabras = {}
 ```
 
-
 ```python
-for word in book_title:
-    # print(word)
-    if word not in word_counter:
-        word_counter[word] = 1
-        # print("número 2 ", word_counter)
+for palabra in titulo_libro:
+    if palabra not in contador_palabras:
+        contador_palabras[palabra] = 1
     else:
-        word_counter[word] += 1
-print(word_counter)
+        contador_palabras[palabra] += 1
+print(contador_palabras)
 ```
+    {'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}  
 
-    {'great': 2, 'expectations': 1, 'the': 2, 'adventures': 2, 'of': 2, 'sherlock': 1, 'holmes': 1, 'gasby': 1, 'hamlet': 1, 'huckleberry': 1, 'fin': 1}
-    
 
 #### Usando el método `get()`
 
-
 ```python
-book_title =  ['great', 'expectations','the', 'adventures', 'of', 'sherlock','holmes','the','great','gasby','hamlet','adventures','of','huckleberry','fin']
+titulo_libro =  ['don', 'quijote', 'de', 'la', 'mancha', 'cien', 'años', 'de', 'soledad','crimen','y','castigo','el','conde','de','montecristo','el','principito']
 ```
 
-
 ```python
-word_counter = {}
-for word in book_title:
-    word_counter[word] = word_counter.get(word, 0) + 1
-print(word_counter)
+contador_palabras = {}
+for palabra in titulo_libro:
+    contador_palabras[palabra] = contador_palabras.get(palabra, 0) + 1
+print(contador_palabras)
 ```
+    {'don': 1, 'quijote': 1, 'de': 3, 'la': 1, 'mancha': 1, 'cien': 1, 'años': 1, 'soledad': 1, 'crimen': 1, 'y': 1, 'castigo': 1, 'el': 2, 'conde': 1, 'montecristo': 1, 'principito': 1}  
 
-    {'great': 2, 'expectations': 1, 'the': 2, 'adventures': 2, 'of': 2, 'sherlock': 1, 'holmes': 1, 'gasby': 1, 'hamlet': 1, 'huckleberry': 1, 'fin': 1}
-    
 
 #### Iterando a través de Diccionarios
 
-
 ```python
-cast = {
+elenco = {
            "Jerry Seinfeld": "Jerry Seinfeld",
            "Julia Louis-Dreyfus": "Elaine Benes",
            "Jason Alexander": "George Costanza",
            "Michael Richards": "Cosmo Kramer"
-       }
+         }
 ```
-
 
 ```python
-for key in cast:
-    print(key)
+for llave in elenco:
+    print(llave)
 ```
-
-    Jerry Seinfeld
-    Julia Louis-Dreyfus
-    Jason Alexander
-    Michael Richards
-    
-
+    Jerry Seinfeld  
+    Julia Louis-Dreyfus  
+    Jason Alexander  
+    Michael Richards  
 
 ```python
-print(cast.items())
-for key, value in cast.items():
-    print("Actor: {}    Role: {}".format(key, value))
+print(elenco.items())
+for llave, valor in elenco.items():
+    print("Actor: {}    Personaje: {}".format(llave, valor))
 ```
+    dict_items([('Jerry Seinfeld', 'Jerry Seinfeld'), ('Julia Louis-Dreyfus', 'Elaine Benes'), ('Jason Alexander', 'George Costanza'), ('Michael Richards', 'Cosmo Kramer')])  
+    Actor: Jerry Seinfeld    Personaje: Jerry Seinfeld  
+    Actor: Julia Louis-Dreyfus    Personaje: Elaine Benes  
+    Actor: Jason Alexander    Personaje: George Costanza  
+    Actor: Michael Richards    Personaje: Cosmo Kramer  
 
-    dict_items([('Jerry Seinfeld', 'Jerry Seinfeld'), ('Julia Louis-Dreyfus', 'Elaine Benes'), ('Jason Alexander', 'George Costanza'), ('Michael Richards', 'Cosmo Kramer')])
-    Actor: Jerry Seinfeld    Role: Jerry Seinfeld
-    Actor: Julia Louis-Dreyfus    Role: Elaine Benes
-    Actor: Jason Alexander    Role: George Costanza
-    Actor: Michael Richards    Role: Cosmo Kramer
-    
 
 ### Bucles While
 
-Los bucles `for` son un ejemplo de "**iteración definida**", lo que significa que el cuerpo del bucle se ejecuta un número predeterminado de veces. Esto difiere de una "**iteración indefinida**", que es cuando un ciclo se repite un número desconocido de veces y termina cuando se cumple alguna condición, que es lo que sucede en un bucle `while`.
-
+Los bucles `for` son un ejemplo de "**iteración definida**", lo que significa que el cuerpo del bucle se ejecuta un número predeterminado de veces. Esto difiere de una "**iteración indefinida**", que es cuando un ciclo se repite un número desconocido de veces y termina cuando se cumple alguna condición, que es lo que sucede en un bucle `while`.  
 
 ```python
-card_deck = [4, 11, 8, 5, 13, 2, 8, 10]
-hand = []
-while sum(hand) < 40:
-    hand.append(card_deck.pop())
-    print(hand)
-    print(sum(hand))
+baraja = [4, 11, 8, 5, 13, 2, 8, 10]
+mano = []
+while sum(mano) < 17:
+    mano.append(baraja.pop())
+    print(mano)
+    print(sum(mano))
 ```
 
-    [10]
-    10
-    [10, 8]
-    18
-    [10, 8, 2]
-    20
-    [10, 8, 2, 13]
-    33
-    [10, 8, 2, 13, 5]
-    38
-    [10, 8, 2, 13, 5, 8]
-    46
-    
+    [10]  
+    10  
+    [10, 8]  
+    18  
+
 
 ### Break & Continue
 
-A veces necesitamos más control sobre cuándo debe terminar un buble, o saltar una iteración. En estos casos, usamos las palabras clave `break` y `continue`, que se pueden usar tanto en bucles `for` como `while`.  
+A veces necesitamos más control sobre cuándo debe terminar un bucle, o saltar una iteración. En estos casos, usamos las palabras clave `break` y `continue`, que se pueden usar tanto en bucles `for` como `while`.  
 
 - `break` termina un bucle  
 
 - `continue` omite una iteración de un bucle  
 
-
-
 ```python
-headlines = ["Local Bear Eaten by Man",
-             "Legislature Announces New Laws",
-             "Peasant Discovers Violence Inherent in System",
-             "Cat Rescues Fireman Stuck in Tree",
-             "Brave Knight Runs Away",
-             "Papperbok Review: Totally Triffic"]
+titulares = ["Oso Comido por un Hombre",
+             "Legisladores Anuncian Nuevas Leyes",
+             "Ciudadano Descubre Violencia Inherente en el Sistema",
+             "Gato Rescata a Bombero Atorado en Arbol",
+             "Valiente Caballero Huye del Dragón",
+             "Libro del Mes: Totalmente Horrible"]
 
-news_ticker = ""
-for headline in headlines:
-    news_ticker += headline + " "
-    if len(news_ticker) >= 140:
-        news_ticker = news_ticker[:140]
+teletipo_noticias = ""
+for titular in titulares:
+    teletipo_noticias += titular + " "
+    if len(teletipo_noticias) >= 140:
+        teletipo_noticias = teletipo_noticias[:140]
         break
 
-print(news_ticker)
+print(teletipo_noticias)
 ```
+    Oso Comido por un Hombre Legisladores Anuncian Nuevas Leyes Ciudadano Descubre Violencia Inherente en el Sistema Gato Rescata a Bombero Ator  
 
-    Local Bear Eaten by Man Legislature Announces New Laws Peasant Discovers Violence Inherent in System Cat Rescues Fireman Stuck in Tree Brave
-    
 
 ## Funciones
 
-Una Función permite reutilizar código para usarlo una y otra de forma fácil.
+Una Función permite reutilizar código para usarlo una y otra vez, de forma fácil.  
 
 ### Definir una Función
 
-
 ```python
-def cylinder_volume(height, radius):
+def volumen_cilindro(altura, radio):
     pi = 3.14159
-    return height * pi * radius ** 2
+    return altura * pi * radio ** 2
 ```
-
 
 ```python
-cylinder_volume(10, 3)
+volumen_cilindro(10, 3)
 ```
-
-
-
-
-    282.7431
-
+    282.7431  
 
 
 ### Argumentos por Default
 
-Podemos agregar argumentos predeterminados en una función para tener valores por defecto para argumentos o parámetros que no están especificados en una llamada a la función.
-
+Podemos agregar argumentos predeterminados en una función, para tener valores por defecto para argumentos o parámetros que no están especificados en una llamada a la función.  
 
 ```python
-def cylinder_volume(height, radius=5):
+def volumen_cilindro(altura, radio=5):
     pi = 3.14159
-    return height * pi * radius ** 2
+    return altura * pi * radio ** 2
 ```
-
 
 ```python
-cylinder_volume(10, 7)  # por posición
-cylinder_volume(height=10, radius=7)  # por nombre de argumento
+volumen_cilindro(10, 7)  # por posición
+volumen_cilindro(altura=10, radio=7)  # por nombre de argumento
 ```
-
-
-
-
-    1539.3791
-
+    1539.3791  
 
 
 ### Alcance de Variables
 
-El alcance de una variable se refiere a aquellas partes de un programa que pueden hacer referencia a una variable.
+El alcance de una variable se refiere a aquellas partes de un programa que pueden hacer referencia a una variable.  
 
-Es importante tener en cuenta el alcance cuando se usan variables en funciones. Si se crea una variable dentro de una función, solo se puede usar dentro de esa función. No es posible acceder a él fuera de esa función.
-
+Es importante tener en cuenta el alcance cuando se usan variables en funciones. Si se crea una variable dentro de una función, solo se puede usar dentro de esa función. No es posible acceder a él fuera de esa función.  
 
 ```python
 # Esto provocará un error
-def some_function():
-    word = "hello"
-print(word)
+def una_funcion():
+    palabra = "hola"
+print(palabra)
 ```
-
-    fin
-    
-
-
-```python
-some_function()
-```
-
 
     ---------------------------------------------------------------------------
-
-    TypeError                                 Traceback (most recent call last)
-
-    <ipython-input-77-6a01c81cb036> in <module>
-    ----> 1 some_function()
-    
-
-    TypeError: 'str' object is not callable
-
+    NameError                                 Traceback (most recent call last)
+    <ipython-input-1-3328aca760a1> in <module>
+    2     palabra = "hola"
+    3
+    ----> 4 print(palabra)
+    NameError: name 'palabra' is not defined  
 
 
 ```python
-word = "hello"
+palabra = "hola"
 
-def some_function():
-    print(word)
+def una_funcion():
+    print(palabra)
 
-some_function()
+una_funcion()
 ```
+    hola  
 
-    hello
-    
 
 ## Expresiones Lambda
 
-Podemos usar expresiones lambda para crear funciones anónimas. Es decir, funciones que no tienen nombre.
+Podemos usar expresiones lambda para crear funciones anónimas. Es decir, funciones que no tienen nombre.  
 
-Son útiles para crear funciones rápidas que no se necesitan más adelante en el código. Esto puede ser especialmente útil para funciones de orden superior o funciones que toman otras funciones como argumentos.
+Son útiles para crear funciones rápidas que no se necesitan más adelante en el código. Esto puede ser especialmente útil para funciones de orden superior o funciones que toman otras funciones como argumentos.  
 
-Una función normal:
-
-
+Una función normal:  
 
 ```python
-def multiply1(x, y):
+def multiplica(x, y):
     return x * y
 ```
 
-puede ser reducida a:
-
+puede ser reducida a:  
 
 ```python
-multiply = lambda x, y: x * y
-multiply(2,10)
-
-
+multiplica = lambda x, y: x * y
+multiplica(2,10)
 ```
-
-
-
-
-    20
-
-
-
+    20  
 
 ```python
-numbers = [
+numeros = [
               [34, 63, 88, 71, 29],
               [90, 78, 51, 27, 45],
               [63, 37, 85, 46, 22],
               [51, 22, 34, 11, 18]
            ]
 
-averages = list(map(lambda x: sum(x) / len(x), numbers))
-print(averages)
+promedios = list(map(lambda x: sum(x) / len(x), numeros))
+print(promedios)
 ```
-
-    [57.0, 58.2, 50.6, 27.2]
-    
-
+    [57.0, 58.2, 50.6, 27.2]  
 
 ```python
-cities = ["New York City", "Los Angeles", "Chicago", "Mountain View", "Denver", "Boston"]
+ciudades = ["CDMX", "Monterrey", "Guadalajara", "Aguascalientes", "Oaxaca", "Cancún"]
 
-short_cities = list(filter(lambda x: len(x) < 10, cities))
-print(short_cities)
+ciudades_menores = list(filter(lambda x: len(x) < 10, ciudades))
+print(ciudades_menores)
 ```
+    ['CDMX', 'Monterrey', 'Oaxaca', 'Cancún']  
 
-    ['Chicago', 'Denver', 'Boston']
-    
 
 ## ¡¡¡Felicidades ahora ya tienes los conceptos basicos de Python!!!
 
- 
- [**Ejercicios**](Ejercicios/Python/Python%20Ejercicios.md)    
 
-    
+ [**Ejercicios**](Ejercicios/Python/Python%20Ejercicios.md)    

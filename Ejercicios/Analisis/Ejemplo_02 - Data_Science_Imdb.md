@@ -1,7 +1,9 @@
-# Ejemplo 2 - Data Science on Internet Movie Database (IMDb)
+# Ejemplo 2 - Data Science en Internet Movie Database (IMDb)
 
+IMDb es una base de datos en línea que contiene información de películas, programas de televisión, videos caseros, videojuegos y contenido de streaming en línea. Incluye elencos, equipos de producción, biografías personales, resumen de argumentos, trivia, calificaciones y comentarios de fans y críticos
 
 ```python
+# Importemos las librerías que vamos a utilizar
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -14,7 +16,8 @@ import matplotlib.pyplot as plt
 
 
 ```python
-df = pd.read_csv('d:/Python_Cursos/data/IMDB.csv', encoding='utf-8')
+# Carguemos los datos y visualicemos sus características
+df = pd.read_csv('../../data/IMDB.csv', encoding='utf-8')
 df.head()
 ```
 
@@ -22,19 +25,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -150,19 +140,6 @@ df.describe()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -263,19 +240,6 @@ df.describe(include=['O'])
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -334,14 +298,96 @@ df.describe(include=['O'])
 </table>
 </div>
 
+El conjunto de datos contiene información de varias películas, cuyas características son:
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Definición</th>
+      <th>Valores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>color</th>
+      <td>Si la película es a color</td>
+      <td>Null = No, Color = Si</td>
+    </tr>
+    <tr>
+      <th>director_name</th>
+      <td>Nombre del director</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>duration</th>
+      <td>Duración en minutos</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>gross</th>
+      <td>Ingreso bruto</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>genres</th>
+      <td>Géneros de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>movie_title</th>
+      <td>Título de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>title_tear</th>
+      <td>Año de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>language</th>
+      <td>Lenguaje de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>country</th>
+      <td>País de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>budget</th>
+      <td>Presupuesto de la película</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>imdb_score</th>
+      <td>Calificación de la película en IMDb</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>actores</th>
+      <td>Lista de los 3 principales actores</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>movie_facebook_likes</th>
+      <td>Número de likes en Facebook</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 ## Limpieza de datos
 
-### Exploring Data
+### Exploración de los datos
 
 
 ```python
+# Revisemos si hay datos nulos
 df.isnull().values.any()
 ```
 
@@ -354,6 +400,7 @@ df.isnull().values.any()
 
 
 ```python
+# Revisemos en que columnas hay datos nulos
 df.isnull().any()
 ```
 
@@ -379,6 +426,7 @@ df.isnull().any()
 
 
 ```python
+# Obtengamos el número de datos nulos por columna
 df.isnull().sum()
 ```
 
@@ -406,30 +454,16 @@ df.isnull().sum()
 
 
 ```python
+# Eliminemos las columnas cuya información no es relevante para el análisis
 df.drop(['color','language'], axis=1, inplace=True)
-df.head()
+df.head(15)
 ```
 
 
-
-
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
+<table border=\"1\" class=\"dataframe\">
   <thead>
-    <tr style="text-align: right;">
+    <tr style=\"text-align: right;\">
       <th></th>
       <th>director_name</th>
       <th>duration</th>
@@ -515,6 +549,146 @@ df.head()
       <td>Aidan Turner,Adam Brown,James Nesbitt</td>
       <td>83000</td>
     </tr>
+    <tr>
+      <th>5</th>
+      <td>NaN</td>
+      <td>183</td>
+      <td>330249062.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Batman v Superman: Dawn of Justice</td>
+      <td>202</td>
+      <td>USA</td>
+      <td>250000000.0</td>
+      <td>6.9</td>
+      <td>Henry Cavill,Lauren Cohan,Alan D. Purwin</td>
+      <td>197000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Peter Jackson</td>
+      <td>-50</td>
+      <td>303001229.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: An Unexpected Journey</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>180000000.0</td>
+      <td>7.9</td>
+      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
+      <td>166000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Edward Hall</td>
+      <td>180</td>
+      <td>NaN</td>
+      <td>Drama|Romance</td>
+      <td>Restless</td>
+      <td>2012</td>
+      <td>UK</td>
+      <td>NaN</td>
+      <td>7.2</td>
+      <td>Rufus Sewell,Hayley Atwell,Charlotte Rampling</td>
+      <td>434</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Joss Whedon</td>
+      <td>173</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Joss Whedon</td>
+      <td>173</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Tom Tykwer</td>
+      <td>172</td>
+      <td>27098580.0</td>
+      <td>Drama|Sci-Fi</td>
+      <td>Cloud Atlas</td>
+      <td>2012</td>
+      <td>Germany</td>
+      <td>102000000.0</td>
+      <td>-7.5</td>
+      <td>Tom Hanks,Jim Sturgess,Jim Broadbent</td>
+      <td>124000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Null</td>
+      <td>158</td>
+      <td>102515793.0</td>
+      <td>Crime|Drama|Mystery|Thriller</td>
+      <td>The Girl with the Dragon Tattoo</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>90000000.0</td>
+      <td>7.8</td>
+      <td>Robin Wright,Goran Visnjic,Joely Richardson</td>
+      <td>54000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Christopher Spencer</td>
+      <td>170</td>
+      <td>59696176.0</td>
+      <td>NaN</td>
+      <td>Son of God</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>22000000.0</td>
+      <td>5.6</td>
+      <td>Roma Downey,Amber Rose Revah,Darwin Shaw</td>
+      <td>15000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Christopher Nolan</td>
+      <td>169</td>
+      <td>187991439.0</td>
+      <td>Adventure|Drama|Sci-Fi</td>
+      <td>Interstellar</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>165000000.0</td>
+      <td>8.6</td>
+      <td>Matthew McConaughey,Anne Hathaway,Mackenzie Foy</td>
+      <td>349000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>F. Gary Gray</td>
+      <td>167</td>
+      <td>161029270.0</td>
+      <td>Biography|Crime|Drama|History|Music</td>
+      <td>Straight Outta Compton</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>28000000.0</td>
+      <td>7.9</td>
+      <td>Aldis Hodge,Neil Brown Jr.,R. Marcos Taylor</td>
+      <td>76000</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -525,46 +699,504 @@ df.head()
 
 
 ```python
+# Sustituyamos los datos categóricos nulos
 df['director_name'].fillna('', inplace=True)
+df.head(15)
 ```
+
+
+<div>
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>director_name</th>
+      <th>duration</th>
+      <th>gross</th>
+      <th>genres</th>
+      <th>movie_title</th>
+      <th>title_year</th>
+      <th>country</th>
+      <th>budget</th>
+      <th>imdb_score</th>
+      <th>actors</th>
+      <th>movie_facebook_likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Martin Scorsese</td>
+      <td>240</td>
+      <td>116866727.0</td>
+      <td>Biography|Comedy|Crime|Drama</td>
+      <td>The Wolf of Wall Street</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>100000000.0</td>
+      <td>8.2</td>
+      <td>Leonardo DiCaprio,Matthew McConaughey,Jon Favreau</td>
+      <td>138000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Shane Black</td>
+      <td>195</td>
+      <td>408992272.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Iron Man 3</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>200000000.0</td>
+      <td>7.2</td>
+      <td>Robert Downey Jr.,Jon Favreau,Don Cheadle</td>
+      <td>95000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Quentin Tarantino</td>
+      <td>187</td>
+      <td>54116191.0</td>
+      <td>Crime|Drama|Mystery|Thriller|Western</td>
+      <td>The Hateful Eight</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>44000000.0</td>
+      <td>7.9</td>
+      <td>Craig Stark,Jennifer Jason Leigh,Zoë Bell</td>
+      <td>114000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kenneth Lonergan</td>
+      <td>186</td>
+      <td>46495.0</td>
+      <td>Drama</td>
+      <td>Margaret</td>
+      <td>2011</td>
+      <td>usa</td>
+      <td>14000000.0</td>
+      <td>6.5</td>
+      <td>Matt Damon,Kieran Culkin,John Gallagher Jr.</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Peter Jackson</td>
+      <td>186</td>
+      <td>258355354.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: The Desolation of Smaug</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>225000000.0</td>
+      <td>7.9</td>
+      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
+      <td>83000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>183</td>
+      <td>330249062.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Batman v Superman: Dawn of Justice</td>
+      <td>202</td>
+      <td>USA</td>
+      <td>250000000.0</td>
+      <td>6.9</td>
+      <td>Henry Cavill,Lauren Cohan,Alan D. Purwin</td>
+      <td>197000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Peter Jackson</td>
+      <td>-50</td>
+      <td>303001229.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: An Unexpected Journey</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>180000000.0</td>
+      <td>7.9</td>
+      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
+      <td>166000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Edward Hall</td>
+      <td>180</td>
+      <td>NaN</td>
+      <td>Drama|Romance</td>
+      <td>Restless</td>
+      <td>2012</td>
+      <td>UK</td>
+      <td>NaN</td>
+      <td>7.2</td>
+      <td>Rufus Sewell,Hayley Atwell,Charlotte Rampling</td>
+      <td>434</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Joss Whedon</td>
+      <td>173</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Joss Whedon</td>
+      <td>173</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Tom Tykwer</td>
+      <td>172</td>
+      <td>27098580.0</td>
+      <td>Drama|Sci-Fi</td>
+      <td>Cloud Atlas</td>
+      <td>2012</td>
+      <td>Germany</td>
+      <td>102000000.0</td>
+      <td>-7.5</td>
+      <td>Tom Hanks,Jim Sturgess,Jim Broadbent</td>
+      <td>124000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Null</td>
+      <td>158</td>
+      <td>102515793.0</td>
+      <td>Crime|Drama|Mystery|Thriller</td>
+      <td>The Girl with the Dragon Tattoo</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>90000000.0</td>
+      <td>7.8</td>
+      <td>Robin Wright,Goran Visnjic,Joely Richardson</td>
+      <td>54000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Christopher Spencer</td>
+      <td>170</td>
+      <td>59696176.0</td>
+      <td>NaN</td>
+      <td>Son of God</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>22000000.0</td>
+      <td>5.6</td>
+      <td>Roma Downey,Amber Rose Revah,Darwin Shaw</td>
+      <td>15000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Christopher Nolan</td>
+      <td>169</td>
+      <td>187991439.0</td>
+      <td>Adventure|Drama|Sci-Fi</td>
+      <td>Interstellar</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>165000000.0</td>
+      <td>8.6</td>
+      <td>Matthew McConaughey,Anne Hathaway,Mackenzie Foy</td>
+      <td>349000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>F. Gary Gray</td>
+      <td>167</td>
+      <td>161029270.0</td>
+      <td>Biography|Crime|Drama|History|Music</td>
+      <td>Straight Outta Compton</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>28000000.0</td>
+      <td>7.9</td>
+      <td>Aldis Hodge,Neil Brown Jr.,R. Marcos Taylor</td>
+      <td>76000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 ### Manejar atributos numéricos
 
 
 ```python
+# Sustituyamos los datos numéricos nulos
 df['gross'].fillna(0, inplace=True)
 df['budget'].fillna(0, inplace=True)
+df.head(15)
 ```
+
+<div>
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>director_name</th>
+      <th>duration</th>
+      <th>gross</th>
+      <th>genres</th>
+      <th>movie_title</th>
+      <th>title_year</th>
+      <th>country</th>
+      <th>budget</th>
+      <th>imdb_score</th>
+      <th>actors</th>
+      <th>movie_facebook_likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Martin Scorsese</td>
+      <td>240</td>
+      <td>116866727.0</td>
+      <td>Biography|Comedy|Crime|Drama</td>
+      <td>The Wolf of Wall Street</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>100000000.0</td>
+      <td>8.2</td>
+      <td>Leonardo DiCaprio,Matthew McConaughey,Jon Favreau</td>
+      <td>138000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Shane Black</td>
+      <td>195</td>
+      <td>408992272.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Iron Man 3</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>200000000.0</td>
+      <td>7.2</td>
+      <td>Robert Downey Jr.,Jon Favreau,Don Cheadle</td>
+      <td>95000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Quentin Tarantino</td>
+      <td>187</td>
+      <td>54116191.0</td>
+      <td>Crime|Drama|Mystery|Thriller|Western</td>
+      <td>The Hateful Eight</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>44000000.0</td>
+      <td>7.9</td>
+      <td>Craig Stark,Jennifer Jason Leigh,Zoë Bell</td>
+      <td>114000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kenneth Lonergan</td>
+      <td>186</td>
+      <td>46495.0</td>
+      <td>Drama</td>
+      <td>Margaret</td>
+      <td>2011</td>
+      <td>usa</td>
+      <td>14000000.0</td>
+      <td>6.5</td>
+      <td>Matt Damon,Kieran Culkin,John Gallagher Jr.</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Peter Jackson</td>
+      <td>186</td>
+      <td>258355354.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: The Desolation of Smaug</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>225000000.0</td>
+      <td>7.9</td>
+      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
+      <td>83000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>183</td>
+      <td>330249062.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Batman v Superman: Dawn of Justice</td>
+      <td>202</td>
+      <td>USA</td>
+      <td>250000000.0</td>
+      <td>6.9</td>
+      <td>Henry Cavill,Lauren Cohan,Alan D. Purwin</td>
+      <td>197000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Peter Jackson</td>
+      <td>-50</td>
+      <td>303001229.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: An Unexpected Journey</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>180000000.0</td>
+      <td>7.9</td>
+      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
+      <td>166000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Edward Hall</td>
+      <td>180</td>
+      <td>0.0</td>
+      <td>Drama|Romance</td>
+      <td>Restless</td>
+      <td>2012</td>
+      <td>UK</td>
+      <td>0.0</td>
+      <td>7.2</td>
+      <td>Rufus Sewell,Hayley Atwell,Charlotte Rampling</td>
+      <td>434</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Joss Whedon</td>
+      <td>173</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Joss Whedon</td>
+      <td>173</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Tom Tykwer</td>
+      <td>172</td>
+      <td>27098580.0</td>
+      <td>Drama|Sci-Fi</td>
+      <td>Cloud Atlas</td>
+      <td>2012</td>
+      <td>Germany</td>
+      <td>102000000.0</td>
+      <td>-7.5</td>
+      <td>Tom Hanks,Jim Sturgess,Jim Broadbent</td>
+      <td>124000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Null</td>
+      <td>158</td>
+      <td>102515793.0</td>
+      <td>Crime|Drama|Mystery|Thriller</td>
+      <td>The Girl with the Dragon Tattoo</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>90000000.0</td>
+      <td>7.8</td>
+      <td>Robin Wright,Goran Visnjic,Joely Richardson</td>
+      <td>54000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Christopher Spencer</td>
+      <td>170</td>
+      <td>59696176.0</td>
+      <td>NaN</td>
+      <td>Son of God</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>22000000.0</td>
+      <td>5.6</td>
+      <td>Roma Downey,Amber Rose Revah,Darwin Shaw</td>
+      <td>15000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Christopher Nolan</td>
+      <td>169</td>
+      <td>187991439.0</td>
+      <td>Adventure|Drama|Sci-Fi</td>
+      <td>Interstellar</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>165000000.0</td>
+      <td>8.6</td>
+      <td>Matthew McConaughey,Anne Hathaway,Mackenzie Foy</td>
+      <td>349000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>F. Gary Gray</td>
+      <td>167</td>
+      <td>161029270.0</td>
+      <td>Biography|Crime|Drama|History|Music</td>
+      <td>Straight Outta Compton</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>28000000.0</td>
+      <td>7.9</td>
+      <td>Aldis Hodge,Neil Brown Jr.,R. Marcos Taylor</td>
+      <td>76000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 ### Unificar nombres de países
 
 
 ```python
+# Unifiquemos los nombres de los países, convirtiéndolos a mayusculas y la codificación de USA
 df['country']=df['country'].str.upper()
 df['country'] = np.where(df['country']=='UNITED STATES','USA', df['country'])
-df.head(20)
+df.head(15)
 ```
 
-
-
-
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
+<table border=\"1\" class=\"dataframe\">
   <thead>
-    <tr style="text-align: right;">
+    <tr style=\"text-align: right;\">
       <th></th>
       <th>director_name</th>
       <th>duration</th>
@@ -790,76 +1422,6 @@ df.head(20)
       <td>Aldis Hodge,Neil Brown Jr.,R. Marcos Taylor</td>
       <td>76000</td>
     </tr>
-    <tr>
-      <th>15</th>
-      <td>Richard Linklater</td>
-      <td>165</td>
-      <td>25359200.0</td>
-      <td>Drama</td>
-      <td>Boyhood</td>
-      <td>2014</td>
-      <td>USA</td>
-      <td>4000000.0</td>
-      <td>8.0</td>
-      <td>Ellar Coltrane,Lorelei Linklater,Libby Villari</td>
-      <td>92000</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>Quentin Tarantino</td>
-      <td>580</td>
-      <td>162804648.0</td>
-      <td>Drama|Western</td>
-      <td>Django Unchained</td>
-      <td>2012</td>
-      <td>USA</td>
-      <td>100000000.0</td>
-      <td>8.5</td>
-      <td>Leonardo DiCaprio,Christoph Waltz,Ato Essandoh</td>
-      <td>199000</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>Michael Bay</td>
-      <td>165</td>
-      <td>245428137.0</td>
-      <td>Action|Adventure|Sci-Fi</td>
-      <td>Transformers: Age of Extinction</td>
-      <td>2014</td>
-      <td>USA</td>
-      <td>210000000.0</td>
-      <td>5.7</td>
-      <td>Bingbing Li,Sophia Myles,Kelsey Grammer</td>
-      <td>56000</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>Christopher Nolan</td>
-      <td>164</td>
-      <td>448130642.0</td>
-      <td>Action|Thriller</td>
-      <td>The Dark Knight Rises</td>
-      <td>2012</td>
-      <td>USA</td>
-      <td>250000000.0</td>
-      <td>8.5</td>
-      <td>Tom Hardy,Christian Bale,Joseph Gordon-Levitt</td>
-      <td>164000</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>Peter Jackson</td>
-      <td>164</td>
-      <td>255108370.0</td>
-      <td>Adventure|Fantasy</td>
-      <td>The Hobbit: The Battle of the Five Armies</td>
-      <td>2014</td>
-      <td>NEW ZEALAND</td>
-      <td>250000000.0</td>
-      <td>7.5</td>
-      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
-      <td>65000</td>
-    </tr>
   </tbody>
 </table>
 </div>
@@ -870,45 +1432,1074 @@ df.head(20)
 
 
 ```python
+# Corrijamos la codificación de datos nulos
 df['director_name'] = np.where(df['director_name']=='N/A','', df['director_name'])
 df['director_name'] = np.where(df['director_name']=='Nan','', df['director_name'])
 df['director_name'] = np.where(df['director_name']=='Null','', df['director_name'])
+df.head(15)
 ```
+
+<div>
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>director_name</th>
+      <th>duration</th>
+      <th>gross</th>
+      <th>genres</th>
+      <th>movie_title</th>
+      <th>title_year</th>
+      <th>country</th>
+      <th>budget</th>
+      <th>imdb_score</th>
+      <th>actors</th>
+      <th>movie_facebook_likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Martin Scorsese</td>
+      <td>240</td>
+      <td>116866727.0</td>
+      <td>Biography|Comedy|Crime|Drama</td>
+      <td>The Wolf of Wall Street</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>100000000.0</td>
+      <td>8.2</td>
+      <td>Leonardo DiCaprio,Matthew McConaughey,Jon Favreau</td>
+      <td>138000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Shane Black</td>
+      <td>195</td>
+      <td>408992272.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Iron Man 3</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>200000000.0</td>
+      <td>7.2</td>
+      <td>Robert Downey Jr.,Jon Favreau,Don Cheadle</td>
+      <td>95000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Quentin Tarantino</td>
+      <td>187</td>
+      <td>54116191.0</td>
+      <td>Crime|Drama|Mystery|Thriller|Western</td>
+      <td>The Hateful Eight</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>44000000.0</td>
+      <td>7.9</td>
+      <td>Craig Stark,Jennifer Jason Leigh,Zoë Bell</td>
+      <td>114000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kenneth Lonergan</td>
+      <td>186</td>
+      <td>46495.0</td>
+      <td>Drama</td>
+      <td>Margaret</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>14000000.0</td>
+      <td>6.5</td>
+      <td>Matt Damon,Kieran Culkin,John Gallagher Jr.</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Peter Jackson</td>
+      <td>186</td>
+      <td>258355354.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: The Desolation of Smaug</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>225000000.0</td>
+      <td>7.9</td>
+      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
+      <td>83000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>183</td>
+      <td>330249062.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Batman v Superman: Dawn of Justice</td>
+      <td>202</td>
+      <td>USA</td>
+      <td>250000000.0</td>
+      <td>6.9</td>
+      <td>Henry Cavill,Lauren Cohan,Alan D. Purwin</td>
+      <td>197000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Peter Jackson</td>
+      <td>-50</td>
+      <td>303001229.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: An Unexpected Journey</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>180000000.0</td>
+      <td>7.9</td>
+      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
+      <td>166000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Edward Hall</td>
+      <td>180</td>
+      <td>0.0</td>
+      <td>Drama|Romance</td>
+      <td>Restless</td>
+      <td>2012</td>
+      <td>UK</td>
+      <td>0.0</td>
+      <td>7.2</td>
+      <td>Rufus Sewell,Hayley Atwell,Charlotte Rampling</td>
+      <td>434</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Joss Whedon</td>
+      <td>173</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Joss Whedon</td>
+      <td>173</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Tom Tykwer</td>
+      <td>172</td>
+      <td>27098580.0</td>
+      <td>Drama|Sci-Fi</td>
+      <td>Cloud Atlas</td>
+      <td>2012</td>
+      <td>GERMANY</td>
+      <td>102000000.0</td>
+      <td>-7.5</td>
+      <td>Tom Hanks,Jim Sturgess,Jim Broadbent</td>
+      <td>124000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td></td>
+      <td>158</td>
+      <td>102515793.0</td>
+      <td>Crime|Drama|Mystery|Thriller</td>
+      <td>The Girl with the Dragon Tattoo</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>90000000.0</td>
+      <td>7.8</td>
+      <td>Robin Wright,Goran Visnjic,Joely Richardson</td>
+      <td>54000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Christopher Spencer</td>
+      <td>170</td>
+      <td>59696176.0</td>
+      <td>NaN</td>
+      <td>Son of God</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>22000000.0</td>
+      <td>5.6</td>
+      <td>Roma Downey,Amber Rose Revah,Darwin Shaw</td>
+      <td>15000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Christopher Nolan</td>
+      <td>169</td>
+      <td>187991439.0</td>
+      <td>Adventure|Drama|Sci-Fi</td>
+      <td>Interstellar</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>165000000.0</td>
+      <td>8.6</td>
+      <td>Matthew McConaughey,Anne Hathaway,Mackenzie Foy</td>
+      <td>349000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>F. Gary Gray</td>
+      <td>167</td>
+      <td>161029270.0</td>
+      <td>Biography|Crime|Drama|History|Music</td>
+      <td>Straight Outta Compton</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>28000000.0</td>
+      <td>7.9</td>
+      <td>Aldis Hodge,Neil Brown Jr.,R. Marcos Taylor</td>
+      <td>76000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 ### Manejo de valores atípicos
 
 
 ```python
+# Cambiemos los datos numéricos a float
 df["gross"]=df["gross"].astype(float)
 df["duration"]=df["duration"].astype(float)
 df["budget"]=df["budget"].astype(float)
 
+# Eliminemos datos atípicos:
+# Duraciones de películas menores a 10 minutos y mayores a 300 minutos
+# Calificaciones IMDb negativas
+# Años anteriores a 2010
 df['duration'] = np.where(df['duration']<=10,0, df['duration'])
 df['duration'] = np.where(df['duration']>300,0, df['duration'])
 df['imdb_score'] = np.where(df['imdb_score']<=0,0, df['imdb_score'])
 df['title_year'] = np.where(df['title_year']<2010,0, df['title_year'])
+df.head(15)
 ```
+
+<div>
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>director_name</th>
+      <th>duration</th>
+      <th>gross</th>
+      <th>genres</th>
+      <th>movie_title</th>
+      <th>title_year</th>
+      <th>country</th>
+      <th>budget</th>
+      <th>imdb_score</th>
+      <th>actors</th>
+      <th>movie_facebook_likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Martin Scorsese</td>
+      <td>240.0</td>
+      <td>116866727.0</td>
+      <td>Biography|Comedy|Crime|Drama</td>
+      <td>The Wolf of Wall Street</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>100000000.0</td>
+      <td>8.2</td>
+      <td>Leonardo DiCaprio,Matthew McConaughey,Jon Favreau</td>
+      <td>138000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Shane Black</td>
+      <td>195.0</td>
+      <td>408992272.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Iron Man 3</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>200000000.0</td>
+      <td>7.2</td>
+      <td>Robert Downey Jr.,Jon Favreau,Don Cheadle</td>
+      <td>95000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Quentin Tarantino</td>
+      <td>187.0</td>
+      <td>54116191.0</td>
+      <td>Crime|Drama|Mystery|Thriller|Western</td>
+      <td>The Hateful Eight</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>44000000.0</td>
+      <td>7.9</td>
+      <td>Craig Stark,Jennifer Jason Leigh,Zoë Bell</td>
+      <td>114000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kenneth Lonergan</td>
+      <td>186.0</td>
+      <td>46495.0</td>
+      <td>Drama</td>
+      <td>Margaret</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>14000000.0</td>
+      <td>6.5</td>
+      <td>Matt Damon,Kieran Culkin,John Gallagher Jr.</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Peter Jackson</td>
+      <td>186.0</td>
+      <td>258355354.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: The Desolation of Smaug</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>225000000.0</td>
+      <td>7.9</td>
+      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
+      <td>83000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>183.0</td>
+      <td>330249062.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Batman v Superman: Dawn of Justice</td>
+      <td>0</td>
+      <td>USA</td>
+      <td>250000000.0</td>
+      <td>6.9</td>
+      <td>Henry Cavill,Lauren Cohan,Alan D. Purwin</td>
+      <td>197000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Peter Jackson</td>
+      <td>0.0</td>
+      <td>303001229.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: An Unexpected Journey</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>180000000.0</td>
+      <td>7.9</td>
+      <td>Aidan Turner,Adam Brown,James Nesbitt</td>
+      <td>166000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Edward Hall</td>
+      <td>180.0</td>
+      <td>0.0</td>
+      <td>Drama|Romance</td>
+      <td>Restless</td>
+      <td>2012</td>
+      <td>UK</td>
+      <td>0.0</td>
+      <td>7.2</td>
+      <td>Rufus Sewell,Hayley Atwell,Charlotte Rampling</td>
+      <td>434</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Joss Whedon</td>
+      <td>173.0</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Joss Whedon</td>
+      <td>173.0</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>Chris Hemsworth,Robert Downey Jr.,Scarlett Joh...</td>
+      <td>123000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Tom Tykwer</td>
+      <td>172.0</td>
+      <td>27098580.0</td>
+      <td>Drama|Sci-Fi</td>
+      <td>Cloud Atlas</td>
+      <td>2012</td>
+      <td>GERMANY</td>
+      <td>102000000.0</td>
+      <td>0.0</td>
+      <td>Tom Hanks,Jim Sturgess,Jim Broadbent</td>
+      <td>124000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td></td>
+      <td>158.0</td>
+      <td>102515793.0</td>
+      <td>Crime|Drama|Mystery|Thriller</td>
+      <td>The Girl with the Dragon Tattoo</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>90000000.0</td>
+      <td>7.8</td>
+      <td>Robin Wright,Goran Visnjic,Joely Richardson</td>
+      <td>54000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Christopher Spencer</td>
+      <td>170.0</td>
+      <td>59696176.0</td>
+      <td>NaN</td>
+      <td>Son of God</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>22000000.0</td>
+      <td>5.6</td>
+      <td>Roma Downey,Amber Rose Revah,Darwin Shaw</td>
+      <td>15000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Christopher Nolan</td>
+      <td>169.0</td>
+      <td>187991439.0</td>
+      <td>Adventure|Drama|Sci-Fi</td>
+      <td>Interstellar</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>165000000.0</td>
+      <td>8.6</td>
+      <td>Matthew McConaughey,Anne Hathaway,Mackenzie Foy</td>
+      <td>349000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>F. Gary Gray</td>
+      <td>167.0</td>
+      <td>161029270.0</td>
+      <td>Biography|Crime|Drama|History|Music</td>
+      <td>Straight Outta Compton</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>28000000.0</td>
+      <td>7.9</td>
+      <td>Aldis Hodge,Neil Brown Jr.,R. Marcos Taylor</td>
+      <td>76000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 ### División de datos
 
 
 ```python
+# Separemos los datos de los actores en 3 columnas
 actor_list = df["actors"].str.split(",", n = 2, expand = True) # n : max index
-df["actor1"]= actor_list[0] 
-df["actor2"]= actor_list[1] 
-df["actor3"]= actor_list[2] 
+df["actor1"]= actor_list[0]
+df["actor2"]= actor_list[1]
+df["actor3"]= actor_list[2]
 df.drop(columns=['actors'], inplace=True)
+df.head(15)
 ```
+
+<div>
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>director_name</th>
+      <th>duration</th>
+      <th>gross</th>
+      <th>genres</th>
+      <th>movie_title</th>
+      <th>title_year</th>
+      <th>country</th>
+      <th>budget</th>
+      <th>imdb_score</th>
+      <th>movie_facebook_likes</th>
+      <th>actor1</th>
+      <th>actor2</th>
+      <th>actor3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Martin Scorsese</td>
+      <td>240.0</td>
+      <td>116866727.0</td>
+      <td>Biography|Comedy|Crime|Drama</td>
+      <td>The Wolf of Wall Street</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>100000000.0</td>
+      <td>8.2</td>
+      <td>138000</td>
+      <td>Leonardo DiCaprio</td>
+      <td>Matthew McConaughey</td>
+      <td>Jon Favreau</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Shane Black</td>
+      <td>195.0</td>
+      <td>408992272.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Iron Man 3</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>200000000.0</td>
+      <td>7.2</td>
+      <td>95000</td>
+      <td>Robert Downey Jr.</td>
+      <td>Jon Favreau</td>
+      <td>Don Cheadle</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Quentin Tarantino</td>
+      <td>187.0</td>
+      <td>54116191.0</td>
+      <td>Crime|Drama|Mystery|Thriller|Western</td>
+      <td>The Hateful Eight</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>44000000.0</td>
+      <td>7.9</td>
+      <td>114000</td>
+      <td>Craig Stark</td>
+      <td>Jennifer Jason Leigh</td>
+      <td>Zoë Bell</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kenneth Lonergan</td>
+      <td>186.0</td>
+      <td>46495.0</td>
+      <td>Drama</td>
+      <td>Margaret</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>14000000.0</td>
+      <td>6.5</td>
+      <td>0</td>
+      <td>Matt Damon</td>
+      <td>Kieran Culkin</td>
+      <td>John Gallagher Jr.</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Peter Jackson</td>
+      <td>186.0</td>
+      <td>258355354.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: The Desolation of Smaug</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>225000000.0</td>
+      <td>7.9</td>
+      <td>83000</td>
+      <td>Aidan Turner</td>
+      <td>Adam Brown</td>
+      <td>James Nesbitt</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>183.0</td>
+      <td>330249062.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Batman v Superman: Dawn of Justice</td>
+      <td>0</td>
+      <td>USA</td>
+      <td>250000000.0</td>
+      <td>6.9</td>
+      <td>197000</td>
+      <td>Henry Cavill</td>
+      <td>Lauren Cohan</td>
+      <td>Alan D. Purwin</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Peter Jackson</td>
+      <td>0.0</td>
+      <td>303001229.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: An Unexpected Journey</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>180000000.0</td>
+      <td>7.9</td>
+      <td>166000</td>
+      <td>Aidan Turner</td>
+      <td>Adam Brown</td>
+      <td>James Nesbitt</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Edward Hall</td>
+      <td>180.0</td>
+      <td>0.0</td>
+      <td>Drama|Romance</td>
+      <td>Restless</td>
+      <td>2012</td>
+      <td>UK</td>
+      <td>0.0</td>
+      <td>7.2</td>
+      <td>434</td>
+      <td>Rufus Sewell</td>
+      <td>Hayley Atwell</td>
+      <td>Charlotte Rampling</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Joss Whedon</td>
+      <td>173.0</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>123000</td>
+      <td>Chris Hemsworth</td>
+      <td>Robert Downey Jr.</td>
+      <td>Scarlett Johansson</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Joss Whedon</td>
+      <td>173.0</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>123000</td>
+      <td>Chris Hemsworth</td>
+      <td>Robert Downey Jr.</td>
+      <td>Scarlett Johansson</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Tom Tykwer</td>
+      <td>172.0</td>
+      <td>27098580.0</td>
+      <td>Drama|Sci-Fi</td>
+      <td>Cloud Atlas</td>
+      <td>2012</td>
+      <td>GERMANY</td>
+      <td>102000000.0</td>
+      <td>0.0</td>
+      <td>124000</td>
+      <td>Tom Hanks</td>
+      <td>Jim Sturgess</td>
+      <td>Jim Broadbent</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td></td>
+      <td>158.0</td>
+      <td>102515793.0</td>
+      <td>Crime|Drama|Mystery|Thriller</td>
+      <td>The Girl with the Dragon Tattoo</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>90000000.0</td>
+      <td>7.8</td>
+      <td>54000</td>
+      <td>Robin Wright</td>
+      <td>Goran Visnjic</td>
+      <td>Joely Richardson</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Christopher Spencer</td>
+      <td>170.0</td>
+      <td>59696176.0</td>
+      <td>NaN</td>
+      <td>Son of God</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>22000000.0</td>
+      <td>5.6</td>
+      <td>15000</td>
+      <td>Roma Downey</td>
+      <td>Amber Rose Revah</td>
+      <td>Darwin Shaw</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Christopher Nolan</td>
+      <td>169.0</td>
+      <td>187991439.0</td>
+      <td>Adventure|Drama|Sci-Fi</td>
+      <td>Interstellar</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>165000000.0</td>
+      <td>8.6</td>
+      <td>349000</td>
+      <td>Matthew McConaughey</td>
+      <td>Anne Hathaway</td>
+      <td>Mackenzie Foy</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>F. Gary Gray</td>
+      <td>167.0</td>
+      <td>161029270.0</td>
+      <td>Biography|Crime|Drama|History|Music</td>
+      <td>Straight Outta Compton</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>28000000.0</td>
+      <td>7.9</td>
+      <td>76000</td>
+      <td>Aldis Hodge</td>
+      <td>Neil Brown Jr.</td>
+      <td>R. Marcos Taylor</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 ### Crear una nueva métrica: ingreso bruto sobre presupuesto
 
 
 ```python
+# Generemos la nueva métrica
 df['GOB'] = df.apply(lambda row: row['gross']/row['budget'] if row['budget']!=0 else 0, axis=1)
+df.head(15)
 ```
 
 
+<div>
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>director_name</th>
+      <th>duration</th>
+      <th>gross</th>
+      <th>genres</th>
+      <th>movie_title</th>
+      <th>title_year</th>
+      <th>country</th>
+      <th>budget</th>
+      <th>imdb_score</th>
+      <th>movie_facebook_likes</th>
+      <th>actor1</th>
+      <th>actor2</th>
+      <th>actor3</th>
+      <th>GOB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Martin Scorsese</td>
+      <td>240.0</td>
+      <td>116866727.0</td>
+      <td>Biography|Comedy|Crime|Drama</td>
+      <td>The Wolf of Wall Street</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>100000000.0</td>
+      <td>8.2</td>
+      <td>138000</td>
+      <td>Leonardo DiCaprio</td>
+      <td>Matthew McConaughey</td>
+      <td>Jon Favreau</td>
+      <td>1.168667</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Shane Black</td>
+      <td>195.0</td>
+      <td>408992272.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Iron Man 3</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>200000000.0</td>
+      <td>7.2</td>
+      <td>95000</td>
+      <td>Robert Downey Jr.</td>
+      <td>Jon Favreau</td>
+      <td>Don Cheadle</td>
+      <td>2.044961</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Quentin Tarantino</td>
+      <td>187.0</td>
+      <td>54116191.0</td>
+      <td>Crime|Drama|Mystery|Thriller|Western</td>
+      <td>The Hateful Eight</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>44000000.0</td>
+      <td>7.9</td>
+      <td>114000</td>
+      <td>Craig Stark</td>
+      <td>Jennifer Jason Leigh</td>
+      <td>Zoë Bell</td>
+      <td>1.229913</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kenneth Lonergan</td>
+      <td>186.0</td>
+      <td>46495.0</td>
+      <td>Drama</td>
+      <td>Margaret</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>14000000.0</td>
+      <td>6.5</td>
+      <td>0</td>
+      <td>Matt Damon</td>
+      <td>Kieran Culkin</td>
+      <td>John Gallagher Jr.</td>
+      <td>0.003321</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Peter Jackson</td>
+      <td>186.0</td>
+      <td>258355354.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: The Desolation of Smaug</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>225000000.0</td>
+      <td>7.9</td>
+      <td>83000</td>
+      <td>Aidan Turner</td>
+      <td>Adam Brown</td>
+      <td>James Nesbitt</td>
+      <td>1.148246</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>183.0</td>
+      <td>330249062.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>Batman v Superman: Dawn of Justice</td>
+      <td>0</td>
+      <td>USA</td>
+      <td>250000000.0</td>
+      <td>6.9</td>
+      <td>197000</td>
+      <td>Henry Cavill</td>
+      <td>Lauren Cohan</td>
+      <td>Alan D. Purwin</td>
+      <td>1.320996</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Peter Jackson</td>
+      <td>0.0</td>
+      <td>303001229.0</td>
+      <td>Adventure|Fantasy</td>
+      <td>The Hobbit: An Unexpected Journey</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>180000000.0</td>
+      <td>7.9</td>
+      <td>166000</td>
+      <td>Aidan Turner</td>
+      <td>Adam Brown</td>
+      <td>James Nesbitt</td>
+      <td>1.683340</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Edward Hall</td>
+      <td>180.0</td>
+      <td>0.0</td>
+      <td>Drama|Romance</td>
+      <td>Restless</td>
+      <td>2012</td>
+      <td>UK</td>
+      <td>0.0</td>
+      <td>7.2</td>
+      <td>434</td>
+      <td>Rufus Sewell</td>
+      <td>Hayley Atwell</td>
+      <td>Charlotte Rampling</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Joss Whedon</td>
+      <td>173.0</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>123000</td>
+      <td>Chris Hemsworth</td>
+      <td>Robert Downey Jr.</td>
+      <td>Scarlett Johansson</td>
+      <td>2.833089</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Joss Whedon</td>
+      <td>173.0</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>123000</td>
+      <td>Chris Hemsworth</td>
+      <td>Robert Downey Jr.</td>
+      <td>Scarlett Johansson</td>
+      <td>2.833089</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Tom Tykwer</td>
+      <td>172.0</td>
+      <td>27098580.0</td>
+      <td>Drama|Sci-Fi</td>
+      <td>Cloud Atlas</td>
+      <td>2012</td>
+      <td>GERMANY</td>
+      <td>102000000.0</td>
+      <td>0.0</td>
+      <td>124000</td>
+      <td>Tom Hanks</td>
+      <td>Jim Sturgess</td>
+      <td>Jim Broadbent</td>
+      <td>0.265672</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td></td>
+      <td>158.0</td>
+      <td>102515793.0</td>
+      <td>Crime|Drama|Mystery|Thriller</td>
+      <td>The Girl with the Dragon Tattoo</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>90000000.0</td>
+      <td>7.8</td>
+      <td>54000</td>
+      <td>Robin Wright</td>
+      <td>Goran Visnjic</td>
+      <td>Joely Richardson</td>
+      <td>1.139064</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Christopher Spencer</td>
+      <td>170.0</td>
+      <td>59696176.0</td>
+      <td>NaN</td>
+      <td>Son of God</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>22000000.0</td>
+      <td>5.6</td>
+      <td>15000</td>
+      <td>Roma Downey</td>
+      <td>Amber Rose Revah</td>
+      <td>Darwin Shaw</td>
+      <td>2.713463</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Christopher Nolan</td>
+      <td>169.0</td>
+      <td>187991439.0</td>
+      <td>Adventure|Drama|Sci-Fi</td>
+      <td>Interstellar</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>165000000.0</td>
+      <td>8.6</td>
+      <td>349000</td>
+      <td>Matthew McConaughey</td>
+      <td>Anne Hathaway</td>
+      <td>Mackenzie Foy</td>
+      <td>1.139342</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>F. Gary Gray</td>
+      <td>167.0</td>
+      <td>161029270.0</td>
+      <td>Biography|Crime|Drama|History|Music</td>
+      <td>Straight Outta Compton</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>28000000.0</td>
+      <td>7.9</td>
+      <td>76000</td>
+      <td>Aldis Hodge</td>
+      <td>Neil Brown Jr.</td>
+      <td>R. Marcos Taylor</td>
+      <td>5.751045</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 ```python
+# Veamos cuales son las películas con el valor más alto
 top_GOB=df.sort_values('GOB',ascending=False).head(10)
 print(top_GOB)
 ```
@@ -924,7 +2515,7 @@ print(top_GOB)
     94      Steve McQueen     134.0   56667870.0   
     8         Joss Whedon     173.0  623279547.0   
     9         Joss Whedon     173.0  623279547.0   
-    
+
                                      genres                      movie_title  \
     43                                Drama                         The Help   
     15                                Drama                          Boyhood   
@@ -936,7 +2527,7 @@ print(top_GOB)
     94              Biography|Drama|History                 12 Years a Slave   
     8               Action|Adventure|Sci-Fi                     The Avengers   
     9               Action|Adventure|Sci-Fi                     The Avengers   
-    
+
         title_year country       budget  imdb_score  movie_facebook_likes  \
     43        2011     USA   25000000.0         8.1                 75000   
     15        2014     USA    4000000.0         8.0                 92000   
@@ -948,7 +2539,7 @@ print(top_GOB)
     94        2013     USA   20000000.0         8.1                 83000   
     8         2012     USA  220000000.0         8.1                123000   
     9         2012     USA  220000000.0         8.1                123000   
-    
+
                    actor1               actor2                 actor3       GOB  
     43         Emma Stone  Bryce Dallas Howard             Mike Vogel  6.788223  
     15     Ellar Coltrane    Lorelei Linklater          Libby Villari  6.339800  
@@ -960,20 +2551,21 @@ print(top_GOB)
     94  Quvenzhané Wallis        Scoot McNairy           Taran Killam  2.833394  
     8     Chris Hemsworth    Robert Downey Jr.     Scarlett Johansson  2.833089  
     9     Chris Hemsworth    Robert Downey Jr.     Scarlett Johansson  2.833089  
-    
+
 
 ### Guardar los datos
 
 
 ```python
-df.to_csv(r'../Python_Cursos/data/new_IMDB.csv', index=None)
+df.to_csv(r'../../data/new_IMDB.csv', index=None)
 ```
 
 ### Análisis de datos
 
 
 ```python
-df_imdb = pd.read_csv('../Python_Cursos/data/new_IMDB.csv')
+# Leamos los datos guardados en un dataframe
+df_imdb = pd.read_csv('../../data/new_IMDB.csv')
 df_imdb.head()
 ```
 
@@ -981,19 +2573,6 @@ df_imdb.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1116,20 +2695,320 @@ df_imdb.head()
 
 ```
 
-### Directores de las mejores películas de GOB:
+### Directores cuyas películas tienen el mayor de ingresos brutos con respecto a su presupuesto (GOB):
 
 
 ```python
+# Ordenemos los datos por GOB
 top_GOB = df_imdb.sort_values('GOB',ascending=False).head(15)
 ```
 
-
 ```python
+# Obtengamos el apellido del director
 top_GOB['director_familyName'] = df_imdb["director_name"].str.split(" ", n = 2, expand = True) [1]
+top_GOB
 ```
 
+<div>
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>director_name</th>
+      <th>duration</th>
+      <th>gross</th>
+      <th>genres</th>
+      <th>movie_title</th>
+      <th>title_year</th>
+      <th>country</th>
+      <th>budget</th>
+      <th>imdb_score</th>
+      <th>movie_facebook_likes</th>
+      <th>actor1</th>
+      <th>actor2</th>
+      <th>actor3</th>
+      <th>GOB</th>
+      <th>director_familyName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>43</th>
+      <td>Tate Taylor</td>
+      <td>146.0</td>
+      <td>169705587.0</td>
+      <td>Drama</td>
+      <td>The Help</td>
+      <td>2011</td>
+      <td>USA</td>
+      <td>25000000.0</td>
+      <td>8.1</td>
+      <td>75000</td>
+      <td>Emma Stone</td>
+      <td>Bryce Dallas Howard</td>
+      <td>Mike Vogel</td>
+      <td>6.788223</td>
+      <td>Taylor</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Richard Linklater</td>
+      <td>165.0</td>
+      <td>25359200.0</td>
+      <td>Drama</td>
+      <td>Boyhood</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>4000000.0</td>
+      <td>8.0</td>
+      <td>92000</td>
+      <td>Ellar Coltrane</td>
+      <td>Lorelei Linklater</td>
+      <td>Libby Villari</td>
+      <td>6.339800</td>
+      <td>Linklater</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>F. Gary Gray</td>
+      <td>167.0</td>
+      <td>161029270.0</td>
+      <td>Biography|Crime|Drama|History|Music</td>
+      <td>Straight Outta Compton</td>
+      <td>2015</td>
+      <td>USA</td>
+      <td>28000000.0</td>
+      <td>7.9</td>
+      <td>76000</td>
+      <td>Aldis Hodge</td>
+      <td>Neil Brown Jr.</td>
+      <td>R. Marcos Taylor</td>
+      <td>5.751045</td>
+      <td>Gary</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>NaN</td>
+      <td>142.0</td>
+      <td>407999255.0</td>
+      <td>Adventure|Drama|Sci-Fi|Thriller</td>
+      <td>The Hunger Games</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>78000000.0</td>
+      <td>7.3</td>
+      <td>140000</td>
+      <td>Jennifer Lawrence</td>
+      <td>Josh Hutcherson</td>
+      <td>Anthony Reynolds</td>
+      <td>5.230760</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>NaN</td>
+      <td>138.0</td>
+      <td>150117807.0</td>
+      <td>Crime|Drama</td>
+      <td>American Hustle</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>40000000.0</td>
+      <td>7.3</td>
+      <td>63000</td>
+      <td>Jennifer Lawrence</td>
+      <td>Christian Bale</td>
+      <td>Bradley Cooper</td>
+      <td>3.752945</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Francis Lawrence</td>
+      <td>146.0</td>
+      <td>424645577.0</td>
+      <td>Adventure|Sci-Fi|Thriller</td>
+      <td>The Hunger Games: Catching Fire</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>130000000.0</td>
+      <td>7.6</td>
+      <td>82000</td>
+      <td>Jennifer Lawrence</td>
+      <td>Josh Hutcherson</td>
+      <td>Sandra Ellis Lafferty</td>
+      <td>3.266504</td>
+      <td>Lawrence</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Robert Zemeckis</td>
+      <td>138.0</td>
+      <td>93749203.0</td>
+      <td>Drama|Thriller</td>
+      <td>Flight</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>31000000.0</td>
+      <td>7.3</td>
+      <td>64000</td>
+      <td>Denzel Washington</td>
+      <td>Bruce Greenwood</td>
+      <td>Nadine Velazquez</td>
+      <td>3.024168</td>
+      <td>Zemeckis</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Steve McQueen</td>
+      <td>134.0</td>
+      <td>56667870.0</td>
+      <td>Biography|Drama|History</td>
+      <td>12 Years a Slave</td>
+      <td>2013</td>
+      <td>USA</td>
+      <td>20000000.0</td>
+      <td>8.1</td>
+      <td>83000</td>
+      <td>Quvenzhané Wallis</td>
+      <td>Scoot McNairy</td>
+      <td>Taran Killam</td>
+      <td>2.833394</td>
+      <td>McQueen</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Joss Whedon</td>
+      <td>173.0</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>123000</td>
+      <td>Chris Hemsworth</td>
+      <td>Robert Downey Jr.</td>
+      <td>Scarlett Johansson</td>
+      <td>2.833089</td>
+      <td>Whedon</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Joss Whedon</td>
+      <td>173.0</td>
+      <td>623279547.0</td>
+      <td>Action|Adventure|Sci-Fi</td>
+      <td>The Avengers</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>220000000.0</td>
+      <td>8.1</td>
+      <td>123000</td>
+      <td>Chris Hemsworth</td>
+      <td>Robert Downey Jr.</td>
+      <td>Scarlett Johansson</td>
+      <td>2.833089</td>
+      <td>Whedon</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>NaN</td>
+      <td>150.0</td>
+      <td>182204440.0</td>
+      <td>Biography|Drama|History|War</td>
+      <td>Lincoln</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>65000000.0</td>
+      <td>7.4</td>
+      <td>71000</td>
+      <td>Joseph Gordon-Levitt</td>
+      <td>Hal Holbrook</td>
+      <td>Bruce McGill</td>
+      <td>2.803145</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>David Fincher</td>
+      <td>149.0</td>
+      <td>167735396.0</td>
+      <td>Crime|Drama|Mystery|Thriller</td>
+      <td>Gone Girl</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>61000000.0</td>
+      <td>8.1</td>
+      <td>146000</td>
+      <td>Patrick Fugit</td>
+      <td>Sela Ward</td>
+      <td>Emily Ratajkowski</td>
+      <td>2.749761</td>
+      <td>Fincher</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Christopher Spencer</td>
+      <td>170.0</td>
+      <td>59696176.0</td>
+      <td>NaN</td>
+      <td>Son of God</td>
+      <td>2014</td>
+      <td>USA</td>
+      <td>22000000.0</td>
+      <td>5.6</td>
+      <td>15000</td>
+      <td>Roma Downey</td>
+      <td>Amber Rose Revah</td>
+      <td>Darwin Shaw</td>
+      <td>2.713463</td>
+      <td>Spencer</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Tom Hooper</td>
+      <td>158.0</td>
+      <td>148775460.0</td>
+      <td>Drama|Musical|Romance</td>
+      <td>Les Misérables</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>61000000.0</td>
+      <td>7.6</td>
+      <td>144000</td>
+      <td>Hugh Jackman</td>
+      <td>Eddie Redmayne</td>
+      <td>Anne Hathaway</td>
+      <td>2.438942</td>
+      <td>Hooper</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Tom Hooper</td>
+      <td>158.0</td>
+      <td>148775460.0</td>
+      <td>Drama|Musical|Romance</td>
+      <td>Les Misérables</td>
+      <td>2012</td>
+      <td>USA</td>
+      <td>61000000.0</td>
+      <td>7.6</td>
+      <td>144000</td>
+      <td>Hugh Jackman</td>
+      <td>Eddie Redmayne</td>
+      <td>Anne Hathaway</td>
+      <td>2.438942</td>
+      <td>Hooper</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 ```python
+# Grafiquemos los datos
 fig,ax = plt.subplots(figsize=(8, 5))
 ax = sns.barplot(x="director_familyName", y="GOB", data=top_GOB)
 
@@ -1142,13 +3021,17 @@ ax.tick_params(axis='y', labelsize=14)
 ```
 
 
-![png](/images/lmdb/output_37_0.png)
+![png](images/lmdb/output_37_0.png)
 
 
 ### Agrupación de películas
 
+Revisaremos si la calificación IMDb tiene alguna relación con los ingresos brutos con respecto al presupuesto.
+De esta manera, podemos predecir los ingresos brutos que tendrá una nueva película
+
 
 ```python
+# Obtengamos ambas columnas
 df_c=df_imdb.loc[(df_imdb['GOB']>0) & df_imdb['imdb_score']>0][['imdb_score','GOB']]
 df_c.head()
 ```
@@ -1157,19 +3040,6 @@ df_c.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1212,27 +3082,17 @@ df_c.head()
 
 
 ```python
+# Importemos las librerías que vamos a utilizar
 from sklearn.cluster import KMeans
 from scipy.spatial.distance import cdist
 ```
 
 
-    ---------------------------------------------------------------------------
-
-    ModuleNotFoundError                       Traceback (most recent call last)
-
-    <ipython-input-24-e10814f8fb1b> in <module>
-    ----> 1 from sklearn.cluster import KMeans
-          2 from scipy.spatial.distance import cdist
-    
-
-    ModuleNotFoundError: No module named 'sklearn'
-
-
-### Elbow Method
+### Método Elbow
 
 
 ```python
+# Apliquemos un algoritmo de Kmeans para determinar en cuantos grupos se puede dividor la información
 K = range(1, 10)
 meandist = []
 for k in K:
@@ -1245,16 +3105,24 @@ plt.ylabel('Average SSE')
 plt.title('Selecting the best K')
 ```
 
-### Centroids
+![png](images/lmdb/output_38_0.png)
+
+### Centroides
 
 
 ```python
+# Como se observa en la gráfica, el número óptimo de grupos es 3
+# Utilicemos este valor para definir los centroides y entrenar el modelo
 km_ = KMeans(n_clusters=3)
 km_.fit(df_c)
 ```
 
+    KMeans(algorithm='auto', copy_x=True, init='k-means++', max_iter=300,
+           n_clusters=3, n_init=10, n_jobs=None, precompute_distances='auto',
+           random_state=None, tol=0.0001, verbose=0)
 
 ```python
+# Despleguemos los resultados del entrenamiento
 centroids=km_.cluster_centers_
 labels = km_.labels_
 ```
@@ -1265,10 +3133,11 @@ print(centroids)
 print(labels)
 ```
 
-### Plotting Centroids
+### Graficar los centroides
 
 
 ```python
+# Grafiquemos los grupos generados
 fig = plt.figure(figsize=(8,6))
 colors = ["yellow","red","green"]
 df_array = np.array(df_c)
@@ -1282,64 +3151,87 @@ plt.ylabel('GOB')
 plt.xlabel('IMDB Score')
 ```
 
-## Relationship between IMDB Score and Facebook likes of movies
+Text(0.5, 0, 'IMDB Score')
 
+![png](images/lmdb/output_39_0.png)
+
+
+## Relación entre la calificación IMDb Score y los likes en Facebook
+
+Revisaremos si la calificación IMDb tiene alguna relación con los likes en Facebook.  
+De esta manera, podemos predecir los likes que tendrá una nueva película
 
 ```python
-# re scaling the data
+# Se rescalan los datos de los likes, para que esten en una escala similar a la de la calificación IMDb
 df_imdb['movie_facebook_likes']=df_imdb['movie_facebook_likes'].apply(lambda row: row/10000)
 ```
 
-### Regression with Seaborn
+### Regresion Lineal con Seaborn
 
 
 ```python
+# Utilicemos la función preconstruída de Seaborn, para realizar una regresión linear entre la calificación IMDb
+# y los likes de Facebook
 fig = plt.figure(figsize=(8,8))
 sns.regplot('imdb_score', 'movie_facebook_likes', df_imdb, fit_reg=True,order=2,color='red')
 ```
 
-### Linear Regression with prediction for an IMDB score
+     <matplotlib.axes._subplots.AxesSubplot at 0x1c7827517c8>
+
+![png](images/lmdb/output_40_0.png)
+
+
+### Regresión Lineal para predecir la calificación IMDb
 
 
 ```python
+# Asignemos la calificación IMDb como característica y los likes de Facebook como valor a predecir
 X = df_imdb['imdb_score'].values[:,np.newaxis]
 y = df_imdb['movie_facebook_likes'].values
 ```
 
 
 ```python
+# Importemos las librerías a utilizar
 from sklearn.linear_model import LinearRegression
 ```
 
 
 ```python
+# Generemos un modelo de regresión lineal
 lr = LinearRegression()
 ```
 
 
 ```python
+# Entrenemos el modelo con los datos
 lr.fit(X, y)
 ```
+     LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
 
-#### Prediction:
+#### Predicción:
 
 
 ```python
+# Hagamos la predicción de un nuevo dato
 IMDB_score=8.8
 X_test=np.array([IMDB_score]).reshape(1,-1)
 X_test
 ```
-
+     array([[8.8]])
 
 ```python
 y_pred = lr.predict(X_test)
 print(f"Facebook likes estimation (10k) for a IMDB score:{IMDB_score}-->{y_pred}")
 ```
 
-#### Plotting the model and prediction
+     Facebook likes estimation (10k) for a IMDB score:8.8-->[9.34539641]
+
+#### Graficar el modelo y la predicción
 
 
 ```python
+# Grafiquemos los resultados
 fig,ax = plt.subplots(figsize=(10, 7))
 
 plt.xlabel('IMDB score');
@@ -1348,10 +3240,9 @@ plt.ylabel('Facebook like (10K)');
 plt.scatter(X, y,color='blue')
 plt.plot(X, lr.predict(X), color='red', linestyle='--', lw=3)
 
-plt.scatter(X_test, y_pred, color='yellow', s=300, edgecolors='black') 
+plt.scatter(X_test, y_pred, color='yellow', s=300, edgecolors='black')
 ```
 
+     <matplotlib.collections.PathCollection at 0x1c7827f5088>
 
-```python
-
-```
+![png](images/lmdb/output_41_0.png)

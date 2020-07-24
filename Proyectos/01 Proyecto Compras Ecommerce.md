@@ -1,47 +1,34 @@
-# Ejercicio de compras ecommerce - Solución
+# Ejercicio de compras ecommerce
 
-¡En este ejercicio se le darán algunos datos falsos sobre algunas compras realizadas a través de Amazon! Simplemente siga las instrucciones y haga todo lo posible para responder las preguntas y completar las tareas. No dude en consultar las soluciones. La mayoría de las tareas se pueden resolver de diferentes maneras. En su mayor parte, las preguntas se vuelven cada vez más difíciles.
+¡En este ejercicio se te darán algunos datos falsos, sobre algunas compras realizadas a través de Amazon! Simplemente sigue las instrucciones y haz todo lo posible para responder las preguntas y completar las tareas. No dudes en consultar las soluciones. La mayoría de las tareas se pueden resolver de diferentes maneras. En su mayor parte, las preguntas se vuelven cada vez más difíciles.
 
-Por favor, disculpe cualquier cosa que no tenga sentido en el "mundo real" en el marco de datos, todos los datos son falsos e inventados.
+Por favor, disculpa cualquier cosa que no tenga sentido en el "mundo real" en el conjunto de datos; todos los datos son falsos e inventados.
 
-También tenga en cuenta que todas estas preguntas se pueden responder con una sola línea de código.
+También ten en cuenta que todas estas preguntas se pueden responder con una sola línea de código.
 ____
-** Importe pandas y lea en el archivo csv de Compras de ecommerce y configúrelo en un dataframe llamado ecom. **
+** Importa pandas y lee el archivo csv de Compras de ecommerce. Configúralo en un dataframe llamado ecom. **
 
 
 ```python
-import pandas as pd
+
 ```
 
 
 ```python
-ecom = pd.read_csv('Ecommerce Purchases')
+
 ```
 
-** Valide la cabecera del dataframe**
+** Revisa los primeros 5 datos del dataframe**
 
 
 ```python
-ecom.head()
+
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -158,7 +145,7 @@ ecom.head()
 
 
 ```python
-ecom.info()
+
 ```
 
     <class 'pandas.core.frame.DataFrame'>
@@ -166,29 +153,29 @@ ecom.info()
     Data columns (total 14 columns):
      #   Column            Non-Null Count  Dtype  
     ---  ------            --------------  -----  
-     0   Address           10000 non-null  object 
-     1   Lot               10000 non-null  object 
-     2   AM or PM          10000 non-null  object 
-     3   Browser Info      10000 non-null  object 
-     4   Company           10000 non-null  object 
+     0   Address           10000 non-null  object
+     1   Lot               10000 non-null  object
+     2   AM or PM          10000 non-null  object
+     3   Browser Info      10000 non-null  object
+     4   Company           10000 non-null  object
      5   Credit Card       10000 non-null  int64  
-     6   CC Exp Date       10000 non-null  object 
+     6   CC Exp Date       10000 non-null  object
      7   CC Security Code  10000 non-null  int64  
-     8   CC Provider       10000 non-null  object 
-     9   Email             10000 non-null  object 
-     10  Job               10000 non-null  object 
-     11  IP Address        10000 non-null  object 
-     12  Language          10000 non-null  object 
+     8   CC Provider       10000 non-null  object
+     9   Email             10000 non-null  object
+     10  Job               10000 non-null  object
+     11  IP Address        10000 non-null  object
+     12  Language          10000 non-null  object
      13  Purchase Price    10000 non-null  float64
     dtypes: float64(1), int64(2), object(11)
     memory usage: 1.1+ MB
-    
 
-** ¿Cuál es el precio de compra promedio? **
+
+** ¿Cuál es el precio de compra (Purchase Price) promedio? **
 
 
 ```python
-ecom['Purchase Price'].mean()
+
 ```
 
 
@@ -198,11 +185,11 @@ ecom['Purchase Price'].mean()
 
 
 
-** ¿Cuáles fueron los precios de compra más altos y más bajos? **
+** ¿Cuáles fueron los precios de compra (Purchase Price) más altos y más bajos? **
 
 
 ```python
-ecom['Purchase Price'].max()
+
 ```
 
 
@@ -214,7 +201,7 @@ ecom['Purchase Price'].max()
 
 
 ```python
-ecom['Purchase Price'].min()
+
 ```
 
 
@@ -224,11 +211,11 @@ ecom['Purchase Price'].min()
 
 
 
-** ¿Cuántas personas tienen el inglés 'en' como idioma de elección en el sitio web? **
+** ¿Cuántas personas tienen el inglés 'en' como idioma de elección (Language) en el sitio web? **
 
 
 ```python
-ecom[ecom['Language']=='en'].count()
+
 ```
 
 
@@ -252,12 +239,12 @@ ecom[ecom['Language']=='en'].count()
 
 
 
-** ¿Cuántas personas tienen el título de "Abogado"? **
+** ¿Cuántas personas tienen el título (Job) de "Abogado" (Lawyer)? **
 
 
 
 ```python
-ecom[ecom['Job'] == 'Lawyer'].info()
+
 ```
 
     <class 'pandas.core.frame.DataFrame'>
@@ -265,31 +252,31 @@ ecom[ecom['Job'] == 'Lawyer'].info()
     Data columns (total 14 columns):
      #   Column            Non-Null Count  Dtype  
     ---  ------            --------------  -----  
-     0   Address           30 non-null     object 
-     1   Lot               30 non-null     object 
-     2   AM or PM          30 non-null     object 
-     3   Browser Info      30 non-null     object 
-     4   Company           30 non-null     object 
+     0   Address           30 non-null     object
+     1   Lot               30 non-null     object
+     2   AM or PM          30 non-null     object
+     3   Browser Info      30 non-null     object
+     4   Company           30 non-null     object
      5   Credit Card       30 non-null     int64  
-     6   CC Exp Date       30 non-null     object 
+     6   CC Exp Date       30 non-null     object
      7   CC Security Code  30 non-null     int64  
-     8   CC Provider       30 non-null     object 
-     9   Email             30 non-null     object 
-     10  Job               30 non-null     object 
-     11  IP Address        30 non-null     object 
-     12  Language          30 non-null     object 
+     8   CC Provider       30 non-null     object
+     9   Email             30 non-null     object
+     10  Job               30 non-null     object
+     11  IP Address        30 non-null     object
+     12  Language          30 non-null     object
      13  Purchase Price    30 non-null     float64
     dtypes: float64(1), int64(2), object(11)
     memory usage: 3.5+ KB
-    
 
-** ¿Cuántas personas hicieron la compra durante la mañana y cuántas personas hicieron la compra durante la tarde? **
 
-**(Hint: Check out [value_counts()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html) ) **
+** ¿Cuántas personas hicieron la compra durante la mañana y cuántas personas hicieron la compra durante la tarde (AM or PM)? **
+
+**(Pista: Revisa [value_counts()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html) ) **
 
 
 ```python
-ecom['AM or PM'].value_counts()
+
 ```
 
 
@@ -301,11 +288,11 @@ ecom['AM or PM'].value_counts()
 
 
 
-** ¿Cuáles son los 5 títulos de trabajo más comunes? **
+** ¿Cuáles son los 5 títulos de trabajo (Job) más comunes? **
 
 
 ```python
-ecom['Job'].value_counts().head(5)
+
 ```
 
 
@@ -320,11 +307,11 @@ ecom['Job'].value_counts().head(5)
 
 
 
-** Alguien realizó una compra que vino del lote: "90 WT", ¿cuál fue el precio de compra de esta transacción? **
+** Alguien realizó una compra que provino del lote (Lot): "90 WT", ¿cuál fue el precio de compra (Purchase Price) de esta transacción? **
 
 
 ```python
-ecom[ecom['Lot']=='90 WT']['Purchase Price']
+
 ```
 
 
@@ -335,11 +322,11 @@ ecom[ecom['Lot']=='90 WT']['Purchase Price']
 
 
 
-** ¿Cuál es el correo electrónico de la persona con el siguiente número de tarjeta de crédito: 4926535242672853 **
+** ¿Cuál es el correo electrónico (Email) de la persona con el siguiente número de tarjeta de crédito (Credit Card): 4926535242672853 **
 
 
 ```python
-ecom[ecom["Credit Card"] == 4926535242672853]['Email'] 
+
 ```
 
 
@@ -350,11 +337,11 @@ ecom[ecom["Credit Card"] == 4926535242672853]['Email']
 
 
 
-** ¿Cuántas personas tienen American Express como su proveedor de tarjeta de crédito * y * hicieron una compra por encima de $ 95? **
+** ¿Cuántas personas tienen American Express como su proveedor de tarjeta de crédito (CC Provider) * e * hicieron una compra (Purchase Price) mayor a $ 95? **
 
 
 ```python
-ecom[(ecom['CC Provider']=='American Express') & (ecom['Purchase Price']>95)].count()
+
 ```
 
 
@@ -378,11 +365,11 @@ ecom[(ecom['CC Provider']=='American Express') & (ecom['Purchase Price']>95)].co
 
 
 
-** Difícil: ¿Cuántas personas tienen una tarjeta de crédito que caduca en 2025? ** 
+** Difícil: ¿Cuántas personas tienen una tarjeta de crédito que caduca en 2025 (CC Exp Date)? **
 
 
 ```python
-sum(ecom['CC Exp Date'].apply(lambda x: x[3:]) == '25')
+
 ```
 
 
@@ -397,7 +384,7 @@ sum(ecom['CC Exp Date'].apply(lambda x: x[3:]) == '25')
 
 
 ```python
-ecom['Email'].apply(lambda x: x.split('@')[1]).value_counts().head(5)
+
 ```
 
 
@@ -412,7 +399,6 @@ ecom['Email'].apply(lambda x: x.split('@')[1]).value_counts().head(5)
 
 
 
-# Excelente trabajo!
+# ¡Excelente trabajo!
 
 [**Proyecto Solución**](01%20Proyecto%20Compras%20Ecommerce%20-%20Solucion.ipynb)  
-

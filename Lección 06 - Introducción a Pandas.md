@@ -1,22 +1,22 @@
 # Introducción a Pandas
 
-Pandas proporciona estructuras y funciones de datos enriquecidas, diseñadas para trabajar con datos estructurados de forma fácil, rápida y eficiente.
-Combina las características de computación de matrices de alto rendimiento de NumPy con las capacidades flexibles de manipulación de datos de hojas de Excel y bases de datos relacionales (como SQL). 
+Pandas proporciona estructuras y funciones de datos enriquecidas, diseñadas para trabajar con datos estructurados de forma fácil, rápida y eficiente.  
+Combina las características de computación de matrices de alto rendimiento de NumPy, con las capacidades flexibles de manipulación de datos de hojas de Excel y bases de datos relacionales (como SQL).
 
-Los principales componentes de pandas son:
+Los principales componentes de Pandas son:
 - Series
-- Datraframes
+- Dataframes
 
 ## Instalar Pandas
 ### Anaconda
 Para instalar Pandas realice los siguientes pasos:
 1. Abrir anaconda
 2. Elegir el ambiente de trabajo
-3. Abrir un CMD.exe Prompt
+3. Abrir un prompt de CMD.exe
 4. Teclear `conda install pandas`
 
 ## Importar la libreria de Pandas
-Para poder usar los componentes de Pandas es necesario importar la libreria, de la siguiente manera.
+Para poder usar los componentes de Pandas, es necesario importar la libreria de la siguiente manera.
 
 
 ```python
@@ -24,13 +24,13 @@ import pandas as pd
 import numpy as np
 ```
 
-## El objeto de la serie Pandas 
-Una `serie` de Pandas es una matriz unidimensional de datos indexados, la cual se puede crear a partir de una lista o matriz.
+## El objeto Serie de Pandas
+Una `Serie` de Pandas es una matriz unidimensional de datos indexados, la cual se puede crear a partir de una lista o matriz.
 
 
 ```python
-data = pd.Series([0.25, 0.5, 0.75, 1.0])
-data
+datos = pd.Series([0.25, 0.5, 0.75, 1.0])
+datos
 ```
 
 
@@ -46,7 +46,7 @@ data
 
 
 ```python
-data.values
+datos.values
 ```
 
 
@@ -58,7 +58,7 @@ data.values
 
 
 ```python
-data.index
+datos.index
 ```
 
 
@@ -70,8 +70,8 @@ data.index
 
 
 ```python
-# Para acceder a los datos usamos [] co o en numpy
-data[0]
+# Para acceder a los datos usamos [] como en numpy
+datos[0]
 ```
 
 
@@ -83,7 +83,7 @@ data[0]
 
 
 ```python
-data[1:3]
+datos[1:3]
 ```
 
 
@@ -96,13 +96,13 @@ data[1:3]
 
 
 ## Series como matriz de NumPy
-La diferencia esencial es la presencia del índice: mientras el Numpy Array tiene un índice entero definido implícitamente utilizado para acceder a los valores, las series de Pandas tienen un índice definido explícitamente asociado con los valores, que no necesariamente debe se númerico.
+La diferencia esencial es la presencia del índice: mientras que la matriz de Numpy tiene un índice entero, definido implícitamente para ser utilizado para acceder a los valores, las series de Pandas tienen un índice definido explícitamente asociado con los valores, que no necesariamente debe ser númerico.
 
 
 ```python
-data = pd.Series([0.25, 0.5, 0.75, 1.0],
+datos = pd.Series([0.25, 0.5, 0.75, 1.0],
                  index=['a', 'b', 'c', 'd'])
-data
+datos
 ```
 
 
@@ -118,7 +118,7 @@ data
 
 
 ```python
-data['b']
+datos['b']
 ```
 
 
@@ -131,9 +131,9 @@ data['b']
 
 ```python
 # Índices no secuenciales
-data = pd.Series([0.25, 0.5, 0.75, 1.0],
+datos = pd.Series([0.25, 0.5, 0.75, 1.0],
                  index=[2, 5, 3, 7])
-data
+datos
 ```
 
 
@@ -160,17 +160,17 @@ data[5]
 
 
 ## Serie como diccionario
-Las series de Pandas son como una especialización de un diccionario de Python. Un diccionario es una estructura que asigna claves arbitrarias a un conjunto de valores arbitrarios, y en series de Pandas es una estructura que asigna claves a un conjunto de valores escritos. 
+Las series de Pandas son como una especialización de un diccionario de Python. Un diccionario es una estructura que asigna claves arbitrarias, a un conjunto de valores arbitrarios y en series de Pandas, es una estructura que asigna claves a un conjunto de valores especificados.
 
 
 ```python
-population_dict = {'California': 38332521,
+diccionario_poblacion = {'California': 38332521,
                    'Texas': 26448193,
                    'New York': 19651127,
                    'Florida': 19552860,
                    'Illinois': 12882135}
-population = pd.Series(population_dict)
-population
+poblacion = pd.Series(diccionario_poblacion)
+poblacion
 ```
 
 
@@ -185,11 +185,11 @@ population
 
 
 
-Por defecto, se crea un índice de las claves ordenadas. Desde aquí, se puede realizar el acceso típico a elementos de estilo de diccionario
+Por defecto, se crea un índice de las claves ordenadas. A partir de esto, se puede realizar el acceso típico a los elementos como si fuera un diccionario
 
 
 ```python
-population['California']
+poblacion['California']
 ```
 
 
@@ -201,7 +201,7 @@ population['California']
 
 
 ```python
-population['California':'Florida']
+poblacion['California':'Florida']
 ```
 
 
@@ -259,33 +259,33 @@ pd.Series({2:'a', 1:'b', 3:'c'}, index=[3, 2])
 
 
 
-## El objeto Pandas DataFrame
-Un DataFrame es una estructura de datos 2D con columnas de diferentes tipos de datos y las filas se denominan índice. Se puede formar a partir de las siguientes estructuras de datos:
+## El objeto Dataframe de Pandas
+Un `DataFrame` es una estructura de datos en 2 dimensiones, con columnas de diferentes tipos de datos y filas que se denominan índices. Se puede formar a partir de las siguientes estructuras de datos:
 
-1. Numpy array
+1. Matrices Numpy
 2. Listas
 3. Diccionarios
 4. Series
 
 
 ```python
-#using numpy array
-array = np.array([[0.8, 5.5], [3.7, 12.4]])
-df1 = pd.DataFrame({'Column1': array[:, 0], 'Column2': array[:, 1]}, index=['A','B'])
+#Usando una matriz numpy
+matriz = np.array([[0.8, 5.5], [3.7, 12.4]])
+df1 = pd.DataFrame({'Columna1': matriz[:, 0], 'Columna2': matriz[:, 1]}, index=['A','B'])
 print(df1)
 ```
 
-       Column1  Column2
+       Columna1  Columna2
     A      0.8      5.5
     B      3.7     12.4
-    
+
 
 
 ```python
-#usando diccionario de listas
-d = {'column_1': [1,2,3],
-    'column_2': ['abc',10.5,'xy'],
-    'column_3': [14,15,26]}
+#usando un diccionario de listas
+d = {'columna_1': [1,2,3],
+    'columna_2': ['abc',10.5,'xy'],
+    'columna_3': [14,15,26]}
 df = pd.DataFrame(d)
 df
 ```
@@ -294,26 +294,13 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>column_1</th>
-      <th>column_2</th>
-      <th>column_3</th>
+      <th>columna_1</th>
+      <th>columna_2</th>
+      <th>columna_3</th>
     </tr>
   </thead>
   <tbody>
@@ -343,9 +330,9 @@ df
 
 
 ```python
-#usando diccionario de series
-d = {'column_1': pd.Series([1,2,3]),
-    'column_2': pd.Series(['abc',10.5,'xy'])}
+#usando un diccionario de series
+d = {'columna_1': pd.Series([1,2,3]),
+    'columna_2': pd.Series(['abc',10.5,'xy'])}
 df = pd.DataFrame(d)
 df
 ```
@@ -354,25 +341,12 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>column_1</th>
-      <th>column_2</th>
+      <th>columna_1</th>
+      <th>columna_2</th>
     </tr>
   </thead>
   <tbody>
@@ -402,8 +376,7 @@ df
 
 ```python
 # seleccionando una columna
-df['column_1']
-
+df['columna_1']
 ```
 
 
@@ -412,39 +385,26 @@ df['column_1']
     0    1
     1    2
     2    3
-    Name: column_1, dtype: int64
+    Name: columna_1, dtype: int64
 
 
 
 
 ```python
-# selecting more than one column
-df[['column_1','column_2']]
+# seleccionando más de una columna
+df[['columna_1','columna_2']]
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>column_1</th>
-      <th>column_2</th>
+      <th>columna_1</th>
+      <th>columna_2</th>
     </tr>
   </thead>
   <tbody>
@@ -470,20 +430,20 @@ df[['column_1','column_2']]
 
 
 ### <u>loc e iloc:</u>
-#### -loc trabaja sobre etiquetas in el índice.
+#### -loc trabaja sobre etiquetas en el índice.
 #### -iloc trabaja sobre la posición de los índices (solo toma enteros).
 
 
 ```python
-#selecting rows
+#seleccionando renglones
 df1.loc['A']
 ```
 
 
 
 
-    Column1    0.8
-    Column2    5.5
+    Columna1    0.8
+    Columna2    5.5
     Name: A, dtype: float64
 
 
@@ -496,15 +456,15 @@ df1.iloc[0]
 
 
 
-    Column1    0.8
-    Column2    5.5
+    Columna1    0.8
+    Columna2    5.5
     Name: A, dtype: float64
 
 
 
 
 ```python
-type(df1['Column1'])
+type(df1['Columna1'])
 ```
 
 
@@ -518,7 +478,7 @@ type(df1['Column1'])
 
 
 ```python
-df1['new'] = df1['Column1'] + df1['Column2']
+df1['nueva'] = df1['Columna1'] + df1['Columna2']
 df1
 ```
 
@@ -526,26 +486,13 @@ df1
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Column1</th>
-      <th>Column2</th>
-      <th>new</th>
+      <th>Columna1</th>
+      <th>Columna2</th>
+      <th>nueva</th>
     </tr>
   </thead>
   <tbody>
@@ -571,7 +518,7 @@ df1
 
 
 ```python
-df1.drop('new',axis=1,inplace=True) # use inplace para hacer los cambios permanentes
+df1.drop('nueva',axis=1,inplace=True) # usar inplace para hacer los cambios permanentes
 df1
 ```
 
@@ -579,25 +526,12 @@ df1
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Column1</th>
-      <th>Column2</th>
+      <th>Columna1</th>
+      <th>Columna2</th>
     </tr>
   </thead>
   <tbody>
@@ -621,7 +555,7 @@ df1
 
 
 ```python
-df1.loc['A','Column1']
+df1.loc['A','Columna1']
 ```
 
 
@@ -633,7 +567,7 @@ df1.loc['A','Column1']
 
 
 ```python
-# reset los índices
+# resetear los índices
 df1.reset_index(inplace=True)
 df1
 ```
@@ -642,26 +576,13 @@ df1
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>index</th>
-      <th>Column1</th>
-      <th>Column2</th>
+      <th>Columna1</th>
+      <th>Columna2</th>
     </tr>
   </thead>
   <tbody>
@@ -685,32 +606,19 @@ df1
 
 
 ```python
-df1.loc[[0,1],['index','Column2']]
+df1.loc[[0,1],['index','Columna2']]
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>index</th>
-      <th>Column2</th>
+      <th>Columna2</th>
     </tr>
   </thead>
   <tbody>
@@ -734,32 +642,19 @@ df1.loc[[0,1],['index','Column2']]
 
 
 ```python
-df1[df1['Column1']>1][['index','Column2']]
+df1[df1['Columna1']>1][['index','Columna2']]
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>index</th>
-      <th>Column2</th>
+      <th>Columna2</th>
     </tr>
   </thead>
   <tbody>
@@ -777,33 +672,20 @@ df1[df1['Column1']>1][['index','Column2']]
 
 ```python
 # condición AND
-df1[(df1['Column1']>1) & (df1['Column2'] > 5)]
+df1[(df1['Columna1']>1) & (df1['Columna2'] > 5)]
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>index</th>
-      <th>Column1</th>
-      <th>Column2</th>
+      <th>Columna1</th>
+      <th>Columna2</th>
     </tr>
   </thead>
   <tbody>
@@ -822,33 +704,20 @@ df1[(df1['Column1']>1) & (df1['Column2'] > 5)]
 
 ```python
 # condición OR
-df1[(df1['Column1']>1) | (df1['Column2'] <= 5.5)]
+df1[(df1['Columna1']>1) | (df1['Columna2'] <= 5.5)]
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>index</th>
-      <th>Column1</th>
-      <th>Column2</th>
+      <th>Columna1</th>
+      <th>Columna2</th>
     </tr>
   </thead>
   <tbody>
@@ -873,33 +742,20 @@ df1[(df1['Column1']>1) | (df1['Column2'] <= 5.5)]
 
 ```python
 # condición NOT
-df1[~((df1['Column1']>1) | (df1['Column2'] <= 5.5))]
+df1[~((df1['Columna1']>1) | (df1['Columna2'] <= 5.5))]
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>index</th>
-      <th>Column1</th>
-      <th>Column2</th>
+      <th>Columna1</th>
+      <th>Columna2</th>
     </tr>
   </thead>
   <tbody>
@@ -932,12 +788,12 @@ print(a)
 ```
 
     ['10', 'abc']
-    
+
 
 
 ```python
 #Insertar una nueva columna desde una lista de valores
-df1['Column3'] = a
+df1['Columna3'] = a
 df1
 ```
 
@@ -945,27 +801,14 @@ df1
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>index</th>
-      <th>Column1</th>
-      <th>Column2</th>
-      <th>Column3</th>
+      <th>Columna1</th>
+      <th>Columna2</th>
+      <th>Columna3</th>
     </tr>
   </thead>
   <tbody>
@@ -1000,27 +843,14 @@ df1
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>index</th>
-      <th>Column1</th>
-      <th>Column2</th>
-      <th>Column3</th>
+      <th>Columna1</th>
+      <th>Columna2</th>
+      <th>Columna3</th>
     </tr>
   </thead>
   <tbody>
@@ -1063,19 +893,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1194,7 +1011,7 @@ print(s)
 ```
 
     ['col1', 'col2', 'col3']
-    
+
 
 
 ```python
@@ -1205,19 +1022,6 @@ df.sort_values(by='col2')
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1274,19 +1078,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1349,19 +1140,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1419,19 +1197,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1494,19 +1259,6 @@ df.isnull()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1567,7 +1319,7 @@ df.isnull()
 
 
 ```python
-#Reset índice
+#Resetear el índice
 df.reset_index(inplace=True)
 df
 ```
@@ -1576,19 +1328,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1657,7 +1396,7 @@ df
 
 
 ```python
-#ordenar por index
+#ordenar por índice
 df.sort_index(ascending=False,inplace=True)
 df
 ```
@@ -1666,19 +1405,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1747,7 +1473,7 @@ df
 
 
 ```python
-# establece los índices con con alguna columna
+# establece los índices con alguna columna
 df.set_index('col3',inplace=True)
 df
 ```
@@ -1756,19 +1482,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1844,19 +1557,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1955,19 +1655,6 @@ df[df['col3']=='abc']
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2081,7 +1768,7 @@ c
 
 
 ```python
-dfhot = pd.DataFrame({'gender':['male','female','male','female','male'],'age_range':['young','adult','senior','young','adult']})
+dfhot = pd.DataFrame({'genero':['masculino','femenino','masculino','femenino','masculino'],'edad':['joven','adulto','adulto_mayor','joven','adulto']})
 dfhot
 ```
 
@@ -2089,52 +1776,39 @@ dfhot
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>gender</th>
+      <th>genero</th>
       <th>age_range</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>male</td>
-      <td>young</td>
+      <td>masculino</td>
+      <td>joven</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>female</td>
-      <td>adult</td>
+      <td>femenino</td>
+      <td>adulto</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>male</td>
-      <td>senior</td>
+      <td>masculino</td>
+      <td>adulto_mayor</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>female</td>
-      <td>young</td>
+      <td>femenino</td>
+      <td>joven</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>male</td>
-      <td>adult</td>
+      <td>masculino</td>
+      <td>adulto</td>
     </tr>
   </tbody>
 </table>
@@ -2144,36 +1818,23 @@ dfhot
 
 
 ```python
-data_dummies = pd.get_dummies(dfhot)
-data_dummies
+dummies = pd.get_dummies(dfhot)
+dummies
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>gender_female</th>
-      <th>gender_male</th>
-      <th>age_range_adult</th>
-      <th>age_range_senior</th>
-      <th>age_range_young</th>
+      <th>genero_femenino</th>
+      <th>genero_masculino</th>
+      <th>edad_adulto</th>
+      <th>edad_adulto_mayor</th>
+      <th>edad_joven</th>
     </tr>
   </thead>
   <tbody>
@@ -2223,7 +1884,7 @@ data_dummies
 
 
 
-## Aplicando a funciones
+## Aplicando funciones
 
 
 ```python
@@ -2235,19 +1896,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2319,15 +1967,15 @@ log(df['col2'])
 
 
 ```python
-def getsupport(X,data):
-    N = len(data)
-    support = (data==X).sum() / N
-    return support
+def obtenerSoporte(X,datos):
+    N = len(datos)
+    soporte = (datos==X).sum() / N
+    return soporte
 ```
 
 
 ```python
-getsupport(55,df['col2'])
+obtenerSoporte(55,df['col2'])
 ```
 
 
@@ -2395,17 +2043,17 @@ df['col1'].apply(lambda x: x**2)
 
 ```python
 # lambda con condicionales
-df['col2'].apply(lambda x: 'big' if x > 20 else 'small')
+df['col2'].apply(lambda x: 'grande' if x > 20 else 'pequeño')
 ```
 
 
 
 
-    0    small
-    1      big
-    2      big
-    3      big
-    4    small
+    0    pequeño
+    1     grande
+    2     grande
+    3     grande
+    4    pequeño
     Name: col2, dtype: object
 
 
@@ -2420,19 +2068,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2497,19 +2132,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">

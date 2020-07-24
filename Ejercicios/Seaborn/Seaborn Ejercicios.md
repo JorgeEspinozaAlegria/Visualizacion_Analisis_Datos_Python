@@ -1,6 +1,6 @@
 # Seaborn Ejercicios
 
-¡Es hora de practicar tus nuevas habilidades natales! Intente recrear los gráficos a continuación (no se preocupe por los esquemas de color, solo el gráfico en si mismo).
+¡Es hora de practicar tus nuevas habilidades en Seaborn! Intenta recrear los gráficos a continuación (no se te preocupes por los esquemas de color, solo el gráfico en si mismo).
 
 ## Datos
 
@@ -32,19 +32,6 @@ titanic.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -166,9 +153,9 @@ titanic.head()
 # Ejercicios
 
 
-** Recree los gráficos que a continuación se muestran, utilizando el dataframe "titanic". Hay muy pocas sugerencias ya que la mayoría de los trazados se pueden hacer con solo una o dos líneas de código y una sugerencia básicamente daría la solución. Presta especial atención a las etiquetas x e y para obtener pistas. **
+** Recrea los gráficos que a continuación se muestran, utilizando el dataframe "titanic". Hay muy pocas sugerencias ya que la mayoría de los trazados se pueden hacer con solo una o dos líneas de código y una sugerencia básicamente daría la solución. Presta especial atención a las etiquetas x e y para obtener pistas. **
 
-** ¡Nota! Para no perder la imagen del diagrama, asegúrese de no codificar en la celda que está directamente arriba del diagrama, ¡hay una celda adicional arriba de esa que no sobrescribirá ese diagrama! **
+** ¡Nota! Para no perder la imagen del diagrama, asegúrate de no codificar en la celda que está directamente arriba del diagrama, ¡hay una celda adicional arriba de esa que no sobrescribirá ese diagrama! **
 
 
 
@@ -279,6 +266,7 @@ titanic.head()
 
 ```python
 
+
 ```
 
 
@@ -300,6 +288,7 @@ titanic.head()
 
 ```python
 
+
 ```
 
 
@@ -313,4 +302,4 @@ titanic.head()
 ![png](images/output_19_1.png)
 
 
-# Buen trabajo!
+# ¡Buen trabajo!

@@ -2,7 +2,7 @@
 
 
 ```python
-# Cargamos las librerias
+# Cargar las librerias
 import numpy as np
 import pandas as pd
 from pandas import Series,DataFrame
@@ -10,10 +10,15 @@ from pandas import Series,DataFrame
 
 ## Importar datos desde archivos CSV y txt
 
+El conjunto de datos Iris es, probablemente, el mejor conocido dentro de la literatura de reconocimiento de patrones
+Contiene muestras de 3 especies de iris (Iris Setosa, Iris Virginica e Iris Versicolor)
+Las características que se incluyen son la longitud y el ancho de los sépalos y los pétalos en centímetros
+En base a la combinación de estas características, se buscan modelos que permitan diferenciar las especies entre si
+
 
 ```python
 # Leer un archivo csv
-dframe = pd.read_csv('../Python_Cursos/data/iris_dataset.csv')
+dframe = pd.read_csv('data/iris_dataset.csv')
 dframe
 ```
 
@@ -21,19 +26,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -144,7 +136,7 @@ dframe
 
 ```python
 # Leer un archivo csv/tabla especificando el separador
-dframe = pd.read_table('../Python_Cursos/data/iris_dataset.csv',sep=',')
+dframe = pd.read_table('data/iris_dataset.csv',sep=',')
 dframe
 ```
 
@@ -152,148 +144,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>SepalLength</th>
-      <th>SepalWidth</th>
-      <th>PetalLength</th>
-      <th>PetalWidth</th>
-      <th>Class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4.6</td>
-      <td>3.1</td>
-      <td>1.5</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>145</th>
-      <td>6.7</td>
-      <td>3.0</td>
-      <td>5.2</td>
-      <td>2.3</td>
-      <td>Iris-virginica</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>6.3</td>
-      <td>2.5</td>
-      <td>5.0</td>
-      <td>1.9</td>
-      <td>Iris-virginica</td>
-    </tr>
-    <tr>
-      <th>147</th>
-      <td>6.5</td>
-      <td>3.0</td>
-      <td>5.2</td>
-      <td>2.0</td>
-      <td>Iris-virginica</td>
-    </tr>
-    <tr>
-      <th>148</th>
-      <td>6.2</td>
-      <td>3.4</td>
-      <td>5.4</td>
-      <td>2.3</td>
-      <td>Iris-virginica</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>5.9</td>
-      <td>3.0</td>
-      <td>5.1</td>
-      <td>1.8</td>
-      <td>Iris-virginica</td>
-    </tr>
-  </tbody>
-</table>
-<p>150 rows × 5 columns</p>
-</div>
-
-
-
-
-```python
-dframe
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -404,7 +254,7 @@ dframe
 
 ```python
 # Si se necesita considerar los encabezados en la tabla
-dframe = pd.read_csv('../Python_Cursos/data/iris_dataset.csv',header=None)
+dframe = pd.read_csv('data/iris_dataset.csv',header=None)
 dframe
 ```
 
@@ -412,19 +262,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -534,27 +371,14 @@ dframe
 
 
 ```python
-# Se puede espicificar el número especifico de filas a leer
-pd.read_csv('../Python_Cursos/data/iris_dataset.csv',header=None,nrows=2)
+# Se puede especificar el número de filas a leer
+pd.read_csv('data/iris_dataset.csv',header=None,nrows=2)
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -587,134 +411,6 @@ pd.read_csv('../Python_Cursos/data/iris_dataset.csv',header=None,nrows=2)
 </table>
 </div>
 
-
-
-
-```python
-dframe
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>SepalLength</td>
-      <td>SepalWidth</td>
-      <td>PetalLength</td>
-      <td>PetalWidth</td>
-      <td>Class</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4.6</td>
-      <td>3.1</td>
-      <td>1.5</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>6.7</td>
-      <td>3.0</td>
-      <td>5.2</td>
-      <td>2.3</td>
-      <td>Iris-virginica</td>
-    </tr>
-    <tr>
-      <th>147</th>
-      <td>6.3</td>
-      <td>2.5</td>
-      <td>5.0</td>
-      <td>1.9</td>
-      <td>Iris-virginica</td>
-    </tr>
-    <tr>
-      <th>148</th>
-      <td>6.5</td>
-      <td>3.0</td>
-      <td>5.2</td>
-      <td>2.0</td>
-      <td>Iris-virginica</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>6.2</td>
-      <td>3.4</td>
-      <td>5.4</td>
-      <td>2.3</td>
-      <td>Iris-virginica</td>
-    </tr>
-    <tr>
-      <th>150</th>
-      <td>5.9</td>
-      <td>3.0</td>
-      <td>5.1</td>
-      <td>1.8</td>
-      <td>Iris-virginica</td>
-    </tr>
-  </tbody>
-</table>
-<p>151 rows × 5 columns</p>
-</div>
 
 
 
@@ -722,18 +418,17 @@ dframe
 
 
 ```python
-# Para exportar datos a un archivo CVS
-dframe.to_csv('../Python_Cursos/data/mytextdata_out.csv')
-
+# Para exportar datos a un archivo CSV
+dframe.to_csv('data/mytextdata_out.csv')
 ```
 
 
 ```python
-#  Tambien se puede usar otros delimitadores
-#importemos la libreria sys para poder visualizar el dataframe.
-import sys 
+# Tambien se pueden usar otros delimitadores
+# Se importa la libreria sys para poder visualizar el dataframe.
+import sys
 
-#Usamos sys.stdout para ver el archivo en panatalla y no guardarlo.
+# Se usa sys.stdout para ver el archivo en panatalla y no guardarlo.
 dframe.to_csv(sys.stdout,sep=',')
 ```
 
@@ -889,11 +584,11 @@ dframe.to_csv(sys.stdout,sep=',')
     148,6.5,3.0,5.2,2.0,Iris-virginica
     149,6.2,3.4,5.4,2.3,Iris-virginica
     150,5.9,3.0,5.1,1.8,Iris-virginica
-    
+
 
 
 ```python
-#Podemos elegir un subconjunto de columnas en especifico
+# Se puede elegir un subconjunto específico de columnas
 dframe.to_csv(sys.stdout,columns=[0,1,2])
 ```
 
@@ -1049,7 +744,7 @@ dframe.to_csv(sys.stdout,columns=[0,1,2])
     148,6.5,3.0,5.2
     149,6.2,3.4,5.4
     150,5.9,3.0,5.1
-    
+
 
 ##### Para mas información sobre los parametros para leer y escribir archivos CSV, consultar:
 ##### [Importar/Exportar datos CSV](https://docs.python.org/2/library/csv.html)
@@ -1058,16 +753,18 @@ dframe.to_csv(sys.stdout,columns=[0,1,2])
 
 
 ```python
-# Un ejemplo de cómo se ve una JSON (JavaScript Object Notation):
+# Un ejemplo de cómo se ve una estructura JSON (JavaScript Object Notation):
 json_obj = """
-{   "zoo_animal": "Lion",
-    "food": ["Meat", "Veggies", "Honey"],
-    "fur": "Golden",
-    "clothes": null, 
-    "diet": [{"zoo_animal": "Gazelle", "food":"grass", "fur": "Brown"}]
+{   "animal": "Leon",
+    "comida": ["Carne", "Verdura", "Miel"],
+    "pelaje": "Dorado",
+    "ropa": null,
+    "dieta": [{"animal": "Gacela", "comida":"Pasto", "pelaje": "Cafe"}]
 }
 """
 ```
+
+Esta estructura json contiene los datos de un animal del zoológico, en el que se se especifican sus características.
 
 
 ```python
@@ -1085,30 +782,30 @@ type(json_obj)
 
 
 ```python
-# Importemos el modulo JSON
+# Importar el modulo JSON
 import json
 
-#Cargar los datos en JSON
-data = json.loads(json_obj)
+# Cargar los datos en JSON
+datos = json.loads(json_obj)
 
-#Visualizar los datos
-data
+# Visualizar los datos
+datos
 ```
 
 
 
 
-    {'zoo_animal': 'Lion',
-     'food': ['Meat', 'Veggies', 'Honey'],
-     'fur': 'Golden',
-     'clothes': None,
-     'diet': [{'zoo_animal': 'Gazelle', 'food': 'grass', 'fur': 'Brown'}]}
+    {'animal': 'Leon',
+     'comida': ['Carne', 'Verdura', 'Miel'],
+     'pelaje': 'Dorado',
+     'ropa': None,
+     'dieta': [{'animal': 'Gacela', 'comida': 'Pasto', 'fur': 'Cafe'}]}
 
 
 
 
 ```python
-type(data)
+type(datos)
 ```
 
 
@@ -1121,20 +818,20 @@ type(data)
 
 ```python
 # Convertir datos en JSON
-json.dumps(data)
+json.dumps(datos)
 ```
 
 
 
 
-    '{"zoo_animal": "Lion", "food": ["Meat", "Veggies", "Honey"], "fur": "Golden", "clothes": null, "diet": [{"zoo_animal": "Gazelle", "food": "grass", "fur": "Brown"}]}'
+    '{"animal": "Leon", "comida": ["Carne", "Verdura", "Miel"], "pelaje": "Dorado", "ropa": null, "dieta": [{"animal": "Gacela", "comida": "Pasto", "pelaje": "Cafe"}]}'
 
 
 
 
 ```python
-# Despues de leer los datos JSON, los asignamos a un dataframe
-dframe = DataFrame(data['diet'])
+# Despues de leer los datos JSON, se asignan a un dataframe
+dframe = DataFrame(datos['dieta'])
 dframe
 ```
 
@@ -1142,34 +839,21 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>zoo_animal</th>
-      <th>food</th>
-      <th>fur</th>
+      <th>animal</th>
+      <th>comida</th>
+      <th>pelaje</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gazelle</td>
-      <td>grass</td>
-      <td>Brown</td>
+      <td>Gacela</td>
+      <td>Pasto</td>
+      <td>Cafe</td>
     </tr>
   </tbody>
 </table>
@@ -1179,27 +863,16 @@ dframe
 
 
 ```python
-data1 = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', 'd']}
-DataFrame.from_dict(data1)
+# Generemos un diccionario y un dataframe a partir de él
+# Por defecto, las llaves del diccionario serán consideradas columnas del dataframe
+datos1 = {'col_1': [3, 2, 1, 0], 'col_2': ['a', 'b', 'c', 'd']}
+pd.DataFrame.from_dict(datos1)
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1237,34 +910,103 @@ DataFrame.from_dict(data1)
 
 
 ```python
-data = {'row_1': [3, 2, 1, 0], 'row_2': ['a', 'b', 'c', 'd']}
-pd.DataFrame.from_dict(data, orient='index')
+# Generemos otro diccionario y un dataframe a partir de él
+# En este caso, indicamos que las llaves se consideren como renglones del dataframe
+datos = {'ren_1': [3, 2, 1, 0], 'ren_2': ['a', 'b', 'c', 'd']}
+pd.DataFrame.from_dict(datos, orient='index')
 ```
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ren_1</th>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ren_2</th>
+      <td>a</td>
+      <td>b</td>
+      <td>c</td>
+      <td>d</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ```python
-pd.DataFrame.from_dict(data, orient='index',
+# Generemos otro diccionario y un dataframe a partir de él
+# En este caso, indicamos que las llaves se consideren como renglones del dataframe y las etiquetas para las columnas
+pd.DataFrame.from_dict(datos, orient='index',
                        columns=['A', 'B', 'C', 'D'])
 ```
 
-### Archivos JSON
 
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ren_1</th>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ren_2</th>
+      <td>a</td>
+      <td>b</td>
+      <td>c</td>
+      <td>d</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+### Archivos JSON
 
 ```python
 import json
 
-with open('../Python_Cursos/data/ejemplo_JSON.json') as f:
-  data = json.load(f)
+# Se importa un archivo json que contiene datos de un escuadrón de heroes, con sus características y sus integrantes
+with open('data/ejemplo_JSON.json') as f:
+  datos = json.load(f)
 
-print(data)
+print(datos)
 ```
 
     {'squadName': 'Super hero squad', 'homeTown': 'Metro City', 'formed': 2016, 'secretBase': 'Super tower', 'active': True, 'members': [{'name': 'Molecule Man', 'age': 29, 'secretIdentity': 'Dan Jukes', 'powers': ['Radiation resistance', 'Turning tiny', 'Radiation blast']}, {'name': 'Madame Uppercut', 'age': 39, 'secretIdentity': 'Jane Wilson', 'powers': ['Million tonne punch', 'Damage resistance', 'Superhuman reflexes']}, {'name': 'Eternal Flame', 'age': 1000000, 'secretIdentity': 'Unknown', 'powers': ['Immortality', 'Heat Immunity', 'Inferno', 'Teleportation', 'Interdimensional travel']}]}
-    
+
 
 
 ```python
-dframe = DataFrame(data['members'])
+# Se muestran los miembros en un dataframe
+dframe = DataFrame(datos['members'])
 dframe
 ```
 
@@ -1272,19 +1014,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1325,17 +1054,19 @@ dframe
 
 
 ```python
-with open('../Python_Cursos/data/data.json') as f:
-  data = json.load(f)
-print(data)
+# Se importa un archivo json que contiene datos de clientes y sus características
+with open('data/data.json') as f:
+  datos = json.load(f)
+print(datos)
 ```
 
     {'clients': [{'first_name': 'Sigrid', 'last_name': 'Mannock', 'age': 27, 'amount': 7.17}, {'first_name': 'Joe', 'last_name': 'Hinners', 'age': 31, 'amount': [1.9, 5.5]}, {'first_name': 'Theodoric', 'last_name': 'Rivers', 'age': 36, 'amount': 1.11}]}
-    
+
 
 
 ```python
-dframe = DataFrame(data['clients'])
+# Se muestran los clientes en un dataframe
+dframe = DataFrame(datos['clients'])
 dframe
 ```
 
@@ -1343,19 +1074,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1400,6 +1118,8 @@ dframe
 ```python
 # Instalar la libreria request con la instrucción conda install requests
 import requests
+
+# Se importan los datos a partir de la API de geolocalización de IPs
 resp = requests.get('http://ip-api.com/json/208.80.152.201')
 dict_train = json.loads(resp.content)
 dict_train
@@ -1427,6 +1147,7 @@ dict_train
 
 
 ```python
+# Se convierte el diccionario en un dataframe
 train = pd.DataFrame.from_dict(dict_train, orient='index')
 train.reset_index(level=0, inplace=True)
 train
@@ -1436,19 +1157,6 @@ train
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1538,27 +1246,28 @@ train
 
 
 ```python
-# Generemos un diccionario de datos
-data = {}
-data['clients'] = []
-data['clients'].append({
-    'first_name': 'Sigrid',
-    'last_name': 'Mannock',
-    'age': 27,
-    'amount': 7.17})
-data['clients'].append({
-    'first_name': 'Joe',
-    'last_name': 'Hinners',
-    'age': 31,
-    'amount': [1.90, 5.50]})
-data['clients'].append({
-    'first_name': 'Theodoric',
-    'last_name': 'Rivers',
-    'age': 36,
-    'amount': 1.11})
-# Creamos el archivo JSON con el diccionario anterior
-with open('../Python_Cursos/data/data.json', 'w') as file:
-    json.dump(data, file, indent=4)
+# Se genera un diccionario con datos de clientes
+datos = {}
+datos['clients'] = []
+datos['clients'].append({
+     'first_name': 'Sigrid',
+     'last_name': 'Mannock',
+     'age': 27,
+     'amount': 7.17})
+datos['clients'].append({
+     'first_name': 'Joe',
+     'last_name': 'Hinners',
+     'age': 31,
+     'amount': [1.90, 5.50]})
+datos['clients'].append({
+     'first_name': 'Theodoric',
+     'last_name': 'Rivers',
+     'age': 36,
+     'amount': 1.11})
+
+# Se creaa el archivo JSON con el diccionario anterior
+with open('data/data.json', 'w') as archivo:
+    json.dump(datos, archivo, indent=4)
 ```
 
 ## Importar datos en formato HTML
@@ -1569,14 +1278,15 @@ with open('../Python_Cursos/data/data.json', 'w') as file:
 from pandas import read_html
 import lxml
 import  html5lib
-# Vamos a tomar una url para la lista de los bancos fallidos
+
+# Se toma una url para la lista de los bancos de EEUU que están en quiebra
 url = 'http://www.fdic.gov/bank/individual/failed/banklist.html'
 ```
 
 
 ```python
-dframe_list = pd.io.html.read_html(url)
-dframe_list
+lista = pd.io.html.read_html(url)
+lista
 ```
 
 
@@ -1594,7 +1304,7 @@ dframe_list
      558    First Alliance Bank & Trust Co.     Manchester  NH  34264   
      559  National State Bank of Metropolis     Metropolis  IL   3815   
      560                   Bank of Honolulu       Honolulu  HI  21029   
-     
+
                         Acquiring Institution       Closing Date  
      0                         MVB Bank, Inc.      April 3, 2020  
      1             Farmers and Merchants Bank  February 14, 2020  
@@ -1607,15 +1317,15 @@ dframe_list
      558  Southern New Hampshire Bank & Trust   February 2, 2001  
      559              Banterra Bank of Marion  December 14, 2000  
      560                   Bank of the Orient   October 13, 2000  
-     
+
      [561 rows x 6 columns]]
 
 
 
 
 ```python
-# Tomese el primer elemento de la lista de la base de datos y configúrelo como un Dataframe
-dframe = dframe_list[0]
+# Tomar el primer elemento de la lista de la base de datos y configurarlo como un Dataframe
+dframe = lista[0]
 dframe
 ```
 
@@ -1623,19 +1333,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1757,6 +1454,7 @@ dframe
 
 
 ```python
+# Se despliegan los valores de las columnas
 dframe.columns.values
 ```
 
@@ -1783,13 +1481,13 @@ import openpyxl
 
 ```python
 # Abrir el archivo de Excel como objeto
-xlsfile = pd.ExcelFile('../Python_Cursos/data/samplexls.xlsx')
+archivo = pd.ExcelFile('data/samplexls.xlsx')
 ```
 
 
 ```python
-# Seleccione la primer hoja del archivo de Excel y configúrelo como DataFrame
-dframe = xlsfile.parse('Data')
+# Seleccionar la primer hoja del archivo de Excel y configurarla como DataFrame
+dframe = archivo.parse('Data')
 dframe
 ```
 
@@ -1797,19 +1495,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1871,7 +1556,7 @@ dframe
 
 ```python
 # Otra forma de leer archivos de Excel
-df=pd.read_excel('../Python_Cursos/data/samplexls.xlsx', sheet_name='Data')
+df=pd.read_excel('data/samplexls.xlsx', sheet_name='Data')
 print(df.head())
 ```
 
@@ -1881,15 +1566,14 @@ print(df.head())
     2      2  2010/03  30316.40          0  30316.4
     3      3  2010/04  47283.78          0  29750.0
     4      4  2010/05  36726.32          0  22128.0
-    
+
 
 ## Exportar datos a archivos de Excel
 
 
 ```python
-df[0:2].to_excel('../Python_Cursos/data/sampleexport.xlsx')
+df[0:2].to_excel('data/sampleexport.xlsx')
 ```
 
 
  [**Siguiente Lección**](Lecci%C3%B3n%2007%20-%20Importar_Exportar_Datos_SQL.md)    
-

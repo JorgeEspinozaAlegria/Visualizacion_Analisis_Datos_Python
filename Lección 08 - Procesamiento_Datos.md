@@ -1,7 +1,7 @@
 # Procesamiento de Datos
 
 ## Combinar conjuntos de datos
-Ahora aprenderemos cómo combinar conjuntos de datos vinculando filas por claves.
+Ahora aprenderemos cómo combinar conjuntos de datos relacionando renglones mediante llaves.
 
 ### Merge
 
@@ -16,28 +16,28 @@ from pandas import Series, DataFrame
 
 ```python
 # Iniciemos creando dos dataframes
-dframe1 = DataFrame({'key':['X','Z','Y','Z','X','X'],'data_set_1': np.arange(6)})
-dframe2 = DataFrame({'key':['Q','Y','Z'],'data_set_2':[1,2,3]})
+dframe1 = DataFrame({'llave':['X','Z','Y','Z','X','X'],'datos_1': np.arange(6)})
+dframe2 = DataFrame({'llave':['Q','Y','Z'],'datos_2':[1,2,3]})
 print(dframe1)
 print(dframe2)
 ```
 
-      key  data_set_1
-    0   X           0
-    1   Z           1
-    2   Y           2
-    3   Z           3
-    4   X           4
-    5   X           5
-      key  data_set_2
-    0   Q           1
-    1   Y           2
-    2   Z           3
-    
+      llave   datos_1
+    0     X         0
+    1     Z         1
+    2     Y         2
+    3     Z         3
+    4     X         4
+    5     X         5
+      llave   datos_2
+    0     Q         1
+    1     Y         2
+    2     Z         3
+
 
 
 ```python
-# Unamos los dataframes, observe que merce determina el campo llave uno a muchos
+# Unamos los dataframes; merge establece una relación uno a muchos del campo llave
 pd.merge(dframe1,dframe2)
 ```
 
@@ -45,26 +45,13 @@ pd.merge(dframe1,dframe2)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key</th>
-      <th>data_set_1</th>
-      <th>data_set_2</th>
+      <th>llave</th>
+      <th>dato_1</th>
+      <th>dato_2</th>
     </tr>
   </thead>
   <tbody>
@@ -94,34 +81,21 @@ pd.merge(dframe1,dframe2)
 
 
 ```python
-# Hagamos la unión definiendo el campo llave
-pd.merge(dframe1,dframe2,on='key')
+# Hagamos la unión especificando el campo llave
+pd.merge(dframe1,dframe2,on='llave')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key</th>
-      <th>data_set_1</th>
-      <th>data_set_2</th>
+      <th>llave</th>
+      <th>dato_1</th>
+      <th>dato_2</th>
     </tr>
   </thead>
   <tbody>
@@ -151,34 +125,21 @@ pd.merge(dframe1,dframe2,on='key')
 
 
 ```python
-# Left join
-pd.merge(dframe1,dframe2,on='key',how='left')
+# Se puede especificar que se utilice un left join
+pd.merge(dframe1,dframe2,on='llave',how='left')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key</th>
-      <th>data_set_1</th>
-      <th>data_set_2</th>
+      <th>llave</th>
+      <th>dato_1</th>
+      <th>dato_2</th>
     </tr>
   </thead>
   <tbody>
@@ -226,34 +187,21 @@ pd.merge(dframe1,dframe2,on='key',how='left')
 
 
 ```python
-# Right Join
-pd.merge(dframe1,dframe2,on='key',how='right')
+# Se puede especificar que se utilice un right join
+pd.merge(dframe1,dframe2,on='llave',how='right')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key</th>
-      <th>data_set_1</th>
-      <th>data_set_2</th>
+      <th>llave</th>
+      <th>dato_1</th>
+      <th>dato_2</th>
     </tr>
   </thead>
   <tbody>
@@ -289,34 +237,21 @@ pd.merge(dframe1,dframe2,on='key',how='right')
 
 
 ```python
-# Outer join
-pd.merge(dframe1,dframe2,on='key',how='outer')
+# Se puede especificar que se utilice un outer join
+pd.merge(dframe1,dframe2,on='llave',how='outer')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key</th>
-      <th>data_set_1</th>
-      <th>data_set_2</th>
+      <th>llave</th>
+      <th>dato_1</th>
+      <th>dato_2</th>
     </tr>
   </thead>
   <tbody>
@@ -370,29 +305,29 @@ pd.merge(dframe1,dframe2,on='key',how='outer')
 
 
 ```python
-# Definamos otros datasets muchos a muchos
-dframe3 = DataFrame({'key': ['X', 'X', 'X', 'Y', 'Z', 'Z'],
-                 'data_set_3': range(6)})
-dframe4 = DataFrame({'key': ['Y', 'Y', 'X', 'X', 'Z'],
-                 'data_set_4': range(5)})
+# Definamos otros conjuntos de datos, con relaciones muchos a muchos
+dframe3 = DataFrame({'llave': ['X', 'X', 'X', 'Y', 'Z', 'Z'],
+                 'dato_3': range(6)})
+dframe4 = DataFrame({'llave': ['Y', 'Y', 'X', 'X', 'Z'],
+                 'dato_4': range(5)})
 print(dframe3)
 print(dframe4)
 ```
 
-      key  data_set_3
-    0   X           0
-    1   X           1
-    2   X           2
-    3   Y           3
-    4   Z           4
-    5   Z           5
-      key  data_set_4
-    0   Y           0
-    1   Y           1
-    2   X           2
-    3   X           3
-    4   Z           4
-    
+      llave  dato_3
+    0     X       0
+    1     X       1
+    2     X       2
+    3     Y       3
+    4     Z       4
+    5     Z       5
+      llave  dato_4
+    0     Y       0
+    1     Y       1
+    2     X       2
+    3     X       3
+    4     Z       4
+
 
 
 ```python
@@ -403,26 +338,13 @@ pd.merge(dframe3,dframe4)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key</th>
-      <th>data_set_3</th>
-      <th>data_set_4</th>
+      <th>llave</th>
+      <th>dato_3</th>
+      <th>dato_4</th>
     </tr>
   </thead>
   <tbody>
@@ -499,77 +421,64 @@ pd.merge(dframe3,dframe4)
 # Veamos un ejemplo uniendo por varias llaves
 
 # Definamos dos dataframes
-df_left = DataFrame({'key1': ['SF', 'SF', 'LA'],
-                  'key2': ['one', 'two', 'one'],
-                  'left_data': [10,20,30]})
+df_izq = DataFrame({'llave1': ['SF', 'SF', 'LA'],
+                  'llave2': ['uno', 'dos', 'uno'],
+                  'dato_izq': [10, 20, 30]})
 
-df_right = DataFrame({'key1': ['SF', 'SF', 'LA', 'LA'],
-                   'key2': ['one', 'one', 'one', 'two'],
-                   'right_data': [40,50,60,70]})
+df_der = DataFrame({'llave1': ['SF', 'SF', 'LA', 'LA'],
+                   'llave2': ['uno', 'uno', 'uno', 'dos'],
+                   'dato_der': [40, 50, 60, 70]})
 #Merge
-pd.merge(df_left, df_right, on=['key1', 'key2'], how='outer')
+pd.merge(df_izq, df_der, on=['llave1', 'llave2'], how='outer')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key1</th>
-      <th>key2</th>
-      <th>left_data</th>
-      <th>right_data</th>
+      <th>llave1</th>
+      <th>llave2</th>
+      <th>dato_izq</th>
+      <th>dato_der</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>SF</td>
-      <td>one</td>
+      <td>uno</td>
       <td>10.0</td>
       <td>40.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>SF</td>
-      <td>one</td>
+      <td>uno</td>
       <td>10.0</td>
       <td>50.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>SF</td>
-      <td>two</td>
+      <td>dos</td>
       <td>20.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
       <td>LA</td>
-      <td>one</td>
+      <td>uno</td>
       <td>30.0</td>
       <td>60.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>LA</td>
-      <td>two</td>
+      <td>dos</td>
       <td>NaN</td>
       <td>70.0</td>
     </tr>
@@ -581,85 +490,72 @@ pd.merge(df_left, df_right, on=['key1', 'key2'], how='outer')
 
 
 ```python
-# Pandas agrega subfijos de forma automática
-pd.merge(df_left,df_right,on='key1')
+# Pandas agrega sufijos de forma automática
+pd.merge(df_izq,df_der,on='llave1')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key1</th>
-      <th>key2_x</th>
-      <th>left_data</th>
-      <th>key2_y</th>
-      <th>right_data</th>
+      <th>llave1</th>
+      <th>llave2_x</th>
+      <th>dato_izq</th>
+      <th>llave2_y</th>
+      <th>dato_der</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>SF</td>
-      <td>one</td>
+      <td>uno</td>
       <td>10</td>
-      <td>one</td>
+      <td>uno</td>
       <td>40</td>
     </tr>
     <tr>
       <th>1</th>
       <td>SF</td>
-      <td>one</td>
+      <td>uno</td>
       <td>10</td>
-      <td>one</td>
+      <td>uno</td>
       <td>50</td>
     </tr>
     <tr>
       <th>2</th>
       <td>SF</td>
-      <td>two</td>
+      <td>dos</td>
       <td>20</td>
-      <td>one</td>
+      <td>uno</td>
       <td>40</td>
     </tr>
     <tr>
       <th>3</th>
       <td>SF</td>
-      <td>two</td>
+      <td>dos</td>
       <td>20</td>
-      <td>one</td>
+      <td>uno</td>
       <td>50</td>
     </tr>
     <tr>
       <th>4</th>
       <td>LA</td>
-      <td>one</td>
+      <td>uno</td>
       <td>30</td>
-      <td>one</td>
+      <td>uno</td>
       <td>60</td>
     </tr>
     <tr>
       <th>5</th>
       <td>LA</td>
-      <td>one</td>
+      <td>uno</td>
       <td>30</td>
-      <td>two</td>
+      <td>dos</td>
       <td>70</td>
     </tr>
   </tbody>
@@ -670,85 +566,72 @@ pd.merge(df_left,df_right,on='key1')
 
 
 ```python
-# Establecer sufijos personalizados
-pd.merge(df_left,df_right, on='key1',suffixes=('_lefty','_righty'))
+# Se pueden establecer sufijos personalizados
+pd.merge(df_izq,df_der, on='llave1',suffixes=('_izq','_der'))
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key1</th>
-      <th>key2_lefty</th>
-      <th>left_data</th>
-      <th>key2_righty</th>
-      <th>right_data</th>
+      <th>llave1</th>
+      <th>llave2_izq</th>
+      <th>dato_izq</th>
+      <th>llave2_der</th>
+      <th>dato_der</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>SF</td>
-      <td>one</td>
+      <td>uno</td>
       <td>10</td>
-      <td>one</td>
+      <td>uno</td>
       <td>40</td>
     </tr>
     <tr>
       <th>1</th>
       <td>SF</td>
-      <td>one</td>
+      <td>uno</td>
       <td>10</td>
-      <td>one</td>
+      <td>uno</td>
       <td>50</td>
     </tr>
     <tr>
       <th>2</th>
       <td>SF</td>
-      <td>two</td>
+      <td>dos</td>
       <td>20</td>
-      <td>one</td>
+      <td>uno</td>
       <td>40</td>
     </tr>
     <tr>
       <th>3</th>
       <td>SF</td>
-      <td>two</td>
+      <td>dos</td>
       <td>20</td>
-      <td>one</td>
+      <td>uno</td>
       <td>50</td>
     </tr>
     <tr>
       <th>4</th>
       <td>LA</td>
-      <td>one</td>
+      <td>uno</td>
       <td>30</td>
-      <td>one</td>
+      <td>uno</td>
       <td>60</td>
     </tr>
     <tr>
       <th>5</th>
       <td>LA</td>
-      <td>one</td>
+      <td>uno</td>
       <td>30</td>
-      <td>two</td>
+      <td>dos</td>
       <td>70</td>
     </tr>
   </tbody>
@@ -761,58 +644,45 @@ pd.merge(df_left,df_right, on='key1',suffixes=('_lefty','_righty'))
 
 
 ```python
-# Definamos dos dataframes
-df = pd.DataFrame({'key': ['K0', 'K1', 'K2', 'K3', 'K4', 'K5'],
+# Generemos dos dataframes
+df = pd.DataFrame({'llave': ['K0', 'K1', 'K2', 'K3', 'K4', 'K5'],
                    'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})
-df1 = pd.DataFrame({'key': ['K0', 'K1', 'K2'],
+df1 = pd.DataFrame({'llave': ['K0', 'K1', 'K2'],
                       'B': ['B0', 'B1', 'B2']})
 print(df)
 print(df1)
 ```
 
-      key   A
-    0  K0  A0
-    1  K1  A1
-    2  K2  A2
-    3  K3  A3
-    4  K4  A4
-    5  K5  A5
-      key   B
-    0  K0  B0
-    1  K1  B1
-    2  K2  B2
-    
+      llave   A
+    0    K0  A0
+    1    K1  A1
+    2    K2  A2
+    3    K3  A3
+    4    K4  A4
+    5    K5  A5
+      llave   B
+    0    K0  B0
+    1    K1  B1
+    2    K2  B2
+
 
 
 ```python
 # Hagamos la unión
-df.join(df1, lsuffix='_caller', rsuffix='_other')
+df.join(df1, lsuffix='_izq', rsuffix='_der')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>key_caller</th>
+      <th>llave_izq</th>
       <th>A</th>
-      <th>key_other</th>
+      <th>llave_der</th>
       <th>B</th>
     </tr>
   </thead>
@@ -867,27 +737,14 @@ df.join(df1, lsuffix='_caller', rsuffix='_other')
 
 
 ```python
-# Si queremos unirlos usando las columnas clave, necesitamos establecer la clave para que sea el índice tanto en df como en df1 .
-df.set_index('key').join(df1.set_index('key'))
+# Si queremos unirlos usando las columnas llave, necesitamos especificar la llave, para que sea el índice tanto en df como en df1 .
+df.set_index('llave').join(df1.set_index('llave'))
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -896,7 +753,7 @@ df.set_index('key').join(df1.set_index('key'))
       <th>B</th>
     </tr>
     <tr>
-      <th>key</th>
+      <th>llave</th>
       <th></th>
       <th></th>
     </tr>
@@ -943,9 +800,9 @@ Iniciemos con un ejemplo con Numpy
 
 
 ```python
-# Generemos una matrix 3x3
-arr1 = np.arange(9).reshape((3,3))
-arr1
+# Generemos una matrix de 3x3
+matriz1 = np.arange(9).reshape((3,3))
+matriz1
 ```
 
 
@@ -959,8 +816,8 @@ arr1
 
 
 ```python
-# Concatenemos dos matrices por columnas
-np.concatenate([arr1,arr1],axis=1)
+# Concatenemos la matriz por medio de las columnas
+np.concatenate([matriz1,matriz1],axis=1)
 ```
 
 
@@ -974,8 +831,8 @@ np.concatenate([arr1,arr1],axis=1)
 
 
 ```python
-# Concatenemos dos matrices por filas
-np.concatenate([arr1,arr1],axis=0)
+# Concatenemos la matriz por medio de los renglones
+np.concatenate([matriz1,matriz1],axis=0)
 ```
 
 
@@ -994,11 +851,11 @@ Veamos ahora como funciona con Pandas
 
 
 ```python
-# Creemos dos series sin relación
+# Creemos dos series independientes
 ser1 = Series([0,1,2],index=['T','U','V'])
 ser2 = Series([3,4],index=['X','Y'])
 
-# Usemos concat por default lo hace sobre las filas
+# Usemos concat, por default realiza la concatenación sobre los renglones
 pd.concat([ser1,ser2])
 ```
 
@@ -1016,7 +873,7 @@ pd.concat([ser1,ser2])
 
 
 ```python
-# Ahora por columnas, esto genera un dataframe
+# Si se realiza por columnas, se genera un dataframe
 pd.concat([ser1,ser2],axis=1)
 ```
 
@@ -1024,19 +881,6 @@ pd.concat([ser1,ser2],axis=1)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1079,7 +923,7 @@ pd.concat([ser1,ser2],axis=1)
 
 
 ```python
-# Generar un indice gerárquico por filas
+# Para generar un indice jerárquico por renglones
 pd.concat([ser1,ser2],keys=['cat1','cat2'])
 ```
 
@@ -1097,7 +941,7 @@ pd.concat([ser1,ser2],keys=['cat1','cat2'])
 
 
 ```python
-# Por columnas como encabezado
+# Para generar un encabezado por columnas
 pd.concat([ser1,ser2],axis=1,keys=['cat1','cat2'])
 ```
 
@@ -1105,19 +949,6 @@ pd.concat([ser1,ser2],axis=1,keys=['cat1','cat2'])
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1176,11 +1007,11 @@ print(dframe2)
     0  0.334562 -0.497145 -1.468054
     1  1.046430 -1.290066  0.776600
     2  0.874220 -0.735185 -0.194975
-    
+
 
 
 ```python
-#Concat sobre DataFrames
+# Se puede realizar un concat sobre dataFrames
 pd.concat([dframe1,dframe2])
 ```
 
@@ -1188,19 +1019,6 @@ pd.concat([dframe1,dframe2])
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1269,7 +1087,7 @@ pd.concat([dframe1,dframe2])
 
 
 ```python
-#Si los indices no son relevantes podemos omitirlos
+#Si los indices no son necesarios, podemos omitirlos
 pd.concat([dframe1,dframe2],ignore_index=True)
 ```
 
@@ -1277,19 +1095,6 @@ pd.concat([dframe1,dframe2],ignore_index=True)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1382,11 +1187,12 @@ print(ser1,ser2)
     U    4.0
     V    NaN
     dtype: float64
-    
+
 
 
 ```python
-# Now let's get a series where the value of ser1 is chosen if ser2 is NAN,otherwise let the value be ser1
+# Obtengamos una serie en donde el valor de ser2 es seleccionado si ser1 es NAN
+# De lo contrario, se selecciona el valor de ser1
 Series(np.where(pd.isnull(ser1),ser2,ser1),index=ser1.index)
 ```
 
@@ -1428,13 +1234,13 @@ ser1.combine_first(ser2)
 ```python
 # Ahora veamos como trabaja con dataframes
 # Generemos dos dataframes
-dframe_odds = DataFrame({'X': [1., np.nan, 3., np.nan],
+dframe_non = DataFrame({'X': [1., np.nan, 3., np.nan],
                      'Y': [np.nan, 5., np.nan, 7.],
                      'Z': [np.nan, 9., np.nan, 11.]})
-dframe_evens = DataFrame({'X': [2., 4., np.nan, 6., 8.],
+dframe_par = DataFrame({'X': [2., 4., np.nan, 6., 8.],
                      'Y': [np.nan, 10., 12., 14., 16.]})
-print(dframe_odds)
-print(dframe_evens)
+print(dframe_non)
+print(dframe_par)
 ```
 
          X    Y     Z
@@ -1448,30 +1254,17 @@ print(dframe_evens)
     2  NaN  12.0
     3  6.0  14.0
     4  8.0  16.0
-    
+
 
 
 ```python
-dframe_odds.combine_first(dframe_evens)
+dframe_non.combine_first(dframe_par)
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1520,11 +1313,11 @@ dframe_odds.combine_first(dframe_evens)
 
 
 ```python
-# veamos como funciona stack and unstack
-# Generemos DataFrame
+# Veamos como funciona stack y unstack
+# Generemos un dataframe
 dframe1 = DataFrame(np.arange(8).reshape((2, 4)),
-                 index=pd.Index(['LA', 'SF'], name='city'),
-                 columns=pd.Index(['A', 'B', 'C','D'], name='letter'))
+                 index=pd.Index(['LA', 'SF'], name='ciudad'),
+                 columns=pd.Index(['A', 'B', 'C','D'], name='letra'))
 dframe1
 ```
 
@@ -1532,30 +1325,17 @@ dframe1
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>letter</th>
+      <th>letra</th>
       <th>A</th>
       <th>B</th>
       <th>C</th>
       <th>D</th>
     </tr>
     <tr>
-      <th>city</th>
+      <th>ciudad</th>
       <th></th>
       <th></th>
       <th></th>
@@ -1585,7 +1365,7 @@ dframe1
 
 
 ```python
-# Usemos stack transponer las columnas a filas
+# Usemos stack para pivotear las columnas a renglones
 dframe_st = dframe1.stack()
 dframe_st
 ```
@@ -1593,22 +1373,22 @@ dframe_st
 
 
 
-    city  letter
-    LA    A         0
-          B         1
-          C         2
-          D         3
-    SF    A         4
-          B         5
-          C         6
-          D         7
+    ciudad  letra
+    LA      A         0
+            B         1
+            C         2
+            D         3
+    SF      A         4
+            B         5
+            C         6
+            D         7
     dtype: int32
 
 
 
 
 ```python
-# Podemos regresar a DataFrame
+# Podemos regresar a un dataframe
 dframe_st.unstack()
 ```
 
@@ -1616,30 +1396,17 @@ dframe_st.unstack()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>letter</th>
+      <th>letra</th>
       <th>A</th>
       <th>B</th>
       <th>C</th>
       <th>D</th>
     </tr>
     <tr>
-      <th>city</th>
+      <th>ciudad</th>
       <th></th>
       <th></th>
       <th></th>
@@ -1677,28 +1444,15 @@ dframe_st.unstack(0)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>city</th>
+      <th>ciudad</th>
       <th>LA</th>
       <th>SF</th>
     </tr>
     <tr>
-      <th>letter</th>
+      <th>letra</th>
       <th></th>
       <th></th>
     </tr>
@@ -1732,37 +1486,24 @@ dframe_st.unstack(0)
 
 
 ```python
-dframe_st.unstack('letter')
+dframe_st.unstack('letra')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>letter</th>
+      <th>letra</th>
       <th>A</th>
       <th>B</th>
       <th>C</th>
       <th>D</th>
     </tr>
     <tr>
-      <th>city</th>
+      <th>ciudad</th>
       <th></th>
       <th></th>
       <th></th>
@@ -1792,35 +1533,22 @@ dframe_st.unstack('letter')
 
 
 ```python
-dframe_st.unstack('city')
+dframe_st.unstack('ciudad')
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>city</th>
+      <th>ciudad</th>
       <th>LA</th>
       <th>SF</th>
     </tr>
     <tr>
-      <th>letter</th>
+      <th>letra</th>
       <th></th>
       <th></th>
     </tr>
@@ -1860,7 +1588,7 @@ dframe_st.unstack('city')
 ser1 = Series([0, 1, 2], index=['Q', 'X', 'Y'])
 ser2 = Series([4, 5, 6], index=['X', 'Y', 'Z'])
 
-# Usemos Concat para generar un dframe
+# Usemos Concat para generar un dataframe
 dframe = pd.concat([ser1, ser2], keys=['Alpha', 'Beta'])
 
 print(dframe)
@@ -1873,11 +1601,11 @@ print(dframe)
            Y    5
            Z    6
     dtype: int64
-    
+
 
 
 ```python
-# Apliquemos Unstack sobre el DataFrame
+# Apliquemos unstack sobre el dataframe
 dframe.unstack()
 ```
 
@@ -1885,19 +1613,6 @@ dframe.unstack()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1973,8 +1688,8 @@ dframe.unstack().stack(dropna=False)
 
 
 ```python
-# Generemos un dataframe para ejemplificar
-df = pd.DataFrame({'foo': ['one', 'one', 'one', 'two', 'two','two'],
+# Generemos un dataframe
+df = pd.DataFrame({'foo': ['uno', 'uno', 'uno', 'dos', 'dos','dos'],
                    'bar': ['A', 'B', 'C', 'A', 'B', 'C'],
                    'baz': [1, 2, 3, 4, 5, 6],
                    'zoo': ['x', 'y', 'z', 'q', 'w', 't']})
@@ -1982,13 +1697,13 @@ print(df)
 ```
 
        foo bar  baz zoo
-    0  one   A    1   x
-    1  one   B    2   y
-    2  one   C    3   z
-    3  two   A    4   q
-    4  two   B    5   w
-    5  two   C    6   t
-    
+    0  uno   A    1   x
+    1  uno   B    2   y
+    2  uno   C    3   z
+    3  dos   A    4   q
+    4  dos   B    5   w
+    5  dos   C    6   t
+
 
 
 ```python
@@ -2000,19 +1715,6 @@ df.pivot(index='foo', columns='bar', values='baz')
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2030,13 +1732,13 @@ df.pivot(index='foo', columns='bar', values='baz')
   </thead>
   <tbody>
     <tr>
-      <th>one</th>
+      <th>uno</th>
       <td>1</td>
       <td>2</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>two</th>
+      <th>dos</th>
       <td>4</td>
       <td>5</td>
       <td>6</td>
@@ -2049,7 +1751,7 @@ df.pivot(index='foo', columns='bar', values='baz')
 
 
 ```python
-# Otra forma de hacer pivot a la tabla
+# Otra forma de hacer el pivot a la tabla
 df.pivot(index='foo', columns='bar')['baz']
 ```
 
@@ -2057,19 +1759,6 @@ df.pivot(index='foo', columns='bar')['baz']
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2087,13 +1776,13 @@ df.pivot(index='foo', columns='bar')['baz']
   </thead>
   <tbody>
     <tr>
-      <th>one</th>
+      <th>uno</th>
       <td>1</td>
       <td>2</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>two</th>
+      <th>dos</th>
       <td>4</td>
       <td>5</td>
       <td>6</td>
@@ -2113,23 +1802,6 @@ df.pivot(index='foo', columns='bar', values=['baz', 'zoo'])
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr>
@@ -2158,7 +1830,7 @@ df.pivot(index='foo', columns='bar', values=['baz', 'zoo'])
   </thead>
   <tbody>
     <tr>
-      <th>one</th>
+      <th>uno</th>
       <td>1</td>
       <td>2</td>
       <td>3</td>
@@ -2167,7 +1839,7 @@ df.pivot(index='foo', columns='bar', values=['baz', 'zoo'])
       <td>z</td>
     </tr>
     <tr>
-      <th>two</th>
+      <th>dos</th>
       <td>4</td>
       <td>5</td>
       <td>6</td>
@@ -2183,9 +1855,10 @@ df.pivot(index='foo', columns='bar', values=['baz', 'zoo'])
 
 
 ```python
-df = pd.DataFrame({"foo": ['one', 'one', 'two', 'two', 'two'],
+# Generemos otro dataframe, para mostrar el error por duplicados
+df = pd.DataFrame({"foo": ['uno', 'uno', 'dos', 'dos', 'dos'],
                    "bar": ['A', 'A', 'B', 'C', 'C'],
-                   "baz": [1, 1, 3, 4,5]})
+                   "baz": [1, 1, 3, 4, 5]})
 df
 ```
 
@@ -2193,19 +1866,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2218,31 +1878,31 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td>one</td>
+      <td>uno</td>
       <td>A</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>one</td>
+      <td>uno</td>
       <td>A</td>
       <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>two</td>
+      <td>dos</td>
       <td>B</td>
       <td>3</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>two</td>
+      <td>dos</td>
       <td>C</td>
       <td>4</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>two</td>
+      <td>dos</td>
       <td>C</td>
       <td>5</td>
     </tr>
@@ -2266,31 +1926,31 @@ df.pivot(index='foo', columns='bar', values='baz')
     <ipython-input-46-193a26d1bfbc> in <module>
           1 # Error por duplicados
     ----> 2 df.pivot(index='foo', columns='bar', values='baz')
-    
+
 
     ~\.conda\envs\PYRDEV\lib\site-packages\pandas\core\frame.py in pivot(self, index, columns, values)
        5921         from pandas.core.reshape.pivot import pivot
-       5922 
+       5922
     -> 5923         return pivot(self, index=index, columns=columns, values=values)
-       5924 
+       5924
        5925     _shared_docs[
-    
+
 
     ~\.conda\envs\PYRDEV\lib\site-packages\pandas\core\reshape\pivot.py in pivot(data, index, columns, values)
         448         else:
         449             indexed = data._constructor_sliced(data[values].values, index=index)
     --> 450     return indexed.unstack(columns)
-        451 
-        452 
-    
+        451
+        452
+
 
     ~\.conda\envs\PYRDEV\lib\site-packages\pandas\core\series.py in unstack(self, level, fill_value)
        3548         from pandas.core.reshape.reshape import unstack
-       3549 
+       3549
     -> 3550         return unstack(self, level, fill_value)
-       3551 
+       3551
        3552     # ----------------------------------------------------------------------
-    
+
 
     ~\.conda\envs\PYRDEV\lib\site-packages\pandas\core\reshape\reshape.py in unstack(obj, level, fill_value)
         417             level=level,
@@ -2298,23 +1958,23 @@ df.pivot(index='foo', columns='bar', values='baz')
     --> 419             constructor=obj._constructor_expanddim,
         420         )
         421         return unstacker.get_result()
-    
+
 
     ~\.conda\envs\PYRDEV\lib\site-packages\pandas\core\reshape\reshape.py in __init__(self, values, index, level, value_columns, fill_value, constructor)
-        139 
+        139
         140         self._make_sorted_values_labels()
     --> 141         self._make_selectors()
-        142 
+        142
         143     def _make_sorted_values_labels(self):
-    
+
 
     ~\.conda\envs\PYRDEV\lib\site-packages\pandas\core\reshape\reshape.py in _make_selectors(self)
-        177 
+        177
         178         if mask.sum() < len(self.index):
     --> 179             raise ValueError("Index contains duplicate entries, cannot reshape")
-        180 
+        180
         181         self.group_index = comp_index
-    
+
 
     ValueError: Index contains duplicate entries, cannot reshape
 
@@ -2328,30 +1988,145 @@ df.duplicated()
 ```
 
 
+    0    False
+    1     True
+    2    False
+    3    False
+    4    False
+    dtype: bool
+
+
 ```python
-# Elimine los duplicados con la función "drop duplicates"
+# Se eliminan los duplicados con la función "drop duplicates"
 df.drop_duplicates()
 ```
 
 
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>foo</th>
+      <th>bar</th>
+      <th>baz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>uno</td>
+      <td>A</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>dos</td>
+      <td>B</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>dos</td>
+      <td>C</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>dos</td>
+      <td>C</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ```python
-#You can filter which duplicates to drop by a single column
+#Se pueden filtrar los duplicados a eliminar dentro de una columna
 df.drop_duplicates(['bar'])
 ```
 
 
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>foo</th>
+      <th>bar</th>
+      <th>baz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>uno</td>
+      <td>A</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>dos</td>
+      <td>B</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>dos</td>
+      <td>C</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ```python
-# Por default el valor es 'first' y toma el primer valor, pero podemos modificarlo con 'last'
+# Por default, el valor es 'first' y toma el primer valor, pero podemos modificarlo con 'last'
 df.drop_duplicates(['foo'],'last')
 ```
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>foo</th>
+      <th>bar</th>
+      <th>baz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>uno</td>
+      <td>A</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>dos</td>
+      <td>C</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Mapeo
 
 
 ```python
-# generemos el dataframe para ejemplificar
-dframe = DataFrame({'city':['Alma','Brian Head','Fox Park'],
-                    'altitude':[3158,3000,2762]})
+# Generemos un dataframe de ciudades y su altitud
+dframe = DataFrame({'ciudad':['Alma','Brian Head','Fox Park'],
+                    'altitud':[3158,3000,2762]})
 dframe
 ```
 
@@ -2359,25 +2134,12 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>city</th>
-      <th>altitude</th>
+      <th>ciudad</th>
+      <th>altitud</th>
     </tr>
   </thead>
   <tbody>
@@ -2404,9 +2166,9 @@ dframe
 
 
 ```python
-# Se necesita agregar una columna para los estados.
-state_map={'Alma':'Colorado','Brian Head':'Utah','Fox Park':'Wyoming'}
-state_map
+# Se agregará una columna para los estados a los que corresponden las ciudades. Se genera un diccionario
+estado_dic = {'Alma':'Colorado','Brian Head':'Utah','Fox Park':'Wyoming'}
+estado_dic
 ```
 
 
@@ -2419,7 +2181,7 @@ state_map
 
 ```python
 # Ahora utilicemos la función "map" para mapear los datos del diccionario con el dataframe
-dframe['state'] = dframe['city'].map(state_map)
+dframe['estado'] = dframe['ciudad'].map(estado_dic)
 dframe
 ```
 
@@ -2427,26 +2189,13 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>city</th>
-      <th>altitude</th>
-      <th>state</th>
+      <th>ciudad</th>
+      <th>altitud</th>
+      <th>estado</th>
     </tr>
   </thead>
   <tbody>
@@ -2474,14 +2223,14 @@ dframe
 
 
 
-El mapeo es una excelente forma de hacer transformación de elementos y otras operaciones de limpieza de datos¡¡
+El mapeo es una excelente forma de hacer transformación de elementos y otras operaciones de limpieza de datos
 
 ## Reemplazar datos
 
 
 ```python
-# Iniciemos sobre las series
-ser1 = Series([1,2,3,4,1,2,3,4])
+# Iniciemos con una serie
+ser1 = Series([1, 2, 3, 4, 1, 2, 3, 4])
 ser1
 ```
 
@@ -2523,7 +2272,7 @@ ser1.replace(1,np.nan)
 
 
 ```python
-# podemos poner reemplazar con una lista
+# Podemos reemplazar usando una lista
 ser1.replace([1,4],[100,400])
 ```
 
@@ -2544,7 +2293,7 @@ ser1.replace([1,4],[100,400])
 
 
 ```python
-#tambien con diccionario
+#Tambien podemos reemplazar usando un diccionario
 ser1.replace({4:np.nan})
 ```
 
@@ -2576,19 +2325,6 @@ df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2645,19 +2381,6 @@ df.replace(5, 7)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2706,7 +2429,7 @@ df.replace(5, 7)
 
 
 ```python
-# Reemplazar con lista
+# Reemplazar usando una lista
 df.replace([0, 1, 2, 3], 4)
 ```
 
@@ -2714,19 +2437,6 @@ df.replace([0, 1, 2, 3], 4)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2782,19 +2492,6 @@ df.replace([0, 1, 2, 3], [4, 3, 2, 1])
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2843,7 +2540,7 @@ df.replace([0, 1, 2, 3], [4, 3, 2, 1])
 
 
 ```python
-# Reemplazar con diccionarios
+# Reemplazar usando un diccionario
 df.replace({0: 10, 1: 100})
 ```
 
@@ -2851,19 +2548,6 @@ df.replace({0: 10, 1: 100})
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2920,19 +2604,6 @@ df.replace({'A': 0, 'B': 5}, 100)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2988,19 +2659,6 @@ df.replace({'A': {0: 100, 4: 400}})
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3051,7 +2709,7 @@ df.replace({'A': {0: 100, 4: 400}})
 
 
 ```python
-# Generemos un dataframe para ejemplificar
+# Generemos un dataframe
 
 dframe= DataFrame(np.arange(12).reshape((3, 4)),
                  index=['NY', 'LA', 'SF'],
@@ -3063,19 +2721,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3125,19 +2770,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3178,6 +2810,7 @@ dframe
 
 
 ```python
+# Si se necesita renombrar indices
 dframe.rename(index={'ny': 'NEW YORK'},
             columns={'A': 'ALPHA', 'B': 'BETA'})
 ```
@@ -3186,19 +2819,6 @@ dframe.rename(index={'ny': 'NEW YORK'},
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3239,7 +2859,7 @@ dframe.rename(index={'ny': 'NEW YORK'},
 
 
 ```python
-# si se requiere persitir las modificaciones se utiliza inplace=True
+# si se requiere persistir las modificaciones, se utiliza inplace=True
 dframe.rename(index={'ny': 'NEW YORK'}, inplace=True)
 dframe
 ```
@@ -3248,19 +2868,6 @@ dframe
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3303,12 +2910,12 @@ dframe
 
 
 ```python
-# Veamos como encontrar valores atípicos en un dataset
+# Veamos como encontrar valores atípicos en un conjunto de datos
 
-# Primero sembremos una semilla para generar los números aleatorios
+# Primero sembremos una semilla, para generar los números aleatorios
 np.random.seed(12345)
 
-# Ahora vreemos el dataframe
+# Ahora generemos el dataframe
 dframe = DataFrame(np.random.randn(1000,4))
 dframe.head()
 ```
@@ -3317,19 +2924,6 @@ dframe.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3384,7 +2978,7 @@ dframe.head()
 
 
 ```python
-# Para sacar estaíisticos básicos
+# Para obtener datos estadísticos básicos
 dframe.describe()
 ```
 
@@ -3392,19 +2986,6 @@ dframe.describe()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3486,7 +3067,7 @@ col = dframe[0]
 
 
 ```python
-# Ahora verifiquemos cuales valores son mayores a 3
+# Verifiquemos cuales valores son mayores a 3
 col[np.abs(col)>3]
 ```
 
@@ -3501,7 +3082,7 @@ col[np.abs(col)>3]
 
 
 ```python
-# Ahora usemos el metodo "any" para hacer el análisis sobre todas las columnas
+# Usemos el metodo "any" para hacer el análisis sobre todas las columnas
 dframe[(np.abs(dframe)>3).any(1)]
 ```
 
@@ -3509,19 +3090,6 @@ dframe[(np.abs(dframe)>3).any(1)]
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3618,13 +3186,17 @@ dframe[(np.abs(dframe)>3).any(1)]
 
 
 ```python
-# Podríamos limitar los datos a 3 Sign -1 - <0 , 0 x=0, 1 x>0
+# Podríamos limitar los datos, para que no tengan valores mayores a 3, usando la función sign
+# Si el valor <0, sign regresa -1
+# Si el valor =0, sign regresa 0
+# Si el valor >0, sign regresa 1
 
 dframe[np.abs(dframe)>3] = np.sign(dframe) *3
 ```
 
 
 ```python
+# Si revisamos de nuevo las estadísticas, veremos que los valores máximos y mínimos no son mayores a 3
 dframe.describe()
 ```
 
@@ -3632,19 +3204,6 @@ dframe.describe()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3722,38 +3281,38 @@ dframe.describe()
 
 
 ```python
-# Veamos como podemos reordenar una serie o las filas en un dataframe
+# Veamos como podemos reordenar una serie o los renglones en un dataframe
+
 # Generemos un dataframe
 dframe = DataFrame(np.arange(4 * 4).reshape((4, 4)))
 print(dframe)
-# Generemos un arreglo con reordenamientos aleatorios de 0,1,2,3
-blender = np.random.permutation(4)
-print(blender)
 ```
 
 
+        0   1   2   3
+    0   0   1   2   3
+    1   4   5   6   7
+    2   8   9  10  11
+    3  12  13  14  15
+
+
 ```python
-# Ahora reordenemos los datos en base a blender
-dframe.take(blender)
+# Generemos un arreglo con reordenamientos aleatorios de 0,1,2,3
+mezcla = np.random.permutation(4)
+print(mezcla)
+```
+
+[1 3 0 2]
+
+```python
+# Ahora reordenemos los datos en base a la mezcla
+dframe.take(mezcla)
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3799,7 +3358,5 @@ dframe.take(blender)
 
 
 
-   
+
  [**Siguiente Lección**](Lecci%C3%B3n%2008%20-%20Procesamiento_Datos_2.md)    
-
-
